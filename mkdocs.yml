@@ -1,0 +1,85 @@
+site_name: Curso IA Web
+site_description: Documentación del curso de Inteligencia Artificial para la web
+site_author: IA Estructuras Diplomado
+
+theme:
+  name: material
+  language: es
+  palette:
+    - scheme: default
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotate
+
+plugins:
+  - search:
+      lang: es
+
+markdown_extensions:
+  - pymdownx.emoji
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      use_pygments: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - admonition
+  - toc:
+      permalink: true
+
+nav:
+  - Inicio: index.md
+  - Información del Curso:
+      - Syllabus: curso/syllabus.md
+      - Cronograma: curso/cronograma.md
+      - Calificación: curso/calificacion.md
+  - Contenido Teórico:
+      - Sesión 1 - Introducción a IA: sesiones/sesion1.md
+      - Sesión 2 - Big Data: sesiones/sesion2.md
+      - Sesión 3 - ML Modelos: sesiones/sesion3.md
+      - Sesión 5 - Señales y Clústeres: sesiones/sesion5.md
+      - Sesión 6 - Futuro e Innovación: sesiones/sesion6.md
+  - Laboratorios & Prácticas:
+      - Descripción General: labs/index.md
+      - Lab 1 - Fundamentos ML: labs/lab1.md
+      - Lab 2 - Monitoreo Estructural: labs/lab2.md
+      - Lab 3 - Clustering y Señales: labs/lab3.md
+  - Trabajos Grupales:
+      - Guía General: trabajos/guia.md
+      - Trabajo Grupal 1: trabajos/trabajo1.md
+      - Trabajo Grupal 2: trabajos/trabajo2.md
+      - Trabajo Grupal 3: trabajos/trabajo3.md
+  - Recursos:
+      - Herramientas: recursos/herramientas.md
+      - Librerías Python: recursos/librerias.md
+      - Referencias y Lecturas: recursos/referencias.md
+  - FAQ: faq.md
+
+repo_url: https://github.com/ia-estructuras-diplomado/curso-ia-web
+repo_name: GitHub
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ia-estructuras-diplomado
