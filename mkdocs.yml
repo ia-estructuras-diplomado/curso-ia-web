@@ -1,0 +1,60 @@
+site_name: Curso IA Web
+site_description: Documentación del curso de Inteligencia Artificial para la web
+site_author: IA Estructuras Diplomado
+
+theme:
+  name: material
+  language: es
+  palette:
+    - scheme: default
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotate
+
+plugins:
+  - search:
+      lang: es
+
+markdown_extensions:
+  - pymdownx.emoji
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      use_pygments: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - admonition
+  - toc:
+      permalink: true
+
+nav:
+  - Inicio: index.md
+
+repo_url: https://github.com/ia-estructuras-diplomado/curso-ia-web
+repo_name: GitHub
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ia-estructuras-diplomado
