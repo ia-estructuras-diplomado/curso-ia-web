@@ -1,0 +1,2084 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentación del curso de Inteligencia Artificial para la web">
+      
+      
+        <meta name="author" content="IA Estructuras Diplomado">
+      
+      
+      
+        <link rel="prev" href="../cronograma/">
+      
+      
+        <link rel="next" href="../../sesiones/sesion1/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
+    
+    
+      
+        <title>Calificación - Curso IA Web</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sistema-de-calificacion" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Curso IA Web" class="md-header__button md-logo" aria-label="Curso IA Web" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Curso IA Web
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Calificación
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ia-estructuras-diplomado/curso-ia-web" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../syllabus/" class="md-tabs__link">
+          
+  
+  Información del Curso
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../sesiones/sesion1/" class="md-tabs__link">
+          
+  
+  Contenido Teórico
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../labs/" class="md-tabs__link">
+          
+  
+  Laboratorios & Prácticas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../trabajos/guia/" class="md-tabs__link">
+          
+  
+  Trabajos Grupales
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../recursos/herramientas/" class="md-tabs__link">
+          
+  
+  Recursos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../faq/" class="md-tabs__link">
+        
+  
+    
+  
+  FAQ
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Curso IA Web" class="md-nav__button md-logo" aria-label="Curso IA Web" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Curso IA Web
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ia-estructuras-diplomado/curso-ia-web" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inicio
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Información del Curso
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Información del Curso
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../syllabus/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Syllabus
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cronograma/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cronograma
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Calificación
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Calificación
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#formula-de-calificacion-final" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fórmula de Calificación Final
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cronograma-de-evaluaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cronograma de Evaluaciones
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#escala-de-calificacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Escala de Calificación
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criterios-de-evaluacion-por-trabajo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criterios de Evaluación por Trabajo
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Criterios de Evaluación por Trabajo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#criterios-generales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criterios Generales
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Criterios Generales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-comprension-conceptual-30" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Comprensión Conceptual (30%)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-aplicacion-practica-40" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Aplicación Práctica (40%)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-comunicacion-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Comunicación (20%)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-pensamiento-critico-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Pensamiento Crítico (10%)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#desglose-por-trabajo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Desglose por Trabajo
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-de-calculo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo de Cálculo
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejemplo de Cálculo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#escenario-1-desempeno-consistente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Escenario 1: Desempeño Consistente
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#escenario-2-mejora-progresiva" class="md-nav__link">
+    <span class="md-ellipsis">
+      Escenario 2: Mejora Progresiva
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#escenario-3-desempeno-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Escenario 3: Desempeño Variable
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rubricas-de-evaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rubricas de Evaluación
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rubricas de Evaluación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rubrica-general-para-trabajos-grupales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rúbrica General para Trabajos Grupales
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rúbrica General para Trabajos Grupales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comprension-conceptual-30-puntos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comprensión Conceptual (30 puntos)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aplicacion-practica-40-puntos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aplicación Práctica (40 puntos)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comunicacion-20-puntos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comunicación (20 puntos)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pensamiento-critico-10-puntos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pensamiento Crítico (10 puntos)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#politica-de-entregas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Política de Entregas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Política de Entregas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#puntualidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      Puntualidad
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entregas-requeridas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entregas Requeridas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#politica-de-trabajos-grupales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Política de Trabajos Grupales
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Política de Trabajos Grupales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conformacion-de-grupos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conformación de Grupos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responsabilidades-individuales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Responsabilidades Individuales
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plagio-y-fraude-academico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Plagio y Fraude Académico
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#revision-de-calificaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Revisión de Calificaciones
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preguntas-frecuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preguntas Frecuentes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Contenido Teórico
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Contenido Teórico
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sesiones/sesion1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sesión 1 - Introducción a IA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sesiones/sesion2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sesión 2 - Big Data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sesiones/sesion3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sesión 3 - ML Modelos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sesiones/sesion5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sesión 5 - Señales y Clústeres
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sesiones/sesion6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sesión 6 - Futuro e Innovación
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Laboratorios & Prácticas
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Laboratorios & Prácticas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Descripción General
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/lab1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 1 - Fundamentos ML
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/lab2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 2 - Monitoreo Estructural
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/lab3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 3 - Clustering y Señales
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Trabajos Grupales
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Trabajos Grupales
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trabajos/guia/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Guía General
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trabajos/trabajo1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trabajo Grupal 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trabajos/trabajo2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trabajo Grupal 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../trabajos/trabajo3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trabajo Grupal 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Recursos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Recursos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recursos/herramientas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Herramientas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recursos/librerias/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Librerías Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recursos/referencias/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Referencias y Lecturas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#formula-de-calificacion-final" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fórmula de Calificación Final
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cronograma-de-evaluaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cronograma de Evaluaciones
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#escala-de-calificacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Escala de Calificación
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criterios-de-evaluacion-por-trabajo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criterios de Evaluación por Trabajo
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Criterios de Evaluación por Trabajo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#criterios-generales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criterios Generales
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Criterios Generales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-comprension-conceptual-30" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Comprensión Conceptual (30%)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-aplicacion-practica-40" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Aplicación Práctica (40%)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-comunicacion-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Comunicación (20%)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-pensamiento-critico-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Pensamiento Crítico (10%)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#desglose-por-trabajo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Desglose por Trabajo
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-de-calculo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo de Cálculo
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejemplo de Cálculo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#escenario-1-desempeno-consistente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Escenario 1: Desempeño Consistente
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#escenario-2-mejora-progresiva" class="md-nav__link">
+    <span class="md-ellipsis">
+      Escenario 2: Mejora Progresiva
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#escenario-3-desempeno-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Escenario 3: Desempeño Variable
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rubricas-de-evaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rubricas de Evaluación
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rubricas de Evaluación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rubrica-general-para-trabajos-grupales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rúbrica General para Trabajos Grupales
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rúbrica General para Trabajos Grupales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comprension-conceptual-30-puntos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comprensión Conceptual (30 puntos)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aplicacion-practica-40-puntos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aplicación Práctica (40 puntos)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comunicacion-20-puntos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comunicación (20 puntos)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pensamiento-critico-10-puntos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pensamiento Crítico (10 puntos)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#politica-de-entregas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Política de Entregas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Política de Entregas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#puntualidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      Puntualidad
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entregas-requeridas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entregas Requeridas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#politica-de-trabajos-grupales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Política de Trabajos Grupales
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Política de Trabajos Grupales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conformacion-de-grupos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conformación de Grupos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responsabilidades-individuales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Responsabilidades Individuales
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plagio-y-fraude-academico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Plagio y Fraude Académico
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#revision-de-calificaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Revisión de Calificaciones
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preguntas-frecuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preguntas Frecuentes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="sistema-de-calificacion">Sistema de Calificación<a class="headerlink" href="#sistema-de-calificacion" title="Permanent link">&para;</a></h1>
+<h2 id="formula-de-calificacion-final">Fórmula de Calificación Final<a class="headerlink" href="#formula-de-calificacion-final" title="Permanent link">&para;</a></h2>
+<p>La nota final del curso se calcula mediante la siguiente fórmula ponderada:</p>
+<div class="arithmatex">\[\boxed{NF = 0.30 \times T1 + 0.30 \times T2 + 0.40 \times T3}\]</div>
+<p>Donde:
+- <strong>T1</strong> = Nota del Trabajo Grupal 1 (Sesión 4) - <strong>Peso: 30%</strong>
+- <strong>T2</strong> = Nota del Trabajo Grupal 2 (Sesión 7) - <strong>Peso: 30%</strong>
+- <strong>T3</strong> = Nota del Trabajo Grupal 3 (Sesión 8) - <strong>Peso: 40%</strong> (Final)</p>
+<h2 id="cronograma-de-evaluaciones">Cronograma de Evaluaciones<a class="headerlink" href="#cronograma-de-evaluaciones" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Evaluación</th>
+<th>Sesión</th>
+<th>Fecha</th>
+<th>Tipo</th>
+<th>Peso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T1</td>
+<td>4</td>
+<td>14 de Agosto</td>
+<td>Trabajo Grupal 1</td>
+<td>30%</td>
+</tr>
+<tr>
+<td>T2</td>
+<td>7</td>
+<td>26 de Agosto</td>
+<td>Trabajo Grupal 2</td>
+<td>30%</td>
+</tr>
+<tr>
+<td>T3</td>
+<td>8</td>
+<td>28 de Agosto</td>
+<td>Trabajo Grupal 3</td>
+<td>40%</td>
+</tr>
+</tbody>
+</table>
+<h2 id="escala-de-calificacion">Escala de Calificación<a class="headerlink" href="#escala-de-calificacion" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Rango</th>
+<th>Calificación</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4.5 - 5.0</td>
+<td><strong>Excelente</strong></td>
+<td>Desempeño excepcional</td>
+</tr>
+<tr>
+<td>4.0 - 4.4</td>
+<td><strong>Muy Bueno</strong></td>
+<td>Desempeño superior</td>
+</tr>
+<tr>
+<td>3.5 - 3.9</td>
+<td><strong>Bueno</strong></td>
+<td>Desempeño satisfactorio</td>
+</tr>
+<tr>
+<td>3.0 - 3.4</td>
+<td><strong>Satisfactorio</strong></td>
+<td>Cumple con requisitos mínimos</td>
+</tr>
+<tr>
+<td>&lt; 3.0</td>
+<td><strong>Insuficiente</strong></td>
+<td>No cumple con requisitos</td>
+</tr>
+</tbody>
+</table>
+<h2 id="criterios-de-evaluacion-por-trabajo">Criterios de Evaluación por Trabajo<a class="headerlink" href="#criterios-de-evaluacion-por-trabajo" title="Permanent link">&para;</a></h2>
+<h3 id="criterios-generales">Criterios Generales<a class="headerlink" href="#criterios-generales" title="Permanent link">&para;</a></h3>
+<p>Cada trabajo grupal se evalúa con los siguientes criterios:</p>
+<h4 id="1-comprension-conceptual-30">1. Comprensión Conceptual (30%)<a class="headerlink" href="#1-comprension-conceptual-30" title="Permanent link">&para;</a></h4>
+<ul>
+<li>¿Demostraron entender los conceptos teóricos?</li>
+<li>¿Aplicaron correctamente la teoría al problema?</li>
+<li>¿Explicaron adecuadamente su razonamiento?</li>
+</ul>
+<h4 id="2-aplicacion-practica-40">2. Aplicación Práctica (40%)<a class="headerlink" href="#2-aplicacion-practica-40" title="Permanent link">&para;</a></h4>
+<ul>
+<li>¿Utilizaron correctamente las herramientas y librerías?</li>
+<li>¿Los resultados son técnicamente correctos?</li>
+<li>¿El análisis es riguroso y bien documentado?</li>
+</ul>
+<h4 id="3-comunicacion-20">3. Comunicación (20%)<a class="headerlink" href="#3-comunicacion-20" title="Permanent link">&para;</a></h4>
+<ul>
+<li>¿Las presentaciones fueron claras y organizadas?</li>
+<li>¿El código está limpio y bien comentado?</li>
+<li>¿El reporte fue profesional y conciso?</li>
+</ul>
+<h4 id="4-pensamiento-critico-10">4. Pensamiento Crítico (10%)<a class="headerlink" href="#4-pensamiento-critico-10" title="Permanent link">&para;</a></h4>
+<ul>
+<li>¿Analizaron críticamente los resultados?</li>
+<li>¿Identificaron limitaciones?</li>
+<li>¿Propusieron mejoras o extensiones?</li>
+</ul>
+<h3 id="desglose-por-trabajo">Desglose por Trabajo<a class="headerlink" href="#desglose-por-trabajo" title="Permanent link">&para;</a></h3>
+<p><strong>T1 (30%)</strong> - Trabajo Grupal 1 (Sesión 4)
+- Tema: Análisis exploratorio con Machine Learning básico
+- Enfoque: Fundamentals
+- Expectedizado: 2-3 semanas</p>
+<p><strong>T2 (30%)</strong> - Trabajo Grupal 2 (Sesión 7)
+- Tema: Aplicación intermedia con clustering y procesamiento de señales
+- Enfoque: Aplicación práctica
+- Expectedizado: 1.5 semanas</p>
+<p><strong>T3 (40%)</strong> - Trabajo Grupal 3 (Sesión 8) - FINAL
+- Tema: Integración completa con Digital Twins y casos reales
+- Enfoque: Síntesis y aplicación avanzada
+- Expectedizado: 1 semana</p>
+<h2 id="ejemplo-de-calculo">Ejemplo de Cálculo<a class="headerlink" href="#ejemplo-de-calculo" title="Permanent link">&para;</a></h2>
+<h3 id="escenario-1-desempeno-consistente">Escenario 1: Desempeño Consistente<a class="headerlink" href="#escenario-1-desempeno-consistente" title="Permanent link">&para;</a></h3>
+<ul>
+<li>T1 = 4.0 (Muy Bueno)</li>
+<li>T2 = 4.2 (Muy Bueno)</li>
+<li>T3 = 4.1 (Muy Bueno)</li>
+</ul>
+<div class="arithmatex">\[NF = 0.30(4.0) + 0.30(4.2) + 0.40(4.1) = 1.2 + 1.26 + 1.64 = 4.1\]</div>
+<p><strong>Nota Final: 4.1 (Muy Bueno)</strong></p>
+<h3 id="escenario-2-mejora-progresiva">Escenario 2: Mejora Progresiva<a class="headerlink" href="#escenario-2-mejora-progresiva" title="Permanent link">&para;</a></h3>
+<ul>
+<li>T1 = 3.5 (Bueno)</li>
+<li>T2 = 4.0 (Muy Bueno)</li>
+<li>T3 = 4.5 (Excelente)</li>
+</ul>
+<div class="arithmatex">\[NF = 0.30(3.5) + 0.30(4.0) + 0.40(4.5) = 1.05 + 1.2 + 1.8 = 4.05\]</div>
+<p><strong>Nota Final: 4.05 (Muy Bueno)</strong></p>
+<h3 id="escenario-3-desempeno-variable">Escenario 3: Desempeño Variable<a class="headerlink" href="#escenario-3-desempeno-variable" title="Permanent link">&para;</a></h3>
+<ul>
+<li>T1 = 4.0 (Muy Bueno)</li>
+<li>T2 = 3.5 (Bueno)</li>
+<li>T3 = 4.0 (Muy Bueno)</li>
+</ul>
+<div class="arithmatex">\[NF = 0.30(4.0) + 0.30(3.5) + 0.40(4.0) = 1.2 + 1.05 + 1.6 = 3.85\]</div>
+<p><strong>Nota Final: 3.85 (Bueno)</strong></p>
+<h2 id="rubricas-de-evaluacion">Rubricas de Evaluación<a class="headerlink" href="#rubricas-de-evaluacion" title="Permanent link">&para;</a></h2>
+<h3 id="rubrica-general-para-trabajos-grupales">Rúbrica General para Trabajos Grupales<a class="headerlink" href="#rubrica-general-para-trabajos-grupales" title="Permanent link">&para;</a></h3>
+<h4 id="comprension-conceptual-30-puntos">Comprensión Conceptual (30 puntos)<a class="headerlink" href="#comprension-conceptual-30-puntos" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>9-10</strong>: Demuestran comprensión profunda, explican conceptos claramente</li>
+<li><strong>7-8</strong>: Comprensión sólida, explican bien la mayoría de conceptos</li>
+<li><strong>5-6</strong>: Comprensión básica, algunas confusiones</li>
+<li><strong>3-4</strong>: Comprensión limitada, múltiples errores</li>
+<li><strong>0-2</strong>: Comprensión insuficiente</li>
+</ul>
+<h4 id="aplicacion-practica-40-puntos">Aplicación Práctica (40 puntos)<a class="headerlink" href="#aplicacion-practica-40-puntos" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>12-13</strong>: Implementación correcta y creativa, resultados excelentes</li>
+<li><strong>10-11</strong>: Implementación correcta, resultados buenos</li>
+<li><strong>8-9</strong>: Implementación mayormente correcta, algunos problemas</li>
+<li><strong>6-7</strong>: Implementación con errores, resultados incompletos</li>
+<li><strong>0-5</strong>: Implementación incorrecta o ausente</li>
+</ul>
+<h4 id="comunicacion-20-puntos">Comunicación (20 puntos)<a class="headerlink" href="#comunicacion-20-puntos" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>6-7</strong>: Excelente organización, código limpio, reporte profesional</li>
+<li><strong>5</strong>: Buena organización, código claro, reporte adecuado</li>
+<li><strong>4</strong>: Organización aceptable, código legible, reporte básico</li>
+<li><strong>3</strong>: Organización pobre, código desordenado, reporte inadecuado</li>
+<li><strong>0-2</strong>: Comunicación inadecuada</li>
+</ul>
+<h4 id="pensamiento-critico-10-puntos">Pensamiento Crítico (10 puntos)<a class="headerlink" href="#pensamiento-critico-10-puntos" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>3</strong>: Análisis profundo, limitaciones identificadas, mejoras propuestas</li>
+<li><strong>2</strong>: Análisis adecuado, algunas limitaciones identificadas</li>
+<li><strong>1</strong>: Análisis superficial, pocas limitaciones mencionadas</li>
+<li><strong>0</strong>: Sin análisis crítico</li>
+</ul>
+<h2 id="politica-de-entregas">Política de Entregas<a class="headerlink" href="#politica-de-entregas" title="Permanent link">&para;</a></h2>
+<h3 id="puntualidad">Puntualidad<a class="headerlink" href="#puntualidad" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Entregas a tiempo</strong>: Calificación completa</li>
+<li><strong>Hasta 24 horas de retraso</strong>: -5% de la nota</li>
+<li><strong>Más de 24 horas</strong>: No se acepta, nota 0</li>
+</ul>
+<h3 id="entregas-requeridas">Entregas Requeridas<a class="headerlink" href="#entregas-requeridas" title="Permanent link">&para;</a></h3>
+<p>Cada grupo debe entregar:</p>
+<ol>
+<li><strong>Presentación</strong> (PPT o similar)</li>
+<li>10-15 minutos (T1, T2)</li>
+<li>
+<p>15-20 minutos (T3)</p>
+</li>
+<li>
+<p><strong>Notebook Jupyter</strong> (.ipynb)</p>
+</li>
+<li>Código limpio y comentado</li>
+<li>Resultados reproducibles</li>
+<li>
+<p>Markdown explicativo</p>
+</li>
+<li>
+<p><strong>Reporte Escrito</strong> (PDF o Markdown)</p>
+</li>
+<li>2-3 páginas (T1, T2)</li>
+<li>4-5 páginas (T3)</li>
+<li>Debe incluir: introducción, metodología, resultados, conclusiones</li>
+</ol>
+<h2 id="politica-de-trabajos-grupales">Política de Trabajos Grupales<a class="headerlink" href="#politica-de-trabajos-grupales" title="Permanent link">&para;</a></h2>
+<h3 id="conformacion-de-grupos">Conformación de Grupos<a class="headerlink" href="#conformacion-de-grupos" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Máximo 4 personas por grupo</li>
+<li>Mínimo 2 personas</li>
+<li>Deben notificarse al inicio del curso</li>
+<li>Cambios de grupo solo con aprobación del instructor</li>
+</ul>
+<h3 id="responsabilidades-individuales">Responsabilidades Individuales<a class="headerlink" href="#responsabilidades-individuales" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Cada miembro debe conocer todo el trabajo</li>
+<li>En presentaciones, cada miembro presenta una sección</li>
+<li>Declaración de contribución (en el reporte)</li>
+</ul>
+<h3 id="plagio-y-fraude-academico">Plagio y Fraude Académico<a class="headerlink" href="#plagio-y-fraude-academico" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Se espera <strong>originalidad</strong> en todos los trabajos</li>
+<li>Usar código de terceros: <strong>CITAR siempre</strong></li>
+<li><strong>Permitido</strong>: Usar librerías (NumPy, Scikit-learn, etc.)</li>
+<li><strong>NO permitido</strong>: Copiar código de compañeros o de internet sin atribución</li>
+<li><strong>Consecuencia</strong>: Nota 0 en el trabajo + reporte a dirección</li>
+</ul>
+<h2 id="revision-de-calificaciones">Revisión de Calificaciones<a class="headerlink" href="#revision-de-calificaciones" title="Permanent link">&para;</a></h2>
+<p>Si desagrees con tu calificación:</p>
+<ol>
+<li>Solicita revisión dentro de <strong>3 días</strong> de la publicación de notas</li>
+<li>Envía email a: info@ia-estructuras.edu</li>
+<li>Incluye: argumentación clara y documentación de apoyo</li>
+<li>El instructor revisará y responderá dentro de <strong>5 días hábiles</strong></li>
+</ol>
+<h2 id="preguntas-frecuentes">Preguntas Frecuentes<a class="headerlink" href="#preguntas-frecuentes" title="Permanent link">&para;</a></h2>
+<p><strong>P: ¿Puedo cambiar de grupo después de T1?</strong><br />
+R: Solo con justificación y aprobación del instructor.</p>
+<p><strong>P: ¿Qué pasa si un miembro del grupo no participa?</strong><br />
+R: Debe documentarse y reportarse. El instructor puede ajustar notas individuales.</p>
+<p><strong>P: ¿Cuál es la nota mínima para pasar?</strong><br />
+R: NF ≥ 3.0</p>
+<p><strong>P: ¿Hay oportunidad de recuperación?</strong><br />
+R: No hay recuperatorios. La nota es definitiva en T3 (28 de agosto).</p>
+<hr />
+<p>Para más detalles sobre cada trabajo específico, consulta:
+- <a href="../../trabajos/trabajo1/">Trabajo Grupal 1</a>
+- <a href="../../trabajos/trabajo2/">Trabajo Grupal 2</a>
+- <a href="../../trabajos/trabajo3/">Trabajo Grupal 3</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/ia-estructuras-diplomado" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>
