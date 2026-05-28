@@ -45,10 +45,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Outfit:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Outfit";--md-code-font:"Fira Code"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -76,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lab-3-clustering-y-procesamiento-de-senales" class="md-skip">
+        <a href="#lab-3-clustering-y-senales" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -790,6 +792,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Lab 3 - Clustering y Señales
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -799,6 +812,76 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo-de-aprendizaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Objetivo de Aprendizaje
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contexto-del-problema" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Contexto del Problema
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#herramientas" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠️ Herramientas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notebook-del-laboratorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      📓 Notebook del Laboratorio
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📓 Notebook del Laboratorio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-transformacion-espectral-fft-en-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Transformación Espectral (FFT) en Python
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1093,6 +1176,65 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo-de-aprendizaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Objetivo de Aprendizaje
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contexto-del-problema" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Contexto del Problema
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#herramientas" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠️ Herramientas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notebook-del-laboratorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      📓 Notebook del Laboratorio
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📓 Notebook del Laboratorio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-transformacion-espectral-fft-en-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Transformación Espectral (FFT) en Python
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1109,19 +1251,97 @@
   
 
 
-<h1 id="lab-3-clustering-y-procesamiento-de-senales">Lab 3: Clustering y Procesamiento de Señales<a class="headerlink" href="#lab-3-clustering-y-procesamiento-de-senales" title="Permanent link">&para;</a></h1>
-<div class="admonition warning">
-<p class="admonition-title">🔒 Próximo Lab</p>
-<p><strong>Disponible desde:</strong> Sesión 5 (19 de Agosto de 2026)</p>
+<h1 id="lab-3-clustering-y-senales">Lab 3: Clustering y Señales<a class="headerlink" href="#lab-3-clustering-y-senales" title="Permanent link">&para;</a></h1>
+<div class="admonition info">
+<p class="admonition-title">📅 Sesión 6</p>
+<p><strong>Fecha:</strong> Martes, 16 de Junio de 2026 | <strong>Duración:</strong> 2 horas</p>
 </div>
-<p>Este laboratorio aún no está disponible. Se habilitará después de la Sesión 4.</p>
+<h2 id="objetivo-de-aprendizaje">🎯 Objetivo de Aprendizaje<a class="headerlink" href="#objetivo-de-aprendizaje" title="Permanent link">&para;</a></h2>
+<p>Aprender a procesar series temporales dinámicas provenientes de acelerómetros, transformarlas al dominio de la frecuencia mediante la <strong>Transformada de Fourier (FFT)</strong>, e identificar los modos de vibración naturales de la estructura aplicando técnicas de <strong>Clustering</strong> no supervisado.</p>
 <hr />
-<p><strong>Tema previsto:</strong> K-Means, clustering jerárquico y análisis de vibración</p>
-<p><strong>Lo que aprenderás:</strong>
-- Algoritmos de clustering
-- Procesamiento de señales de sensores
-- Identificación de patrones
-- Análisis de vibraciones estructurales</p>
+<h2 id="contexto-del-problema">📊 Contexto del Problema<a class="headerlink" href="#contexto-del-problema" title="Permanent link">&para;</a></h2>
+<p>Cuando un puente es sometido al paso de vehículos, este vibra de acuerdo a sus propiedades dinámicas intrínsecas (frecuencias naturales y modos de vibración). Si el puente sufre una fisura importante o pérdida de tensión en un cable tensor, su rigidez disminuye, lo que provoca que sus frecuencias naturales cambien.</p>
+<p>En este laboratorio analizaremos registros de un acelerómetro instalado en un modelo a escala de un puente colgante bajo tres condiciones físicas diferentes:
+1. <strong>Estado Sano (Normal)</strong>: Sin daños.
+2. <strong>Estado Dañado 1</strong>: Tensión reducida en cable tensor central.
+3. <strong>Estado Dañado 2</strong>: Agrietamiento simulado en viga principal.</p>
+<p>Utilizaremos FFT para extraer el espectro de potencia de cada señal y aplicaremos K-Means para clasificar de forma no supervisada los estados de salud estructural a partir de las firmas espectrales.</p>
+<hr />
+<h2 id="herramientas">🛠️ Herramientas<a class="headerlink" href="#herramientas" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Python, Pandas, NumPy, SciPy (módulo <code>scipy.fft</code>)</li>
+<li>Scikit-learn (<code>KMeans</code>, <code>StandardScaler</code>)</li>
+<li>Matplotlib/Seaborn</li>
+<li>Jupyter Notebook</li>
+</ul>
+<hr />
+<h2 id="notebook-del-laboratorio">📓 Notebook del Laboratorio<a class="headerlink" href="#notebook-del-laboratorio" title="Permanent link">&para;</a></h2>
+<p>El archivo <code>Lab3_Clustering_Senales.ipynb</code> incluye el siguiente flujo estructurado:</p>
+<h3 id="1-transformacion-espectral-fft-en-python">1. Transformación Espectral (FFT) en Python<a class="headerlink" href="#1-transformacion-espectral-fft-en-python" title="Permanent link">&para;</a></h3>
+<p>Aprenderás a convertir la señal temporal al dominio de la frecuencia.
+```python
+import numpy as np
+from scipy.fft import fft, fftfreq</p>
+<h1 id="senal-temporal-y-frecuencia-de-muestreo-fs">Señal temporal: y, Frecuencia de muestreo: fs<a class="headerlink" href="#senal-temporal-y-frecuencia-de-muestreo-fs" title="Permanent link">&para;</a></h1>
+<p>N = len(y)
+yf = fft(y)
+xf = fftfreq(N, 1/fs)[:N//2]
+amplitudes = 2.0/N * np.abs(yf[0:N//2])
+```</p>
+<h3 id="2-extraccion-de-caracteristicas-features">2. Extracción de Características (Features)<a class="headerlink" href="#2-extraccion-de-caracteristicas-features" title="Permanent link">&para;</a></h3>
+<p>Para cada tramo de vibración, calcularemos:
+- Frecuencia del primer pico dominante (<span class="arithmatex">\(f_1\)</span>).
+- Amplitud del primer pico dominante (<span class="arithmatex">\(A_1\)</span>).
+- Frecuencia del segundo pico dominante (<span class="arithmatex">\(f_2\)</span>).
+- Energía total del espectro.</p>
+<h3 id="3-agrupamiento-con-k-means">3. Agrupamiento con K-Means<a class="headerlink" href="#3-agrupamiento-con-k-means" title="Permanent link">&para;</a></h3>
+<p>```python
+from sklearn.cluster import KMeans</p>
+<h1 id="x-contiene-las-caracteristicas-espectrales-de-100-pruebas-de-vibracion">X contiene las características espectrales de 100 pruebas de vibración<a class="headerlink" href="#x-contiene-las-caracteristicas-espectrales-de-100-pruebas-de-vibracion" title="Permanent link">&para;</a></h1>
+<p>kmeans = KMeans(n_clusters=3, random_state=42)
+labels = kmeans.fit_predict(X_scaled)
+```</p>
+<hr />
+<h2 id="tareas-practicas">📋 Tareas Prácticas<a class="headerlink" href="#tareas-practicas" title="Permanent link">&para;</a></h2>
+<h3 id="tarea-1-procesamiento-de-senales-temporales-45-min">Tarea 1: Procesamiento de Señales Temporales (45 min)<a class="headerlink" href="#tarea-1-procesamiento-de-senales-temporales-45-min" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Carga el archivo <code>senales_acelerometro.csv</code>.</li>
+<li>Grafica los primeros 2 segundos de vibración para cada uno de los tres estados estructurales.</li>
+<li>Aplica la FFT a las señales y grafica el espectro de frecuencia resultante (<span class="arithmatex">\(0\text{ a }50\text{ Hz}\)</span>).</li>
+</ul>
+<p><strong>Preguntas a responder:</strong>
+1. ¿Es fácil distinguir las condiciones estructurales analizando únicamente la señal en el dominio del tiempo? ¿Por qué?
+2. ¿Qué diferencias observas en los picos espectrales (frecuencias) entre el estado sano y los dos estados dañados?</p>
+<h3 id="tarea-2-extraccion-de-features-y-clustering-45-min">Tarea 2: Extracción de Features y Clustering (45 min)<a class="headerlink" href="#tarea-2-extraccion-de-features-y-clustering-45-min" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Rellena la función en Python para extraer de manera automatizada la frecuencia y amplitud de los dos picos dominantes de cada registro de vibración.</li>
+<li>Normaliza los datos extraídos y ejecuta el algoritmo K-Means para agrupar los registros en 3 clústeres.</li>
+</ul>
+<p><strong>Preguntas a responder:</strong>
+1. ¿Se alinean los clústeres identificados por K-Means con las etiquetas reales de daño?
+2. ¿Existe traslape entre el clúster de daño moderado y el puente sano?</p>
+<h3 id="tarea-3-analisis-de-robustez-30-min">Tarea 3: Análisis de Robustez (30 min)<a class="headerlink" href="#tarea-3-analisis-de-robustez-30-min" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Agrega ruido blanco gaussiano simulado a las señales y verifica si K-Means sigue siendo capaz de diferenciar los tres estados o si se deteriora la clasificación.</li>
+</ul>
+<hr />
+<h2 id="descargas-y-recursos">📥 Descargas y Recursos<a class="headerlink" href="#descargas-y-recursos" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../assets/notebooks/Lab3_Clustering_Senales.ipynb">📓 Notebook de Trabajo: Lab3_Clustering_Senales.ipynb</a></li>
+<li><a href="../../assets/data/senales_acelerometro.csv">📊 Dataset: senales_acelerometro.csv</a></li>
+<li><a href="../../assets/Lab3_Vibraciones.pdf">📖 Guía Teórica de Dinámica de Estructuras (PDF)</a></li>
+</ul>
+<hr />
+<h2 id="checklist-de-completacion">✅ Checklist de Completación<a class="headerlink" href="#checklist-de-completacion" title="Permanent link">&para;</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Cargué los archivos de datos de aceleración.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Implementé la FFT y grafiqué el espectro para las tres condiciones.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Creé el dataframe de características espectrales (frecuencia, amplitud, energía).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Entrené el algoritmo K-Means con <span class="arithmatex">\(K=3\)</span> y verifiqué la matriz de confusión contra etiquetas reales.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Escribí mis conclusiones en el notebook y subí la entrega al repositorio.</li>
+</ul>
+<hr />
+<p><strong>¿Dudas o problemas técnicos?</strong> Escribe en el foro de discusiones de GitHub o contacta al equipo docente en: info@ia-estructuras.edu.</p>
 
 
 

@@ -45,10 +45,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Outfit:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Outfit";--md-code-font:"Fira Code"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -769,6 +771,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Lab 2 - Monitoreo Estructural
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -778,6 +791,76 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo-de-aprendizaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Objetivo de Aprendizaje
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contexto-del-problema" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Contexto del Problema
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#herramientas" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠️ Herramientas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notebook-del-laboratorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      📓 Notebook del Laboratorio
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📓 Notebook del Laboratorio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-carga-y-normalizacion-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Carga y Normalización de Datos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1093,6 +1176,65 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo-de-aprendizaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Objetivo de Aprendizaje
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contexto-del-problema" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Contexto del Problema
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#herramientas" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠️ Herramientas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notebook-del-laboratorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      📓 Notebook del Laboratorio
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📓 Notebook del Laboratorio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-carga-y-normalizacion-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Carga y Normalización de Datos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1110,18 +1252,89 @@
 
 
 <h1 id="lab-2-monitoreo-estructural-inteligente">Lab 2: Monitoreo Estructural Inteligente<a class="headerlink" href="#lab-2-monitoreo-estructural-inteligente" title="Permanent link">&para;</a></h1>
-<div class="admonition warning">
-<p class="admonition-title">🔒 Próximo Lab</p>
-<p><strong>Disponible desde:</strong> Sesión 4 (14 de Agosto de 2026)</p>
+<div class="admonition info">
+<p class="admonition-title">📅 Sesión 5</p>
+<p><strong>Fecha:</strong> Jueves, 11 de Junio de 2026 | <strong>Duración:</strong> 2 horas</p>
 </div>
-<p>Este laboratorio aún no está disponible. Se habilitará después de la Sesión 3.</p>
+<h2 id="objetivo-de-aprendizaje">🎯 Objetivo de Aprendizaje<a class="headerlink" href="#objetivo-de-aprendizaje" title="Permanent link">&para;</a></h2>
+<p>Aprender a implementar algoritmos de <strong>Detección de Anomalías</strong> para identificar estados estructurales atípicos o fallos de sensores en puentes e infraestructuras civiles utilizando datos de Monitoreo de Salud Estructural (SHM).</p>
 <hr />
-<p><strong>Tema previsto:</strong> Detección de anomalías y monitoreo de salud estructural (SHM)</p>
-<p><strong>Lo que aprenderás:</strong>
-- Identificar anomalías en datos de sensores
-- Usar algoritmos de detección (Isolation Forest, LOF)
-- Aplicaciones reales en puentes y edificios
-- Monitoreo en tiempo real</p>
+<h2 id="contexto-del-problema">📊 Contexto del Problema<a class="headerlink" href="#contexto-del-problema" title="Permanent link">&para;</a></h2>
+<p>Una presa de hormigón está instrumentada con sensores de inclinación (inclinómetros) y temperatura. Bajo condiciones operativas normales, la inclinación de la presa varía de manera cíclica debido a las fluctuaciones de temperatura diaria y estacional (efecto térmico). </p>
+<p>Recientemente se sospecha de un comportamiento atípico en las juntas de expansión o de un posible fallo físico en uno de los inclinómetros. Tu objetivo es procesar las lecturas de los inclinómetros y entrenar un modelo de detección no supervisado que identifique automáticamente estas anomalías.</p>
+<hr />
+<h2 id="herramientas">🛠️ Herramientas<a class="headerlink" href="#herramientas" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Python, Pandas, NumPy</li>
+<li>Scikit-learn (<code>IsolationForest</code>, <code>LocalOutlierFactor</code>)</li>
+<li>Matplotlib/Seaborn</li>
+<li>Jupyter Notebook</li>
+</ul>
+<hr />
+<h2 id="notebook-del-laboratorio">📓 Notebook del Laboratorio<a class="headerlink" href="#notebook-del-laboratorio" title="Permanent link">&para;</a></h2>
+<p>El archivo <code>Lab2_Monitoreo_Inteligente.ipynb</code> contiene la siguiente estructura práctica:</p>
+<h3 id="1-carga-y-normalizacion-de-datos">1. Carga y Normalización de Datos<a class="headerlink" href="#1-carga-y-normalizacion-de-datos" title="Permanent link">&para;</a></h3>
+<p>El dataset contiene: <code>temperatura</code>, <code>presion_hidrostatica</code>, e <code>inclinacion_sensor_1</code>.
+```python
+import pandas as pd
+from sklearn.preprocessing import StandardScaler</p>
+<p>data = pd.read_csv('datos_presa_shm.csv')
+X = data[['temperatura', 'inclinacion_sensor_1']]</p>
+<h1 id="normalizacion-crucial-para-algoritmos-basados-en-distancias">Normalización crucial para algoritmos basados en distancias<a class="headerlink" href="#normalizacion-crucial-para-algoritmos-basados-en-distancias" title="Permanent link">&para;</a></h1>
+<p>scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+```</p>
+<h3 id="2-entrenamiento-de-isolation-forest">2. Entrenamiento de Isolation Forest<a class="headerlink" href="#2-entrenamiento-de-isolation-forest" title="Permanent link">&para;</a></h3>
+<p>El algoritmo <strong>Isolation Forest</strong> aísla las observaciones seleccionando aleatoriamente una característica y luego seleccionando aleatoriamente un valor de división entre los valores mínimo y máximo de esa característica. Los datos anómalos requieren menos particiones para ser aislados.</p>
+<p>```python
+from sklearn.ensemble import IsolationForest</p>
+<h1 id="definimos-una-tasa-esperada-de-anomalias-contamination-del-2">Definimos una tasa esperada de anomalías (contamination) del 2%<a class="headerlink" href="#definimos-una-tasa-esperada-de-anomalias-contamination-del-2" title="Permanent link">&para;</a></h1>
+<p>model = IsolationForest(contamination=0.02, random_state=42)
+data['anomaly_label'] = model.fit_predict(X_scaled)</p>
+<h1 id="las-anomalias-se-etiquetan-con-1-los-datos-normales-con-1">Las anomalías se etiquetan con -1, los datos normales con 1<a class="headerlink" href="#las-anomalias-se-etiquetan-con-1-los-datos-normales-con-1" title="Permanent link">&para;</a></h1>
+<p>data['anomaly'] = data['anomaly_label'].map({1: 'Normal', -1: 'Anomalía'})
+```</p>
+<hr />
+<h2 id="tareas-practicas">📋 Tareas Prácticas<a class="headerlink" href="#tareas-practicas" title="Permanent link">&para;</a></h2>
+<h3 id="tarea-1-exploracion-e-identificacion-de-patrones-30-min">Tarea 1: Exploración e Identificación de Patrones (30 min)<a class="headerlink" href="#tarea-1-exploracion-e-identificacion-de-patrones-30-min" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Carga el dataset <code>datos_presa_shm.csv</code> y realiza un gráfico de dispersión (Scatter Plot) de <code>temperatura</code> vs <code>inclinacion_sensor_1</code>.</li>
+<li>Identifica visualmente si existen puntos dispersos fuera del patrón elíptico estándar.</li>
+</ul>
+<p><strong>Preguntas a responder:</strong>
+1. ¿Cómo se relacionan la temperatura y la inclinación en condiciones normales?
+2. ¿Qué rango térmico o de inclinación parece agrupar la mayoría de los datos normales?</p>
+<h3 id="tarea-2-implementacion-de-isolation-forest-45-min">Tarea 2: Implementación de Isolation Forest (45 min)<a class="headerlink" href="#tarea-2-implementacion-de-isolation-forest-45-min" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Entrena el modelo usando diferentes valores del parámetro <code>contamination</code> (0.01, 0.03, 0.05).</li>
+<li>Grafica los puntos resultantes coloreados según la etiqueta predicha (<code>Normal</code> o <code>Anomalía</code>).</li>
+</ul>
+<p><strong>Preguntas a responder:</strong>
+1. ¿Qué efecto tiene incrementar el parámetro <code>contamination</code> en el número de falsas alarmas detectadas?
+2. ¿El modelo aísla correctamente los puntos que habías identificado visualmente en la Tarea 1?</p>
+<h3 id="tarea-3-comparacion-con-local-outlier-factor-lof-45-min">Tarea 3: Comparación con Local Outlier Factor (LOF) (45 min)<a class="headerlink" href="#tarea-3-comparacion-con-local-outlier-factor-lof-45-min" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Implementa <code>LocalOutlierFactor</code> con <code>n_neighbors=20</code> y compara las clasificaciones con las de <code>IsolationForest</code>.</li>
+<li>Evalúa qué algoritmo se adapta mejor al contorno normal de los datos.</li>
+</ul>
+<hr />
+<h2 id="descargas-y-recursos">📥 Descargas y Recursos<a class="headerlink" href="#descargas-y-recursos" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../assets/notebooks/Lab2_Monitoreo_Inteligente.ipynb">📓 Notebook de Trabajo: Lab2_Monitoreo_Inteligente.ipynb</a></li>
+<li><a href="../../assets/data/datos_presa_shm.csv">📊 Dataset: datos_presa_shm.csv</a></li>
+<li><a href="../../assets/Lab2_Manual.pdf">📖 Guía Teórica de SHM y Anomalías (PDF)</a></li>
+</ul>
+<hr />
+<h2 id="checklist-de-completacion">✅ Checklist de Completación<a class="headerlink" href="#checklist-de-completacion" title="Permanent link">&para;</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Completé la carga de datos y grafiqué la serie de tiempo.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Entrené el modelo <code>IsolationForest</code> y classifiqué las anomalías.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Grafiqué y comparé los resultados de <code>IsolationForest</code> y <code>LOF</code>.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Respondí las preguntas de análisis técnico en el notebook.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Subí el archivo <code>.ipynb</code> resuelto a mi rama personal del repositorio.</li>
+</ul>
+<hr />
+<p><strong>¿Dudas adicionales?</strong> Abre un hilo en el foro del curso en GitHub o escribe a info@ia-estructuras.edu.</p>
 
 
 

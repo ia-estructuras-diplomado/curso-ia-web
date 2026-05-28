@@ -45,10 +45,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Outfit:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Outfit";--md-code-font:"Fira Code"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -638,6 +640,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Sesión 5 - Señales y Clústeres
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -647,6 +660,115 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivos-de-la-sesion" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Objetivos de la Sesión
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contenido-teorico-15-horas" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 Contenido Teórico (1.5 horas)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 Contenido Teórico (1.5 horas)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-el-dominio-del-tiempo-vs-dominio-de-la-frecuencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. El Dominio del Tiempo vs. Dominio de la Frecuencia
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-algoritmos-de-aprendizaje-no-supervisado-clustering" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Algoritmos de Aprendizaje No Supervisado: Clustering
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Algoritmos de Aprendizaje No Supervisado: Clustering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-k-means" class="md-nav__link">
+    <span class="md-ellipsis">
+      A. K-Means
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-dbscan-density-based-spatial-clustering-of-applications-with-noise" class="md-nav__link">
+    <span class="md-ellipsis">
+      B. DBSCAN (Density-Based Spatial Clustering of Applications with Noise)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contenido-practico-15-horas" class="md-nav__link">
+    <span class="md-ellipsis">
+      💻 Contenido Práctico (1.5 horas)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💻 Contenido Práctico (1.5 horas)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#codigo-paso-a-paso-analisis-espectral-y-clustering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Código Paso a Paso: Análisis Espectral y Clustering
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1093,6 +1215,104 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivos-de-la-sesion" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Objetivos de la Sesión
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contenido-teorico-15-horas" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 Contenido Teórico (1.5 horas)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 Contenido Teórico (1.5 horas)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-el-dominio-del-tiempo-vs-dominio-de-la-frecuencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. El Dominio del Tiempo vs. Dominio de la Frecuencia
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-algoritmos-de-aprendizaje-no-supervisado-clustering" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Algoritmos de Aprendizaje No Supervisado: Clustering
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Algoritmos de Aprendizaje No Supervisado: Clustering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-k-means" class="md-nav__link">
+    <span class="md-ellipsis">
+      A. K-Means
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-dbscan-density-based-spatial-clustering-of-applications-with-noise" class="md-nav__link">
+    <span class="md-ellipsis">
+      B. DBSCAN (Density-Based Spatial Clustering of Applications with Noise)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contenido-practico-15-horas" class="md-nav__link">
+    <span class="md-ellipsis">
+      💻 Contenido Práctico (1.5 horas)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💻 Contenido Práctico (1.5 horas)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#codigo-paso-a-paso-analisis-espectral-y-clustering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Código Paso a Paso: Análisis Espectral y Clustering
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1110,22 +1330,90 @@
 
 
 <h1 id="sesion-5-procesamiento-de-senales-y-clusteres">Sesión 5: Procesamiento de Señales y Clústeres<a class="headerlink" href="#sesion-5-procesamiento-de-senales-y-clusteres" title="Permanent link">&para;</a></h1>
-<div class="admonition warning">
-<p class="admonition-title">🔒 Próxima Sesión</p>
-<p><strong>Disponible desde:</strong> Martes, 19 de Agosto de 2026</p>
+<div class="admonition info">
+<p class="admonition-title">📅 Programada</p>
+<p><strong>Fecha:</strong> Jueves, 11 de Junio de 2026 | <strong>Hora:</strong> 09:00 - 12:00 | <strong>Ubicación:</strong> Aula Virtual</p>
 </div>
-<p>Esta sesión aún no está disponible. Se habilitará después de que comience.</p>
+<h2 id="objetivos-de-la-sesion">🎯 Objetivos de la Sesión<a class="headerlink" href="#objetivos-de-la-sesion" title="Permanent link">&para;</a></h2>
+<p>Al finalizar esta sesión, serás capaz de:
+- Comprender el flujo de trabajo para procesar señales dinámicas provenientes de sensores de vibración.
+- Aplicar la <strong>Transformada Rápida de Fourier (FFT)</strong> para pasar del dominio del tiempo al de la frecuencia.
+- Implementar algoritmos de <strong>Clustering</strong> (como K-Means y DBSCAN) para agrupar comportamientos estructurales.
+- Detectar anomalías operacionales o fallas estructurales a partir de vibración no supervisada.</p>
 <hr />
-<p><strong>Contenido previsto:</strong></p>
+<h2 id="contenido-teorico-15-horas">📚 Contenido Teórico (1.5 horas)<a class="headerlink" href="#contenido-teorico-15-horas" title="Permanent link">&para;</a></h2>
+<h3 id="1-el-dominio-del-tiempo-vs-dominio-de-la-frecuencia">1. El Dominio del Tiempo vs. Dominio de la Frecuencia<a class="headerlink" href="#1-el-dominio-del-tiempo-vs-dominio-de-la-frecuencia" title="Permanent link">&para;</a></h3>
+<p>Los sensores de aceleración instalados en puentes o edificios registran señales en el <strong>dominio del tiempo</strong> (aceleración vs. segundo). Sin embargo, las propiedades físicas de una estructura (rigidez y masa) se manifiestan de forma clara en el <strong>dominio de la frecuencia</strong>.</p>
+<p><code>Señal de Sensor (Tiempo)            Transformada de Fourier (FFT)          Espectro de Frecuencia
+     Aceleración (g)                         ┌───────────┐                         Amplitud
+        │   /\    /\                         │           │                            │       /\
+        │  /  \  /  \                        │    FFT    │  ────────────────────────► │      /  \
+        │ /    \/    \                       │           │                            │     /    \  /\
+      ──┴───────────────► Tiempo             └───────────┘                            └────┴──────┴──┴──► Frecuencia (Hz)</code></p>
+<p>La <strong>Transformada Rápida de Fourier (FFT)</strong> descompone una señal temporal compleja en sus frecuencias constituyentes, identificando las <strong>frecuencias naturales o modos de vibración</strong> de la estructura. Un cambio repentino en estas frecuencias naturales suele indicar una pérdida de rigidez (es decir, daño estructural).</p>
+<h3 id="2-algoritmos-de-aprendizaje-no-supervisado-clustering">2. Algoritmos de Aprendizaje No Supervisado: Clustering<a class="headerlink" href="#2-algoritmos-de-aprendizaje-no-supervisado-clustering" title="Permanent link">&para;</a></h3>
+<p>El agrupamiento o clustering busca organizar conjuntos de datos en grupos (clústeres) cuyos elementos son similares entre sí y diferentes a los de otros grupos.</p>
+<h4 id="a-k-means">A. K-Means<a class="headerlink" href="#a-k-means" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Análisis de clústeres (clustering)</li>
-<li>K-Means, Hierarchical Clustering, DBSCAN</li>
-<li>Procesamiento de señales de sensores</li>
-<li>Aplicaciones en detección de anomalías</li>
-<li>Implementación de algoritmos</li>
-<li>Análisis de datos de vibración</li>
+<li><strong>Funcionamiento</strong>: Divide el espacio en un número predefinido <span class="arithmatex">\(K\)</span> de clústeres. Asigna puntos al centroide más cercano e itera recalculando los centroides.</li>
+<li><strong>Ventaja</strong>: Rápido y escalable.</li>
+<li><strong>Desventaja</strong>: Sensible a outliers y requiere definir <span class="arithmatex">\(K\)</span> de antemano (usando el método del codo o coeficiente de silueta).</li>
 </ul>
-<p><strong>Vuelve pronto para más detalles.</strong></p>
+<h4 id="b-dbscan-density-based-spatial-clustering-of-applications-with-noise">B. DBSCAN (Density-Based Spatial Clustering of Applications with Noise)<a class="headerlink" href="#b-dbscan-density-based-spatial-clustering-of-applications-with-noise" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Funcionamiento</strong>: Agrupa puntos basándose en la densidad de vecindad (parámetros <code>eps</code> y <code>min_samples</code>).</li>
+<li><strong>Ventaja</strong>: No requiere predefinir el número de clústeres y detecta automáticamente outliers (clasificándolos como "ruido").</li>
+<li><strong>Aplicación en SHM</strong>: Ideal para detectar lecturas anormales de sensores que no encajan con los estados operativos estándar.</li>
+</ul>
+<hr />
+<h2 id="contenido-practico-15-horas">💻 Contenido Práctico (1.5 horas)<a class="headerlink" href="#contenido-practico-15-horas" title="Permanent link">&para;</a></h2>
+<p>En esta práctica aprenderemos a aplicar FFT a una señal de acelerómetro simulada y a agrupar los picos espectrales utilizando K-Means.</p>
+<h3 id="codigo-paso-a-paso-analisis-espectral-y-clustering">Código Paso a Paso: Análisis Espectral y Clustering<a class="headerlink" href="#codigo-paso-a-paso-analisis-espectral-y-clustering" title="Permanent link">&para;</a></h3>
+<p>```python
+import numpy as np
+import pandas as pd
+from scipy.fft import fft, fftfreq
+from sklearn.cluster import KMeans
+import matplotlib.pyplot as plt</p>
+<h1 id="1-simulacion-de-una-senal-dinamica-vibracion-del-puente">1. Simulación de una señal dinámica (Vibración del puente)<a class="headerlink" href="#1-simulacion-de-una-senal-dinamica-vibracion-del-puente" title="Permanent link">&para;</a></h1>
+<h1 id="dos-frecuencias-predominantes-modos-estructurales-a-5-hz-y-12-hz-mas-ruido">Dos frecuencias predominantes (modos estructurales a 5 Hz y 12 Hz) más ruido<a class="headerlink" href="#dos-frecuencias-predominantes-modos-estructurales-a-5-hz-y-12-hz-mas-ruido" title="Permanent link">&para;</a></h1>
+<p>fs = 100.0  # Frecuencia de muestreo: 100 Hz
+t = np.arange(0, 10, 1/fs)  # 10 segundos
+vibracion = 2.0 * np.sin(2 * np.pi * 5.0 * t) + 1.5 * np.sin(2 * np.pi * 12.0 * t) + np.random.normal(0, 1.0, len(t))</p>
+<h1 id="2-aplicar-transformada-rapida-de-fourier-fft">2. Aplicar Transformada Rápida de Fourier (FFT)<a class="headerlink" href="#2-aplicar-transformada-rapida-de-fourier-fft" title="Permanent link">&para;</a></h1>
+<p>N = len(t)
+y_fft = fft(vibracion)
+xf = fftfreq(N, 1/fs)[:N//2]
+yf = 2.0/N * np.abs(y_fft[0:N//2])</p>
+<h1 id="3-clustering-para-identificar-frecuencias-predominantes-k-means">3. Clustering para identificar frecuencias predominantes (K-Means)<a class="headerlink" href="#3-clustering-para-identificar-frecuencias-predominantes-k-means" title="Permanent link">&para;</a></h1>
+<h1 id="extraemos-los-puntos-con-mayor-amplitud-para-agruparlos">Extraemos los puntos con mayor amplitud para agruparlos<a class="headerlink" href="#extraemos-los-puntos-con-mayor-amplitud-para-agruparlos" title="Permanent link">&para;</a></h1>
+<p>picos = pd.DataFrame({'frecuencia': xf, 'amplitud': yf})
+picos_significativos = picos[picos['amplitud'] &gt; 0.3]</p>
+<h1 id="agrupar-las-frecuencias-de-los-picos-en-2-clusteres-principales">Agrupar las frecuencias de los picos en 2 clústeres principales<a class="headerlink" href="#agrupar-las-frecuencias-de-los-picos-en-2-clusteres-principales" title="Permanent link">&para;</a></h1>
+<p>kmeans = KMeans(n_clusters=2, random_state=42, n_init=10)
+picos_significativos['cluster'] = kmeans.fit_predict(picos_significativos[['frecuencia']])</p>
+<h1 id="4-visualizar-espectro-y-clusteres">4. Visualizar Espectro y Clústeres<a class="headerlink" href="#4-visualizar-espectro-y-clusteres" title="Permanent link">&para;</a></h1>
+<p>plt.figure(figsize=(10, 5))
+colors = ['red', 'blue']
+for cluster_id in [0, 1]:
+    sub = picos_significativos[picos_significativos['cluster'] == cluster_id]
+    plt.scatter(sub['frecuencia'], sub['amplitud'], label=f'Modo Estructural {cluster_id + 1}', s=100, color=colors[cluster_id])</p>
+<p>plt.plot(xf, yf, color='gray', alpha=0.5, label='Espectro FFT')
+plt.title('Identificación de Modos Estructurales Mediante FFT y Clustering')
+plt.xlabel('Frecuencia (Hz)')
+plt.ylabel('Amplitud')
+plt.legend()
+plt.grid(True)
+plt.show()
+```</p>
+<hr />
+<h2 id="laboratorio-vinculado">🔬 Laboratorio Vinculado<a class="headerlink" href="#laboratorio-vinculado" title="Permanent link">&para;</a></h2>
+<p>Esta sesión sienta las bases teóricas y de código para el <strong><a href="../../labs/lab3/">Laboratorio 3 - Clustering y Señales</a></strong> y el desarrollo del <strong>Trabajo Grupal 2 (T2)</strong>.</p>
+<h2 id="lecturas-recomendadas">📖 Lecturas Recomendadas<a class="headerlink" href="#lecturas-recomendadas" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Oppenheim, A. V., &amp; Schafer, R. W. (2009)</strong>: <em>Discrete-Time Signal Processing</em>. Prentice Hall.</li>
+<li><strong>Clustering Tutorial</strong>: <a href="https://scikit-learn.org/stable/modules/clustering.html">Scikit-learn Clustering Overview</a></li>
+</ul>
 
 
 

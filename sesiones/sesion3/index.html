@@ -45,10 +45,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Outfit:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Outfit";--md-code-font:"Fira Code"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -617,6 +619,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Sesión 3 - ML Modelos
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -626,6 +639,124 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivos-de-la-sesion" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Objetivos de la Sesión
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contenido-teorico-15-horas" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 Contenido Teórico (1.5 horas)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 Contenido Teórico (1.5 horas)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-taxonomia-del-machine-learning-en-ingenieria" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Taxonomía del Machine Learning en Ingeniería
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-metricas-de-evaluacion-de-modelos" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Métricas de Evaluación de Modelos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Métricas de Evaluación de Modelos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#para-regresion-prediccion-de-valores-continuos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Para Regresión (Predicción de valores continuos)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#para-clasificacion-prediccion-de-categorias-discretas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Para Clasificación (Predicción de categorías discretas)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-generalizacion-overfitting-y-underfitting" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Generalización, Overfitting y Underfitting
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contenido-practico-15-horas" class="md-nav__link">
+    <span class="md-ellipsis">
+      💻 Contenido Práctico (1.5 horas)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💻 Contenido Práctico (1.5 horas)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#codigo-paso-a-paso-regresion-para-resistencia-a-la-compresion-f_c" class="md-nav__link">
+    <span class="md-ellipsis">
+      Código Paso a Paso: Regresión para Resistencia a la Compresión (\(f'_c\))
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1093,6 +1224,113 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivos-de-la-sesion" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Objetivos de la Sesión
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contenido-teorico-15-horas" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 Contenido Teórico (1.5 horas)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 Contenido Teórico (1.5 horas)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-taxonomia-del-machine-learning-en-ingenieria" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Taxonomía del Machine Learning en Ingeniería
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-metricas-de-evaluacion-de-modelos" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Métricas de Evaluación de Modelos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Métricas de Evaluación de Modelos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#para-regresion-prediccion-de-valores-continuos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Para Regresión (Predicción de valores continuos)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#para-clasificacion-prediccion-de-categorias-discretas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Para Clasificación (Predicción de categorías discretas)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-generalizacion-overfitting-y-underfitting" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Generalización, Overfitting y Underfitting
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contenido-practico-15-horas" class="md-nav__link">
+    <span class="md-ellipsis">
+      💻 Contenido Práctico (1.5 horas)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💻 Contenido Práctico (1.5 horas)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#codigo-paso-a-paso-regresion-para-resistencia-a-la-compresion-f_c" class="md-nav__link">
+    <span class="md-ellipsis">
+      Código Paso a Paso: Regresión para Resistencia a la Compresión (\(f'_c\))
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1110,22 +1348,98 @@
 
 
 <h1 id="sesion-3-aprendizaje-automatico-modelos">Sesión 3: Aprendizaje Automático - Modelos<a class="headerlink" href="#sesion-3-aprendizaje-automatico-modelos" title="Permanent link">&para;</a></h1>
-<div class="admonition warning">
-<p class="admonition-title">🔒 Próxima Sesión</p>
-<p><strong>Disponible desde:</strong> Martes, 12 de Agosto de 2026</p>
+<div class="admonition info">
+<p class="admonition-title">📅 Programada</p>
+<p><strong>Fecha:</strong> Jueves, 4 de Junio de 2026 | <strong>Hora:</strong> 09:00 - 12:00 | <strong>Ubicación:</strong> Aula Virtual</p>
 </div>
-<p>Esta sesión aún no está disponible. Se habilitará después de que comience.</p>
+<h2 id="objetivos-de-la-sesion">🎯 Objetivos de la Sesión<a class="headerlink" href="#objetivos-de-la-sesion" title="Permanent link">&para;</a></h2>
+<p>Al finalizar esta sesión, serás capaz de:
+- Distinguir entre problemas de <strong>Aprendizaje Supervisado</strong> y <strong>No Supervisado</strong> en ingeniería.
+- Implementar y evaluar modelos de <strong>Regresión</strong> y <strong>Clasificación</strong>.
+- Aplicar correctamente la división de datos en conjuntos de <strong>Entrenamiento y Prueba (Train/Test Split)</strong>.
+- Diagnosticar el sobreajuste (<strong>Overfitting</strong>) y aplicar técnicas básicas de regularización.</p>
 <hr />
-<p><strong>Contenido previsto:</strong></p>
+<h2 id="contenido-teorico-15-horas">📚 Contenido Teórico (1.5 horas)<a class="headerlink" href="#contenido-teorico-15-horas" title="Permanent link">&para;</a></h2>
+<h3 id="1-taxonomia-del-machine-learning-en-ingenieria">1. Taxonomía del Machine Learning en Ingeniería<a class="headerlink" href="#1-taxonomia-del-machine-learning-en-ingenieria" title="Permanent link">&para;</a></h3>
+<p>El Machine Learning se clasifica principalmente en dos grandes paradigmas según la disponibilidad de etiquetas:</p>
+<p><code>┌────────────────────────┐
+                            │    Machine Learning    │
+                            └───────────┬────────────┘
+                                        │
+                 ┌──────────────────────┴──────────────────────┐
+                 ▼                                             ▼
+     [Aprendizaje Supervisado]                    [Aprendizaje No Supervisado]
+    (Datos etiquetados: X -&gt; Y)                  (Solo datos de entrada: X)
+      │                                            │
+      ├─► Regresión (Ej. predecir carga útil)      ├─► Clustering (Ej. agrupar fallas)
+      └─► Clasificación (Ej. Daño/No Daño)        └─► Detección de Anomalías (Ruido)</code></p>
 <ul>
-<li>Aprendizaje Supervisado vs. No Supervisado</li>
-<li>Regresión y Clasificación</li>
-<li>Validación y testing</li>
-<li>Overfitting y regularización</li>
-<li>Organización de datos (train/test split)</li>
-<li>Taller de entrenamiento de modelo</li>
+<li><strong>Ejemplo Supervisado</strong>: Predecir el módulo de elasticidad del hormigón (<span class="arithmatex">\(Y\)</span>) a partir de su dosificación y edad (<span class="arithmatex">\(X\)</span>).</li>
+<li><strong>Ejemplo No Supervisado</strong>: Agrupar registros de acelerómetros de un edificio durante un terremoto para encontrar modos de vibración naturales sin etiquetas previas.</li>
 </ul>
-<p><strong>Vuelve pronto para más detalles.</strong></p>
+<h3 id="2-metricas-de-evaluacion-de-modelos">2. Métricas de Evaluación de Modelos<a class="headerlink" href="#2-metricas-de-evaluacion-de-modelos" title="Permanent link">&para;</a></h3>
+<h4 id="para-regresion-prediccion-de-valores-continuos">Para Regresión (Predicción de valores continuos)<a class="headerlink" href="#para-regresion-prediccion-de-valores-continuos" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Error Cuadrático Medio (MSE)</strong>:
+  <span class="arithmatex">\(<span class="arithmatex">\(MSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2\)</span>\)</span></li>
+<li><strong>Coeficiente de Determinación (<span class="arithmatex">\(R^2\)</span>)</strong>: Mide la proporción de la varianza explicada por el modelo (de 0 a 1).</li>
+</ul>
+<h4 id="para-clasificacion-prediccion-de-categorias-discretas">Para Clasificación (Predicción de categorías discretas)<a class="headerlink" href="#para-clasificacion-prediccion-de-categorias-discretas" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Matriz de Confusión</strong>:</li>
+<li><strong>Verdaderos Positivos (TP)</strong>: Estructura dañada clasificada como dañada.</li>
+<li><strong>Falsos Negativos (FN)</strong>: Estructura dañada clasificada como sana (<strong>¡Crítico en ingeniería estructural!</strong>).</li>
+<li><strong>Precision (Precisión)</strong>: Porcentaje de predicciones positivas correctas.</li>
+<li><strong>Recall (Sensibilidad)</strong>: Porcentaje de casos reales positivos identificados correctamente.</li>
+<li><strong>F1-Score</strong>: Media armónica de precisión y sensibilidad.</li>
+</ul>
+<h3 id="3-generalizacion-overfitting-y-underfitting">3. Generalización, Overfitting y Underfitting<a class="headerlink" href="#3-generalizacion-overfitting-y-underfitting" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Underfitting (Subajuste)</strong>: El modelo es demasiado simple para aprender la tendencia. Alto error en entrenamiento y prueba.</li>
+<li><strong>Overfitting (Sobreajuste)</strong>: El modelo memoriza el ruido del conjunto de entrenamiento. Bajo error en entrenamiento, pero alto error en prueba.</li>
+<li><strong>Soluciones</strong>: Simplificar el modelo, usar más datos, o aplicar <strong>Regularización</strong> (L1/Lasso, L2/Ridge) para penalizar coeficientes grandes.</li>
+</ul>
+<hr />
+<h2 id="contenido-practico-15-horas">💻 Contenido Práctico (1.5 horas)<a class="headerlink" href="#contenido-practico-15-horas" title="Permanent link">&para;</a></h2>
+<p>En este taller utilizaremos la librería <code>scikit-learn</code> para crear un predictor del estado del hormigón.</p>
+<h3 id="codigo-paso-a-paso-regresion-para-resistencia-a-la-compresion-f_c">Código Paso a Paso: Regresión para Resistencia a la Compresión (<span class="arithmatex">\(f'_c\)</span>)<a class="headerlink" href="#codigo-paso-a-paso-regresion-para-resistencia-a-la-compresion-f_c" title="Permanent link">&para;</a></h3>
+<p>```python
+import numpy as np
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_squared_error, r2_score</p>
+<h1 id="1-simulacion-de-datos-de-dosificacion-de-concreto">1. Simulación de datos de dosificación de concreto<a class="headerlink" href="#1-simulacion-de-datos-de-dosificacion-de-concreto" title="Permanent link">&para;</a></h1>
+<h1 id="columnas-cemento-kg-agua-kg-edad-dias-resistencia-mpa">Columnas: Cemento (kg), Agua (kg), Edad (días) -&gt; Resistencia (MPa)<a class="headerlink" href="#columnas-cemento-kg-agua-kg-edad-dias-resistencia-mpa" title="Permanent link">&para;</a></h1>
+<p>np.random.seed(42)
+n_samples = 500
+cemento = np.random.uniform(200, 450, n_samples)
+agua = np.random.uniform(140, 220, n_samples)
+edad = np.random.choice([3, 7, 28, 90], n_samples)</p>
+<h1 id="resistencia-con-cierta-aleatoriedad-fisica">Resistencia con cierta aleatoriedad física<a class="headerlink" href="#resistencia-con-cierta-aleatoriedad-fisica" title="Permanent link">&para;</a></h1>
+<p>resistencia = 0.12 * cemento - 0.08 * agua + 0.5 * edad + np.random.normal(0, 3, n_samples)</p>
+<p>df = pd.DataFrame({'cemento': cemento, 'agua': agua, 'edad': edad, 'resistencia': resistencia})</p>
+<h1 id="2-dividir-datos-en-caracteristicas-x-y-target-y">2. Dividir datos en Características (X) y Target (y)<a class="headerlink" href="#2-dividir-datos-en-caracteristicas-x-y-target-y" title="Permanent link">&para;</a></h1>
+<p>X = df[['cemento', 'agua', 'edad']]
+y = df['resistencia']</p>
+<h1 id="3-traintest-split-80-entrenamiento-20-evaluacion">3. Train/Test Split (80% entrenamiento, 20% evaluación)<a class="headerlink" href="#3-traintest-split-80-entrenamiento-20-evaluacion" title="Permanent link">&para;</a></h1>
+<p>X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)</p>
+<h1 id="4-entrenar-modelo-bosque-aleatorio-random-forest">4. Entrenar modelo (Bosque Aleatorio / Random Forest)<a class="headerlink" href="#4-entrenar-modelo-bosque-aleatorio-random-forest" title="Permanent link">&para;</a></h1>
+<p>modelo = RandomForestRegressor(n_estimators=100, random_state=42)
+modelo.fit(X_train, y_train)</p>
+<h1 id="5-prediccion-y-evaluacion">5. Predicción y Evaluación<a class="headerlink" href="#5-prediccion-y-evaluacion" title="Permanent link">&para;</a></h1>
+<p>y_pred = modelo.predict(X_test)
+print(f"R² Score del Modelo: {r2_score(y_test, y_pred):.3f}")
+print(f"Error Absoluto Medio (RMSE): {np.sqrt(mean_squared_error(y_test, y_pred)):.2f} MPa")
+```</p>
+<hr />
+<h2 id="laboratorio-vinculado">🔬 Laboratorio Vinculado<a class="headerlink" href="#laboratorio-vinculado" title="Permanent link">&para;</a></h2>
+<p>Esta sesión inicia el desarrollo práctico del <strong><a href="../../labs/lab1/">Laboratorio 1 - Fundamentos ML</a></strong>, el cual debes resolver antes de la sesión de exposiciones (Sesión 4).</p>
+<h2 id="lecturas-recomendadas">📖 Lecturas Recomendadas<a class="headerlink" href="#lecturas-recomendadas" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>James, G., Witten, D., Hastie, T., &amp; Tibshirani, R. (2013)</strong>: <em>An Introduction to Statistical Learning with Applications in R/Python</em>. Capítulo 2.</li>
+<li><strong>Documentación oficial</strong>: <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html">Scikit-learn Train/Test Split Guide</a></li>
+</ul>
 
 
 
