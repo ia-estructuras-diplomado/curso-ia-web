@@ -6,7 +6,7 @@
 **Código:** DIPLO-IA-001  
 **Nivel:** Diplomado  
 **Créditos:** 3  
-**Período:** Agosto 2026  
+**Período:** Mayo - Junio 2026  
 **Modalidad:** Virtual  
 
 ### Equipo Docente
@@ -49,14 +49,14 @@ El curso se organiza en **8 sesiones** durante 4 semanas:
 
 | Sesión | Tipo | Contenido | Fecha |
 |--------|------|----------|-------|
-| 1 | Teórico + Práctico | Introducción a IA en Ingeniería Civil | 5 de Agosto |
-| 2 | Teórico + Práctico | Casos Reales y Big Data | 7 de Agosto |
-| 3 | Teórico + Práctico | Aprendizaje Automático - Modelos | 12 de Agosto |
-| 4 | Evaluación | Trabajo Grupal 1 - Exposiciones | 14 de Agosto |
-| 5 | Teórico + Práctico | Procesamiento de Señales y Clústeres | 19 de Agosto |
-| 6 | Teórico + Práctico | Futuro de los Modelos y Tendencias | 21 de Agosto |
-| 7 | Evaluación | Trabajo Grupal 2 - Continuación | 26 de Agosto |
-| 8 | Evaluación | Trabajo Grupal 3 - Cierre | 28 de Agosto |
+| 1 | Teórico + Práctico | Introducción a IA en Ingeniería Civil | 28 de Mayo |
+| 2 | Teórico + Práctico | Casos Reales y Big Data | 2 de Junio |
+| 3 | Teórico + Práctico | Aprendizaje Automático - Modelos | 4 de Junio |
+| 4 | Evaluación | Trabajo Grupal 1 - Exposiciones | 9 de Junio |
+| 5 | Teórico + Práctico | Procesamiento de Señales y Clústeres | 11 de Junio |
+| 6 | Teórico + Práctico | Futuro de los Modelos y Tendencias | 16 de Junio |
+| 7 | Evaluación | Trabajo Grupal 2 - Continuación | 18 de Junio |
+| 8 | Evaluación | Trabajo Grupal 3 - Cierre | 23 de Junio |
 
 ## Metodología de Enseñanza
 
@@ -89,9 +89,9 @@ La nota final se calcula mediante la siguiente fórmula:
 $$NF = 0.30 \times T1 + 0.30 \times T2 + 0.40 \times T3$$
 
 Donde:
-- **T1 (30%)**: Trabajo Grupal 1 - Sesión 4 (14 de Agosto)
-- **T2 (30%)**: Trabajo Grupal 2 - Sesión 7 (26 de Agosto)
-- **T3 (40%)**: Trabajo Grupal 3 - Sesión 8 (28 de Agosto)
+- **T1 (30%)**: Trabajo Grupal 1 - Sesión 4 (9 de Junio)
+- **T2 (30%)**: Trabajo Grupal 2 - Sesión 7 (18 de Junio)
+- **T3 (40%)**: Trabajo Grupal 3 - Sesión 8 (23 de Junio)
 
 ### Criterios de Evaluación
 
@@ -169,4 +169,4 @@ El instructor se reserva el derecho de hacer cambios al syllabus si lo considera
 
 ---
 
-**Última actualización**: Agosto 2026
+**Última actualización**: Mayo - Junio 2026

@@ -1,7 +1,7 @@
 # Trabajo Grupal 1: Análisis de Datos Estructurales
 
 !!! info "📅 Evaluación 1"
-    **Sesión:** 4 | **Fecha:** Jueves, 14 de Agosto de 2026 | **Peso:** 30%
+    **Sesión:** 4 | **Fecha:** Martes, 9 de Junio de 2026 | **Peso:** 30%
 
 ## 🎯 Objetivo
 
@@ -67,7 +67,7 @@ Debe incluir secciones:
 
 ## 📋 Checklist de Entrega
 
-**Antes de las 23:59 del 14 de Agosto:**
+**Antes de las 23:59 del 9 de Junio:**
 
 - [ ] Presentación preparada (PPT/PDF)
 - [ ] Notebook funcionando y reproducible

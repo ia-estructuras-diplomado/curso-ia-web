@@ -1,7 +1,7 @@
 # Sesión 1: Introducción a la IA en Ingeniería Civil
 
 !!! info "📅 Programada"
-    **Fecha:** Martes, 5 de Agosto de 2026 | **Hora:** 09:00 - 12:00 | **Ubicación:** Aula Virtual
+    **Fecha:** Jueves, 28 de Mayo de 2026 | **Hora:** 09:00 - 12:00 | **Ubicación:** Aula Virtual
 
 ## 🎯 Objetivos
 

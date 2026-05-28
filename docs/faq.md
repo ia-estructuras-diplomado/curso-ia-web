@@ -4,15 +4,15 @@
 
 **P: ¿Cuáles son exactamente las fechas del curso?**
 
-R: El curso se desarrolla durante 4 semanas en Agosto de 2026:
-- Sesión 1: 5 de Agosto
-- Sesión 2: 7 de Agosto
-- Sesión 3: 12 de Agosto
-- Sesión 4: 14 de Agosto (T1)
-- Sesión 5: 19 de Agosto
-- Sesión 6: 21 de Agosto
-- Sesión 7: 26 de Agosto (T2)
-- Sesión 8: 28 de Agosto (T3)
+R: El curso se desarrolla durante 4 semanas en Mayo - Junio de 2026:
+- Sesión 1: 28 de Mayo
+- Sesión 2: 2 de Junio
+- Sesión 3: 4 de Junio
+- Sesión 4: 9 de Junio (T1)
+- Sesión 5: 11 de Junio
+- Sesión 6: 16 de Junio
+- Sesión 7: 18 de Junio (T2)
+- Sesión 8: 23 de Junio (T3)
 
 **P: ¿A qué hora son las sesiones?**
 
@@ -229,4 +229,4 @@ R: Google Colab ofrece GPU gratis. Python local depende tu máquina.
 
 ¿No encontraste respuesta? **Contacta:** info@ia-estructuras.edu
 
-**Última actualización:** Agosto 2026
+**Última actualización:** Mayo - Junio 2026

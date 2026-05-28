@@ -15,9 +15,9 @@ Donde:
 
 | Evaluación | Sesión | Fecha | Tipo | Peso |
 |------------|--------|-------|------|------|
-| T1 | 4 | 14 de Agosto | Trabajo Grupal 1 | 30% |
-| T2 | 7 | 26 de Agosto | Trabajo Grupal 2 | 30% |
-| T3 | 8 | 28 de Agosto | Trabajo Grupal 3 | 40% |
+| T1 | 4 | 9 de Junio | Trabajo Grupal 1 | 30% |
+| T2 | 7 | 18 de Junio | Trabajo Grupal 2 | 30% |
+| T3 | 8 | 23 de Junio | Trabajo Grupal 3 | 40% |
 
 ## Escala de Calificación
 
@@ -205,7 +205,7 @@ R: Debe documentarse y reportarse. El instructor puede ajustar notas individuale
 R: NF ≥ 3.0
 
 **P: ¿Hay oportunidad de recuperación?**  
-R: No hay recuperatorios. La nota es definitiva en T3 (28 de agosto).
+R: No hay recuperatorios. La nota es definitiva en T3 (23 de junio).
 
 ---
 

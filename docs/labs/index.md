@@ -18,19 +18,19 @@ Tu tarea será:
 ## 🎯 Laboratorios Disponibles
 
 ### Lab 1: Fundamentos de Machine Learning
-**Sesión:** 3 (12 de Agosto)  
+**Sesión:** 3 (4 de Junio)  
 **Tema:** Regresión y clasificación con datos estructurales  
 **Duración:** 2 horas  
 **[→ Ir al Lab 1](lab1.md)**
 
 ### Lab 2: Monitoreo Estructural Inteligente
-**Sesión:** 4-5 (14-19 de Agosto)  
+**Sesión:** 4-5 (14-11 de Junio)  
 **Tema:** Detección de anomalías usando SHM  
 **Duración:** 4 horas  
 **[→ Ir al Lab 2](lab2.md)**
 
 ### Lab 3: Clustering y Procesamiento de Señales
-**Sesión:** 5-6 (19-21 de Agosto)  
+**Sesión:** 5-6 (19-16 de Junio)  
 **Tema:** K-Means, clustering jerárquico en datos de vibración  
 **Duración:** 3 horas  
 **[→ Ir al Lab 3](lab3.md)**

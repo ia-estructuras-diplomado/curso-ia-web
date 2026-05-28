@@ -1,0 +1,6 @@
+desplazamiento,velocidad,aceleracion,temperatura,salud_estructura
+0.012,0.045,0.120,22.4,Bueno
+0.015,0.052,0.150,22.8,Bueno
+0.011,0.038,0.110,21.9,Bueno
+0.089,0.210,0.850,34.2,Deficiente
+0.145,0.320,1.250,35.0,Critico

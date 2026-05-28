@@ -4,7 +4,7 @@
 course:
   name: "Inteligencia Artificial para Ingeniería Civil"
   code: "DIPLO-IA-001"
-  semester: "Agosto 2026"
+  semester: "Mayo - Junio 2026"
   level: "Diplomado"
   credits: 3
   
@@ -16,57 +16,57 @@ course:
   # Horario de sesiones (se puede ajustar fácilmente)
   sessions:
     - number: 1
-      date: "2026-08-05"
-      day: "Martes"
+      date: "2026-05-28"
+      day: "Jueves"
       time: "09:00 - 12:00"
       title: "Introducción a la IA en Ingeniería Civil"
       location: "Aula Virtual"
       
     - number: 2
-      date: "2026-08-07"
-      day: "Jueves"
+      date: "2026-06-02"
+      day: "Martes"
       time: "09:00 - 12:00"
       title: "Casos Reales y Big Data"
       location: "Aula Virtual"
       
     - number: 3
-      date: "2026-08-12"
-      day: "Martes"
+      date: "2026-06-04"
+      day: "Jueves"
       time: "09:00 - 12:00"
       title: "Aprendizaje Automático - Modelos"
       location: "Aula Virtual"
       
     - number: 4
-      date: "2026-08-14"
-      day: "Jueves"
+      date: "2026-06-09"
+      day: "Martes"
       time: "09:00 - 12:00"
       title: "Trabajo Grupal 1 - Exposiciones"
       location: "Aula Virtual"
       
     - number: 5
-      date: "2026-08-19"
-      day: "Martes"
+      date: "2026-06-11"
+      day: "Jueves"
       time: "09:00 - 12:00"
       title: "Procesamiento de Señales y Clústeres"
       location: "Aula Virtual"
       
     - number: 6
-      date: "2026-08-21"
-      day: "Jueves"
+      date: "2026-06-16"
+      day: "Martes"
       time: "09:00 - 12:00"
       title: "Futuro de los Modelos y Tendencias"
       location: "Aula Virtual"
       
     - number: 7
-      date: "2026-08-26"
-      day: "Martes"
+      date: "2026-06-18"
+      day: "Jueves"
       time: "09:00 - 12:00"
       title: "Trabajo Grupal 2 - Evaluación"
       location: "Aula Virtual"
       
     - number: 8
-      date: "2026-08-28"
-      day: "Jueves"
+      date: "2026-06-23"
+      day: "Martes"
       time: "09:00 - 12:00"
       title: "Trabajo Grupal 3 - Cierre del Curso"
       location: "Aula Virtual"
@@ -84,15 +84,15 @@ grading:
     T1: 
       name: "Trabajo Grupal 1"
       percentage: 30
-      date: "2026-08-14"
+      date: "2026-06-09"
     T2: 
       name: "Trabajo Grupal 2"
       percentage: 30
-      date: "2026-08-26"
+      date: "2026-06-18"
     T3: 
       name: "Trabajo Grupal 3"
       percentage: 40
-      date: "2026-08-28"
+      date: "2026-06-23"
 
 # Prerrequisitos y descripción
 prerequisites: "Conocimientos básicos en programación y conceptos de ingeniería"

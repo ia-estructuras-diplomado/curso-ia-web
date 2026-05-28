@@ -5,6 +5,9 @@ site_author: IA Estructuras Diplomado
 theme:
   name: material
   language: es
+  font:
+    text: Outfit
+    code: Fira Code
   palette:
     - scheme: default
       primary: blue
@@ -78,6 +81,9 @@ nav:
 
 repo_url: https://github.com/ia-estructuras-diplomado/curso-ia-web
 repo_name: GitHub
+
+extra_css:
+  - stylesheets/extra.css
 
 extra:
   social:

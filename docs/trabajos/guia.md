@@ -10,9 +10,9 @@ Hay **3 trabajos grupales** evaluados en las sesiones 4, 7 y 8:
 
 | Trabajo | Sesión | Fecha | Peso | Tema |
 |---------|--------|-------|------|------|
-| **T1** | 4 | 14 Ago | 30% | Análisis básico con ML |
-| **T2** | 7 | 26 Ago | 30% | Aplicación intermedia |
-| **T3** | 8 | 28 Ago | 40% | Integración y síntesis |
+| **T1** | 4 | 9 Jun | 30% | Análisis básico con ML |
+| **T2** | 7 | 18 Jun | 30% | Aplicación intermedia |
+| **T3** | 8 | 23 Jun | 40% | Integración y síntesis |
 
 ## 👥 Conformación de Grupos
 
@@ -79,9 +79,9 @@ Cada grupo debe entregar:
 
 | Trabajo | Sesión | Fecha | Límite Entrega | Presentación |
 |---------|--------|-------|-----------------|--------------|
-| T1 | 4 | 14 Ago | 14 Ago 23:59 | 14 Ago |
-| T2 | 7 | 26 Ago | 26 Ago 23:59 | 26 Ago |
-| T3 | 8 | 28 Ago | 28 Ago 23:59 | 28 Ago |
+| T1 | 4 | 9 Jun | 9 Jun 23:59 | 9 Jun |
+| T2 | 7 | 18 Jun | 18 Jun 23:59 | 18 Jun |
+| T3 | 8 | 23 Jun | 23 Jun 23:59 | 23 Jun |
 
 ## 🚀 Procesos y Responsabilidades
 

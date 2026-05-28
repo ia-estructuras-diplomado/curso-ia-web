@@ -1,7 +1,7 @@
 # Lab 1: Fundamentos de Machine Learning
 
 !!! info "📅 Sesión 3"
-    **Fecha:** Martes, 12 de Agosto de 2026 | **Duración:** 2 horas
+    **Fecha:** Jueves, 4 de Junio de 2026 | **Duración:** 2 horas
 
 ## 🎯 Objetivo
 

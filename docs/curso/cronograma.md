@@ -7,18 +7,19 @@ El curso se desarrolla en **4 semanas** con **8 sesiones**, combinando contenido
 ### 📅 Vista General
 
 ```
-Agosto 2026
-SEMANA 1:  Lunes 4  |  Martes 5 *(SES 1)  |  Miércoles 6  |  Jueves 7 *(SES 2)  |  Viernes 8
-SEMANA 2:  Lunes 11 |  Martes 12 *(SES 3) |  Miércoles 13 |  Jueves 14 *(SES 4) |  Viernes 15
-SEMANA 3:  Lunes 18 |  Martes 19 *(SES 5) |  Miércoles 20 |  Jueves 21 *(SES 6) |  Viernes 22
-SEMANA 4:  Lunes 25 |  Martes 26 *(SES 7) |  Miércoles 27 |  Jueves 28 *(SES 8) |  Viernes 29
+Mayo - Junio 2026
+SEMANA 1 (May 25):  Lunes 25 | Martes 26 | Miércoles 27 | Jueves 28 *(SES 1) | Viernes 29
+SEMANA 2 (Jun 01):  Lunes 1  | Martes 2 *(SES 2)  | Miércoles 3  | Jueves 4 *(SES 3)  | Viernes 5
+SEMANA 3 (Jun 08):  Lunes 8  | Martes 9 *(SES 4)  | Miércoles 10 | Jueves 11 *(SES 5) | Viernes 12
+SEMANA 4 (Jun 15):  Lunes 15 | Martes 16 *(SES 6) | Miércoles 17 | Jueves 18 *(SES 7) | Viernes 19
+SEMANA 5 (Jun 22):  Lunes 22 | Martes 23 *(SES 8) | Miércoles 24 | Jueves 25 | Viernes 26
 ```
 
 ## Sesiones Detalladas
 
 ### 🟦 Sesión 1: Introducción a la IA en Ingeniería Civil
 
-**📅 Fecha:** Martes, 5 de Agosto de 2026  
+**📅 Fecha:** Jueves, 28 de Mayo de 2026  
 **⏰ Horario:** 09:00 - 12:00 (3 horas)  
 **📍 Ubicación:** Aula Virtual  
 **🎯 Tipo:** Teórico + Práctico
@@ -41,7 +42,7 @@ SEMANA 4:  Lunes 25 |  Martes 26 *(SES 7) |  Miércoles 27 |  Jueves 28 *(SES 8)
 
 ### 🟦 Sesión 2: Casos Reales y Big Data
 
-**📅 Fecha:** Jueves, 7 de Agosto de 2026  
+**📅 Fecha:** Martes, 2 de Junio de 2026  
 **⏰ Horario:** 09:00 - 12:00 (3 horas)  
 **📍 Ubicación:** Aula Virtual  
 **🎯 Tipo:** Teórico + Práctico
@@ -64,7 +65,7 @@ SEMANA 4:  Lunes 25 |  Martes 26 *(SES 7) |  Miércoles 27 |  Jueves 28 *(SES 8)
 
 ### 🟦 Sesión 3: Aprendizaje Automático - Modelos
 
-**📅 Fecha:** Martes, 12 de Agosto de 2026  
+**📅 Fecha:** Jueves, 4 de Junio de 2026  
 **⏰ Horario:** 09:00 - 12:00 (3 horas)  
 **📍 Ubicación:** Aula Virtual  
 **🎯 Tipo:** Teórico + Práctico
@@ -88,7 +89,7 @@ SEMANA 4:  Lunes 25 |  Martes 26 *(SES 7) |  Miércoles 27 |  Jueves 28 *(SES 8)
 
 ### 🎯 Sesión 4: Trabajo Grupal 1 - Exposiciones
 
-**📅 Fecha:** Jueves, 14 de Agosto de 2026  
+**📅 Fecha:** Martes, 9 de Junio de 2026  
 **⏰ Horario:** 09:00 - 12:00 (3 horas)  
 **📍 Ubicación:** Aula Virtual  
 **🎯 Tipo:** Evaluación
@@ -109,7 +110,7 @@ SEMANA 4:  Lunes 25 |  Martes 26 *(SES 7) |  Miércoles 27 |  Jueves 28 *(SES 8)
 
 ### 🟦 Sesión 5: Procesamiento de Señales y Clústeres
 
-**📅 Fecha:** Martes, 19 de Agosto de 2026  
+**📅 Fecha:** Jueves, 11 de Junio de 2026  
 **⏰ Horario:** 09:00 - 12:00 (3 horas)  
 **📍 Ubicación:** Aula Virtual  
 **🎯 Tipo:** Teórico + Práctico
@@ -133,7 +134,7 @@ SEMANA 4:  Lunes 25 |  Martes 26 *(SES 7) |  Miércoles 27 |  Jueves 28 *(SES 8)
 
 ### 🟦 Sesión 6: Futuro de los Modelos y Tendencias
 
-**📅 Fecha:** Jueves, 21 de Agosto de 2026  
+**📅 Fecha:** Martes, 16 de Junio de 2026  
 **⏰ Horario:** 09:00 - 12:00 (3 horas)  
 **📍 Ubicación:** Aula Virtual  
 **🎯 Tipo:** Teórico + Práctico
@@ -156,7 +157,7 @@ SEMANA 4:  Lunes 25 |  Martes 26 *(SES 7) |  Miércoles 27 |  Jueves 28 *(SES 8)
 
 ### 🎯 Sesión 7: Trabajo Grupal 2 - Evaluación
 
-**📅 Fecha:** Martes, 26 de Agosto de 2026  
+**📅 Fecha:** Jueves, 18 de Junio de 2026  
 **⏰ Horario:** 09:00 - 12:00 (3 horas)  
 **📍 Ubicación:** Aula Virtual  
 **🎯 Tipo:** Evaluación
@@ -177,7 +178,7 @@ SEMANA 4:  Lunes 25 |  Martes 26 *(SES 7) |  Miércoles 27 |  Jueves 28 *(SES 8)
 
 ### 🎯 Sesión 8: Trabajo Grupal 3 - Cierre del Curso
 
-**📅 Fecha:** Jueves, 28 de Agosto de 2026  
+**📅 Fecha:** Martes, 23 de Junio de 2026  
 **⏰ Horario:** 09:00 - 12:00 (3 horas)  
 **📍 Ubicación:** Aula Virtual  
 **🎯 Tipo:** Evaluación Final
@@ -203,16 +204,16 @@ $$NF = 0.30 \times T1 + 0.30 \times T2 + 0.40 \times T3$$
 
 | Fecha | Hito | Descripción |
 |-------|------|-------------|
-| 5 Ago | Sesión 1 | Introducción y setup |
-| 12 Ago | Sesión 3 | Primera práctica de ML |
-| 14 Ago | **T1 (30%)** | Primera evaluación |
-| 21 Ago | Sesión 6 | Innovación y futuro |
-| 26 Ago | **T2 (30%)** | Segunda evaluación |
-| 28 Ago | **T3 (40%)** | Evaluación final |
+| 28 May | Sesión 1 | Introducción y setup |
+| 4 Jun | Sesión 3 | Primera práctica de ML |
+| 9 Jun | **T1 (30%)** | Primera evaluación |
+| 16 Jun | Sesión 6 | Innovación y futuro |
+| 18 Jun | **T2 (30%)** | Segunda evaluación |
+| 23 Jun | **T3 (40%)** | Evaluación final |
 
 ## Preparación Previa
 
-### Antes del 5 de Agosto
+### Antes del 28 de Mayo
 
 - [ ] Instalar Python 3.9+
 - [ ] Configurar Jupyter Notebook o usar Google Colab

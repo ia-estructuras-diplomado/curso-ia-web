@@ -170,6 +170,6 @@ Publicación, 2024.
 
 ---
 
-**Última actualización:** Agosto 2026
+**Última actualización:** Mayo - Junio 2026
 
 ¿Recomendaciones adicionales? Contacta a info@ia-estructuras.edu
