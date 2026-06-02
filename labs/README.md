@@ -23,20 +23,23 @@ El devcontainer ejecuta `labs/setup.sh` y usa el intérprete `labs/.venv/bin/pyt
 
 ## Labs disponibles
 
-| Lab | Carpeta | Tema | Guía web |
-|-----|---------|------|----------|
-| 0 | [`lab0/`](lab0/) | Fundamentos de Python para IA | Sesión 1 |
-| 1 | [`lab1/`](lab1/) | Fundamentos ML — resistencia hormigón (UCI) | [Lab 1](https://ia-estructuras-diplomado.github.io/curso-ia-web/labs/lab1/) |
-| 2 | [`lab2/`](lab2/) | Monitoreo SHM — detección de anomalías | [Lab 2](https://ia-estructuras-diplomado.github.io/curso-ia-web/labs/lab2/) *(notebook pendiente)* |
-| 3 | [`lab3/`](lab3/) | PCA, clustering y señales (Kaggle SHM) | [Lab 3](https://ia-estructuras-diplomado.github.io/curso-ia-web/labs/lab3/) |
+| Lab | Carpeta | Tema | Estado |
+|-----|---------|------|--------|
+| 0 | [`lab0/`](lab0/) | Fundamentos de Python para IA | ✅ |
+| 1 | [`lab1/`](lab1/) | PCA, KMeans, DBSCAN y monitoreo SHM (Kaggle) | ✅ |
+| 2 | [`lab2/`](lab2/) | Resistencia a compresión del hormigón (UCI) | ✅ |
+| 3 | [`lab3/`](lab3/) | Inteligencia artificial explicable (xAI) | 🚧 |
+| 4 | [`lab4/`](lab4/) | Detección de anomalías en sensores de presa | 🚧 |
+| 5 | [`lab5/`](lab5/) | Visión por computador para inspección estructural | 🚧 |
+| 6 | [`lab6/`](lab6/) | Series temporales y pronóstico estructural | 🚧 |
 
-La numeración de carpetas `labs/labN/` coincide con el syllabus del curso (Lab 1, 2, 3).
+La numeración de carpetas `labs/labN/` coincide con el syllabus del curso (Lab 1, 2, 3…).
 
-## Publicación a alumnos
+## Publicación a alumnos (`curso-ia-dev` → `curso-ia-web`)
 
-1. Editar notebooks en este repo (`curso-ia-dev`).
-2. `git push` a `main` → workflow **Sync labs to curso-ia-web** copia `labs/` y `.devcontainer/` al repo público.
-3. Requiere secreto `LABS_SYNC_TOKEN` en GitHub Actions de este repo.
+1. Editar notebooks **solo** en este repo (`curso-ia-dev`).
+2. `git push` a `main` → el workflow **Sync labs to curso-ia-web** copia `labs/` y `.devcontainer/` **desde dev hacia web** (nunca al revés).
+3. Requiere secreto `LABS_SYNC_TOKEN` (repository secret) en GitHub Actions de `curso-ia-dev`.
 
 ## Notas
 

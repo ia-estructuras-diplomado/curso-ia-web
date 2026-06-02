@@ -1,17 +1,31 @@
-# Lab 2 — Monitoreo Estructural Inteligente (SHM)
+# Lab 2 — Predicción de Resistencia a la Compresión
 
-**Sesión 5** · Detección de anomalías en datos de inclinómetros y sensores de presa.
+**Sesión 3** · Regresión supervisada con el dataset UCI de **resistencia a compresión del hormigón**.
 
-## Estado
+## Archivos
 
-**En desarrollo.** La guía teórica está en [curso-ia-web/docs/labs/lab2.md](https://ia-estructuras-diplomado.github.io/curso-ia-web/labs/lab2/).
+| Archivo | Uso |
+|---------|-----|
+| `resistencia_compresion_alumno.ipynb` | Notebook del alumno (10 preguntas) |
+| `resistencia_compresion_solucion.ipynb` | Referencia docente |
+| `_verificar.py` | Autoevaluación ✅ / ❌ |
+| `_preparar_datos.py` | Convierte `data/Concrete_Data.xls` → `data/concrete.csv` |
+| `data/DATOS.md` | Documentación de variables |
+| `data/concrete.csv` | Dataset listo (1 030 × 9) |
 
-Cuando esté listo, esta carpeta incluirá:
+## Entorno local
 
-- `*_alumno.ipynb` — Isolation Forest, LOF, dataset `datos_presa_shm.csv`
-- `*_solucion.ipynb` — referencia docente
-- `data/` — datos del laboratorio
+```bash
+bash labs/setup.sh
+source labs/.venv/bin/activate
+cd labs/lab2
+jupyter notebook resistencia_compresion_alumno.ipynb
+```
 
 ## GitHub Codespaces
 
-Mismo entorno que el resto de labs: [Codespaces del curso](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web).
+Abrir `labs/lab2/resistencia_compresion_alumno.ipynb`
+
+Guía del curso: [Lab 2 en curso-ia-web](https://ia-estructuras-diplomado.github.io/curso-ia-web/labs/lab2/)
+
+Ver [`../GUIA_LABORATORIOS.md`](../GUIA_LABORATORIOS.md)

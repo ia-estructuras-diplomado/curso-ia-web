@@ -1,58 +1,42 @@
-# Dataset — Resistencia a la compresión del hormigón (UCI)
+# Dataset — Monitoreo estructural con sensores (Kaggle)
 
-## Origen y licencia
+**Archivo:** `building_health_monitoring_dataset.csv`  
+**Fuente:** [Building Structural Health Sensor Dataset](https://www.kaggle.com/datasets/ziya07/building-structural-health-sensor-dataset) (Ziya07)
 
-- **Repositorio:** [UCI Machine Learning — Concrete Compressive Strength](https://archive.ics.uci.edu/dataset/165/concrete+compressive+strength)
-- **Autor original:** Prof. I-Cheng Yeh (Chung-Hua University, Taiwán)
-- **Archivo fuente en este repo:** `Concrete_Data.xls` → convertido a `concrete.csv`
-- **Observaciones:** 1 030 mezclas de laboratorio · **sin valores faltantes**
+## Contexto en obra
 
-> Reutilización permitida citando el paper original de Yeh (1998), *Cement and Concrete Research*.
+Registro **time-series** (1 Hz) de sensores instalados en una estructura para **Structural Health Monitoring (SHM)**. Cada fila es una lectura instantánea de acelerómetros, extensómetro y termómetro. La columna `Condition Label` resume el estado estructural en ese instante.
 
-## ¿Qué representa cada fila?
+| Variable | Unidad | Significado |
+|----------|--------|-------------|
+| `Timestamp` | fecha-hora | Marca temporal de la lectura |
+| `Accel_X`, `Accel_Y`, `Accel_Z` | m/s² | Aceleración en tres ejes (vibración / movimiento) |
+| `Strain` | με (microdeformación) | Deformación del material (extensómetro) |
+| `Temp` | °C | Temperatura ambiente / del sensor |
+| **`Condition Label`** | **0 / 1 / 2** | **Estado estructural (target para clasificación)** |
 
-Cada registro es una **mezcla de hormigón** probada en laboratorio. Se midieron los kg/m³ de cada componente, la **edad del ensayo** (días de curado) y la **resistencia a compresión** obtenida (MPa).
+## Etiquetas de condición
 
-En obra, esta variable es la que usamos para verificar cumplimiento estructural; aquí la predecimos a partir de la dosificación.
+| Valor | Interpretación típica |
+|-------|----------------------|
+| **0** | Condición **normal** — lecturas dentro de rango esperado |
+| **1** | **Daño menor** — desviaciones moderadas en sensores |
+| **2** | **Daño severo** — patrones de alerta (deformación/vibración elevadas) |
 
-## Variables (`concrete.csv`)
+> En este lab usamos las etiquetas para **colorear proyecciones PCA** y comparar clasificación con features originales vs reducidos.
 
-| Columna | Unidad | Rol | Descripción breve |
-|---------|--------|-----|-------------------|
-| `Cemento` | kg/m³ | Feature | Ligante principal |
-| `Escoria` | kg/m³ | Feature | Escoria de alto horno (cemento suplementario) |
-| `CenizaVolante` | kg/m³ | Feature | Ceniza volante (puzolana) |
-| `Agua` | kg/m³ | Feature | Agua de amasado — influye en relación a/c |
-| `Superplastificante` | kg/m³ | Feature | Aditivo reductor de agua |
-| `AgregadoGrueso` | kg/m³ | Feature | Grava / áridos gruesos |
-| `AgregadoFino` | kg/m³ | Feature | Arena / áridos finos |
-| `Edad` | días | Feature | Días desde el vaciado hasta el ensayo (1–365) |
-| `Resistencia` | MPa | **Target (y)** | Resistencia a compresión medida |
+## Calidad de datos
 
-## Rangos típicos (resumen estadístico)
+- **1 000** registros · **7** columnas.
+- Hay **lecturas faltantes** en sensores (~96 filas con al menos un nulo). El notebook **elimina** esas filas (estrategia pre-escrita) → **904** muestras limpias para PCA.
+- Tras limpieza: ~637 normales, ~165 daño menor, ~102 daño severo.
 
-| Variable | Mín | Media | Máx |
-|----------|-----|-------|-----|
-| Cemento | 102 | 281 | 540 |
-| Agua | 122 | 182 | 247 |
-| Edad | 1 | 46 | 365 |
-| Resistencia | 2,3 | 35,8 | 82,6 |
+## Por qué PCA aquí
 
-La resistencia varía mucho porque incluye probetas jóvenes (pocos días) y mezclas con distinta dosificación.
+Con 5 sensores continuos hay **redundancia parcial** (ej. ejes de aceleración correlacionados). PCA:
 
-## Tipo de problema de Machine Learning
+1. Combina sensores en **componentes principales** (PC1, PC2, …) que capturan la mayor varianza.
+2. Permite **visualizar** estados en 2D/3D.
+3. Reduce dimensionalidad antes de un clasificador, útil cuando hay muchos sensores o ruido.
 
-- **Regresión supervisada:** la salida `Resistencia` es un número continuo (MPa), no una categoría.
-- **Features (X):** las 8 columnas de ingredientes y edad.
-- **Target (y):** `Resistencia`.
-
-## Interpretación física (enfoque profesional)
-
-1. **Edad:** a igual dosificación, probetas más viejas suelen tener mayor resistencia (hidrataración).
-2. **Agua:** más agua → mayor relación agua/cemento → suele **reducir** resistencia (correlación negativa en este dataset).
-3. **Cemento y aditivos:** más cemento o superplastificante bien dosificado puede **aumentar** resistencia sin subir agua.
-4. **Uso en planta:** un modelo no sustituye ensayos normativos, pero ayuda a **explorar dosificaciones** y reducir ensayos destructivos de prueba.
-
-## Advertencia
-
-Estos datos provienen de **laboratorio controlado**. Antes de aplicar un modelo en obra real debes validar con ensayos locales, normativa vigente y condiciones de planta (temperatura, curado, calidad de áridos).
+**Importante:** PCA es **no supervisado** — no usa `Condition Label` para crear los componentes; la etiqueta solo ayuda a **interpretar** el gráfico después.
