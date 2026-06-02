@@ -2,54 +2,35 @@
 
 ## Enfoque profesional
 
-Los laboratorios están diseñados para **profesionales de ingeniería civil**, no para aprender a programar desde cero. Trabajarás con:
+Los laboratorios están diseñados para **profesionales de ingeniería civil**. Trabajarás con **Jupyter Notebooks** en [GitHub Codespaces](codespaces.md), datasets reales y Scikit-learn / Pandas.
 
-- **Jupyter Notebooks pre-configurados** en [GitHub Codespaces](codespaces.md)
-- **Datasets reales** (hormigón UCI, sensores SHM, etc.)
-- **Herramientas profesionales** (Scikit-learn, Pandas, Matplotlib)
+## Acceso rápido — guía y Codespace por lab
 
-Tu tarea será:
+| Lab | Guía | Crear Codespace | Notebook |
+|:---:|:-----|:----------------|:---------|
+| **0** | [Sesión 1](../sesiones/sesion1.md) | [▶ Lab 0](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json) | [📓 Python IA](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab0/fundamentos_python_ia_alumno.ipynb) |
+| **1** | [Lab 1 — Fundamentos ML](lab1.md) | [▶ Lab 1](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json) | [📓 Resistencia hormigón](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab1/resistencia_compresion_alumno.ipynb) |
+| **2** | [Lab 2 — Monitoreo SHM](lab2.md) | [▶ Lab 2](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json) | *Próximamente* |
+| **3** | [Lab 3 — Clustering](lab3.md) | [▶ Lab 3](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json) | [📓 PCA / SHM](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab3/pca_monitoreo_estructural_alumno.ipynb) |
 
-- Entender qué hace cada paso
-- Modificar hiperparámetros en celdas marcadas `### TU TAREA AQUÍ ###`
-- Analizar resultados y tomar decisiones informadas
+!!! tip "¿Cómo funciona?"
+    1. Haz clic en **▶ Lab N** → GitHub te pide iniciar sesión → creas o reanudas un Codespace con el entorno del curso.
+    2. Haz clic en **📓** → abres el notebook en GitHub; desde ahí también puedes usar **Open in Codespace**.
+    3. Detalle en [Guía Codespaces](codespaces.md).
 
 ## Laboratorios disponibles
 
 ### Lab 1: Fundamentos de Machine Learning
-**Sesión:** 3 (4 de Junio)  
-**Tema:** Regresión supervisada con datos de resistencia a compresión del hormigón (UCI)  
-**Duración:** ~2 horas  
-**[→ Ir al Lab 1](lab1.md)**
+**Sesión 3** · Regresión con datos UCI de hormigón · ~2 h  
+**[→ Guía completa + botones](lab1.md)**
 
 ### Lab 2: Monitoreo Estructural Inteligente
-**Sesión:** 5 (11 de Junio)  
-**Tema:** Detección de anomalías en datos SHM  
-**Estado:** Guía teórica disponible; notebook en Codespaces próximamente  
-**[→ Ir al Lab 2](lab2.md)**
+**Sesión 5** · Detección de anomalías SHM · *notebook pendiente*  
+**[→ Guía completa](lab2.md)**
 
 ### Lab 3: Clustering y Procesamiento de Señales
-**Sesión:** 5–6 (11–16 de Junio)  
-**Tema:** PCA, K-Means, DBSCAN en sensores de monitoreo estructural  
-**Duración:** ~3 horas  
-**[→ Ir al Lab 3](lab3.md)**
-
-## Cómo empezar (Codespaces)
-
-1. Crea una cuenta en GitHub si aún no tienes.
-2. Sigue la **[Guía de Codespaces](codespaces.md)**.
-3. Abre el notebook `*_alumno.ipynb` indicado en cada lab.
-
-[➡️ Crear Codespace del curso](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web){ .md-button }
-
-## Estructura típica de un lab
-
-```
-1. INTRO (10 min)     — Contexto y objetivo
-2. EXPLORACIÓN (30 min) — EDA y visualización
-3. MODELADO (45 min)  — Entrenamiento y evaluación
-4. ANÁLISIS (30 min)  — Interpretación e insights
-```
+**Sesión 5–6** · PCA, K-Means, DBSCAN · ~3 h  
+**[→ Guía completa + botones](lab3.md)**
 
 ## Contenido gradual
 
@@ -60,12 +41,11 @@ Tu tarea será:
 | Lab 2 | Sesión 5 (notebook pendiente) |
 | Lab 3 | Sesión 5 |
 
-## Recursos adicionales
+## Recursos
 
 - [Guía Codespaces](codespaces.md)
 - [Herramientas y setup](../recursos/herramientas.md)
-- [Librerías Python](../recursos/librerias.md)
 
 ---
 
-**¿Listo?** → [Crear Codespace](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web) · [Lab 1](lab1.md)
+**Entorno general:** [Crear Codespace del curso](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json){ .md-button .md-button--primary }

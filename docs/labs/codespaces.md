@@ -1,35 +1,42 @@
 # GitHub Codespaces — Guía rápida
 
-Los laboratorios prácticos se ejecutan en **GitHub Codespaces** sobre el repositorio [`curso-ia-web`](https://github.com/ia-estructuras-diplomado/curso-ia-web). El sitio de documentación (GitHub Pages) solo muestra las guías; los notebooks viven en la rama `main` del mismo repo.
+Los laboratorios se ejecutan en **GitHub Codespaces** sobre [`curso-ia-web`](https://github.com/ia-estructuras-diplomado/curso-ia-web). Esta web (GitHub Pages) muestra las guías; los notebooks están en la rama `main` del mismo repo.
 
-## Crear tu entorno
+## Enlaces por laboratorio
 
-1. Inicia sesión en [GitHub](https://github.com).
-2. Abre **[Crear Codespace del curso](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web)**.
-3. Espera a que termine el build del contenedor (1–3 minutos la primera vez).
-4. En el explorador de archivos, abre el notebook del lab indicado en la guía (ruta `labs/.../*_alumno.ipynb`).
-5. Selecciona el kernel **Python 3.11** de `labs/.venv` (configurado automáticamente).
+| Lab | Guía | Crear Codespace | Abrir notebook |
+|:---:|:-----|:----------------|:---------------|
+| **0** | [Sesión 1](../sesiones/sesion1.md) | [▶ Lab 0](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json) | [📓 `lab0/…_alumno.ipynb`](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab0/fundamentos_python_ia_alumno.ipynb) |
+| **1** | [Lab 1](lab1.md) | [▶ Lab 1](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json) | [📓 `lab1/resistencia_compresion_alumno.ipynb`](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab1/resistencia_compresion_alumno.ipynb) |
+| **2** | [Lab 2](lab2.md) | [▶ Lab 2](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json) | *Próximamente* |
+| **3** | [Lab 3](lab3.md) | [▶ Lab 3](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json) | [📓 `lab3/pca_monitoreo_estructural_alumno.ipynb`](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab3/pca_monitoreo_estructural_alumno.ipynb) |
 
-Al crear el Codespace, el contenedor ejecuta `labs/setup.sh` e instala todas las dependencias de [`labs/requirements.txt`](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/requirements.txt).
+Cada página de lab ([Lab 1](lab1.md), [Lab 2](lab2.md), [Lab 3](lab3.md)) incluye botones **Crear Codespace** y **Abrir notebook** al inicio.
 
-## Rutas de notebooks por lab
+## Formato de la URL de Codespaces
 
-| Guía web | Notebook en el repo |
-|----------|---------------------|
-| [Lab 0 — Python (Sesión 1)](../sesiones/sesion1.md) | `labs/lab0/fundamentos_python_ia_alumno.ipynb` |
-| [Lab 1 — Fundamentos ML](lab1.md) | `labs/lab1/resistencia_compresion_alumno.ipynb` |
-| [Lab 2 — Monitoreo SHM](lab2.md) | *Próximamente* (`labs/lab2/`) |
-| [Lab 3 — Clustering y señales](lab3.md) | `labs/lab3/pca_monitoreo_estructural_alumno.ipynb` |
+Plantilla usada en este curso:
 
-## Ejecutar el notebook
+```text
+https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json
+```
 
-- **Run All** o ejecuta celda por celda en orden.
-- Completa solo las celdas marcadas con `### TU TAREA AQUÍ ###`.
-- Busca mensajes ✅ / ⚠️ / ❌ al final de cada sección (autoevaluación).
+| Parámetro | Función |
+|-----------|---------|
+| `quickstart=1` | Página para **reanudar** tu Codespace reciente o **crear** uno nuevo |
+| `devcontainer_path=…` | Usa [`.devcontainer/devcontainer.json`](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/.devcontainer/devcontainer.json) (Python 3.11 + `labs/setup.sh`) |
+
+Al crearse el Codespace, se ejecuta `labs/setup.sh` e instala [`labs/requirements.txt`](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/requirements.txt).
+
+## Pasos para el alumno
+
+1. Clic en **▶ Lab N** (tabla arriba o botón en la guía del lab).
+2. Iniciar sesión en GitHub si es necesario.
+3. Esperar el build (1–3 min la primera vez).
+4. Abrir el notebook `*_alumno.ipynb` (botón **📓** o explorador de archivos en `labs/labN/`).
+5. Kernel: **Python 3.11** de `labs/.venv`.
 
 ## Alternativa local
-
-Si prefieres no usar Codespaces:
 
 ```bash
 git clone https://github.com/ia-estructuras-diplomado/curso-ia-web.git
@@ -42,26 +49,14 @@ jupyter notebook *_alumno.ipynb
 
 ## Troubleshooting
 
-**El build del Codespace tarda mucho**  
-Es normal la primera vez. Los siguientes arranques suelen ser más rápidos.
+**Build lento** — Normal la primera vez; luego suele ser más rápido.
 
-**No encuentro el kernel de Python**  
-Recarga la ventana (`Ctrl+Shift+P` → *Developer: Reload Window*) y vuelve a abrir el notebook. El intérprete debe ser `labs/.venv/bin/python`.
+**Kernel incorrecto** — Recarga la ventana y selecciona `labs/.venv/bin/python`.
 
-**Error al importar una librería**  
-En la terminal del Codespace:
+**Falta una librería** — En terminal del Codespace: `source labs/.venv/bin/activate && pip install -r labs/requirements.txt`
 
-```bash
-source labs/.venv/bin/activate
-pip install -r labs/requirements.txt
-```
-
-**Puerto 8888 / Jupyter**  
-El devcontainer puede reenviar el puerto 8888 si lanzas Jupyter desde terminal. En VS Code/Codespaces suele bastar con abrir el `.ipynb` directamente.
-
-**¿Dónde están las soluciones docente?**  
-Los notebooks `*_solucion.ipynb` se sincronizan al repo pero no están enlazados desde esta documentación. En un repositorio público son técnicamente accesibles vía GitHub; úsalos solo como referencia docente.
+**Los enlaces fallan** — Confirma que `labs/` está publicado en `main` de GitHub (sync desde `curso-ia-dev`).
 
 ---
 
-¿Más ayuda? → [FAQ](../faq.md) · [Herramientas](../recursos/herramientas.md)
+[← Laboratorios](index.md) · [FAQ](../faq.md)

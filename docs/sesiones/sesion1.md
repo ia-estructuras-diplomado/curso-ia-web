@@ -49,15 +49,11 @@ Al finalizar esta sesión, serás capaz de:
 
 ### 1. Configuración del Entorno
 
-**Opción recomendada: GitHub Codespaces**
+--8<-- "lab0-actions.md"
 
-1. Crea cuenta en [GitHub](https://github.com).
-2. Abre **[Crear Codespace del curso](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web)**.
-3. Trabaja el tutorial introductorio: `labs/lab0/fundamentos_python_ia_alumno.ipynb`.
+**Pasos:** pulsa **Crear Codespace — Lab 0**, espera el build y abre el notebook de Python introductorio.
 
 Guía completa: [Codespaces](../labs/codespaces.md).
-
-**Alternativa local:** clona [curso-ia-web](https://github.com/ia-estructuras-diplomado/curso-ia-web) y ejecuta `bash labs/setup.sh`.
 
 ### 2. Primer Notebook
 

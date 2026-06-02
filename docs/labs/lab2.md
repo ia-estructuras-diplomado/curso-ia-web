@@ -1,5 +1,7 @@
 # Lab 2: Monitoreo Estructural Inteligente
 
+--8<-- "lab2-actions.md"
+
 !!! info "Sesión 5"
     **Fecha:** Jueves, 11 de Junio de 2026 | **Duración:** ~2 horas
 
@@ -16,11 +18,11 @@ Una presa de hormigón está instrumentada con inclinómetros y sensores de temp
 
 Tu objetivo será procesar lecturas y entrenar un modelo **no supervisado** (Isolation Forest, LOF) que marque anomalías automáticamente.
 
-## Abrir en GitHub Codespaces (cuando esté disponible)
+## Pasos en Codespaces (cuando haya notebook)
 
-1. **[Crear Codespace](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web)**
-2. Cuando esté disponible, abrir el notebook en `labs/lab2/`.
-3. Ver [Guía Codespaces](codespaces.md) para instrucciones generales.
+1. Pulsa **Crear Codespace — Lab 2** (arriba).
+2. Revisa la guía teórica abajo y el [dataset de referencia](../assets/data/datos_presa_shm.csv).
+3. Cuando se publique el notebook, ábrelo en `labs/lab2/`.
 
 ## Herramientas
 

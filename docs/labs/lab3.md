@@ -1,5 +1,7 @@
 # Lab 3: Clustering y Señales
 
+--8<-- "lab3-actions.md"
+
 !!! info "Sesión 5–6"
     **Fecha:** Jueves 11 / Martes 16 de Junio de 2026 | **Duración:** ~3 horas
 
@@ -13,16 +15,11 @@ Dataset de sensores en edificio (Kaggle): lecturas de acelerómetros, inclinóme
 
 Explorarás correlaciones entre sensores, varianza explicada por PCA, clustering no supervisado y métricas de comparación (Silhouette, ARI).
 
-## Abrir en GitHub Codespaces
+## Pasos en Codespaces
 
-1. Inicia sesión en GitHub.
-2. **[Crear Codespace](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web)** y espera el build.
-3. Abre el notebook:
-
-   `labs/lab3/pca_monitoreo_estructural_alumno.ipynb`
-
-   [Ver notebook en GitHub](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab3/pca_monitoreo_estructural_alumno.ipynb)
-
+1. Pulsa **Crear Codespace — Lab 3** (arriba).
+2. Espera el build del contenedor.
+3. Abre **`labs/lab3/pca_monitoreo_estructural_alumno.ipynb`**.
 4. Ejecuta en orden; completa solo celdas `### TU TAREA AQUÍ ###`.
 
 ## Contenido del notebook

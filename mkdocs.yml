@@ -49,6 +49,8 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - admonition
+  - pymdownx.snippets:
+      base_path: ['docs/_snippets']
   - toc:
       permalink: true
 

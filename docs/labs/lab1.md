@@ -1,5 +1,7 @@
 # Lab 1: Fundamentos de Machine Learning
 
+--8<-- "lab1-actions.md"
+
 !!! info "Sesión 3"
     **Fecha:** Jueves, 4 de Junio de 2026 | **Duración:** ~2 horas
 
@@ -11,16 +13,11 @@ Aprender el flujo completo de un problema de **regresión supervisada**: explora
 
 El dataset incluye variables de mezcla (cemento, agua, aditivos, edad de curado, etc.) y la variable objetivo **Resistencia** (MPa). Tu meta es predecir la resistencia a partir de la composición y comparar la importancia de cada feature.
 
-## Abrir en GitHub Codespaces
+## Pasos en Codespaces
 
-1. Inicia sesión en GitHub.
-2. **[Crear Codespace](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web)** y espera el build.
-3. Abre el notebook:
-
-   `labs/lab1/resistencia_compresion_alumno.ipynb`
-
-   [Ver notebook en GitHub](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab1/resistencia_compresion_alumno.ipynb)
-
+1. Pulsa **Crear Codespace — Lab 1** (arriba) e inicia sesión en GitHub si te lo pide.
+2. Espera el build del contenedor (instala dependencias con `labs/setup.sh`).
+3. Abre **`labs/lab1/resistencia_compresion_alumno.ipynb`** (botón *Abrir notebook* o explorador de archivos).
 4. Ejecuta las celdas en orden; modifica solo bloques `### TU TAREA AQUÍ ###`.
 
 ## Contenido del notebook
