@@ -18,7 +18,7 @@
         <link rel="prev" href="../lab2/">
       
       
-        <link rel="next" href="../../trabajos/guia/">
+        <link rel="next" href="../lab4/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Lab 3 - Clustering y Señales - Curso IA Web</title>
+        <title>Lab 3 - xAI - Curso IA Web</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lab-3-clustering-y-senales" class="md-skip">
+        <a href="#lab-3-inteligencia-artificial-explicable-xai" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Lab 3 - Clustering y Señales
+              Lab 3 - xAI
             
           </span>
         </div>
@@ -764,11 +764,32 @@
   
   
     <li class="md-nav__item">
+      <a href="../lab0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 0 - Python para IA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../lab1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Lab 1 - Fundamentos ML
+    Lab 1 - PCA y SHM
   </span>
   
 
@@ -789,7 +810,7 @@
         
   
   <span class="md-ellipsis">
-    Lab 2 - Monitoreo Estructural
+    Lab 2 - Resistencia Hormigón
   </span>
   
 
@@ -819,7 +840,7 @@
           
   
   <span class="md-ellipsis">
-    Lab 3 - Clustering y Señales
+    Lab 3 - xAI
   </span>
   
 
@@ -830,7 +851,7 @@
         
   
   <span class="md-ellipsis">
-    Lab 3 - Clustering y Señales
+    Lab 3 - xAI
   </span>
   
 
@@ -852,73 +873,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#objetivo-de-aprendizaje" class="md-nav__link">
+  <a href="#que-es-xai" class="md-nav__link">
     <span class="md-ellipsis">
-      Objetivo de aprendizaje
+      ¿Qué es xAI?
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contexto-del-problema" class="md-nav__link">
-    <span class="md-ellipsis">
-      Contexto del problema
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#abrir-en-github-codespaces" class="md-nav__link">
-    <span class="md-ellipsis">
-      Abrir en GitHub Codespaces
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contenido-del-notebook" class="md-nav__link">
-    <span class="md-ellipsis">
-      Contenido del notebook
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tareas-practicas" class="md-nav__link">
-    <span class="md-ellipsis">
-      Tareas prácticas
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Tareas prácticas">
+    <nav class="md-nav" aria-label="¿Qué es xAI?">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#tarea-1-pca-y-visualizacion-45-min" class="md-nav__link">
+  <a href="#xai-vs-caja-negra" class="md-nav__link">
     <span class="md-ellipsis">
-      Tarea 1: PCA y visualización (45 min)
+      xAI vs caja negra
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#tarea-2-k-means-y-codo-45-min" class="md-nav__link">
+  <a href="#tecnicas-previstas" class="md-nav__link">
     <span class="md-ellipsis">
-      Tarea 2: K-Means y codo (45 min)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tarea-3-dbscan-vs-k-means-45-min" class="md-nav__link">
-    <span class="md-ellipsis">
-      Tarea 3: DBSCAN vs K-Means (45 min)
+      Técnicas previstas
     </span>
   </a>
   
@@ -930,27 +906,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#recursos-en-el-repositorio" class="md-nav__link">
+  <a href="#objetivos-de-aprendizaje" class="md-nav__link">
     <span class="md-ellipsis">
-      Recursos en el repositorio
+      Objetivos de aprendizaje
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#lecturas-adicionales" class="md-nav__link">
+  <a href="#archivos-previstos" class="md-nav__link">
     <span class="md-ellipsis">
-      Lecturas adicionales
+      Archivos previstos
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#checklist" class="md-nav__link">
+  <a href="#pasos-en-codespaces-cuando-este-disponible" class="md-nav__link">
     <span class="md-ellipsis">
-      Checklist
+      Pasos en Codespaces (cuando esté disponible)
     </span>
   </a>
   
@@ -960,6 +936,69 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 4 - CNN y RNN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 5 - LLM Locales
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 6 - Agentes de IA
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1260,73 +1299,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#objetivo-de-aprendizaje" class="md-nav__link">
+  <a href="#que-es-xai" class="md-nav__link">
     <span class="md-ellipsis">
-      Objetivo de aprendizaje
+      ¿Qué es xAI?
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contexto-del-problema" class="md-nav__link">
-    <span class="md-ellipsis">
-      Contexto del problema
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#abrir-en-github-codespaces" class="md-nav__link">
-    <span class="md-ellipsis">
-      Abrir en GitHub Codespaces
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contenido-del-notebook" class="md-nav__link">
-    <span class="md-ellipsis">
-      Contenido del notebook
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tareas-practicas" class="md-nav__link">
-    <span class="md-ellipsis">
-      Tareas prácticas
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Tareas prácticas">
+    <nav class="md-nav" aria-label="¿Qué es xAI?">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#tarea-1-pca-y-visualizacion-45-min" class="md-nav__link">
+  <a href="#xai-vs-caja-negra" class="md-nav__link">
     <span class="md-ellipsis">
-      Tarea 1: PCA y visualización (45 min)
+      xAI vs caja negra
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#tarea-2-k-means-y-codo-45-min" class="md-nav__link">
+  <a href="#tecnicas-previstas" class="md-nav__link">
     <span class="md-ellipsis">
-      Tarea 2: K-Means y codo (45 min)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tarea-3-dbscan-vs-k-means-45-min" class="md-nav__link">
-    <span class="md-ellipsis">
-      Tarea 3: DBSCAN vs K-Means (45 min)
+      Técnicas previstas
     </span>
   </a>
   
@@ -1338,27 +1332,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#recursos-en-el-repositorio" class="md-nav__link">
+  <a href="#objetivos-de-aprendizaje" class="md-nav__link">
     <span class="md-ellipsis">
-      Recursos en el repositorio
+      Objetivos de aprendizaje
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#lecturas-adicionales" class="md-nav__link">
+  <a href="#archivos-previstos" class="md-nav__link">
     <span class="md-ellipsis">
-      Lecturas adicionales
+      Archivos previstos
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#checklist" class="md-nav__link">
+  <a href="#pasos-en-codespaces-cuando-este-disponible" class="md-nav__link">
     <span class="md-ellipsis">
-      Checklist
+      Pasos en Codespaces (cuando esté disponible)
     </span>
   </a>
   
@@ -1382,74 +1376,106 @@
   
 
 
-<h1 id="lab-3-clustering-y-senales">Lab 3: Clustering y Señales<a class="headerlink" href="#lab-3-clustering-y-senales" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Sesión 5–6</p>
-<p><strong>Fecha:</strong> Jueves 11 / Martes 16 de Junio de 2026 | <strong>Duración:</strong> ~3 horas</p>
+<h1 id="lab-3-inteligencia-artificial-explicable-xai">Lab 3: Inteligencia Artificial Explicable (xAI)<a class="headerlink" href="#lab-3-inteligencia-artificial-explicable-xai" title="Permanent link">&para;</a></h1>
+<div class="lab-actions" markdown="1">
+
+[▶ Crear Codespace — Lab 3](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json){ .md-button .md-button--primary }
+[📂 Carpeta del lab](https://github.com/ia-estructuras-diplomado/curso-ia-web/tree/main/labs/lab3){ .md-button }
+
 </div>
-<h2 id="objetivo-de-aprendizaje">Objetivo de aprendizaje<a class="headerlink" href="#objetivo-de-aprendizaje" title="Permanent link">&para;</a></h2>
-<p>Aplicar <strong>PCA</strong>, <strong>K-Means</strong> y <strong>DBSCAN</strong> a datos de sensores de monitoreo estructural (SHM): reducir dimensionalidad, agrupar patrones y comparar métodos de clustering frente a etiquetas de condición estructural.</p>
-<h2 id="contexto-del-problema">Contexto del problema<a class="headerlink" href="#contexto-del-problema" title="Permanent link">&para;</a></h2>
-<p>Dataset de sensores en edificio (Kaggle): lecturas de acelerómetros, inclinómetros, strain gauges, etc., con etiqueta de <strong>condición estructural</strong> (0 = sano, 1 = daño moderado, 2 = daño severo).</p>
-<p>Explorarás correlaciones entre sensores, varianza explicada por PCA, clustering no supervisado y métricas de comparación (Silhouette, ARI).</p>
-<h2 id="abrir-en-github-codespaces">Abrir en GitHub Codespaces<a class="headerlink" href="#abrir-en-github-codespaces" title="Permanent link">&para;</a></h2>
+
+<p><em>Notebook previsto: <code>xai_estructuras_alumno.ipynb</code></em></p>
+<div class="admonition warning">
+<p class="admonition-title">En desarrollo</p>
+<p>Notebook en <code>labs/lab3/</code> — se publicará vía sync desde <code>curso-ia-dev</code>.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Sesión 6</p>
+<p><strong>Duración:</strong> ~2 horas (previsto)</p>
+</div>
+<h2 id="que-es-xai">¿Qué es xAI?<a class="headerlink" href="#que-es-xai" title="Permanent link">&para;</a></h2>
+<p><strong>Inteligencia Artificial Explicable (xAI)</strong> permite entender <strong>por qué</strong> un modelo produce una predicción — no solo el resultado numérico o la clase.</p>
+<p>En obra importa porque:</p>
+<ul>
+<li>Un modelo puede acertar por variables correctas o por <strong>artefactos</strong> del dataset.</li>
+<li>El ingeniero necesita <strong>trazabilidad</strong> antes de decisiones sobre dosificación, alertas o inspección.</li>
+<li>xAI <strong>apoya</strong> la revisión humana; no sustituye el criterio profesional.</li>
+</ul>
+<h3 id="xai-vs-caja-negra">xAI vs caja negra<a class="headerlink" href="#xai-vs-caja-negra" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Enfoque</th>
+<th>Qué obtienes</th>
+<th>Limitación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Caja negra</strong></td>
+<td>Predicción (ŷ, clase, probabilidad)</td>
+<td>No sabes qué variables la motivaron</td>
+</tr>
+<tr>
+<td><strong>xAI global</strong></td>
+<td>Importancias promedio (Random Forest)</td>
+<td>No explica un caso individual</td>
+</tr>
+<tr>
+<td><strong>xAI local</strong></td>
+<td>Explicación de <strong>una</strong> predicción (SHAP, LIME)</td>
+<td>Inestable con pocos datos</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tecnicas-previstas">Técnicas previstas<a class="headerlink" href="#tecnicas-previstas" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Importancias de features (modelos de árboles)</li>
+<li><strong>SHAP</strong> — contribución de cada variable a una predicción</li>
+<li>Gráficos: summary plot, waterfall, dependencia parcial</li>
+<li>Contraste con <strong>Lab 1</strong> (SHM) y <strong>Lab 2</strong> (hormigón)</li>
+</ul>
+<h2 id="objetivos-de-aprendizaje">Objetivos de aprendizaje<a class="headerlink" href="#objetivos-de-aprendizaje" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Inicia sesión en GitHub.</li>
-<li><strong><a href="https://codespaces.new/ia-estructuras-diplomado/curso-ia-web">Crear Codespace</a></strong> y espera el build.</li>
-<li>Abre el notebook:</li>
+<li>Diferenciar explicación <strong>global</strong> vs <strong>local</strong>.</li>
+<li>Aplicar SHAP sobre un modelo ya entrenado.</li>
+<li>Redactar interpretación en lenguaje de ingeniería (2–3 frases por predicción).</li>
+<li>Detectar cuándo la explicación <strong>no es fiable</strong> (datos fuera de distribución, correlación espuria).</li>
 </ol>
-<p><code>labs/lab3/pca_monitoreo_estructural_alumno.ipynb</code></p>
-<p><a href="https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab3/pca_monitoreo_estructural_alumno.ipynb">Ver notebook en GitHub</a></p>
+<h2 id="archivos-previstos">Archivos previstos<a class="headerlink" href="#archivos-previstos" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Archivo</th>
+<th>Uso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>xai_estructuras_alumno.ipynb</code></td>
+<td>Notebook del alumno</td>
+</tr>
+<tr>
+<td><code>xai_estructuras_solucion.ipynb</code></td>
+<td>Referencia docente</td>
+</tr>
+<tr>
+<td><code>_verificar.py</code></td>
+<td>Autoevaluación ✅ / ❌</td>
+</tr>
+<tr>
+<td><code>data/</code></td>
+<td>Ejemplos o exportados desde Lab 1 / Lab 2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="pasos-en-codespaces-cuando-este-disponible">Pasos en Codespaces (cuando esté disponible)<a class="headerlink" href="#pasos-en-codespaces-cuando-este-disponible" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Ejecuta en orden; completa solo celdas <code>### TU TAREA AQUÍ ###</code>.</li>
+<li><strong>Crear Codespace — Lab 3</strong> (arriba).</li>
+<li>Abrir <code>labs/lab3/xai_estructuras_alumno.ipynb</code>.</li>
 </ol>
-<h2 id="contenido-del-notebook">Contenido del notebook<a class="headerlink" href="#contenido-del-notebook" title="Permanent link">&para;</a></h2>
-<ol>
-<li>Contexto PCA en monitoreo estructural</li>
-<li>Carga y limpieza del dataset Kaggle</li>
-<li>Estadísticas descriptivas y correlaciones</li>
-<li>Estandarización (<code>StandardScaler</code>)</li>
-<li>PCA — scree plot y varianza explicada</li>
-<li>Proyección 2D PC1 vs PC2</li>
-<li>K-Means — gráfico del codo</li>
-<li>DBSCAN — densidad y ruido</li>
-<li>Comparativa KMeans vs DBSCAN (Silhouette, ARI)</li>
-<li>Loadings, biplot y clasificación</li>
-</ol>
-<h2 id="tareas-practicas">Tareas prácticas<a class="headerlink" href="#tareas-practicas" title="Permanent link">&para;</a></h2>
-<h3 id="tarea-1-pca-y-visualizacion-45-min">Tarea 1: PCA y visualización (45 min)<a class="headerlink" href="#tarea-1-pca-y-visualizacion-45-min" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Interpreta varianza explicada y proyección 2D coloreada por daño.</li>
-</ul>
-<h3 id="tarea-2-k-means-y-codo-45-min">Tarea 2: K-Means y codo (45 min)<a class="headerlink" href="#tarea-2-k-means-y-codo-45-min" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Elige k con el método del codo; compara con etiquetas reales.</li>
-</ul>
-<h3 id="tarea-3-dbscan-vs-k-means-45-min">Tarea 3: DBSCAN vs K-Means (45 min)<a class="headerlink" href="#tarea-3-dbscan-vs-k-means-45-min" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Ajusta <code>eps</code> y <code>min_samples</code>; evalúa robustez ante ruido.</li>
-</ul>
-<h2 id="recursos-en-el-repositorio">Recursos en el repositorio<a class="headerlink" href="#recursos-en-el-repositorio" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Notebook alumno:</strong> <code>labs/lab3/pca_monitoreo_estructural_alumno.ipynb</code></li>
-<li><strong>Dataset:</strong> <code>labs/lab3/data/building_health_monitoring_dataset.csv</code></li>
-<li><strong>Documentación:</strong> <code>labs/lab3/data/DATOS.md</code></li>
-</ul>
-<h2 id="lecturas-adicionales">Lecturas adicionales<a class="headerlink" href="#lecturas-adicionales" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://www.kaggle.com/datasets/ziya07/building-structural-health-sensor-dataset">Kaggle — Building Structural Health Sensor Dataset</a></li>
-<li><a href="https://scikit-learn.org/stable/modules/clustering.html">Scikit-learn — Clustering</a></li>
-</ul>
-<h2 id="checklist">Checklist<a class="headerlink" href="#checklist" title="Permanent link">&para;</a></h2>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Abrí el Codespace y el notebook alumno</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Completé PCA y visualizaciones</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Entrené K-Means y DBSCAN</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Comparé métricas con etiquetas reales</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Respondí las preguntas del notebook</li>
-</ul>
 <hr />
-<p><strong>¿Dudas?</strong> → <a href="../codespaces/">Codespaces</a> · <a href="../../faq/">FAQ</a></p>
+<p><strong>¿Dudas?</strong> → <a href="../codespaces/">Codespaces</a></p>
 
 
 

@@ -275,6 +275,28 @@ h1, h2, h3, h4, h5, h6 {
   color: #94a3b8;
 }
 
+/* Lab Codespaces action buttons */
+.lab-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin: 1.25rem 0 1.5rem;
+  padding: 1rem 1.25rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+}
+
+.lab-actions .md-button {
+  margin: 0;
+}
+
+[data-md-color-scheme="slate"] .lab-actions {
+  background: #1e293b;
+  border-color: #334155;
+}
+
 /* Custom code block styling */
 .md-typeset pre {
   border-radius: 8px;
