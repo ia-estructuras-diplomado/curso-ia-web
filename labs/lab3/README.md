@@ -1,30 +1,23 @@
-# Lab 3 — Clustering y Procesamiento de Señales (SHM)
+# Lab 3 — Inteligencia Artificial Explicable (xAI)
 
-**Sesión 5–6** · PCA, KMeans (codo), DBSCAN, loadings y clasificación con sensores Kaggle.
+**Sesión 6** · Interpretabilidad de modelos ML aplicados a ingeniería estructural.
 
-## Archivos
+## Estado
 
-| Archivo | Uso |
-|---------|-----|
-| `pca_monitoreo_estructural_alumno.ipynb` | Notebook del alumno (13 preguntas) |
-| `pca_monitoreo_estructural_solucion.ipynb` | Referencia docente |
-| `_verificar.py` | Autoevaluación ✅ / ❌ |
-| `data/building_health_monitoring_dataset.csv` | Dataset Kaggle (1 000 × 7) |
-| `data/DATOS.md` | Documentación de sensores |
+**En desarrollo.** Este laboratorio usará técnicas de **xAI** (SHAP, importancias locales, gráficos de explicación) sobre modelos entrenados en contextos de obra.
 
-## Entorno local
+Cuando esté listo, esta carpeta incluirá:
 
-```bash
-bash labs/setup.sh
-source labs/.venv/bin/activate
-cd labs/lab3
-jupyter notebook pca_monitoreo_estructural_alumno.ipynb
-```
+- `xai_estructuras_alumno.ipynb` — explicar predicciones de resistencia o clasificación de daño
+- `xai_estructuras_solucion.ipynb` — referencia docente
+- `data/` — datos de ejemplo o exportados desde Lab 1 / Lab 2
+
+## Objetivos previstos
+
+- Contrastar importancia global (Random Forest) vs explicaciones locales (SHAP)
+- Interpretar predicciones en lenguaje comprensible para el ingeniero estructural
+- Discutir límites: correlación ≠ causalidad; xAI no sustituye criterio profesional
 
 ## GitHub Codespaces
 
-Abrir `labs/lab3/pca_monitoreo_estructural_alumno.ipynb`
-
-Guía del curso: [Lab 3 en curso-ia-web](https://ia-estructuras-diplomado.github.io/curso-ia-web/labs/lab3/)
-
-Ver [`../GUIA_LABORATORIOS.md`](../GUIA_LABORATORIOS.md)
+Mismo entorno que el resto de labs: [Codespaces del curso](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web).

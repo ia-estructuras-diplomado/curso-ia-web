@@ -21,9 +21,9 @@ else
   .venv/bin/pip install -r requirements.txt
 fi
 
-if [[ -f lab1/_preparar_datos.py ]] && [[ ! -f lab1/data/concrete.csv ]]; then
-  echo "→ Generando lab1/data/concrete.csv"
-  .venv/bin/python lab1/_preparar_datos.py
+if [[ -f lab2/_preparar_datos.py ]] && [[ ! -f lab2/data/concrete.csv ]]; then
+  echo "→ Generando lab2/data/concrete.csv"
+  .venv/bin/python lab2/_preparar_datos.py
 fi
 
 echo ""
