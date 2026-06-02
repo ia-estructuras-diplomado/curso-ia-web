@@ -66,6 +66,7 @@ nav:
       - Sesión 6 - Futuro e Innovación: sesiones/sesion6.md
   - Laboratorios & Prácticas:
       - Descripción General: labs/index.md
+      - GitHub Codespaces: labs/codespaces.md
       - Lab 1 - Fundamentos ML: labs/lab1.md
       - Lab 2 - Monitoreo Estructural: labs/lab2.md
       - Lab 3 - Clustering y Señales: labs/lab3.md

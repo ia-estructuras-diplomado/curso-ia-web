@@ -1,0 +1,6 @@
+# Entorno virtual centralizado (no commitear)
+.venv/
+
+# Cachés Python
+__pycache__/
+*.py[cod]

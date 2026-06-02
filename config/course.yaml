@@ -108,3 +108,35 @@ learning_outcomes:
   - "Desarrollar habilidades en análisis de datos y Big Data"
   - "Diseñar y entrenar modelos predictivos para casos de uso estructurales"
   - "Comprender el futuro de Digital Twins y Smart Cities"
+
+# Mapeo web (docs/labs) ↔ carpetas en labs/ (sincronizadas desde curso-ia-dev)
+labs:
+  codespaces_repo: "ia-estructuras-diplomado/curso-ia-web"
+  codespaces_url: "https://codespaces.new/ia-estructuras-diplomado/curso-ia-web"
+  dev_source_repo: "ia-estructuras-diplomado/curso-ia-dev"
+  mapping:
+    - web_id: lab1
+      doc: docs/labs/lab1.md
+      dev_path: labs/lab1
+      notebook_alumno: resistencia_compresion_alumno.ipynb
+      session: 3
+      title: "Fundamentos de Machine Learning"
+    - web_id: lab2
+      doc: docs/labs/lab2.md
+      dev_path: labs/lab2
+      notebook_alumno: null
+      session: 5
+      title: "Monitoreo Estructural Inteligente"
+      status: pendiente_en_dev
+    - web_id: lab3
+      doc: docs/labs/lab3.md
+      dev_path: labs/lab3
+      notebook_alumno: pca_monitoreo_estructural_alumno.ipynb
+      session: 5
+      title: "Clustering y Señales"
+    - web_id: lab0
+      doc: null
+      dev_path: labs/lab0
+      notebook_alumno: fundamentos_python_ia_alumno.ipynb
+      session: 1
+      title: "Fundamentos de Python para IA"

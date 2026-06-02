@@ -7,22 +7,34 @@
 - **Almacenamiento:** 2GB libres
 - **SO:** Windows, macOS, Linux
 
-## 🐍 Python: Instalación
+## Python: entorno recomendado
 
-### Opción 1: Google Colab (Recomendado para Principiantes)
+### Opción 1: GitHub Codespaces (recomendado)
 
-✅ **Ventajas:**
-- Gratuito
-- Sin instalación
-- GPU gratis
-- Integrado con Google Drive
+Entorno preconfigurado del curso: Python 3.11, Jupyter, dependencias en `labs/requirements.txt`.
 
-**Cómo usar:**
-1. Ve a https://colab.research.google.com
-2. Crea un nuevo notebook
-3. ¡Empieza a programar!
+**Pasos:**
 
-### Opción 2: Anaconda (Recomendado para Localmente)
+1. Cuenta en [GitHub](https://github.com).
+2. **[Crear Codespace](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web)** del repositorio del curso.
+3. Abrir el notebook `*_alumno.ipynb` indicado en cada [lab](../labs/index.md).
+
+Guía detallada: **[Codespaces](../labs/codespaces.md)**.
+
+### Opción 2: Local (clonando el repo)
+
+```bash
+git clone https://github.com/ia-estructuras-diplomado/curso-ia-web.git
+cd curso-ia-web
+bash labs/setup.sh
+source labs/.venv/bin/activate
+```
+
+### Opción 3: Google Colab
+
+Útil como alternativa si Codespaces no está disponible. Debes subir manualmente el notebook y los datos desde el repositorio.
+
+### Opción 4: Anaconda (instalación local clásica)
 
 **Instalación:**
 
@@ -41,7 +53,7 @@ conda activate curso
 pip install -r requirements.txt
 ```
 
-### Opción 3: pip (Manual)
+### Opción 5: pip (manual)
 
 ```bash
 python -m venv venv
@@ -138,14 +150,12 @@ git push                       # Subir a GitHub
 git pull                       # Descargar cambios
 ```
 
-## 🌐 IDE Online Alternativas
+## IDE en la nube
 
-Si prefieres no instalar nada:
-
-- **Google Colab** - Mejor para Jupyter
-- **Replit** - Completo pero menos especializado
-- **Kaggle Notebooks** - Datasets integrados
-- **GitHub Codespaces** - Entorno en la nube
+- **GitHub Codespaces** — Entorno oficial del curso ([guía](../labs/codespaces.md))
+- **Google Colab** — Alternativa sin GitHub
+- **Kaggle Notebooks** — Datasets integrados
+- **Replit** — Genérico
 
 ## ✅ Verificar Instalación
 

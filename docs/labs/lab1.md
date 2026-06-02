@@ -1,161 +1,76 @@
 # Lab 1: Fundamentos de Machine Learning
 
-!!! info "📅 Sesión 3"
-    **Fecha:** Jueves, 4 de Junio de 2026 | **Duración:** 2 horas
+!!! info "Sesión 3"
+    **Fecha:** Jueves, 4 de Junio de 2026 | **Duración:** ~2 horas
 
-## 🎯 Objetivo
+## Objetivo
 
-Aprender a entrenar un modelo de Machine Learning usando datos estructurales, entendiendo cada paso del proceso: exploración, entrenamiento, evaluación e interpretación.
+Aprender el flujo completo de un problema de **regresión supervisada**: exploración de datos, partición train/test, entrenamiento de Random Forest e interpretación de resultados, usando el dataset UCI de **resistencia a compresión del hormigón**.
 
-## 📊 Contexto del Problema
+## Contexto del problema
 
-Tenemos datos de una estructura (edificio o puente) con múltiples sensores que miden:
-- Desplazamiento
-- Velocidad
-- Aceleración
-- Temperatura
+El dataset incluye variables de mezcla (cemento, agua, aditivos, edad de curado, etc.) y la variable objetivo **Resistencia** (MPa). Tu meta es predecir la resistencia a partir de la composición y comparar la importancia de cada feature.
 
-**Objetivo:** Predecir el estado de salud de la estructura (Bueno/Deficiente/Crítico).
+## Abrir en GitHub Codespaces
 
-## 🛠️ Herramientas
+1. Inicia sesión en GitHub.
+2. **[Crear Codespace](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web)** y espera el build.
+3. Abre el notebook:
 
-- Python, Pandas, NumPy
-- Scikit-learn
-- Matplotlib/Plotly
-- Jupyter Notebook
+   `labs/lab1/resistencia_compresion_alumno.ipynb`
 
-## 📓 Notebook
+   [Ver notebook en GitHub](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab1/resistencia_compresion_alumno.ipynb)
 
-El notebook `Lab1_Fundamentos_ML.ipynb` contiene:
+4. Ejecuta las celdas en orden; modifica solo bloques `### TU TAREA AQUÍ ###`.
 
-1. **Carga de datos**
-   ```python
-   import pandas as pd
-   data = pd.read_csv('sensores_estructura.csv')
-   ```
+## Contenido del notebook
 
-2. **Exploración (EDA)**
-   - Estadísticas descriptivas
-   - Visualización de distribuciones
-   - Correlaciones
+1. Contexto ML (regresión vs clasificación)
+2. Carga del dataset UCI (`data/concrete.csv`)
+3. Calidad de datos y estadísticas descriptivas
+4. Distribución del target y correlaciones
+5. Partición train/test
+6. Random Forest — hiperparámetros y selección de features
+7. Feature importance y gráfico predicción vs realidad
 
-3. **Preparación**
-   - Normalización de datos
-   - Train/test split (80/20)
-   - Feature selection
+## Tareas prácticas
 
-4. **Entrenamiento**
-   - Modelo: Random Forest
-   - Ajuste de hiperparámetros
-   - Validación cruzada
-
-5. **Evaluación**
-   - Accuracy, Precision, Recall, F1
-   - Matriz de confusión
-   - Curva ROC
-
-## 📋 Tareas Prácticas
-
-### Tarea 1: Exploración de Datos (30 min)
-- Carga el dataset
-- Calcula estadísticas descriptivas
-- Crea visualizaciones (histogramas, boxplots)
-- Identifica outliers
-
-**Preguntas:**
-- ¿Qué variable tiene más variabilidad?
-- ¿Existen correlaciones fuertes?
-- ¿Hay datos faltantes?
+### Tarea 1: Exploración (30 min)
+- Revisa estadísticas descriptivas y correlaciones.
+- Identifica variables más relacionadas con la resistencia.
 
 ### Tarea 2: Entrenamiento (45 min)
-- Divide datos en train/test
-- Entrena modelo Random Forest
-- Prueba con diferentes parámetros:
-  - `n_estimators`: [50, 100, 200]
-  - `max_depth`: [5, 10, 15, None]
-  - `min_samples_split`: [2, 5, 10]
-
-**Experimenta:**
-- ¿Cuál combinación da mejor accuracy?
-- ¿Mejora la validación cruzada la confianza?
-- ¿Hay overfitting?
+- Experimenta con `n_estimators`, `max_depth` y columnas de entrada.
+- Compara métricas en train vs test (¿overfitting?).
 
 ### Tarea 3: Interpretación (30 min)
-- Analiza feature importance
-- Crea matriz de confusión
-- Interpreta resultados reales
-- Propón mejoras
+- Analiza feature importance.
+- Propón mejoras para un caso real de control de calidad en obra.
 
-**Preguntas:**
-- ¿Qué sensores son más importantes?
-- ¿El modelo comete errores sistemáticos?
-- ¿Cómo usarías esto en una estructura real?
+## Recursos en el repositorio
 
-## 💡 Conceptos Clave
+- **Notebook alumno:** `labs/lab1/resistencia_compresion_alumno.ipynb`
+- **Dataset:** `labs/lab1/data/concrete.csv`
+- **Documentación de datos:** `labs/lab1/data/DATOS.md`
 
-### Train/Test Split
-```python
-from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, random_state=42
-)
-```
+## Lecturas adicionales
 
-### Normalización
-```python
-from sklearn.preprocessing import StandardScaler
-scaler = StandardScaler()
-X_scaled = scaler.fit_transform(X_train)
-```
+- [Scikit-learn — Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#forest)
+- [UCI Concrete Compressive Strength](https://archive.ics.uci.edu/dataset/165/concrete+compressive+strength)
 
-### Modelo
-```python
-from sklearn.ensemble import RandomForestClassifier
-model = RandomForestClassifier(n_estimators=100)
-model.fit(X_train, y_train)
-```
+## Checklist
 
-### Evaluación
-```python
-from sklearn.metrics import accuracy_score, classification_report
-pred = model.predict(X_test)
-print(f"Accuracy: {accuracy_score(y_test, pred)}")
-```
+- [ ] Abrí el Codespace y el notebook alumno
+- [ ] Completé la exploración de datos
+- [ ] Entrené Random Forest con distintos hiperparámetros
+- [ ] Interpreté feature importance y predicción vs realidad
+- [ ] Respondí las preguntas del notebook
 
-## 📥 Descargas
+## Próximos pasos
 
-- [📓 Notebook: Lab1_Fundamentos_ML.ipynb](../assets/notebooks/Lab1_Fundamentos_ML.ipynb)
-- [📊 Dataset: sensores_estructura.csv](../assets/data/sensores_estructura.csv)
-- [📖 Guía PDF](../assets/Lab1_Guia.pdf)
-
-## 🔗 Google Colab
-
-Ejecuta directamente en la nube sin instalaciones:
-
-[➡️ Abrir en Google Colab](https://colab.research.google.com/drive/1example)
-
-## 📚 Lecturas Adicionales
-
-- Scikit-learn: [Classification Tutorial](https://scikit-learn.org/stable/modules/classification.html)
-- Random Forest: [Intuición](https://towardsdatascience.com/understanding-random-forest-58381e0602d2)
-
-## ✅ Checklist
-
-- [ ] Descargué el notebook
-- [ ] Instalé/usé entorno Python
-- [ ] Ejecuté la exploración de datos
-- [ ] Entrené un modelo
-- [ ] Experimenté con hiperparámetros
-- [ ] Interpreté los resultados
-- [ ] Respondí todas las preguntas
-
-## 🎓 Próximos Pasos
-
-Después de este lab:
-- Pasarás a Lab 2 en la Sesión 4-5
-- Aplicarás estos conceptos en el Trabajo Grupal 1
-- Explorarás casos más complejos
+- Lab 2 (detección de anomalías SHM) en Sesión 5
+- Aplicar estos conceptos en el Trabajo Grupal 1
 
 ---
 
-**¿Dudas?** Consulta [FAQ](../faq.md) o contacta a info@ia-estructuras.edu
+**¿Dudas?** → [Codespaces](codespaces.md) · [FAQ](../faq.md)

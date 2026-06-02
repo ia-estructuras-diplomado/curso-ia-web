@@ -49,16 +49,15 @@ Al finalizar esta sesión, serás capaz de:
 
 ### 1. Configuración del Entorno
 
-**Opción 1: Google Colab (Recomendado)**
-- Gratuito, basado en la nube
-- No requiere instalación
-- Acceso: https://colab.research.google.com
+**Opción recomendada: GitHub Codespaces**
 
-**Opción 2: Instalación Local**
-- Instala Anaconda: https://www.anaconda.com/download
-- Crea un entorno: `conda create -n curso python=3.11`
-- Activa: `conda activate curso`
-- Instala librerías: `pip install notebook pandas numpy scikit-learn`
+1. Crea cuenta en [GitHub](https://github.com).
+2. Abre **[Crear Codespace del curso](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web)**.
+3. Trabaja el tutorial introductorio: `labs/lab0/fundamentos_python_ia_alumno.ipynb`.
+
+Guía completa: [Codespaces](../labs/codespaces.md).
+
+**Alternativa local:** clona [curso-ia-web](https://github.com/ia-estructuras-diplomado/curso-ia-web) y ejecuta `bash labs/setup.sh`.
 
 ### 2. Primer Notebook
 
@@ -115,16 +114,15 @@ print(df)
 ## 📝 Próximos Pasos
 
 Antes de la **Sesión 2**:
-- [ ] Instalar Python/Jupyter o crear cuenta en Google Colab
+- [ ] Crear cuenta en GitHub y probar [Codespaces](../labs/codespaces.md) con Lab 0
 - [ ] Revisar [Sesión 2 - Big Data](sesion2.md)
-- [ ] Explorar un dataset simple
-- [ ] Familiarizarse con Pandas
+- [ ] Familiarizarse con Pandas (Lab 0, sección 5)
 
-## 📺 Recursos
+## Recursos
 
-- 📓 Notebook: `Sesion1_Intro_IA.ipynb` (disponible en el repositorio)
-- 🔗 [Google Colab Link](https://colab.research.google.com)
-- 📚 [Cheat Sheet Python](../recursos/referencias.md)
+- Notebook Lab 0: `labs/lab0/fundamentos_python_ia_alumno.ipynb` en [curso-ia-web](https://github.com/ia-estructuras-diplomado/curso-ia-web)
+- [Guía Codespaces](../labs/codespaces.md)
+- [Cheat Sheet Python](../recursos/referencias.md)
 
 ---
 

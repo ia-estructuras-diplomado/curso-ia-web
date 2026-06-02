@@ -2,6 +2,7 @@ site/
 *.pyc
 __pycache__/
 .venv/
+labs/.venv/
 venv/
 env/
 .env

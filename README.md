@@ -1,62 +1,46 @@
 # Curso IA Web
 
-Este repositorio contiene el código y los recursos del curso de Introducción a la Inteligencia Artificial aplicada al desarrollo web.
+Sitio de documentación y entorno de laboratorios del diplomado **Inteligencia Artificial para Ingeniería Civil** (IA Estructuras Diplomado).
 
-## Descripción
+- **Sitio publicado:** https://ia-estructuras-diplomado.github.io/curso-ia-web/
+- **Repositorio de desarrollo (privado):** [curso-ia-dev](https://github.com/ia-estructuras-diplomado/curso-ia-dev)
 
-El objetivo de este curso es enseñar los fundamentos de la inteligencia artificial (IA) orientados al desarrollo y la integración de soluciones de IA en aplicaciones web.
+## Qué contiene este repo
 
-## Contenidos
+| Ruta | Propósito |
+|------|-----------|
+| `docs/` | Contenido MkDocs (syllabus, sesiones, guías de labs) |
+| `labs/` | Notebooks y datos sincronizados desde `curso-ia-dev` (Codespaces) |
+| `.devcontainer/` | Configuración GitHub Codespaces |
+| `config/course.yaml` | Fechas, calificación y mapeo web ↔ labs |
 
-- Fundamentos de IA y aprendizaje automático
-- Integración de modelos de IA en aplicaciones web
-- Prácticas y ejemplos con frameworks modernos (ajustar según el stack)
-- Proyectos de ejemplo
+## Documentación local
 
-## Requisitos Previos
-
-- Conocimientos básicos de programación
-- Familiaridad con el desarrollo web (HTML, CSS, JavaScript, etc.)
-- Node.js y npm instalados
-
-## Instalación
-
-1. Clona el repositorio:
-   ```bash
-   git clone https://github.com/ia-estructuras-diplomado/curso-ia-web.git
-   ```
-2. Accede a la carpeta del proyecto:
-   ```bash
-   cd curso-ia-web
-   ```
-3. Instala las dependencias:
-   ```bash
-   npm install
-   ```
-
-## Uso
-
-Ejecuta el proyecto en modo desarrollo:
 ```bash
-npm start
+pip install -r requirements.txt
+mkdocs serve
 ```
 
-Abre tu navegador en [http://localhost:3000](http://localhost:3000) para ver la aplicación.
+Abre http://127.0.0.1:8000
 
-## Estructura del Proyecto
+## Laboratorios (Codespaces)
 
-- `/src`: Código fuente
-- `/docs`: Materiales y documentación adicional
-- `/examples`: Ejemplos prácticos
+Los alumnos abren un Codespace sobre este repo:
 
-## Contribuciones
+https://codespaces.new/ia-estructuras-diplomado/curso-ia-web
 
-¡Las contribuciones son bienvenidas! Por favor, abre un issue o un pull request para contribuir.
+Guía: ver `docs/labs/codespaces.md` en el sitio o en el repo.
+
+## Sincronización de labs
+
+Los notebooks se editan en **curso-ia-dev** (privado). Al hacer push a `main` en dev, el workflow `.github/workflows/sync-labs-to-web.yml` publica `labs/` y `.devcontainer/` en este repositorio.
+
+**Secreto requerido en curso-ia-dev:** `LABS_SYNC_TOKEN` (PAT con permiso de escritura en este repo).
+
+## Deploy (GitHub Pages)
+
+Push a `main` → GitHub Actions ejecuta `mkdocs build` y publica en la rama `gh-pages`.
 
 ## Licencia
 
-Este proyecto está bajo la licencia MIT.
-
----
-
-Desarrollado para el diplomado de Estructuras de IA.
+MIT
