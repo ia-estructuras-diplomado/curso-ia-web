@@ -49,7 +49,7 @@ Debe incluir secciones:
 ## 📚 Recursos Disponibles
 
 - **Dataset:** `estructura_001.csv` (disponible en el repositorio)
-- **Ejemplo Notebook:** Ver [Lab 1](../labs/lab1.md)
+- **Ejemplo Notebook:** Ver [Lab 2](../labs/lab2.md)
 - **Librerías:** Pandas, NumPy, Scikit-learn
 
 ## ✅ Requisitos Técnicos

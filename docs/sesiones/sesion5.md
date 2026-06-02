@@ -97,7 +97,7 @@ plt.show()
 ---
 
 ## 🔬 Laboratorio Vinculado
-Esta sesión sienta las bases teóricas y de código para el **[Laboratorio 3 - Clustering y Señales](../labs/lab3.md)** y el desarrollo del **Trabajo Grupal 2 (T2)**.
+Esta sesión sienta las bases teóricas y de código para el **[Laboratorio 1 — PCA y SHM](../labs/lab1.md)** y el desarrollo del **Trabajo Grupal 2 (T2)**.
 
 ## 📖 Lecturas Recomendadas
 - **Oppenheim, A. V., & Schafer, R. W. (2009)**: *Discrete-Time Signal Processing*. Prentice Hall.

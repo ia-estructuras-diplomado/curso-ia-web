@@ -51,9 +51,7 @@ Al finalizar esta sesión, serás capaz de:
 
 --8<-- "lab0-actions.md"
 
-**Pasos:** pulsa **Crear Codespace — Lab 0**, espera el build y abre el notebook de Python introductorio.
-
-Guía completa: [Codespaces](../labs/codespaces.md).
+**Pasos:** pulsa **Crear Codespace — Lab 0**, espera el build y abre el notebook. Guía completa: **[Lab 0](../labs/lab0.md)**.
 
 ### 2. Primer Notebook
 
@@ -116,8 +114,7 @@ Antes de la **Sesión 2**:
 
 ## Recursos
 
-- Notebook Lab 0: `labs/lab0/fundamentos_python_ia_alumno.ipynb` en [curso-ia-web](https://github.com/ia-estructuras-diplomado/curso-ia-web)
-- [Guía Codespaces](../labs/codespaces.md)
+- [Lab 0 — Python para IA](../labs/lab0.md) · [Codespaces](../labs/codespaces.md)
 - [Cheat Sheet Python](../recursos/referencias.md)
 
 ---

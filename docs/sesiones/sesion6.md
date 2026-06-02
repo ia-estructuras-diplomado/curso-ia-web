@@ -101,7 +101,7 @@ print(f"Accuracy: {accuracy_score(y_test, y_pred_no_param):.3f}")
 ---
 
 ## 🔬 Laboratorio Vinculado
-Esta sesión sienta las bases conceptuales para completar el **[Laboratorio 3 - Clustering y Señales](../labs/lab3.md)** y la modelación final del **Trabajo Grupal 3 (T3)**.
+Esta sesión sienta las bases conceptuales para completar el **[Laboratorio 3 — xAI](../labs/lab3.md)** y la modelación final del **Trabajo Grupal 3 (T3)**.
 
 ## 📖 Lecturas Recomendadas
 - **Sacks, J., Welch, W. J., Mitchell, T. J., & Wynn, H. P. (1989)**: *Design and Analysis of Computer Experiments*. Statistical Science, 4(4), 409-423. (Fundacional para Gemelos Digitales).

@@ -83,7 +83,7 @@ SEMANA 5 (Jun 22):  Lunes 22 | Martes 23 *(SES 8) | Miércoles 24 | Jueves 25 | 
 - Interpretación de resultados
 
 **📚 Lecturas Previas:** [Ver Sesión 3](../sesiones/sesion3.md)  
-**🧪 Laboratorio:** [Lab 1 - Fundamentos ML](../labs/lab1.md)
+**🧪 Laboratorio:** [Lab 2 — Resistencia hormigón](../labs/lab2.md)
 
 ---
 
@@ -128,7 +128,7 @@ SEMANA 5 (Jun 22):  Lunes 22 | Martes 23 *(SES 8) | Miércoles 24 | Jueves 25 | 
 - Casos de uso reales
 
 **📚 Lecturas Previas:** [Ver Sesión 5](../sesiones/sesion5.md)  
-**🧪 Laboratorio:** [Lab 3 - Clustering y Señales](../labs/lab3.md)
+**🧪 Laboratorio:** [Lab 1 — PCA y SHM](../labs/lab1.md)
 
 ---
 

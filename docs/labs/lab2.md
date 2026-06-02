@@ -1,86 +1,45 @@
-# Lab 2: Monitoreo Estructural Inteligente
+# Lab 2: Predicción de Resistencia a la Compresión
 
 --8<-- "lab2-actions.md"
 
-!!! info "Sesión 5"
-    **Fecha:** Jueves, 11 de Junio de 2026 | **Duración:** ~2 horas
+!!! info "Sesión 3"
+    **Duración:** ~2 horas
 
-!!! warning "Notebook en Codespaces — próximamente"
-    La guía teórica y el dataset de referencia están disponibles. El notebook interactivo (`*_alumno.ipynb`) se publicará en `labs/` cuando esté listo en el repositorio de desarrollo. Mientras tanto, puedes revisar el contexto y el dataset.
+## Objetivo
 
-## Objetivo de aprendizaje
+**Regresión supervisada** con el dataset UCI de resistencia a compresión del hormigón: EDA, train/test, Random Forest e interpretación.
 
-Implementar algoritmos de **detección de anomalías** para identificar estados estructurales atípicos o fallos de sensores en infraestructura civil (Monitoreo de Salud Estructural — SHM).
+## Contexto
 
-## Contexto del problema
+Variables de mezcla (cemento, agua, aditivos, edad de curado) y target **Resistencia** (MPa). Predecir resistencia a partir de la dosificación.
 
-Una presa de hormigón está instrumentada con inclinómetros y sensores de temperatura. Bajo operación normal, la inclinación varía de forma cíclica con la temperatura. Se sospecha comportamiento atípico en juntas de expansión o fallo de sensor.
-
-Tu objetivo será procesar lecturas y entrenar un modelo **no supervisado** (Isolation Forest, LOF) que marque anomalías automáticamente.
-
-## Pasos en Codespaces (cuando haya notebook)
+## Pasos en Codespaces
 
 1. Pulsa **Crear Codespace — Lab 2** (arriba).
-2. Revisa la guía teórica abajo y el [dataset de referencia](../assets/data/datos_presa_shm.csv).
-3. Cuando se publique el notebook, ábrelo en `labs/lab2/`.
+2. Abre **`labs/lab2/resistencia_compresion_alumno.ipynb`**.
+3. Ejecuta en orden; modifica solo bloques `### TU TAREA AQUÍ ###`.
 
-## Herramientas
+## Contenido del notebook
 
-- Python, Pandas, NumPy
-- Scikit-learn (`IsolationForest`, `LocalOutlierFactor`)
-- Matplotlib / Seaborn
-- Jupyter Notebook
+1. Contexto ML (regresión vs clasificación)
+2. Carga del dataset UCI (`data/concrete.csv`)
+3. Calidad de datos y estadísticas descriptivas
+4. Distribución del target y correlaciones
+5. Partición train/test
+6. Random Forest — hiperparámetros y features
+7. Feature importance y predicción vs realidad
 
-## Flujo práctico previsto
+## Recursos en el repositorio
 
-### 1. Carga y normalización
+- **Notebook:** `labs/lab2/resistencia_compresion_alumno.ipynb`
+- **Dataset:** `labs/lab2/data/concrete.csv`
+- **Documentación:** `labs/lab2/data/DATOS.md`
 
-```python
-import pandas as pd
-from sklearn.preprocessing import StandardScaler
+## Lecturas
 
-data = pd.read_csv('datos_presa_shm.csv')
-X = data[['temperatura', 'inclinacion_sensor_1']]
-scaler = StandardScaler()
-X_scaled = scaler.fit_transform(X)
-```
-
-### 2. Isolation Forest
-
-```python
-from sklearn.ensemble import IsolationForest
-
-model = IsolationForest(contamination=0.02, random_state=42)
-data['anomaly_label'] = model.fit_predict(X_scaled)
-```
-
-### 3. Comparación con LOF
-
-Evaluar qué algoritmo se adapta mejor al contorno normal de los datos.
-
-## Tareas prácticas (guía)
-
-### Tarea 1: Exploración (30 min)
-- Scatter `temperatura` vs `inclinacion_sensor_1`.
-- Identificar visualmente puntos fuera del patrón.
-
-### Tarea 2: Isolation Forest (45 min)
-- Probar `contamination` en 0.01, 0.03, 0.05.
-- Graficar normal vs anomalía.
-
-### Tarea 3: LOF (45 min)
-- Comparar con `LocalOutlierFactor(n_neighbors=20)`.
-
-## Dataset de referencia
-
-- [datos_presa_shm.csv](../assets/data/datos_presa_shm.csv) (material de apoyo en la documentación)
-
-## Checklist
-
-- [ ] Revisé el contexto del problema SHM
-- [ ] Exploré el dataset de referencia
-- [ ] *(Pendiente)* Completé el notebook en Codespaces cuando se publique
+- [UCI Concrete Compressive Strength](https://archive.ics.uci.edu/dataset/165/concrete+compressive+strength)
+- [Scikit-learn — Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#forest)
 
 ---
 
-**¿Dudas?** → [Codespaces](codespaces.md) · info@ia-estructuras.edu
+**¿Dudas?** → [Codespaces](codespaces.md) · [FAQ](../faq.md)

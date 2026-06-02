@@ -1,70 +1,59 @@
-# Lab 3: Clustering y Señales
+# Lab 3: Inteligencia Artificial Explicable (xAI)
 
 --8<-- "lab3-actions.md"
 
-!!! info "Sesión 5–6"
-    **Fecha:** Jueves 11 / Martes 16 de Junio de 2026 | **Duración:** ~3 horas
+!!! warning "En desarrollo"
+    Notebook en `labs/lab3/` — se publicará vía sync desde `curso-ia-dev`.
 
-## Objetivo de aprendizaje
+!!! info "Sesión 6"
+    **Duración:** ~2 horas (previsto)
 
-Aplicar **PCA**, **K-Means** y **DBSCAN** a datos de sensores de monitoreo estructural (SHM): reducir dimensionalidad, agrupar patrones y comparar métodos de clustering frente a etiquetas de condición estructural.
+## ¿Qué es xAI?
 
-## Contexto del problema
+**Inteligencia Artificial Explicable (xAI)** permite entender **por qué** un modelo produce una predicción — no solo el resultado numérico o la clase.
 
-Dataset de sensores en edificio (Kaggle): lecturas de acelerómetros, inclinómetros, strain gauges, etc., con etiqueta de **condición estructural** (0 = sano, 1 = daño moderado, 2 = daño severo).
+En obra importa porque:
 
-Explorarás correlaciones entre sensores, varianza explicada por PCA, clustering no supervisado y métricas de comparación (Silhouette, ARI).
+- Un modelo puede acertar por variables correctas o por **artefactos** del dataset.
+- El ingeniero necesita **trazabilidad** antes de decisiones sobre dosificación, alertas o inspección.
+- xAI **apoya** la revisión humana; no sustituye el criterio profesional.
 
-## Pasos en Codespaces
+### xAI vs caja negra
 
-1. Pulsa **Crear Codespace — Lab 3** (arriba).
-2. Espera el build del contenedor.
-3. Abre **`labs/lab3/pca_monitoreo_estructural_alumno.ipynb`**.
-4. Ejecuta en orden; completa solo celdas `### TU TAREA AQUÍ ###`.
+| Enfoque | Qué obtienes | Limitación |
+|---------|--------------|------------|
+| **Caja negra** | Predicción (ŷ, clase, probabilidad) | No sabes qué variables la motivaron |
+| **xAI global** | Importancias promedio (Random Forest) | No explica un caso individual |
+| **xAI local** | Explicación de **una** predicción (SHAP, LIME) | Inestable con pocos datos |
 
-## Contenido del notebook
+### Técnicas previstas
 
-1. Contexto PCA en monitoreo estructural
-2. Carga y limpieza del dataset Kaggle
-3. Estadísticas descriptivas y correlaciones
-4. Estandarización (`StandardScaler`)
-5. PCA — scree plot y varianza explicada
-6. Proyección 2D PC1 vs PC2
-7. K-Means — gráfico del codo
-8. DBSCAN — densidad y ruido
-9. Comparativa KMeans vs DBSCAN (Silhouette, ARI)
-10. Loadings, biplot y clasificación
+- Importancias de features (modelos de árboles)
+- **SHAP** — contribución de cada variable a una predicción
+- Gráficos: summary plot, waterfall, dependencia parcial
+- Contraste con **Lab 1** (SHM) y **Lab 2** (hormigón)
 
-## Tareas prácticas
+## Objetivos de aprendizaje
 
-### Tarea 1: PCA y visualización (45 min)
-- Interpreta varianza explicada y proyección 2D coloreada por daño.
+1. Diferenciar explicación **global** vs **local**.
+2. Aplicar SHAP sobre un modelo ya entrenado.
+3. Redactar interpretación en lenguaje de ingeniería (2–3 frases por predicción).
+4. Detectar cuándo la explicación **no es fiable** (datos fuera de distribución, correlación espuria).
 
-### Tarea 2: K-Means y codo (45 min)
-- Elige k con el método del codo; compara con etiquetas reales.
+## Archivos previstos
 
-### Tarea 3: DBSCAN vs K-Means (45 min)
-- Ajusta `eps` y `min_samples`; evalúa robustez ante ruido.
+| Archivo | Uso |
+|---------|-----|
+| `xai_estructuras_alumno.ipynb` | Notebook del alumno |
+| `xai_estructuras_solucion.ipynb` | Referencia docente |
+| `_verificar.py` | Autoevaluación ✅ / ❌ |
+| `data/` | Ejemplos o exportados desde Lab 1 / Lab 2 |
 
-## Recursos en el repositorio
+## Pasos en Codespaces (cuando esté disponible)
 
-- **Notebook alumno:** `labs/lab3/pca_monitoreo_estructural_alumno.ipynb`
-- **Dataset:** `labs/lab3/data/building_health_monitoring_dataset.csv`
-- **Documentación:** `labs/lab3/data/DATOS.md`
-
-## Lecturas adicionales
-
-- [Kaggle — Building Structural Health Sensor Dataset](https://www.kaggle.com/datasets/ziya07/building-structural-health-sensor-dataset)
-- [Scikit-learn — Clustering](https://scikit-learn.org/stable/modules/clustering.html)
-
-## Checklist
-
-- [ ] Abrí el Codespace y el notebook alumno
-- [ ] Completé PCA y visualizaciones
-- [ ] Entrené K-Means y DBSCAN
-- [ ] Comparé métricas con etiquetas reales
-- [ ] Respondí las preguntas del notebook
+1. **Crear Codespace — Lab 3** (arriba).
+2. Abrir `labs/lab3/xai_estructuras_alumno.ipynb`.
 
 ---
 
-**¿Dudas?** → [Codespaces](codespaces.md) · [FAQ](../faq.md)
+**¿Dudas?** → [Codespaces](codespaces.md)

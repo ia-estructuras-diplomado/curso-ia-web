@@ -109,34 +109,52 @@ learning_outcomes:
   - "Diseñar y entrenar modelos predictivos para casos de uso estructurales"
   - "Comprender el futuro de Digital Twins y Smart Cities"
 
-# Mapeo web (docs/labs) ↔ carpetas en labs/ (sincronizadas desde curso-ia-dev)
+# Mapeo docs/labs ↔ labs/ (sincronizado desde curso-ia-dev)
+# La numeración sigue curso-ia-dev, no el syllabus web (subject to change).
 labs:
   codespaces_repo: "ia-estructuras-diplomado/curso-ia-web"
-  codespaces_url: "https://codespaces.new/ia-estructuras-diplomado/curso-ia-web"
+  codespaces_url: "https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json"
   dev_source_repo: "ia-estructuras-diplomado/curso-ia-dev"
   mapping:
+    - web_id: lab0
+      doc: docs/labs/lab0.md
+      dev_path: labs/lab0
+      notebook_alumno: fundamentos_python_ia_alumno.ipynb
+      title: "Fundamentos de Python para IA"
+      status: disponible
     - web_id: lab1
       doc: docs/labs/lab1.md
       dev_path: labs/lab1
-      notebook_alumno: resistencia_compresion_alumno.ipynb
-      session: 3
-      title: "Fundamentos de Machine Learning"
+      notebook_alumno: pca_monitoreo_estructural_alumno.ipynb
+      title: "PCA, Clustering y Monitoreo Estructural (SHM)"
+      status: disponible
     - web_id: lab2
       doc: docs/labs/lab2.md
       dev_path: labs/lab2
-      notebook_alumno: null
-      session: 5
-      title: "Monitoreo Estructural Inteligente"
-      status: pendiente_en_dev
+      notebook_alumno: resistencia_compresion_alumno.ipynb
+      title: "Predicción Resistencia a la Compresión (UCI)"
+      status: disponible
     - web_id: lab3
       doc: docs/labs/lab3.md
       dev_path: labs/lab3
-      notebook_alumno: pca_monitoreo_estructural_alumno.ipynb
-      session: 5
-      title: "Clustering y Señales"
-    - web_id: lab0
-      doc: null
-      dev_path: labs/lab0
-      notebook_alumno: fundamentos_python_ia_alumno.ipynb
-      session: 1
-      title: "Fundamentos de Python para IA"
+      notebook_alumno: xai_estructuras_alumno.ipynb
+      title: "Inteligencia Artificial Explicable (xAI)"
+      status: en_desarrollo
+    - web_id: lab4
+      doc: docs/labs/lab4.md
+      dev_path: labs/lab4
+      notebook_alumno: redes_neuronales_estructuras_alumno.ipynb
+      title: "Redes Neuronales, CNN y RNN"
+      status: en_desarrollo
+    - web_id: lab5
+      doc: docs/labs/lab5.md
+      dev_path: labs/lab5
+      notebook_alumno: llm_local_estructuras_alumno.ipynb
+      title: "Modelos Locales de Lenguaje (LLM)"
+      status: en_desarrollo
+    - web_id: lab6
+      doc: docs/labs/lab6.md
+      dev_path: labs/lab6
+      notebook_alumno: agentes_estructuras_alumno.ipynb
+      title: "Agentes de IA"
+      status: en_desarrollo

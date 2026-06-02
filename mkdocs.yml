@@ -69,9 +69,13 @@ nav:
   - Laboratorios & Prácticas:
       - Descripción General: labs/index.md
       - GitHub Codespaces: labs/codespaces.md
-      - Lab 1 - Fundamentos ML: labs/lab1.md
-      - Lab 2 - Monitoreo Estructural: labs/lab2.md
-      - Lab 3 - Clustering y Señales: labs/lab3.md
+      - Lab 0 - Python para IA: labs/lab0.md
+      - Lab 1 - PCA y SHM: labs/lab1.md
+      - Lab 2 - Resistencia Hormigón: labs/lab2.md
+      - Lab 3 - xAI: labs/lab3.md
+      - Lab 4 - CNN y RNN: labs/lab4.md
+      - Lab 5 - LLM Locales: labs/lab5.md
+      - Lab 6 - Agentes de IA: labs/lab6.md
   - Trabajos Grupales:
       - Guía General: trabajos/guia.md
       - Trabajo Grupal 1: trabajos/trabajo1.md

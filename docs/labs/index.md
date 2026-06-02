@@ -1,51 +1,41 @@
 # Laboratorios y Prácticas
 
-## Enfoque profesional
+Los labs viven en **`labs/labN/`** de [curso-ia-web](https://github.com/ia-estructuras-diplomado/curso-ia-web), sincronizados desde **`curso-ia-dev`**.
 
-Los laboratorios están diseñados para **profesionales de ingeniería civil**. Trabajarás con **Jupyter Notebooks** en [GitHub Codespaces](codespaces.md), datasets reales y Scikit-learn / Pandas.
+## Acceso rápido
 
-## Acceso rápido — guía y Codespace por lab
+| Lab | Tema | Guía | Codespace | Notebook |
+|:---:|:-----|:-----|:----------|:---------|
+| **0** | Python para IA | [Lab 0](lab0.md) | [▶ Lab 0](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json) | [📓 Python IA](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab0/fundamentos_python_ia_alumno.ipynb) |
+| **1** | PCA, clustering, SHM (Kaggle) | [Lab 1](lab1.md) | [▶ Lab 1](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json) | [📓 PCA / SHM](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab1/pca_monitoreo_estructural_alumno.ipynb) |
+| **2** | Resistencia hormigón (UCI) | [Lab 2](lab2.md) | [▶ Lab 2](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json) | [📓 Regresión](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab2/resistencia_compresion_alumno.ipynb) |
+| **3** | xAI (SHAP, explicabilidad) | [Lab 3](lab3.md) | [▶ Lab 3](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json) | 🚧 |
+| **4** | CNN y RNN | [Lab 4](lab4.md) | [▶ Lab 4](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json) | 🚧 |
+| **5** | LLM locales | [Lab 5](lab5.md) | [▶ Lab 5](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json) | 🚧 |
+| **6** | Agentes de IA | [Lab 6](lab6.md) | [▶ Lab 6](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json) | 🚧 |
 
-| Lab | Guía | Crear Codespace | Notebook |
-|:---:|:-----|:----------------|:---------|
-| **0** | [Sesión 1](../sesiones/sesion1.md) | [▶ Lab 0](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json) | [📓 Python IA](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab0/fundamentos_python_ia_alumno.ipynb) |
-| **1** | [Lab 1 — Fundamentos ML](lab1.md) | [▶ Lab 1](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json) | [📓 Resistencia hormigón](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab1/resistencia_compresion_alumno.ipynb) |
-| **2** | [Lab 2 — Monitoreo SHM](lab2.md) | [▶ Lab 2](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json) | *Próximamente* |
-| **3** | [Lab 3 — Clustering](lab3.md) | [▶ Lab 3](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json) | [📓 PCA / SHM](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab3/pca_monitoreo_estructural_alumno.ipynb) |
+!!! tip "Cómo empezar"
+    1. Clic en **▶ Lab N** → crear o reanudar Codespace.
+    2. Clic en **📓** → abrir notebook en GitHub.
+    3. [Guía Codespaces](codespaces.md)
 
-!!! tip "¿Cómo funciona?"
-    1. Haz clic en **▶ Lab N** → GitHub te pide iniciar sesión → creas o reanudas un Codespace con el entorno del curso.
-    2. Haz clic en **📓** → abres el notebook en GitHub; desde ahí también puedes usar **Open in Codespace**.
-    3. Detalle en [Guía Codespaces](codespaces.md).
+## Estado (según `curso-ia-dev`)
 
-## Laboratorios disponibles
-
-### Lab 1: Fundamentos de Machine Learning
-**Sesión 3** · Regresión con datos UCI de hormigón · ~2 h  
-**[→ Guía completa + botones](lab1.md)**
-
-### Lab 2: Monitoreo Estructural Inteligente
-**Sesión 5** · Detección de anomalías SHM · *notebook pendiente*  
-**[→ Guía completa](lab2.md)**
-
-### Lab 3: Clustering y Procesamiento de Señales
-**Sesión 5–6** · PCA, K-Means, DBSCAN · ~3 h  
-**[→ Guía completa + botones](lab3.md)**
-
-## Contenido gradual
-
-| Lab | Disponible desde |
-|-----|------------------|
-| Lab 0 (Python, opcional) | Sesión 1 |
-| Lab 1 | Sesión 3 |
-| Lab 2 | Sesión 5 (notebook pendiente) |
-| Lab 3 | Sesión 5 |
+| Lab | Carpeta | Estado |
+|-----|---------|--------|
+| 0 | `labs/lab0/` | ✅ Disponible |
+| 1 | `labs/lab1/` | ✅ Disponible |
+| 2 | `labs/lab2/` | ✅ Disponible |
+| 3 | `labs/lab3/` | 🚧 xAI |
+| 4 | `labs/lab4/` | 🚧 CNN / RNN |
+| 5 | `labs/lab5/` | 🚧 LLM local |
+| 6 | `labs/lab6/` | 🚧 Agentes |
 
 ## Recursos
 
 - [Guía Codespaces](codespaces.md)
-- [Herramientas y setup](../recursos/herramientas.md)
+- [Herramientas](../recursos/herramientas.md)
 
 ---
 
-**Entorno general:** [Crear Codespace del curso](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json){ .md-button .md-button--primary }
+[Crear Codespace del curso](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json){ .md-button .md-button--primary }

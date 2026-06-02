@@ -102,7 +102,7 @@ print(f"Error Absoluto Medio (RMSE): {np.sqrt(mean_squared_error(y_test, y_pred)
 ---
 
 ## 🔬 Laboratorio Vinculado
-Esta sesión inicia el desarrollo práctico del **[Laboratorio 1 - Fundamentos ML](../labs/lab1.md)**, el cual debes resolver antes de la sesión de exposiciones (Sesión 4).
+Esta sesión inicia el desarrollo práctico del **[Laboratorio 2](../labs/lab2.md)** (regresión UCI — hormigón), el cual debes resolver antes de la sesión de exposiciones (Sesión 4).
 
 ## 📖 Lecturas Recomendadas
 - **James, G., Witten, D., Hastie, T., & Tibshirani, R. (2013)**: *An Introduction to Statistical Learning with Applications in R/Python*. Capítulo 2.
