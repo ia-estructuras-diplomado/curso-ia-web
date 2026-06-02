@@ -1,9 +1,6 @@
 {
   "name": "Curso IA — Labs (Codespaces)",
   "image": "mcr.microsoft.com/devcontainers/python:3.11",
-  "features": {
-    "ghcr.io/astral-sh/uv:latest": {}
-  },
   "postCreateCommand": "bash labs/setup.sh",
   "customizations": {
     "vscode": {

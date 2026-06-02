@@ -10,6 +10,12 @@ if [[ ! -f requirements.txt ]]; then
   exit 1
 fi
 
+if ! command -v uv >/dev/null 2>&1 && command -v curl >/dev/null 2>&1; then
+  echo "→ Instalando uv (instalador oficial de astral.sh)"
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+  export PATH="${HOME}/.local/bin:${PATH}"
+fi
+
 if command -v uv >/dev/null 2>&1; then
   echo "→ Creando entorno con uv en labs/.venv"
   uv venv .venv
