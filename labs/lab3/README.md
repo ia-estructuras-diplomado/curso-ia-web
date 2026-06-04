@@ -37,6 +37,8 @@ Cuando esté listo, esta carpeta incluirá:
 |---------|-----|
 | `xai_estructuras_alumno.ipynb` | Notebook del alumno |
 | `xai_estructuras_solucion.ipynb` | Referencia docente |
+| `xai_estructuras_alumno_ia.ipynb` | *(al publicar)* Vía IA + `prompts_entregados.md` |
+| `xai_estructuras_solucion_ia.ipynb` | *(al publicar)* Prompts canónicos docente |
 | `_verificar.py` | Autoevaluación ✅ / ❌ |
 | `data/` | Datos de ejemplo o exportados desde Lab 1 / Lab 2 |
 

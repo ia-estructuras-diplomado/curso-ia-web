@@ -39,6 +39,8 @@ Cuando esté listo, esta carpeta incluirá:
 |---------|-----|
 | `redes_neuronales_estructuras_alumno.ipynb` | CNN + RNN en ejercicios guiados |
 | `redes_neuronales_estructuras_solucion.ipynb` | Referencia docente |
+| `redes_neuronales_estructuras_alumno_ia.ipynb` | *(al publicar)* Vía IA + `prompts_entregados.md` |
+| `redes_neuronales_estructuras_solucion_ia.ipynb` | *(al publicar)* Prompts canónicos docente |
 | `_verificar.py` | Autoevaluación ✅ / ❌ |
 | `data/` | Imágenes de inspección y/o series de sensores documentadas |
 

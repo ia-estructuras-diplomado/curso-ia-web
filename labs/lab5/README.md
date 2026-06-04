@@ -35,6 +35,8 @@ Cuando esté listo, esta carpeta incluirá:
 |---------|-----|
 | `llm_local_estructuras_alumno.ipynb` | Prompting, comparación de respuestas, límites del modelo |
 | `llm_local_estructuras_solucion.ipynb` | Referencia docente |
+| `llm_local_estructuras_alumno_ia.ipynb` | *(al publicar)* Vía IA + `prompts_entregados.md` |
+| `llm_local_estructuras_solucion_ia.ipynb` | *(al publicar)* Prompts canónicos docente |
 | `data/` | Fragmentos de normativa, informes sintéticos o anonimizados |
 
 ## Objetivos de aprendizaje

@@ -23,11 +23,16 @@ Reglas estrictas para los Notebooks:
 
 5. Archivos de entorno: dependencias en `labs/requirements.txt` (compartido); entorno virtual en `labs/.venv` vía `labs/setup.sh`. Codespaces usa `.devcontainer/devcontainer.json`.
 
-6. Dos notebooks por lab:
-   - `*_alumno.ipynb` — exploración + tareas marcadas + autoevaluación.
+6. Notebooks por lab (vía manual obligatoria; vía IA opcional):
+   - `*_alumno.ipynb` — exploración + tareas `### TU TAREA AQUÍ ###` + autoevaluación.
    - `*_solucion.ipynb` — referencia docente (no distribuir al inicio).
+   - `*_alumno_ia.ipynb` — misma lógica con prompts, checklist y celdas `### PEGA AQUÍ EL CÓDIGO DE LA IA ###`.
+   - `*_solucion_ia.ipynb` — prompts canónicos + código que pasa ✅ (solo docente).
+   - `prompts_entregados.md` — plantilla de bitácora para la vía IA.
 
 7. Preguntas teóricas breves en Markdown (reflexión, no examen); respuestas sugeridas solo en la versión solución. En labs introductorios incluir sintaxis, `import`, paquetes, `pip` y `requirements.txt`.
+
+8. Si generas la vía IA: reutiliza el mismo `_verificar.py`; no compares diff de código con la solución manual — valida artefactos (✅, R², conteos, gráficos).
 ```
 
 ---
@@ -37,8 +42,11 @@ Reglas estrictas para los Notebooks:
 ```
 labs/labN/
 ├── README.md                      # Objetivos, Codespaces, orden de ejecución
-├── nombre_lab_alumno.ipynb
+├── nombre_lab_alumno.ipynb        # Vía manual (hiperparámetros)
 ├── nombre_lab_solucion.ipynb
+├── nombre_lab_alumno_ia.ipynb     # Vía IA-asistida (opcional)
+├── nombre_lab_solucion_ia.ipynb
+├── prompts_entregados.md          # Bitácora de prompts (entrega vía IA)
 └── _verificar.py                  # (opcional) helpers de autoevaluación
 ```
 
@@ -96,8 +104,50 @@ resumen_seccion("4 — Pandas", resultados)
 1. Crear cuenta en GitHub (si no tiene).
 2. Abrir el repositorio del curso → **Code** → **Codespaces** → **Create codespace**.
 3. Esperar el build del contenedor (`.devcontainer`).
-4. Abrir `labs/labN/*_alumno.ipynb` y seleccionar el kernel de Python del contenedor.
-5. **Run All** o ejecutar en orden; buscar ✅ antes de avanzar.
+4. Abrir el notebook según tu perfil:
+   - **Con experiencia mínima en código:** `labs/labN/*_alumno.ipynb`
+   - **Sin programar / con asistente IA:** `labs/labN/*_alumno_ia.ipynb` + completar `prompts_entregados.md`
+5. Seleccionar el kernel de Python del contenedor.
+6. **Run All** o ejecutar en orden; buscar ✅ antes de avanzar.
+
+---
+
+## Vía IA-asistida (opcional)
+
+Paralela a la caja de herramientas manual. El alumno **no escribe código desde cero**: copia prompts a Copilot, Gemini, Cursor, etc. y pega el resultado en celdas marcadas.
+
+### Política académica breve
+
+- La IA **propone**; el ingeniero **valida** con autoevaluación, gráficos y criterio técnico.
+- Está permitido iterar con la IA hasta obtener ✅; debe entregar **notebook ejecutable** + **bitácora de prompts**.
+- No se califica por “código idéntico a la solución”, sino por **llegar a los mismos artefactos** (métricas, conteos, formas de datos).
+
+### Plantilla de prompt (por sección del notebook)
+
+```text
+Contexto: [diplomado ingeniería civil, lab N, sección X]
+Dataset: ruta exacta, ej. labs/lab2/data/concrete.csv
+Columnas relevantes: [lista exacta del DATOS.md]
+Objetivo de ingeniería: [una frase]
+Tareas:
+1. ...
+2. ...
+Restricciones:
+- Solo genera código para la celda marcada ### PEGA AQUÍ EL CÓDIGO DE LA IA ###
+- No reescribas el notebook completo
+- Usa las variables ya definidas arriba en la celda (df, corr, X_train, etc.)
+Criterio de éxito: la autoevaluación de la sección debe imprimir ✅
+```
+
+### Verificación docente (sin diff de código)
+
+| Nivel | Qué revisar |
+|-------|-------------|
+| Cumplimiento | Salida ✅ de `_verificar.py` por sección |
+| Consistencia | Mismas tolerancias que `*_solucion_ia.ipynb` (R², top features, conteos) |
+| Uso de IA | Calidad de `prompts_entregados.md` (muestra o rúbrica breve) |
+
+Helpers de generación: [`labs/_ia_helpers.py`](_ia_helpers.py).
 
 ---
 
@@ -108,12 +158,18 @@ resumen_seccion("4 — Pandas", resultados)
 - [ ] Autoevaluación con emojis al final de cada sección
 - [ ] Gráfico técnico final
 - [ ] `*_alumno.ipynb` + `*_solucion.ipynb`
+- [ ] (Opcional) `*_alumno_ia.ipynb` + `*_solucion_ia.ipynb` + `prompts_entregados.md`
+- [ ] Prompts canónicos probados en ≥ 2 asistentes (Copilot + otro)
 - [ ] `labs/requirements.txt` actualizado (entorno centralizado)
-- [ ] README del lab con enlace a Codespaces
+- [ ] README del lab con enlace a Codespaces y qué notebook abrir (manual vs IA)
 - [ ] Preguntas teóricas (sintaxis, imports, pip si aplica; sin autograder)
 
 ---
 
 ## Referencia implementada
 
-**Lab 0:** `labs/lab0/` — Fundamentos de Python para IA.
+**Lab 0:** `labs/lab0/` — Fundamentos de Python para IA (vía manual + IA).
+
+**Lab 1:** `labs/lab1/` — PCA y monitoreo estructural (vía manual + IA).
+
+**Lab 2:** `labs/lab2/` — Resistencia a compresión (vía manual + IA; piloto IA).

@@ -1,14 +1,28 @@
 # Lab 0 — Fundamentos de Python para IA
 
-Introducción en **GitHub Codespaces** con enfoque **caja de herramientas**: código base pre-escrito, el alumno solo ajusta parámetros en celdas `### TU TAREA AQUÍ ###`.
+Introducción en **GitHub Codespaces** con enfoque **caja de herramientas**: código base pre-escrito. Elige una vía:
+
+- **Manual:** edita `### TU TAREA AQUÍ ###`
+- **IA-asistida:** prompts + `### PEGA AQUÍ EL CÓDIGO DE LA IA ###` + bitácora `prompts_entregados.md`
+
+## ¿Qué notebook abrir?
+
+| Si… | Abre |
+|-----|------|
+| Sabes editar variables Python | `fundamentos_python_ia_alumno.ipynb` |
+| Prefieres Copilot / Gemini / Cursor | `fundamentos_python_ia_alumno_ia.ipynb` |
 
 ## Archivos
 
 | Archivo | Uso |
 |---------|-----|
-| `fundamentos_python_ia_alumno.ipynb` | Notebook del alumno |
-| `fundamentos_python_ia_solucion.ipynb` | Referencia docente |
-| `_verificar.py` | Autoevaluación con mensajes ✅ / ❌ |
+| `fundamentos_python_ia_alumno.ipynb` | Vía manual |
+| `fundamentos_python_ia_alumno_ia.ipynb` | Vía IA |
+| `fundamentos_python_ia_solucion.ipynb` | Referencia docente (manual) |
+| `fundamentos_python_ia_solucion_ia.ipynb` | Referencia docente (IA) |
+| `prompts_entregados.md` | Bitácora de prompts |
+| `_verificar.py` | Autoevaluación ✅ / ❌ |
+| `_generar_notebooks.py` | Regenera los cuatro notebooks |
 
 **Entorno:** compartido en [`labs/.venv`](../.venv) — ver [`labs/setup.sh`](../setup.sh).
 

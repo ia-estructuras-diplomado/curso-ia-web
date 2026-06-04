@@ -36,6 +36,8 @@ Cuando esté listo, esta carpeta incluirá:
 |---------|-----|
 | `agentes_estructuras_alumno.ipynb` | Definir tools, ejecutar agente, evaluar salidas |
 | `agentes_estructuras_solucion.ipynb` | Referencia docente |
+| `agentes_estructuras_alumno_ia.ipynb` | *(al publicar)* Vía IA + `prompts_entregados.md` |
+| `agentes_estructuras_solucion_ia.ipynb` | *(al publicar)* Prompts canónicos docente |
 | `data/` | Escenarios de prueba (informes, CSV, prompts de ejemplo) |
 
 ## Objetivos de aprendizaje

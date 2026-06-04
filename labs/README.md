@@ -21,17 +21,28 @@ El devcontainer ejecuta `labs/setup.sh` y usa el intérprete `labs/.venv/bin/pyt
 
 [Crear Codespace](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web)
 
+## Dos vías por lab (opcional)
+
+| Perfil | Notebook | Entrega |
+|--------|----------|---------|
+| Edita hiperparámetros | `*_alumno.ipynb` | Notebook con ✅ |
+| Asistente IA (Copilot, Gemini, Cursor…) | `*_alumno_ia.ipynb` | Notebook con ✅ + [`prompts_entregados.md`](lab2/prompts_entregados.md) |
+
+Validación por **resultados** (`_verificar.py`), no por código idéntico a la solución. Ver [Vía IA-asistida](GUIA_LABORATORIOS.md#vía-ia-asistida-opcional) en la guía.
+
+Docente: `bash labs/_smoke_ia_solucion.sh` tras cambiar prompts o generadores.
+
 ## Labs disponibles
 
-| Lab | Carpeta | Tema | Estado |
-|-----|---------|------|--------|
-| 0 | [`lab0/`](lab0/) | Fundamentos de Python para IA | ✅ |
-| 1 | [`lab1/`](lab1/) | PCA, KMeans, DBSCAN y monitoreo SHM (Kaggle) | ✅ |
-| 2 | [`lab2/`](lab2/) | Resistencia a compresión del hormigón (UCI) | ✅ |
-| 3 | [`lab3/`](lab3/) | Inteligencia artificial explicable (xAI) | 🚧 |
-| 4 | [`lab4/`](lab4/) | Redes neuronales, CNN y RNN | 🚧 |
-| 5 | [`lab5/`](lab5/) | Modelos locales de lenguaje (LLM) | 🚧 |
-| 6 | [`lab6/`](lab6/) | Agentes de IA | 🚧 |
+| Lab | Carpeta | Tema | Manual | Vía IA |
+|-----|---------|------|--------|--------|
+| 0 | [`lab0/`](lab0/) | Fundamentos de Python para IA | ✅ | ✅ |
+| 1 | [`lab1/`](lab1/) | PCA, KMeans, DBSCAN y monitoreo SHM (Kaggle) | ✅ | ✅ |
+| 2 | [`lab2/`](lab2/) | Resistencia a compresión del hormigón (UCI) | ✅ | ✅ |
+| 3 | [`lab3/`](lab3/) | Inteligencia artificial explicable (xAI) | 🚧 | al publicar |
+| 4 | [`lab4/`](lab4/) | Redes neuronales, CNN y RNN | 🚧 | al publicar |
+| 5 | [`lab5/`](lab5/) | Modelos locales de lenguaje (LLM) | 🚧 | al publicar |
+| 6 | [`lab6/`](lab6/) | Agentes de IA | 🚧 | al publicar |
 
 La numeración de carpetas `labs/labN/` coincide con el syllabus del curso (Lab 1, 2, 3…).
 
