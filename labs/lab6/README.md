@@ -1,67 +1,45 @@
-# Lab 6 — Agentes de IA
+# Lab 6 — Agentes de IA sísmicos
 
-**Sesión 10** · Orquestación de herramientas con agentes para flujos de trabajo en ingeniería estructural.
+**Sesión 10** · Agente Agno + **Ollama local** + tools + MLP pre-entrenado + informe LaTeX.
 
-## Tema del laboratorio
+## Stack (intro en notebook)
 
-Un **agente de IA** es un sistema que, a partir de un objetivo en lenguaje natural, **planifica pasos**, **invoca herramientas** (código, búsqueda, APIs, notebooks) y **itera** hasta entregar un resultado — no solo responde un texto fijo como un chat simple.
+| Herramienta | Rol |
+|-------------|-----|
+| **Ollama** | LLM local (`llama3.2:3b`) — razonamiento y dictamen |
+| **Agno** | Framework agente ReAct + tool calling |
+| **MLP (.pkl)** | Best model neuronal (entrenado offline por docente) |
+| **LaTeX** | Exportación `informe_sismico.tex` |
 
-```
-Usuario: "Resume el informe de inspección y lista grietas críticas"
-    → Agente: lee archivo → extrae tablas → clasifica severidad → genera informe
-```
-
-### Componentes típicos de un agente
-
-| Componente | Función |
-|------------|---------|
-| **LLM** | Razonamiento y decisión del siguiente paso |
-| **Herramientas (tools)** | Leer CSV, ejecutar Python, consultar RAG, llamar modelos de Lab 1–4 |
-| **Memoria / estado** | Contexto de la conversación y resultados intermedios |
-| **Bucle agente** | Observar → actuar → verificar (ReAct, plan-and-execute, etc.) |
-
-### Casos de uso orientados al curso
-
-- Agente que **encadena** Lab 2 (predicción de resistencia) + Lab 3 (explicación SHAP) en un informe breve.
-- Agente con acceso a **documentos locales** (Lab 5) para responder preguntas con citas.
-- Agente que **no** sustituye al ingeniero: propone borradores y checklists para revisión humana.
-
-## Estado
-
-**En desarrollo.**
-
-Cuando esté listo, esta carpeta incluirá:
+## Archivos
 
 | Archivo | Uso |
 |---------|-----|
-| `agentes_estructuras_alumno.ipynb` | Definir tools, ejecutar agente, evaluar salidas |
+| `agentes_estructuras_alumno_ia.ipynb` | Notebook alumno (vía IA) |
 | `agentes_estructuras_solucion.ipynb` | Referencia docente |
-| `agentes_estructuras_alumno_ia.ipynb` | *(al publicar)* Vía IA + `prompts_entregados.md` |
-| `agentes_estructuras_solucion_ia.ipynb` | *(al publicar)* Prompts canónicos docente |
-| `data/` | Escenarios de prueba (informes, CSV, prompts de ejemplo) |
+| `prompts_entregados.md` | Bitácora de prompts |
+| `data/earthquake_risk_model.pkl` | Best model MLP |
+| `data/archive.zip` | Dataset sísmico (1000 filas) |
 
-## Objetivos de aprendizaje
-
-1. Diferenciar **chat con LLM** vs **agente con herramientas**.
-2. Definir al menos dos **tools** acotadas (p. ej. `load_concrete_csv`, `explain_prediction`).
-3. Ejecutar un bucle agente simple y registrar trazas (qué hizo y por qué).
-4. Evaluar **límites y riesgos**: permisos, ejecución de código, datos sensibles de obra.
-
-## Entorno local
+## Setup Codespaces
 
 ```bash
 bash labs/setup.sh
 source labs/.venv/bin/activate
+bash labs/lab6/_ollama_setup.sh
 cd labs/lab6
-jupyter notebook agentes_estructuras_alumno.ipynb
+python _preparar_datos.py
+jupyter notebook agentes_estructuras_alumno_ia.ipynb
 ```
 
-Dependencias del agente (framework acordado: LangGraph, CrewAI, SDK del curso, etc.) se documentarán al publicar el notebook.
+## Docente
 
-## GitHub Codespaces
+```bash
+cd labs/lab6
+python _preparar_datos.py
+python _generar_modelo.py      # entrena MLP offline → .pkl
+python _generar_notebooks.py
+python _smoke_test.py
+```
 
-Abrir `labs/lab6/agentes_estructuras_alumno.ipynb` (cuando esté publicado).
-
-Guía del curso: [Lab 6 en curso-ia-web](https://ia-estructuras-diplomado.github.io/curso-ia-web/labs/lab6/)
-
-Ver [`../GUIA_LABORATORIOS.md`](../GUIA_LABORATORIOS.md)
+Ver [`data/DATOS.md`](data/DATOS.md) y [`../GUIA_LABORATORIOS.md`](../GUIA_LABORATORIOS.md).

@@ -11,3 +11,5 @@ lab4/part_1/data/*.rar
 lab4/part_1/data/_tmp_extract/
 lab4/part_1/tools/
 lab4/part_2/data/building_health_monitoring_dataset.csv
+lab6/data/seismic_data.csv
+lab6/informe_sismico*.tex

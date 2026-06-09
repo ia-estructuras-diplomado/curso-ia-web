@@ -1,0 +1,19 @@
+{
+  "tipo": "MLP",
+  "architecture": "StandardScaler + MLPRegressor(64, 32)",
+  "features": [
+    "spectral_acceleration_g",
+    "soil_type_index",
+    "structural_period_s",
+    "max_drift_ratio",
+    "height_m",
+    "material_index"
+  ],
+  "target": "riesgo_colapso_prob [0-1] (criterio ingeniería sobre escenarios CSV)",
+  "n_train": 800,
+  "n_test": 200,
+  "val_score": 0.9599,
+  "test_r2": 0.9624,
+  "test_mae": 0.0316,
+  "trained_at": "2026-06-09T22:56:19.052397+00:00"
+}

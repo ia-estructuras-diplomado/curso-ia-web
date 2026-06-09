@@ -50,7 +50,7 @@ Docente: `bash labs/_smoke_ia_solucion.sh` tras cambiar prompts o generadores.
 | 3 | [`lab3/`](lab3/) | Inteligencia artificial explicable (xAI) — XGBoost + SHAP (SHM) | — | ✅ |
 | 4 | [`lab4/`](lab4/) | CNN grietas (P1) + LSTM sensores SHM (P2) | — | ✅ |
 | 5 | [`lab5/`](lab5/) | Modelos locales de lenguaje (LLM) / RAG | — | ✅ |
-| 6 | [`lab6/`](lab6/) | Agentes de IA | 🚧 | al publicar |
+| 6 | [`lab6/`](lab6/) | Agentes de IA (Agno + Ollama) | — | ✅ |
 
 La numeración de carpetas `labs/labN/` coincide con el syllabus del curso (Lab 1, 2, 3…).
 

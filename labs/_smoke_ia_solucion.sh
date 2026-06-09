@@ -14,6 +14,7 @@ fi
 "$PY" "${ROOT}/lab2/_smoke_test.py"
 "$PY" "${ROOT}/lab4/part_1/_smoke_test.py"
 "$PY" "${ROOT}/lab4/part_2/_smoke_test.py"
+"$PY" "${ROOT}/lab6/_smoke_test.py"
 
 for nb in \
   "${ROOT}/lab0/fundamentos_python_ia_solucion_ia.ipynb" \
