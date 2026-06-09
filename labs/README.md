@@ -39,7 +39,7 @@ Docente: `bash labs/_smoke_ia_solucion.sh` tras cambiar prompts o generadores.
 | 0 | [`lab0/`](lab0/) | Fundamentos de Python para IA | ✅ | ✅ |
 | 1 | [`lab1/`](lab1/) | PCA, KMeans, DBSCAN y monitoreo SHM (Kaggle) | ✅ | ✅ |
 | 2 | [`lab2/`](lab2/) | Resistencia a compresión del hormigón (UCI) | ✅ | ✅ |
-| 3 | [`lab3/`](lab3/) | Inteligencia artificial explicable (xAI) | 🚧 | al publicar |
+| 3 | [`lab3/`](lab3/) | Inteligencia artificial explicable (xAI) — XGBoost + SHAP (SHM) | — | ✅ |
 | 4 | [`lab4/`](lab4/) | Redes neuronales, CNN y RNN | 🚧 | al publicar |
 | 5 | [`lab5/`](lab5/) | Modelos locales de lenguaje (LLM) | 🚧 | al publicar |
 | 6 | [`lab6/`](lab6/) | Agentes de IA | 🚧 | al publicar |

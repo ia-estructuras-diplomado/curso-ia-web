@@ -2,52 +2,48 @@
 
 **Sesión 6** · Interpretar y auditar predicciones de modelos ML en contexto de ingeniería estructural.
 
+## Enfoque del lab
+
+Además de entrenar un **XGBoost** multiclass sobre sensores SHM, el objetivo central es **probar un kit xAI** sobre el mismo modelo — no depender de una sola técnica.
+
+| Técnica | Alcance | Sección |
+|---------|---------|---------|
+| Importancia del booster | Global | 7 |
+| Permutation importance | Global | 7 (pre-escrito) |
+| **SHAP** (`TreeExplainer`) | Global + local | 8–9 |
+| **LIME** | Local | 10 |
+| **PDP** + SHAP dependence | Global marginal | 11 |
+
+En la sección 10 se **compara LIME vs SHAP** en el mismo caso de test.
+
 ## ¿Qué es xAI?
 
-**Inteligencia Artificial Explicable (xAI)** es el conjunto de métodos que permiten **entender por qué** un modelo produce una predicción concreta — no solo el resultado numérico o la clase asignada.
+**Inteligencia Artificial Explicable (xAI)** permite **entender por qué** un modelo produce una predicción — no solo la clase o la probabilidad.
 
 En obra esto importa porque:
 
-- Un modelo puede acertar por las **variables correctas** (p. ej. deformación, edad del hormigón) o por **artefactos** del dataset.
-- El ingeniero estructural necesita **trazabilidad** antes de tomar decisiones sobre dosificación, alertas de daño o inspección.
-- La normativa y el criterio profesional exigen **validación humana**; xAI apoya esa revisión, no la reemplaza.
-
-### xAI vs caja negra
-
-| Enfoque | Qué obtienes | Limitación |
-|---------|--------------|------------|
-| **Caja negra** | Predicción (ŷ, clase, probabilidad) | No sabes qué variables la motivaron |
-| **xAI global** | Importancias promedio (p. ej. en Random Forest) | No explica un caso individual |
-| **xAI local** | Explicación de **una** predicción (SHAP, LIME) | Puede ser inestable con pocos datos |
-
-### Técnicas previstas en este lab
-
-- **Importancias de features** (modelos de árboles) — visión global rápida.
-- **SHAP** (SHapley Additive exPlanations) — contribución de cada variable a una predicción.
-- **Gráficos de explicación** — summary plot, waterfall, dependencia parcial.
-- **Contraste con Lab 1 / Lab 2** — explicar clasificación de daño (SHM) o regresión de resistencia (hormigón).
+- Un modelo puede acertar por **sensores correctos** (Strain, vibración) o por **artefactos**.
+- El ingeniero necesita **trazabilidad** antes de activar alertas de daño.
+- xAI **apoya** la validación humana; no sustituye normativa ni inspección.
 
 ## Estado
 
-**En desarrollo.**
-
-Cuando esté listo, esta carpeta incluirá:
+**✅ Completo.**
 
 | Archivo | Uso |
 |---------|-----|
-| `xai_estructuras_alumno.ipynb` | Notebook del alumno |
+| `xai_estructuras_alumno_ia.ipynb` | **Única vía alumno** — guía IA + celda vacía por sección |
 | `xai_estructuras_solucion.ipynb` | Referencia docente |
-| `xai_estructuras_alumno_ia.ipynb` | *(al publicar)* Vía IA + `prompts_entregados.md` |
-| `xai_estructuras_solucion_ia.ipynb` | *(al publicar)* Prompts canónicos docente |
-| `_verificar.py` | Autoevaluación ✅ / ❌ |
-| `data/` | Datos de ejemplo o exportados desde Lab 1 / Lab 2 |
+| `prompts_entregados.md` | Bitácora obligatoria de prompts |
+| `referencia_celdas_ia.md` | **Solo docente** — código canónico por celda (✅) |
+| `data/` | Dataset SHM (mismo que Lab 1) |
 
 ## Objetivos de aprendizaje
 
-1. Diferenciar explicación **global** vs **local** de un modelo.
-2. Aplicar SHAP (u otra técnica acordada) sobre un modelo ya entrenado.
-3. Redactar una interpretación en lenguaje de ingeniería (2–3 frases por predicción).
-4. Identificar cuándo la explicación del modelo **no es fiable** (datos fuera de distribución, correlación espuria).
+1. Diferenciar explicación **global** vs **local**.
+2. Aplicar **varias técnicas xAI** sobre un mismo `XGBClassifier`.
+3. Comparar **SHAP y LIME** en un caso concreto de test.
+4. Interpretar resultados en lenguaje de ingeniería estructural.
 
 ## Entorno local
 
@@ -55,13 +51,9 @@ Cuando esté listo, esta carpeta incluirá:
 bash labs/setup.sh
 source labs/.venv/bin/activate
 cd labs/lab3
-jupyter notebook xai_estructuras_alumno.ipynb
+jupyter notebook xai_estructuras_alumno_ia.ipynb
 ```
 
-## GitHub Codespaces
-
-Abrir `labs/lab3/xai_estructuras_alumno.ipynb` (cuando esté publicado).
-
-Guía del curso: [Lab 3 en curso-ia-web](https://ia-estructuras-diplomado.github.io/curso-ia-web/labs/lab3/)
+Dependencias: `xgboost`, `shap`, `lime` en [`labs/requirements.txt`](../requirements.txt).
 
 Ver [`../GUIA_LABORATORIOS.md`](../GUIA_LABORATORIOS.md)
