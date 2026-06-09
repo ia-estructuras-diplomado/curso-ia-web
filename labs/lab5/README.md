@@ -47,6 +47,8 @@ Construir paso a paso un pipeline **Retrieval-Augmented Generation (RAG)** para 
 bash labs/lab5/_ollama_setup.sh
 ```
 
+El script instala `zstd` automáticamente si falta (requerido por Ollama en Codespaces).
+
 4. Abrir [`llm_local_estructuras_alumno_ia.ipynb`](llm_local_estructuras_alumno_ia.ipynb).
 5. Ejecutar celdas en orden; buscar ✅ antes de avanzar.
 6. Completar [`prompts_entregados.md`](prompts_entregados.md).

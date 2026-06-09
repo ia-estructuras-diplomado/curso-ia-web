@@ -1,7 +1,7 @@
 {
   "name": "Curso IA — Labs (Codespaces)",
   "image": "mcr.microsoft.com/devcontainers/python:3.11",
-  "postCreateCommand": "bash labs/setup.sh",
+  "postCreateCommand": "sudo apt-get update && sudo DEBIAN_FRONTEND=noninteractive apt-get install -y zstd && bash labs/setup.sh",
   "features": {},
   "customizations": {
     "vscode": {

@@ -4,9 +4,31 @@ set -euo pipefail
 
 MODELO="${OLLAMA_MODEL:-llama3.2:3b}"
 
+_ensure_zstd() {
+  if command -v zstd >/dev/null 2>&1; then
+    return 0
+  fi
+  echo "→ Instalando zstd (requerido por el instalador de Ollama)…"
+  if command -v apt-get >/dev/null 2>&1; then
+    sudo apt-get update -qq
+    sudo DEBIAN_FRONTEND=noninteractive apt-get install -y zstd
+  elif command -v dnf >/dev/null 2>&1; then
+    sudo dnf install -y zstd
+  elif command -v yum >/dev/null 2>&1; then
+    sudo yum install -y zstd
+  elif command -v apk >/dev/null 2>&1; then
+    sudo apk add --no-cache zstd
+  else
+    echo "❌ zstd no está instalado y no se detectó gestor de paquetes."
+    echo "   Instálalo manualmente y vuelve a ejecutar este script."
+    exit 1
+  fi
+}
+
 if command -v ollama >/dev/null 2>&1; then
   echo "✅ Ollama ya instalado: $(ollama --version 2>/dev/null || echo ok)"
 else
+  _ensure_zstd
   echo "→ Instalando Ollama…"
   curl -fsSL https://ollama.com/install.sh | sh
 fi
