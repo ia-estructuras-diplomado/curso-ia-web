@@ -1,4 +1,10 @@
-# Lab 4 Parte 1 — CNN para grietas en hormigón
+# Lab 4 — Redes neuronales en ingeniería estructural
+
+Dos partes complementarias: **visión (CNN)** e **series temporales (LSTM)**.
+
+---
+
+## Parte 1 — CNN para grietas en hormigón
 
 **Sesión 7** · Clasificación de imágenes con redes convolucionales aplicadas a inspección estructural.
 
@@ -11,11 +17,9 @@ Entrenar una **CNN binaria** (PyTorch) sobre el dataset [Concrete Crack Images f
 | **Negative** | Hormigón sin grieta visible |
 | **Positive** | Hormigón con grieta |
 
-**Parte 2 (futuro):** RNN/LSTM sobre series de sensores SHM.
+## Estado Parte 1
 
-## Estado
-
-**✅ Parte 1 completa (CNN).**
+**✅ Completa (CNN).**
 
 | Archivo | Uso |
 |---------|-----|
@@ -77,3 +81,24 @@ Reinicia el kernel de Jupyter después.
 Guía del curso: [Lab 4 en curso-ia-web](https://ia-estructuras-diplomado.github.io/curso-ia-web/labs/lab4/)
 
 Ver [`../GUIA_LABORATORIOS.md`](../GUIA_LABORATORIOS.md)
+
+---
+
+## Parte 2 — LSTM en sensores SHM
+
+**Sesión 8** · RNN/LSTM sobre el mismo dataset de sensores que Labs 1 y 3, con **EDA de series temporales** y tests de **interpolación vs extrapolación**.
+
+## Estado Parte 2
+
+**✅ Completa (LSTM).**
+
+| Archivo | Uso |
+|---------|-----|
+| [`part_2/rnn_sensores_estructuras_alumno_ia.ipynb`](part_2/rnn_sensores_estructuras_alumno_ia.ipynb) | Notebook alumno (vía IA) |
+| [`part_2/rnn_sensores_estructuras_solucion.ipynb`](part_2/rnn_sensores_estructuras_solucion.ipynb) | Referencia docente |
+| [`part_2/README.md`](part_2/README.md) | Detalle Parte 2 |
+
+```bash
+cd labs/lab4/part_2
+jupyter notebook rnn_sensores_estructuras_alumno_ia.ipynb
+```

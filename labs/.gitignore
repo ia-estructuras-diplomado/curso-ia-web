@@ -10,3 +10,4 @@ lab4/data/cracks_subset/
 lab4/data/*.rar
 lab4/data/_tmp_extract/
 lab4/tools/
+lab4/part_2/data/building_health_monitoring_dataset.csv
