@@ -136,4 +136,18 @@ Entrega este archivo junto con tu notebook `*_alumno_ia.ipynb` ejecutado (celdas
 
 
 ---
+## Sección 10
+
+**Prompt enviado:**
+```
+(pega aquí)
+```
+
+**Respuesta de la IA (resumen):**
+
+
+**¿Qué aceptaste / rechazaste y por qué?**
+
+
+---
 

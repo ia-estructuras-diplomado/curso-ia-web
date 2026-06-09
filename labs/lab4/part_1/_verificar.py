@@ -69,7 +69,11 @@ def verificar_panorama_cnn(componentes: list[str]) -> list[bool]:
     return r
 
 
-def verificar_exploracion(conteos: dict, n_ejemplos_mosaico: int) -> list[bool]:
+def verificar_eda_dataset(
+    conteos: dict,
+    n_ejemplos_mosaico: int,
+    n_muestras_eda: int,
+) -> list[bool]:
     r = []
     r.append(
         verificar(
@@ -95,23 +99,88 @@ def verificar_exploracion(conteos: dict, n_ejemplos_mosaico: int) -> list[bool]:
             "❌ N_EJEMPLOS_MOSAICO debe estar entre 2 y 8.",
         )
     )
+    r.append(
+        verificar(
+            20 <= n_muestras_eda <= 200,
+            f"✅ EDA sobre {n_muestras_eda} imágenes (tamaños / balance).",
+            "❌ N_MUESTRAS_EDA debe estar entre 20 y 200.",
+        )
+    )
     return r
 
 
-def verificar_dataloaders(
+def verificar_augmentation(
     image_size: int,
-    batch_size: int,
-    train_loader,
-    val_loader,
+    aug_rotation: float,
+    train_transform,
+    val_transform,
+    n_aug_mostrados: int,
 ) -> list[bool]:
+    from torchvision.transforms import Compose
+
     r = []
     r.append(
         verificar(
             64 <= image_size <= 227,
-            f"✅ IMAGE_SIZE={image_size} (redimensionado para entrenamiento).",
+            f"✅ IMAGE_SIZE={image_size} para resize y entrenamiento.",
             "❌ IMAGE_SIZE debe estar entre 64 y 227.",
         )
     )
+    r.append(
+        verificar(
+            5 <= aug_rotation <= 45,
+            f"✅ AUG_ROTATION={aug_rotation}° en rango razonable.",
+            "❌ AUG_ROTATION debe estar entre 5 y 45 grados.",
+        )
+    )
+    r.append(
+        verificar(
+            isinstance(train_transform, Compose) and isinstance(val_transform, Compose),
+            "✅ train_transform y val_transform definidos (Compose).",
+            "❌ Define train_transform (con aumento) y val_transform (determinista).",
+        )
+    )
+    train_names = {t.__class__.__name__ for t in train_transform.transforms}
+    r.append(
+        verificar(
+            any("Random" in n for n in train_names),
+            f"✅ train_transform incluye aumento aleatorio ({sorted(train_names)}).",
+            "❌ train_transform debe incluir al menos un Random* (flip, rotación, jitter…).",
+        )
+    )
+    val_names = {t.__class__.__name__ for t in val_transform.transforms}
+    r.append(
+        verificar(
+            not any("Random" in n for n in val_names),
+            "✅ val_transform sin aleatoriedad (solo resize/normalize).",
+            "❌ val_transform no debe incluir transforms Random*.",
+        )
+    )
+    r.append(
+        verificar(
+            3 <= n_aug_mostrados <= 8,
+            f"✅ {n_aug_mostrados} variantes aumentadas visualizadas.",
+            "❌ N_AUG_MOSTRADOS debe estar entre 3 y 8.",
+        )
+    )
+    return r
+
+
+def verificar_dataloaders(
+    batch_size: int,
+    train_loader,
+    val_loader,
+    image_size: int | None = None,
+) -> list[bool]:
+    r = []
+    if image_size is not None:
+        r.append(
+            verificar(
+                64 <= image_size <= 227,
+                f"✅ IMAGE_SIZE={image_size} coherente con los loaders.",
+                "❌ IMAGE_SIZE debe estar entre 64 y 227.",
+            )
+        )
     r.append(
         verificar(
             8 <= batch_size <= 64,

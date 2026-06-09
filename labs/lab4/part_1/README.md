@@ -13,7 +13,7 @@ Entrenar una **CNN binaria** (PyTorch) sobre el dataset [Concrete Crack Images f
 
 ## Estado
 
-**✅ Completa.**
+**✅ Completa.** 10 secciones: panorama CNN → EDA visual → data augmentation → entrenamiento y métricas.
 
 | Archivo | Uso |
 |---------|-----|

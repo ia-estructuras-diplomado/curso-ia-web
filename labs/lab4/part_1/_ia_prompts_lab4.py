@@ -39,76 +39,107 @@ CELDA_Q1 = celda_solucion_alumno(
 
 IA_Q2 = ia_guia_seccion(
     "2",
-    "Exploración del dataset",
-    "Configurar cuántas imágenes mostrar en un mosaico Positive vs Negative.",
+    "EDA del dataset",
+    "Explorar balance de clases, tamaños de imagen y mosaico Positive vs Negative.",
     [
-        "Definir `N_EJEMPLOS_MOSAICO` entre 2 y 8",
-        "Mostrar mosaico con imágenes de train/Negative y train/Positive",
-        "Usar `conteos` ya calculado en la celda anterior",
+        "Definir `N_EJEMPLOS_MOSAICO` (2–8) y `N_MUESTRAS_EDA` (20–200)",
+        "Gráfico de barras con conteos train/val por clase (usa `conteos`)",
+        "Histograma de anchos y altos de una muestra de imágenes train",
+        "Mosaico 2×N con ejemplos Negative y Positive",
     ],
-    vars_autoeval=["N_EJEMPLOS_MOSAICO", "conteos"],
+    vars_autoeval=["N_EJEMPLOS_MOSAICO", "N_MUESTRAS_EDA", "conteos"],
     consideraciones=[
         "La celda anterior definió `RUTA_DATOS`, `conteos` y `class_names`",
         "Rutas: RUTA_DATOS / 'train' / 'Negative' y 'Positive'",
-        "Usa matplotlib subplots; no redefinas conteos",
+        "Usa matplotlib; no redefinas conteos",
     ],
-    prompt="""En Jupyter ya tengo:
-- RUTA_DATOS = Path("data/cracks_subset")
-- conteos = dict con train/val y Negative/Positive
+    prompt="""En Jupyter ya tengo RUTA_DATOS, conteos, class_names y PIL Image.
 Genera código que:
-1) defina N_EJEMPLOS_MOSAICO = 4
-2) cree fig, axes = plt.subplots(2, N_EJEMPLOS_MOSAICO, figsize=(2*N_EJEMPLOS_MOSAICO, 4))
-3) para cada clase en ["Negative", "Positive"], tome N_EJEMPLOS_MOSAICO jpg de RUTA_DATOS/"train"/clase con sorted(glob)[:N]
-4) muestre con imshow y título de clase
-5) plt.tight_layout(); plt.show()
-Importa Path de pathlib si hace falta.""",
+1) N_EJEMPLOS_MOSAICO = 4; N_MUESTRAS_EDA = 100
+2) bar chart: eje x Negative/Positive, barras train y val con conteos[split][cls]
+3) tome N_MUESTRAS_EDA jpg de train (mezcla clases), lea width/height con Image.open
+4) histograma anchos y altos (subplots o dos hist)
+5) mosaico 2 filas x N_EJEMPLOS_MOSAICO con imshow
+6) plt.tight_layout(); plt.show()""",
 )
 
 CELDA_Q2 = celda_solucion_alumno(
-    variables=["N_EJEMPLOS_MOSAICO"],
+    variables=["N_EJEMPLOS_MOSAICO", "N_MUESTRAS_EDA"],
     pasos=[
-        "Definir N_EJEMPLOS_MOSAICO (2–8)",
+        "Barras de balance + histograma de tamaños",
         "Mosaico 2 filas (Negative, Positive)",
     ],
 )
 
 IA_Q3 = ia_guia_seccion(
     "3",
-    "Transformaciones y DataLoaders",
-    "Definir tamaño de imagen, batch y crear train_loader y val_loader.",
+    "Transformaciones y data augmentation",
+    "Definir transforms de train (con aumento) y val (sin aleatoriedad) y visualizarlos.",
     [
-        "Definir `IMAGE_SIZE` (64–227) y `BATCH_SIZE` (8–64)",
-        "Crear transforms con Resize, ToTensor y Normalize([0.5]*3, [0.5]*3)",
-        "Crear `train_ds`, `val_ds` con ImageFolder y `train_loader`, `val_loader`",
+        "Definir `IMAGE_SIZE` (64–227) y `AUG_ROTATION` (5–45 grados)",
+        "Crear `train_transform` con RandomHorizontalFlip, RandomRotation, ColorJitter, Resize, ToTensor, Normalize",
+        "Crear `val_transform` solo con Resize, ToTensor, Normalize",
+        "Mostrar imagen original y `N_AUG_MOSTRADOS` versiones aumentadas",
     ],
-    vars_autoeval=["IMAGE_SIZE", "BATCH_SIZE", "train_loader", "val_loader"],
+    vars_autoeval=["IMAGE_SIZE", "AUG_ROTATION", "train_transform", "val_transform", "N_AUG_MOSTRADOS"],
     consideraciones=[
-        "Usa RUTA_DATOS / 'train' y RUTA_DATOS / 'val'",
-        "shuffle=True solo en train_loader",
-        "device ya está definido en el setup",
+        "Normalize([0.5]*3, [0.5]*3) para centrar píxeles",
+        "Para imshow desnormaliza: tensor * 0.5 + 0.5",
+        "Aplica train_transform sobre PIL RGB, no sobre tensor ya normalizado",
     ],
-    prompt="""En Jupyter tengo RUTA_DATOS, device y imports de torchvision.
+    prompt="""Lab 4 CNN. Tengo RUTA_DATOS, transforms, Resize, ToTensor, Normalize, RandomHorizontalFlip, RandomRotation, ColorJitter.
 Genera código que:
-1) IMAGE_SIZE = 128; BATCH_SIZE = 32
-2) transform = transforms.Compose([Resize((IMAGE_SIZE,IMAGE_SIZE)), ToTensor(), Normalize([0.5,0.5,0.5],[0.5,0.5,0.5])])
-3) train_ds = datasets.ImageFolder(RUTA_DATOS/"train", transform=transform)
-4) val_ds = datasets.ImageFolder(RUTA_DATOS/"val", transform=transform)
-5) class_names = train_ds.classes
-6) train_loader = DataLoader(train_ds, batch_size=BATCH_SIZE, shuffle=True)
-7) val_loader = DataLoader(val_ds, batch_size=BATCH_SIZE, shuffle=False)
-8) imprima class_names y tamaños de train_ds y val_ds""",
+1) IMAGE_SIZE = 128; AUG_ROTATION = 15; N_AUG_MOSTRADOS = 4
+2) train_transform = Compose([RandomHorizontalFlip(), RandomRotation(AUG_ROTATION), ColorJitter(0.2,0.2), Resize((IMAGE_SIZE,IMAGE_SIZE)), ToTensor(), Normalize([0.5,0.5,0.5],[0.5,0.5,0.5])])
+3) val_transform = Compose([Resize((IMAGE_SIZE,IMAGE_SIZE)), ToTensor(), Normalize([0.5,0.5,0.5],[0.5,0.5,0.5])])
+4) tome una imagen Positive de train, muestre original + N_AUG_MOSTRADOS aplicando train_transform en loop
+5) títulos 'original' y 'aug i'""",
 )
 
 CELDA_Q3 = celda_solucion_alumno(
-    variables=["IMAGE_SIZE", "BATCH_SIZE", "train_loader", "val_loader"],
+    variables=["IMAGE_SIZE", "AUG_ROTATION", "train_transform", "val_transform", "N_AUG_MOSTRADOS"],
     pasos=[
-        "IMAGE_SIZE y BATCH_SIZE",
-        "ImageFolder + DataLoader train/val",
+        "train_transform con flip/rotación/jitter",
+        "val_transform determinista",
+        "Plot original vs aumentadas",
     ],
 )
 
 IA_Q4 = ia_guia_seccion(
     "4",
+    "DataLoaders",
+    "Crear train_loader y val_loader con los transforms de la sección anterior.",
+    [
+        "Definir `BATCH_SIZE` (8–64)",
+        "Crear `train_ds`, `val_ds` con ImageFolder y transforms ya definidos",
+        "Crear `train_loader` (shuffle=True) y `val_loader` (shuffle=False)",
+    ],
+    vars_autoeval=["BATCH_SIZE", "train_loader", "val_loader"],
+    consideraciones=[
+        "Usa train_transform en train y val_transform en val",
+        "RUTA_DATOS / 'train' y RUTA_DATOS / 'val'",
+        "device ya está definido en el setup",
+    ],
+    prompt="""En Jupyter tengo RUTA_DATOS, train_transform, val_transform, device.
+Genera código que:
+1) BATCH_SIZE = 32
+2) train_ds = ImageFolder(RUTA_DATOS/"train", transform=train_transform)
+3) val_ds = ImageFolder(RUTA_DATOS/"val", transform=val_transform)
+4) class_names = train_ds.classes
+5) train_loader y val_loader con batch_size=BATCH_SIZE
+6) imprima class_names y len(train_ds), len(val_ds)""",
+)
+
+CELDA_Q4 = celda_solucion_alumno(
+    variables=["BATCH_SIZE", "train_loader", "val_loader"],
+    pasos=[
+        "BATCH_SIZE",
+        "ImageFolder + DataLoader train/val",
+    ],
+)
+
+IA_Q5 = ia_guia_seccion(
+    "5",
     "Arquitectura CNN",
     "Construir una CNN pequeña con dos bloques convolucionales y salida binaria.",
     [
@@ -133,7 +164,7 @@ Genera código PyTorch que:
 4) imprima modelo""",
 )
 
-CELDA_Q4 = celda_solucion_alumno(
+CELDA_Q5 = celda_solucion_alumno(
     variables=["modelo", "N_FILTERS", "DROPOUT"],
     pasos=[
         "N_FILTERS y DROPOUT",
@@ -142,8 +173,8 @@ CELDA_Q4 = celda_solucion_alumno(
     ],
 )
 
-IA_Q5 = ia_guia_seccion(
-    "5",
+IA_Q6 = ia_guia_seccion(
+    "6",
     "Entrenamiento",
     "Entrenar la CNN varias épocas y guardar métricas en `history`.",
     [
@@ -166,7 +197,7 @@ Genera código que:
 5) al final imprima "✅ Entrenamiento completado.""",
 )
 
-CELDA_Q5 = celda_solucion_alumno(
+CELDA_Q6 = celda_solucion_alumno(
     variables=["history", "N_EPOCHS", "LEARNING_RATE"],
     pasos=[
         "N_EPOCHS y LEARNING_RATE",
@@ -174,8 +205,8 @@ CELDA_Q5 = celda_solucion_alumno(
     ],
 )
 
-IA_Q6 = ia_guia_seccion(
-    "6",
+IA_Q7 = ia_guia_seccion(
+    "7",
     "Curvas de entrenamiento",
     "Graficar pérdida y accuracy de train vs validación.",
     [
@@ -196,13 +227,13 @@ Genera matplotlib con:
 - leyendas, títulos, plt.tight_layout(), plt.show()""",
 )
 
-CELDA_Q6 = celda_solucion_alumno(
+CELDA_Q7 = celda_solucion_alumno(
     variables=["history", "N_EPOCHS"],
     pasos=["Subplots loss y accuracy", "Leyenda train/val"],
 )
 
-IA_Q7 = ia_guia_seccion(
-    "7",
+IA_Q8 = ia_guia_seccion(
+    "8",
     "Métricas en validación",
     "Matriz de confusión y classification_report sobre el conjunto val.",
     [
@@ -226,7 +257,7 @@ Genera código que:
 6) print(f"Accuracy validación: {acc_val:.3f}")""",
 )
 
-CELDA_Q7 = celda_solucion_alumno(
+CELDA_Q8 = celda_solucion_alumno(
     variables=["acc_val", "cm"],
     pasos=[
         "y_true, y_pred en val",
@@ -234,8 +265,8 @@ CELDA_Q7 = celda_solucion_alumno(
     ],
 )
 
-IA_Q8 = ia_guia_seccion(
-    "8",
+IA_Q9 = ia_guia_seccion(
+    "9",
     "Casos locales",
     "Mostrar predicciones sobre imágenes concretas de validación.",
     [
@@ -256,7 +287,7 @@ Genera código que:
 4) plt.show()""",
 )
 
-CELDA_Q8 = celda_solucion_alumno(
+CELDA_Q9 = celda_solucion_alumno(
     variables=["N_CASOS_MOSTRADOS"],
     pasos=[
         "N_CASOS_MOSTRADOS ≥ 1",
@@ -264,8 +295,8 @@ CELDA_Q8 = celda_solucion_alumno(
     ],
 )
 
-IA_Q9 = ia_guia_seccion(
-    "9",
+IA_Q10 = ia_guia_seccion(
+    "10",
     "Reflexión ingeniería",
     "Responder brevemente cuándo usar CNN en obra y sus límites.",
     [
@@ -284,8 +315,8 @@ IA_Q9 = ia_guia_seccion(
     nota_asistente=False,
 )
 
-CELDA_Q9 = celda_solucion_alumno(
+CELDA_Q10 = celda_solucion_alumno(
     variables=[],
     pasos=["Respuesta breve opcional (markdown en celda anterior)"],
-    nota="La sección 9 no tiene autoevaluación con código.",
+    nota="La sección 10 no tiene autoevaluación con código.",
 )
