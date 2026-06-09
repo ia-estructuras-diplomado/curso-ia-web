@@ -17,13 +17,21 @@ if ! command -v uv >/dev/null 2>&1 && command -v curl >/dev/null 2>&1; then
 fi
 
 if command -v uv >/dev/null 2>&1; then
-  echo "→ Creando entorno con uv en labs/.venv"
-  uv venv .venv
+  echo "→ Entorno con uv en labs/.venv"
+  if [[ ! -d .venv ]]; then
+    uv venv .venv
+  fi
+  echo "→ PyTorch CPU (Lab 5 / sentence-transformers)…"
+  uv pip install torch --index-url https://download.pytorch.org/whl/cpu
   uv pip install -r requirements.txt
 else
   echo "→ uv no encontrado; usando python -m venv"
-  python3 -m venv .venv
+  if [[ ! -d .venv ]]; then
+    python3 -m venv .venv
+  fi
   .venv/bin/pip install --upgrade pip
+  echo "→ PyTorch CPU (Lab 5 / sentence-transformers)…"
+  .venv/bin/pip install torch --index-url https://download.pytorch.org/whl/cpu
   .venv/bin/pip install -r requirements.txt
 fi
 

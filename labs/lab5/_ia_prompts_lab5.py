@@ -184,15 +184,18 @@ IA_Q6 = ia_guia_seccion(
     vars_autoeval=["EMBEDDINGS", "N_VECTORES"],
     consideraciones=[
         "MODELO_EMB ya está definido en la celda setup: 'all-MiniLM-L6-v2'",
+        "La celda pre-escrita importa SentenceTransformer; no repitas el import",
         "La primera ejecución descarga el modelo (~90 MB)",
         "N_VECTORES debe igualar N_CHUNKS",
     ],
-    prompt="""En Jupyter tengo CHUNKS, N_CHUNKS, MODELO_EMB = "all-MiniLM-L6-v2" y SentenceTransformer importado.
+    prompt="""En Jupyter tengo CHUNKS_CORPUS, CHUNK_SIZE, CHUNK_OVERLAP, MODELO_EMB = "all-MiniLM-L6-v2".
+SentenceTransformer ya fue importado en la celda pre-escrita anterior.
 Genera código que:
 1) modelo_emb = SentenceTransformer(MODELO_EMB)
-2) EMBEDDINGS = modelo_emb.encode(CHUNKS, show_progress_bar=False)
-3) N_VECTORES = EMBEDDINGS.shape[0]
-4) imprima N_VECTORES y EMBEDDINGS.shape
+2) CHUNKS = CHUNKS_CORPUS; N_CHUNKS = len(CHUNKS)
+3) EMBEDDINGS = modelo_emb.encode(CHUNKS, show_progress_bar=False)
+4) N_VECTORES = EMBEDDINGS.shape[0]
+5) imprima N_VECTORES y EMBEDDINGS.shape
 No uses imports nuevos.""",
 )
 
