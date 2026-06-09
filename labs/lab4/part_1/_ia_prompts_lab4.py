@@ -4,7 +4,7 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent.parent))
+sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 from _ia_helpers import celda_solucion_alumno, ia_guia_seccion  # noqa: E402
 
 IA_Q1 = ia_guia_seccion(

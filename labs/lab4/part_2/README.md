@@ -44,4 +44,4 @@ cd labs/lab4/part_2
 jupyter notebook rnn_sensores_estructuras_alumno_ia.ipynb
 ```
 
-Ver también [Parte 1 — CNN](../README.md).
+Ver también [Parte 1 — CNN](../part_1/README.md).

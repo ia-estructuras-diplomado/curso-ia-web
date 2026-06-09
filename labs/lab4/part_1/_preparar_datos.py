@@ -71,7 +71,7 @@ def build_subset_from_rar() -> None:
     if unrar is None:
         raise RuntimeError(
             "No se encontró unrar. En Codespaces usa cracks_subset.zip; "
-            "en local instala unrar o compila labs/lab4/tools/unrar/unrar."
+            "en local instala unrar o compila labs/lab4/part_1/tools/unrar/unrar."
         )
     if not RAR.is_file():
         raise FileNotFoundError(f"No se encontró {RAR}")

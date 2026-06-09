@@ -31,7 +31,7 @@ Para GitHub Codespaces se usa un **subconjunto fijo** (semilla 42):
 El RAR completo (`Concrete Crack Images for Classification.rar`, ~231 MB) es **opcional** para regenerar el subconjunto en local:
 
 ```bash
-cd labs/lab4
+cd labs/lab4/part_1
 python _preparar_datos.py
 ```
 

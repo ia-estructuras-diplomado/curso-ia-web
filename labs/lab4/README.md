@@ -1,104 +1,44 @@
 # Lab 4 — Redes neuronales en ingeniería estructural
 
-Dos partes complementarias: **visión (CNN)** e **series temporales (LSTM)**.
+Dos partes complementarias con el mismo entorno `labs/.venv` (PyTorch CPU).
 
----
+| Parte | Tema | Carpeta | Notebook alumno |
+|-------|------|---------|-----------------|
+| **1** | CNN — grietas en hormigón (imágenes) | [`part_1/`](part_1/) | `cnn_grietas_estructuras_alumno_ia.ipynb` |
+| **2** | LSTM — sensores SHM (series temporales) | [`part_2/`](part_2/) | `rnn_sensores_estructuras_alumno_ia.ipynb` |
 
-## Parte 1 — CNN para grietas en hormigón
+## Estado
 
-**Sesión 7** · Clasificación de imágenes con redes convolucionales aplicadas a inspección estructural.
+**✅ Ambas partes completas** (vía IA-asistida).
 
-## Tema del laboratorio
-
-Entrenar una **CNN binaria** (PyTorch) sobre el dataset [Concrete Crack Images for Classification](https://data.mendeley.com/datasets/5y9wdsg2zt/1) (METU, CC BY 4.0):
-
-| Clase | Significado |
-|-------|-------------|
-| **Negative** | Hormigón sin grieta visible |
-| **Positive** | Hormigón con grieta |
-
-## Estado Parte 1
-
-**✅ Completa (CNN).**
-
-| Archivo | Uso |
-|---------|-----|
-| `cnn_grietas_estructuras_alumno_ia.ipynb` | **Única vía alumno** — guía IA + celda vacía por sección |
-| `cnn_grietas_estructuras_solucion.ipynb` | Referencia docente |
-| `prompts_entregados.md` | Bitácora obligatoria de prompts |
-| `referencia_celdas_ia.md` | **Solo docente** — código canónico por celda (✅) |
-| `data/cracks_subset.zip` | Subconjunto versionado (2 000 imágenes) |
-| `data/DATOS.md` | Fuente y estructura del dataset |
-| `_verificar.py` | Autoevaluación ✅ / ❌ |
-| `_preparar_datos.py` | Descomprime zip o regenera desde RAR local |
-
-## Objetivos de aprendizaje
-
-1. Explicar los bloques de una CNN (conv, pool, activación, FC) en contexto de inspección.
-2. Cargar imágenes con `ImageFolder` y `DataLoader`.
-3. Entrenar y evaluar una CNN pequeña en CPU (Codespaces).
-4. Interpretar curvas de entrenamiento, matriz de confusión y casos locales.
-
-## Datos
-
-El repo incluye `data/cracks_subset.zip` (~12 MB). Al ejecutar `labs/setup.sh` se descomprime a `data/cracks_subset/`.
-
-Para regenerar desde el RAR completo (opcional, local):
-
-```bash
-cd labs/lab4
-python _preparar_datos.py
-```
-
-## Entorno local
+## Inicio rápido (Codespaces)
 
 ```bash
 bash labs/setup.sh
 source labs/.venv/bin/activate
-cd labs/lab4
-jupyter notebook cnn_grietas_estructuras_alumno_ia.ipynb
 ```
 
-Dependencias compartidas en el **único** `labs/.venv`: `torch` + `torchvision` (CPU vía [`labs/_install_torch_cpu.sh`](../_install_torch_cpu.sh)), `Pillow` en [`labs/requirements.txt`](../requirements.txt).
+- **Parte 1:** `cd labs/lab4/part_1` → abrir notebook CNN (~10–15 min CPU).
+- **Parte 2:** `cd labs/lab4/part_2` → abrir notebook LSTM (~10 min CPU).
 
-Si ves `ModuleNotFoundError: No module named 'torchvision'`:
+## Diferencia pedagógica
+
+| | Parte 1 (CNN) | Parte 2 (LSTM) |
+|---|---------------|----------------|
+| Datos | Imágenes de grietas | Sensores 1 Hz (mismo CSV que Labs 1–3) |
+| EDA | Mosaico de fotos | **Gráficos de series temporales** |
+| Modelo | Convolución espacial | Memoria temporal (ventanas) |
+| Extra | Matriz de confusión | **Interpolación vs extrapolación** en Strain |
+
+## PyTorch compartido
+
+Si falta `torchvision` o hay error `SymInt`:
 
 ```bash
-bash labs/lab5/_fix_pytorch.sh   # repara el venv compartido (Labs 4 y 5)
-# o recrea todo:
-rm -rf labs/.venv && bash labs/setup.sh
+bash labs/lab5/_fix_pytorch.sh
+# o: rm -rf labs/.venv && bash labs/setup.sh
 ```
-
-Reinicia el kernel de Jupyter después.
-
-## GitHub Codespaces
-
-1. Abrir el repo → **Code** → **Codespaces** → **Create codespace**.
-2. Esperar `labs/setup.sh` (descomprime `cracks_subset`).
-3. Abrir `labs/lab4/cnn_grietas_estructuras_alumno_ia.ipynb`.
-4. **Run All** (~10–15 min en CPU con 5 épocas).
 
 Guía del curso: [Lab 4 en curso-ia-web](https://ia-estructuras-diplomado.github.io/curso-ia-web/labs/lab4/)
 
 Ver [`../GUIA_LABORATORIOS.md`](../GUIA_LABORATORIOS.md)
-
----
-
-## Parte 2 — LSTM en sensores SHM
-
-**Sesión 8** · RNN/LSTM sobre el mismo dataset de sensores que Labs 1 y 3, con **EDA de series temporales** y tests de **interpolación vs extrapolación**.
-
-## Estado Parte 2
-
-**✅ Completa (LSTM).**
-
-| Archivo | Uso |
-|---------|-----|
-| [`part_2/rnn_sensores_estructuras_alumno_ia.ipynb`](part_2/rnn_sensores_estructuras_alumno_ia.ipynb) | Notebook alumno (vía IA) |
-| [`part_2/rnn_sensores_estructuras_solucion.ipynb`](part_2/rnn_sensores_estructuras_solucion.ipynb) | Referencia docente |
-| [`part_2/README.md`](part_2/README.md) | Detalle Parte 2 |
-
-```bash
-cd labs/lab4/part_2
-jupyter notebook rnn_sensores_estructuras_alumno_ia.ipynb
-```

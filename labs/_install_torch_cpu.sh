@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Stack PyTorch CPU compartido por labs/lab4 (CNN) y labs/lab5 (embeddings).
+# Stack PyTorch CPU compartido por labs/lab4 (CNN + LSTM) y labs/lab5 (embeddings).
 # Llamar SIEMPRE al final de setup.sh, después de sentence-transformers.
 set -euo pipefail
 
