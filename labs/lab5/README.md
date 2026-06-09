@@ -55,10 +55,10 @@ El script instala `zstd` automáticamente si falta (requerido por Ollama en Code
 
 **Primera ejecución:** la descarga de `all-MiniLM-L6-v2` (~90 MB) y `llama3.2:3b` (~2 GB) puede tardar varios minutos.
 
-Si al importar `sentence_transformers` ves `torch has no attribute SymInt`:
+Si al importar `sentence_transformers` ves `torch has no attribute SymInt`, o en Lab 4 falta `torchvision`:
 
 ```bash
-bash labs/lab5/_fix_pytorch.sh
+bash labs/lab5/_fix_pytorch.sh   # repara torch+torchvision CPU en labs/.venv (compartido)
 ```
 
 Reinicia el kernel de Jupyter y vuelve a ejecutar desde la celda de setup.

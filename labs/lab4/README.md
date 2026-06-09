@@ -55,7 +55,17 @@ cd labs/lab4
 jupyter notebook cnn_grietas_estructuras_alumno_ia.ipynb
 ```
 
-Dependencias: `torch` (CPU vía setup.sh), `torchvision`, `Pillow` en [`labs/requirements.txt`](../requirements.txt).
+Dependencias compartidas en el **único** `labs/.venv`: `torch` + `torchvision` (CPU vía [`labs/_install_torch_cpu.sh`](../_install_torch_cpu.sh)), `Pillow` en [`labs/requirements.txt`](../requirements.txt).
+
+Si ves `ModuleNotFoundError: No module named 'torchvision'`:
+
+```bash
+bash labs/lab5/_fix_pytorch.sh   # repara el venv compartido (Labs 4 y 5)
+# o recrea todo:
+rm -rf labs/.venv && bash labs/setup.sh
+```
+
+Reinicia el kernel de Jupyter después.
 
 ## GitHub Codespaces
 

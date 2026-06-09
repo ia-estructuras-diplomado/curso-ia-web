@@ -6,7 +6,7 @@ Recursos prácticos para ejercicios, proyectos y experimentación.
 
 ## Entorno local (venv centralizado en `labs/`)
 
-Un solo entorno para **todos** los labs. No crees venvs dentro de `lab0/` o `lab1/`.
+Un solo entorno (`labs/.venv`) para **todos** los labs. No crees venvs dentro de `lab0/` o `lab1/`.
 
 ```bash
 bash labs/setup.sh
@@ -14,6 +14,14 @@ source labs/.venv/bin/activate
 ```
 
 Dependencias: [`labs/requirements.txt`](requirements.txt).
+
+**PyTorch compartido (Lab 4 CNN + Lab 5 embeddings):** `setup.sh` termina con [`_install_torch_cpu.sh`](_install_torch_cpu.sh) (`torch` + `torchvision` CPU, compatible con `sentence-transformers`). Si falta `torchvision` o ves `SymInt`:
+
+```bash
+bash labs/lab5/_fix_pytorch.sh   # repara el venv compartido, no solo Lab 5
+```
+
+Usa **Python 3.11 o 3.12** en el venv (igual que Codespaces). Si tu `.venv` quedó en 3.13: `rm -rf labs/.venv && bash labs/setup.sh`.
 
 ## GitHub Codespaces
 

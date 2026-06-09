@@ -13,10 +13,10 @@ lime>=0.2.0.1
 pypdf>=4.0.0
 requests>=2.31.0
 # Lab 4 — CNN (visión)
-torchvision>=0.17.0
 Pillow>=10.0.0
-# Lab 5 — RAG (embeddings locales)
-# PyTorch CPU: NO listar aquí — setup.sh instala torch desde download.pytorch.org/whl/cpu
-# (evita AttributeError: torch has no attribute SymInt en Codespaces)
+# Lab 4 + Lab 5 — torch, torchvision y sentence-transformers:
+#   setup.sh instala requirements.txt y LUEGO labs/_install_torch_cpu.sh
+#   (pin CPU al final; un solo labs/.venv para todos los labs).
+#   No añadir torch/torchvision aquí — rompe el orden y puede traer wheels CUDA.
 sentence-transformers>=3.0.0,<4.0.0
 transformers>=4.41.0,<4.48.0

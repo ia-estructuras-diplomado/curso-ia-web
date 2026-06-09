@@ -10,46 +10,64 @@ if [[ ! -f requirements.txt ]]; then
   exit 1
 fi
 
+_pick_python() {
+  # 3.11 = Codespaces; 3.12 también tiene wheels torch/torchvision CPU.
+  # Evitar 3.13: torchvision 0.20.x no publica cp313 en el índice CPU.
+  for cmd in python3.11 python3.12; do
+    if command -v "$cmd" >/dev/null 2>&1; then
+      echo "$cmd"
+      return 0
+    fi
+  done
+  if command -v python3 >/dev/null 2>&1; then
+    echo "python3"
+    return 0
+  fi
+  echo "❌ No se encontró python3.11, python3.12 ni python3" >&2
+  exit 1
+}
+
 if ! command -v uv >/dev/null 2>&1 && command -v curl >/dev/null 2>&1; then
   echo "→ Instalando uv (instalador oficial de astral.sh)"
   curl -LsSf https://astral.sh/uv/install.sh | sh
   export PATH="${HOME}/.local/bin:${PATH}"
 fi
 
-TORCH_CPU_INDEX="https://download.pytorch.org/whl/cpu"
-TORCH_CPU_VERSION="2.5.1"
+PYTHON="$(_pick_python)"
+echo "→ Python del venv compartido: $PYTHON"
+
+if [[ -d .venv ]]; then
+  VENV_MINOR="$(.venv/bin/python -c 'import sys; print(f"{sys.version_info.major}.{sys.version_info.minor}")' 2>/dev/null || echo "?")"
+  if [[ "$VENV_MINOR" == "3.13" ]]; then
+    echo "⚠️  labs/.venv actual usa Python 3.13 (incompatible con torchvision del curso)."
+    echo "   Recreando .venv con $PYTHON…"
+    rm -rf .venv
+  fi
+fi
 
 if command -v uv >/dev/null 2>&1; then
   echo "→ Entorno con uv en labs/.venv"
   if [[ ! -d .venv ]]; then
-    uv venv .venv
+    uv venv .venv --python "$PYTHON"
   fi
   echo "→ Dependencias base (requirements.txt)…"
   uv pip install -r requirements.txt
-  echo "→ Lab 5: sentence-transformers…"
+  echo "→ Lab 5: sentence-transformers (antes del pin de torch CPU)…"
   uv pip install 'sentence-transformers>=3.0.0,<4.0.0' 'transformers>=4.41.0,<4.48.0'
-  echo "→ PyTorch CPU ${TORCH_CPU_VERSION} (último paso — evita SymInt / wheels CUDA)…"
-  uv pip install "torch==${TORCH_CPU_VERSION}" --index-url "${TORCH_CPU_INDEX}" --force-reinstall
 else
-  echo "→ uv no encontrado; usando python -m venv"
+  echo "→ uv no encontrado; usando $PYTHON -m venv"
   if [[ ! -d .venv ]]; then
-    python3 -m venv .venv
+    "$PYTHON" -m venv .venv
   fi
   .venv/bin/pip install --upgrade pip
   echo "→ Dependencias base (requirements.txt)…"
   .venv/bin/pip install -r requirements.txt
-  echo "→ Lab 5: sentence-transformers…"
+  echo "→ Lab 5: sentence-transformers (antes del pin de torch CPU)…"
   .venv/bin/pip install 'sentence-transformers>=3.0.0,<4.0.0' 'transformers>=4.41.0,<4.48.0'
-  echo "→ PyTorch CPU ${TORCH_CPU_VERSION} (último paso)…"
-  .venv/bin/pip install "torch==${TORCH_CPU_VERSION}" --index-url "${TORCH_CPU_INDEX}" --force-reinstall
 fi
 
-echo "→ Verificando torch + sentence-transformers…"
-if .venv/bin/python -c "import torch; from sentence_transformers import SentenceTransformer; assert hasattr(torch,'SymInt')" 2>/dev/null; then
-  echo "   ✅ PyTorch OK para Lab 5"
-else
-  echo "   ⚠️ PyTorch/sentence-transformers falló — ejecuta: bash labs/lab5/_fix_pytorch.sh"
-fi
+# torch + torchvision CPU al final (compartido Lab 4 y Lab 5)
+bash "${LABS_DIR}/_install_torch_cpu.sh"
 
 if [[ -f lab2/_preparar_datos.py ]] && [[ ! -f lab2/data/concrete.csv ]]; then
   echo "→ Generando lab2/data/concrete.csv"
@@ -67,6 +85,6 @@ if [[ -f lab5/_ollama_setup.sh ]]; then
 fi
 
 echo ""
-echo "✅ Entorno centralizado listo."
+echo "✅ Entorno centralizado listo (un solo labs/.venv para todos los labs)."
 echo "   Activar:  source labs/.venv/bin/activate"
-echo "   Jupyter:  cd labs/labN && jupyter notebook *_alumno.ipynb"
+echo "   Jupyter:  cd labs/labN && jupyter notebook *_alumno_ia.ipynb"
