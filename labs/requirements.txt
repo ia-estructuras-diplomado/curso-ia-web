@@ -12,7 +12,8 @@ shap>=0.44.0
 lime>=0.2.0.1
 pypdf>=4.0.0
 requests>=2.31.0
-# Lab 5 — RAG (CPU; evita wheels CUDA incompatibles en Codespaces)
-torch>=2.2.0,<2.6.0
+# Lab 5 — RAG (embeddings locales)
+# PyTorch CPU: NO listar aquí — setup.sh instala torch desde download.pytorch.org/whl/cpu
+# (evita AttributeError: torch has no attribute SymInt en Codespaces)
 sentence-transformers>=3.0.0,<4.0.0
 transformers>=4.41.0,<4.48.0

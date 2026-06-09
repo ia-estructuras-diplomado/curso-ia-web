@@ -16,23 +16,39 @@ if ! command -v uv >/dev/null 2>&1 && command -v curl >/dev/null 2>&1; then
   export PATH="${HOME}/.local/bin:${PATH}"
 fi
 
+TORCH_CPU_INDEX="https://download.pytorch.org/whl/cpu"
+TORCH_CPU_VERSION="2.5.1"
+
 if command -v uv >/dev/null 2>&1; then
   echo "→ Entorno con uv en labs/.venv"
   if [[ ! -d .venv ]]; then
     uv venv .venv
   fi
-  echo "→ PyTorch CPU (Lab 5 / sentence-transformers)…"
-  uv pip install torch --index-url https://download.pytorch.org/whl/cpu
+  echo "→ Dependencias base (requirements.txt)…"
   uv pip install -r requirements.txt
+  echo "→ Lab 5: sentence-transformers…"
+  uv pip install 'sentence-transformers>=3.0.0,<4.0.0' 'transformers>=4.41.0,<4.48.0'
+  echo "→ PyTorch CPU ${TORCH_CPU_VERSION} (último paso — evita SymInt / wheels CUDA)…"
+  uv pip install "torch==${TORCH_CPU_VERSION}" --index-url "${TORCH_CPU_INDEX}" --force-reinstall
 else
   echo "→ uv no encontrado; usando python -m venv"
   if [[ ! -d .venv ]]; then
     python3 -m venv .venv
   fi
   .venv/bin/pip install --upgrade pip
-  echo "→ PyTorch CPU (Lab 5 / sentence-transformers)…"
-  .venv/bin/pip install torch --index-url https://download.pytorch.org/whl/cpu
+  echo "→ Dependencias base (requirements.txt)…"
   .venv/bin/pip install -r requirements.txt
+  echo "→ Lab 5: sentence-transformers…"
+  .venv/bin/pip install 'sentence-transformers>=3.0.0,<4.0.0' 'transformers>=4.41.0,<4.48.0'
+  echo "→ PyTorch CPU ${TORCH_CPU_VERSION} (último paso)…"
+  .venv/bin/pip install "torch==${TORCH_CPU_VERSION}" --index-url "${TORCH_CPU_INDEX}" --force-reinstall
+fi
+
+echo "→ Verificando torch + sentence-transformers…"
+if .venv/bin/python -c "import torch; from sentence_transformers import SentenceTransformer; assert hasattr(torch,'SymInt')" 2>/dev/null; then
+  echo "   ✅ PyTorch OK para Lab 5"
+else
+  echo "   ⚠️ PyTorch/sentence-transformers falló — ejecuta: bash labs/lab5/_fix_pytorch.sh"
 fi
 
 if [[ -f lab2/_preparar_datos.py ]] && [[ ! -f lab2/data/concrete.csv ]]; then
