@@ -40,8 +40,8 @@ Docente: `bash labs/_smoke_ia_solucion.sh` tras cambiar prompts o generadores.
 | 1 | [`lab1/`](lab1/) | PCA, KMeans, DBSCAN y monitoreo SHM (Kaggle) | ✅ | ✅ |
 | 2 | [`lab2/`](lab2/) | Resistencia a compresión del hormigón (UCI) | ✅ | ✅ |
 | 3 | [`lab3/`](lab3/) | Inteligencia artificial explicable (xAI) — XGBoost + SHAP (SHM) | — | ✅ |
-| 4 | [`lab4/`](lab4/) | Redes neuronales, CNN y RNN | 🚧 | al publicar |
-| 5 | [`lab5/`](lab5/) | Modelos locales de lenguaje (LLM) | 🚧 | al publicar |
+| 4 | [`lab4/`](lab4/) | CNN grietas en hormigón (P1) · RNN sensores (P2, pendiente) | — | ✅ P1 |
+| 5 | [`lab5/`](lab5/) | Modelos locales de lenguaje (LLM) / RAG | — | ✅ |
 | 6 | [`lab6/`](lab6/) | Agentes de IA | 🚧 | al publicar |
 
 La numeración de carpetas `labs/labN/` coincide con el syllabus del curso (Lab 1, 2, 3…).

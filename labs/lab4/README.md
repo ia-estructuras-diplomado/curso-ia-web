@@ -1,55 +1,50 @@
-# Lab 4 — Redes Neuronales, CNN y RNN
+# Lab 4 Parte 1 — CNN para grietas en hormigón
 
-**Sesión 7–8** · Deep learning aplicado a señales e imágenes en ingeniería estructural.
+**Sesión 7** · Clasificación de imágenes con redes convolucionales aplicadas a inspección estructural.
 
 ## Tema del laboratorio
 
-Introducción práctica a **redes neuronales profundas** con dos arquitecturas clave:
+Entrenar una **CNN binaria** (PyTorch) sobre el dataset [Concrete Crack Images for Classification](https://data.mendeley.com/datasets/5y9wdsg2zt/1) (METU, CC BY 4.0):
 
-| Arquitectura | Entrada típica | Uso en estructuras |
-|--------------|----------------|-------------------|
-| **CNN** (Convolutional Neural Network) | Imágenes, mapas 2D | Grietas, corrosión, humedad, daño visual |
-| **RNN / LSTM** (Recurrent Neural Network) | Series temporales | Sensores SHM, deformaciones, vibración en el tiempo |
+| Clase | Significado |
+|-------|-------------|
+| **Negative** | Hormigón sin grieta visible |
+| **Positive** | Hormigón con grieta |
 
-### Redes neuronales (conceptos base)
-
-- **Capas, neuronas y activaciones** — de perceptrón a redes multicapa (MLP).
-- **Entrenamiento** — loss, optimizador, epochs, batch size, overfitting.
-- **Regularización** — dropout, early stopping, validación cruzada temporal (para series).
-
-### CNN — visión para inspección
-
-- Convolución, pooling, filtros aprendidos.
-- Transfer learning (p. ej. backbone preentrenado + cabeza de clasificación).
-- Métricas: accuracy, F1, matriz de confusión en clases de daño.
-
-### RNN — secuencias de sensores
-
-- Memoria en el tiempo: RNN simple vs **LSTM** / GRU.
-- Ventanas deslizantes sobre lecturas de acelerómetros o inclinómetros.
-- Partición **train/val/test respetando el orden temporal** (sin fuga de futuro).
+**Parte 2 (futuro):** RNN/LSTM sobre series de sensores SHM.
 
 ## Estado
 
-**En desarrollo.**
-
-Cuando esté listo, esta carpeta incluirá:
+**✅ Parte 1 completa (CNN).**
 
 | Archivo | Uso |
 |---------|-----|
-| `redes_neuronales_estructuras_alumno.ipynb` | CNN + RNN en ejercicios guiados |
-| `redes_neuronales_estructuras_solucion.ipynb` | Referencia docente |
-| `redes_neuronales_estructuras_alumno_ia.ipynb` | *(al publicar)* Vía IA + `prompts_entregados.md` |
-| `redes_neuronales_estructuras_solucion_ia.ipynb` | *(al publicar)* Prompts canónicos docente |
+| `cnn_grietas_estructuras_alumno_ia.ipynb` | **Única vía alumno** — guía IA + celda vacía por sección |
+| `cnn_grietas_estructuras_solucion.ipynb` | Referencia docente |
+| `prompts_entregados.md` | Bitácora obligatoria de prompts |
+| `referencia_celdas_ia.md` | **Solo docente** — código canónico por celda (✅) |
+| `data/cracks_subset.zip` | Subconjunto versionado (2 000 imágenes) |
+| `data/DATOS.md` | Fuente y estructura del dataset |
 | `_verificar.py` | Autoevaluación ✅ / ❌ |
-| `data/` | Imágenes de inspección y/o series de sensores documentadas |
+| `_preparar_datos.py` | Descomprime zip o regenera desde RAR local |
 
 ## Objetivos de aprendizaje
 
-1. Construir y entrenar una **MLP** simple como puente desde ML clásico.
-2. Aplicar una **CNN** para clasificar imágenes de patología estructural.
-3. Aplicar una **RNN/LSTM** para pronosticar o clasificar estados en series de sensores.
-4. Comparar ventajas y costos (datos, cómputo, interpretabilidad) frente a Lab 1–2.
+1. Explicar los bloques de una CNN (conv, pool, activación, FC) en contexto de inspección.
+2. Cargar imágenes con `ImageFolder` y `DataLoader`.
+3. Entrenar y evaluar una CNN pequeña en CPU (Codespaces).
+4. Interpretar curvas de entrenamiento, matriz de confusión y casos locales.
+
+## Datos
+
+El repo incluye `data/cracks_subset.zip` (~12 MB). Al ejecutar `labs/setup.sh` se descomprime a `data/cracks_subset/`.
+
+Para regenerar desde el RAR completo (opcional, local):
+
+```bash
+cd labs/lab4
+python _preparar_datos.py
+```
 
 ## Entorno local
 
@@ -57,12 +52,17 @@ Cuando esté listo, esta carpeta incluirá:
 bash labs/setup.sh
 source labs/.venv/bin/activate
 cd labs/lab4
-jupyter notebook redes_neuronales_estructuras_alumno.ipynb
+jupyter notebook cnn_grietas_estructuras_alumno_ia.ipynb
 ```
+
+Dependencias: `torch` (CPU vía setup.sh), `torchvision`, `Pillow` en [`labs/requirements.txt`](../requirements.txt).
 
 ## GitHub Codespaces
 
-Abrir `labs/lab4/redes_neuronales_estructuras_alumno.ipynb` (cuando esté publicado).
+1. Abrir el repo → **Code** → **Codespaces** → **Create codespace**.
+2. Esperar `labs/setup.sh` (descomprime `cracks_subset`).
+3. Abrir `labs/lab4/cnn_grietas_estructuras_alumno_ia.ipynb`.
+4. **Run All** (~10–15 min en CPU con 5 épocas).
 
 Guía del curso: [Lab 4 en curso-ia-web](https://ia-estructuras-diplomado.github.io/curso-ia-web/labs/lab4/)
 

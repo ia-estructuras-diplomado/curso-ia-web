@@ -56,6 +56,11 @@ if [[ -f lab2/_preparar_datos.py ]] && [[ ! -f lab2/data/concrete.csv ]]; then
   .venv/bin/python lab2/_preparar_datos.py
 fi
 
+if [[ -f lab4/_preparar_datos.py ]] && [[ ! -d lab4/data/cracks_subset/train ]]; then
+  echo "→ Preparando lab4/data/cracks_subset (desde zip o RAR local)"
+  .venv/bin/python lab4/_preparar_datos.py
+fi
+
 if [[ -f lab5/_ollama_setup.sh ]]; then
   echo "→ Lab 5: configurando Ollama (opcional, puede tardar)…"
   bash lab5/_ollama_setup.sh || echo "⚠️ Ollama no listo; ejecuta después: bash labs/lab5/_ollama_setup.sh"

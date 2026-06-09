@@ -4,3 +4,9 @@
 # Cachés Python
 __pycache__/
 *.py[cod]
+
+# Lab 4 — dataset completo y carpeta descomprimida (usar cracks_subset.zip)
+lab4/data/cracks_subset/
+lab4/data/*.rar
+lab4/data/_tmp_extract/
+lab4/tools/
