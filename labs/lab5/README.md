@@ -1,65 +1,81 @@
-# Lab 5 — Modelos Locales de Lenguaje (LLM)
+# Lab 5 — RAG con Ollama (normativa estructural)
 
-**Sesión 9** · Uso de LLM **en local** para consulta técnica, borradores y apoyo a documentación de obra.
+**Sesión 9** · Consulta técnica sobre normas peruanas con **RAG local** + **Ollama** en GitHub Codespaces.
 
 ## Tema del laboratorio
 
-Trabajar con **Large Language Models (LLM) ejecutados localmente** — sin depender obligatoriamente de APIs en la nube — para tareas acotadas de ingeniería estructural:
+Construir paso a paso un pipeline **Retrieval-Augmented Generation (RAG)** para responder preguntas sobre:
 
-- Resumir informes de inspección o memorias de cálculo (texto ya disponible).
-- Formular preguntas sobre normativa o especificaciones **a partir de documentos cargados**.
-- Generar borradores de actas, checklists o descripciones de patologías (**siempre revisados por un profesional**).
+- **E.020** — Cargas (`Norma_E_020_CARGAS.pdf`)
+- **E.030** — Sismo (`Norma_E_030_SISMO.pdf`, muestra parcial en el lab)
+- **E.050** — Suelos (`Norma_E_050_SUELOS.pdf`)
 
-### ¿Por qué modelos locales?
+| Capa | Herramienta |
+|------|-------------|
+| Extracción PDF | `pypdf` |
+| Embeddings | `sentence-transformers` (`all-MiniLM-L6-v2`) |
+| Recuperación | Similitud coseno (`numpy`) |
+| Generación | **Ollama** (`llama3.2:3b`) en `localhost:11434` |
 
-| Aspecto | Modelo local | API en la nube |
-|---------|--------------|----------------|
-| **Privacidad** | Datos de obra no salen del entorno | Requiere política de datos clara |
-| **Costo recurrente** | Hardware / Codespaces; sin token por llamada | Pago por uso |
-| **Control** | Versión fija, offline posible | Dependencia del proveedor |
-| **Calidad** | Modelos más pequeños; prompts cuidadosos | Modelos más grandes |
-
-### Herramientas previstas (referencia docente)
-
-- Runtime local: **Ollama**, **llama.cpp**, o equivalente acordado para Codespaces.
-- Modelos open-weight de tamaño razonable (p. ej. Llama, Mistral, Qwen — según disponibilidad en el entorno del curso).
-- **RAG ligero** (opcional): embeddings + búsqueda en PDFs o Markdown del curso.
-
-## Estado
-
-**En desarrollo.**
-
-Cuando esté listo, esta carpeta incluirá:
+## Archivos
 
 | Archivo | Uso |
 |---------|-----|
-| `llm_local_estructuras_alumno.ipynb` | Prompting, comparación de respuestas, límites del modelo |
-| `llm_local_estructuras_solucion.ipynb` | Referencia docente |
-| `llm_local_estructuras_alumno_ia.ipynb` | *(al publicar)* Vía IA + `prompts_entregados.md` |
-| `llm_local_estructuras_solucion_ia.ipynb` | *(al publicar)* Prompts canónicos docente |
-| `data/` | Fragmentos de normativa, informes sintéticos o anonimizados |
+| `llm_local_estructuras_alumno_ia.ipynb` | Vía IA-asistida + autoevaluación ✅ |
+| `llm_local_estructuras_solucion.ipynb` | Referencia docente (no distribuir al inicio) |
+| `prompts_entregados.md` | Bitácora de prompts (entrega obligatoria) |
+| `pdfs/` | Corpus normativo |
+| `data/DATOS.md` | Descripción del corpus |
+| `_verificar.py` | Autoevaluación amigable |
+| `_ollama_setup.sh` | Instalar Ollama y descargar modelo |
 
 ## Objetivos de aprendizaje
 
-1. Instalar y ejecutar un LLM local en el entorno del curso.
-2. Diseñar **prompts estructurados** para tareas técnicas (contexto + restricciones + formato de salida).
-3. Detectar **alucinaciones** y respuestas genéricas; verificar con fuentes.
-4. Articular cuándo un LLM **no** debe usarse (decisiones de diseño estructural sin revisión humana).
+1. Explicar las 5 etapas de un pipeline RAG (carga → chunks → embeddings → top-k → LLM).
+2. Extraer y fragmentar PDFs de normativa con `pypdf`.
+3. Recuperar fragmentos relevantes con embeddings locales.
+4. Generar respuestas con **Ollama** ancladas al contexto recuperado.
+5. Comparar respuestas **con y sin RAG**; detectar alucinaciones.
+
+## GitHub Codespaces
+
+1. Abrir el repo → **Code** → **Codespaces** → **Create codespace**.
+2. Esperar `labs/setup.sh` (Python + dependencias; Ollama se intenta instalar al final).
+3. Si `OLLAMA_OK` es False en el notebook, ejecutar en terminal:
+
+```bash
+bash labs/lab5/_ollama_setup.sh
+```
+
+4. Abrir [`llm_local_estructuras_alumno_ia.ipynb`](llm_local_estructuras_alumno_ia.ipynb).
+5. Ejecutar celdas en orden; buscar ✅ antes de avanzar.
+6. Completar [`prompts_entregados.md`](prompts_entregados.md).
+
+**Primera ejecución:** la descarga de `all-MiniLM-L6-v2` (~90 MB) y `llama3.2:3b` (~2 GB) puede tardar varios minutos.
 
 ## Entorno local
 
 ```bash
 bash labs/setup.sh
 source labs/.venv/bin/activate
+bash labs/lab5/_ollama_setup.sh   # si Ollama no está listo
 cd labs/lab5
-jupyter notebook llm_local_estructuras_alumno.ipynb
+jupyter notebook llm_local_estructuras_alumno_ia.ipynb
 ```
 
-Documentación adicional de dependencias (Ollama, etc.) se añadirá en `labs/requirements.txt` cuando el notebook esté definido.
+## Verificación docente
 
-## GitHub Codespaces
+```bash
+source labs/.venv/bin/activate
+python labs/lab5/_generar_notebooks.py   # regenerar notebooks
+python labs/lab5/_smoke_test.py          # secciones 1–7 sin Ollama; 8–9 si está activo
+```
 
-Abrir `labs/lab5/llm_local_estructuras_alumno.ipynb` (cuando esté publicado).
+## Límites importantes
+
+- El LLM puede **alucinar** cifras o artículos: contrastar siempre con el fragmento recuperado.
+- E.030 se usa parcialmente (30 páginas) por memoria y tiempo en Codespaces.
+- Este lab **no sustituye** la normativa oficial ni el criterio profesional.
 
 Guía del curso: [Lab 5 en curso-ia-web](https://ia-estructuras-diplomado.github.io/curso-ia-web/labs/lab5/)
 
