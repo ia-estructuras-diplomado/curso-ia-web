@@ -55,37 +55,40 @@ markdown_extensions:
       permalink: true
 
 nav:
-  - Inicio: index.md
-  - Información del Curso:
-      - Syllabus: curso/syllabus.md
+  - Curso:
+      - Inicio: index.md
       - Cronograma: curso/cronograma.md
+      - Contenido por sesión:
+          - Sesión 1 - Introducción a IA: sesiones/sesion1.md
+          - Sesión 2 - Datos y aprendizaje no supervisado: sesiones/sesion2.md
+          - Sesión 3 - Aprendizaje supervisado: sesiones/sesion3.md
+          - Sesión 4 - xAI y Trabajo Grupal 1: sesiones/sesion4.md
+          - Sesión 5 - Deep Learning y señales: sesiones/sesion5.md
+          - Sesión 6 - Gemelos digitales y Transformers: sesiones/sesion6.md
+          - Sesiones 7 y 8 - Cierre del curso: sesiones/sesion7-8.md
+      - Trabajos grupales:
+          - Guía general: trabajos/guia.md
+          - Trabajo Grupal 1: trabajos/trabajo1.md
+          - Trabajo Grupal 2: trabajos/trabajo2.md
+          - Trabajo Grupal 3: trabajos/trabajo3.md
       - Calificación: curso/calificacion.md
-  - Contenido Teórico:
-      - Sesión 1 - Introducción a IA: sesiones/sesion1.md
-      - Sesión 2 - Big Data: sesiones/sesion2.md
-      - Sesión 3 - ML Modelos: sesiones/sesion3.md
-      - Sesión 5 - Señales y Clústeres: sesiones/sesion5.md
-      - Sesión 6 - Futuro e Innovación: sesiones/sesion6.md
-  - Laboratorios & Prácticas:
-      - Descripción General: labs/index.md
+  - Labs:
+      - Descripción general: labs/index.md
       - GitHub Codespaces: labs/codespaces.md
       - Lab 0 - Python para IA: labs/lab0.md
       - Lab 1 - PCA y SHM: labs/lab1.md
-      - Lab 2 - Resistencia Hormigón: labs/lab2.md
+      - Lab 2 - Resistencia hormigón: labs/lab2.md
       - Lab 3 - xAI: labs/lab3.md
       - Lab 4 - CNN y RNN: labs/lab4.md
-      - Lab 5 - LLM Locales: labs/lab5.md
+      - Lab 5 - LLM local / RAG: labs/lab5.md
       - Lab 6 - Agentes de IA: labs/lab6.md
-  - Trabajos Grupales:
-      - Guía General: trabajos/guia.md
-      - Trabajo Grupal 1: trabajos/trabajo1.md
-      - Trabajo Grupal 2: trabajos/trabajo2.md
-      - Trabajo Grupal 3: trabajos/trabajo3.md
-  - Recursos:
-      - Herramientas: recursos/herramientas.md
-      - Librerías Python: recursos/librerias.md
-      - Referencias y Lecturas: recursos/referencias.md
-  - FAQ: faq.md
+  - Información:
+      - Syllabus: curso/syllabus.md
+      - FAQ: faq.md
+      - Recursos:
+          - Herramientas: recursos/herramientas.md
+          - Librerías Python: recursos/librerias.md
+          - Referencias: recursos/referencias.md
 
 repo_url: https://github.com/ia-estructuras-diplomado/curso-ia-web
 repo_name: GitHub
