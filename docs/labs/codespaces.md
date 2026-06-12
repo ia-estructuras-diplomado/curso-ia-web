@@ -1,32 +1,26 @@
-# GitHub Codespaces — Guía rápida
+# GitHub Codespaces
 
-Notebooks en **`labs/labN/`** de [curso-ia-web](https://github.com/ia-estructuras-diplomado/curso-ia-web) (sync desde `curso-ia-dev`).
+Notebooks en `labs/labN/` — [curso-ia-web](https://github.com/ia-estructuras-diplomado/curso-ia-web) (sync desde `curso-ia-dev`).
+
+[Crear Codespace](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json){ .md-button .md-button--primary }
 
 ## Enlaces por lab
 
-| Lab | Tema | Guía | Codespace | Notebook |
-|:---:|:-----|:-----|:----------|:---------|
-| **0** | Python IA | [Lab 0](lab0.md) | [▶ Lab 0](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json) | [📓 `lab0/…_alumno.ipynb`](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab0/fundamentos_python_ia_alumno.ipynb) |
-| **1** | PCA / SHM | [Lab 1](lab1.md) | [▶ Lab 1](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json) | [📓 `lab1/pca_…_alumno.ipynb`](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab1/pca_monitoreo_estructural_alumno.ipynb) |
-| **2** | Hormigón UCI | [Lab 2](lab2.md) | [▶ Lab 2](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json) | [📓 `lab2/resistencia_…_alumno.ipynb`](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab2/resistencia_compresion_alumno.ipynb) |
-| **3** | xAI | [Lab 3](lab3.md) | [▶ Lab 3](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json) | 🚧 `xai_estructuras_alumno.ipynb` |
-| **4** | CNN / RNN | [Lab 4](lab4.md) | [▶ Lab 4](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json) | 🚧 `redes_neuronales_estructuras_alumno.ipynb` |
-| **5** | LLM local | [Lab 5](lab5.md) | [▶ Lab 5](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json) | 🚧 `llm_local_estructuras_alumno.ipynb` |
-| **6** | Agentes | [Lab 6](lab6.md) | [▶ Lab 6](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json) | 🚧 `agentes_estructuras_alumno.ipynb` |
-
-## URL de Codespaces
-
-```text
-https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json
-```
+| Lab | Tema | Guía | Notebook |
+|:---:|:-----|:-----|:---------|
+| **0** | Python IA | [Lab 0](lab0.md) | [📓](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab0/fundamentos_python_ia_alumno.ipynb) · [🤖](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab0/fundamentos_python_ia_alumno_ia.ipynb) |
+| **1** | PCA / SHM | [Lab 1](lab1.md) | [📓](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab1/pca_monitoreo_estructural_alumno.ipynb) · [🤖](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab1/pca_monitoreo_estructural_alumno_ia.ipynb) |
+| **2** | Hormigón UCI | [Lab 2](lab2.md) | [📓](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab2/resistencia_compresion_alumno.ipynb) · [🤖](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab2/resistencia_compresion_alumno_ia.ipynb) |
+| **3** | xAI | [Lab 3](lab3.md) | [🤖 `xai_estructuras_alumno_ia.ipynb`](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab3/xai_estructuras_alumno_ia.ipynb) |
+| **4** | CNN / RNN | [Lab 4](lab4.md) | [🤖 P1](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab4/part_1/cnn_grietas_estructuras_alumno_ia.ipynb) · [🤖 P2](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab4/part_2/rnn_sensores_estructuras_alumno_ia.ipynb) |
+| **5** | LLM / RAG | [Lab 5](lab5.md) | [🤖 `llm_local_estructuras_alumno_ia.ipynb`](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab5/llm_local_estructuras_alumno_ia.ipynb) |
+| **6** | Agentes | [Lab 6](lab6.md) | [🤖 `agentes_estructuras_alumno_ia.ipynb`](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab6/agentes_estructuras_alumno_ia.ipynb) |
 
 ## Pasos
 
-1. Clic en **▶ Lab N** → iniciar sesión en GitHub si hace falta.
-2. Esperar build del contenedor (`labs/setup.sh`).
-3. Abrir `labs/labN/*_alumno.ipynb`.
+1. Clic en **Crear Codespace** → iniciar sesión en GitHub.
+2. Esperar build (`labs/setup.sh`).
+3. Abrir notebook en `labs/labN/`.
 4. Kernel: Python de `labs/.venv`.
 
----
-
-[← Laboratorios](index.md) · [FAQ](../faq.md)
+[← Laboratorios](index.md)

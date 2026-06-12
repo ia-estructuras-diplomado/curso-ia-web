@@ -1,61 +1,26 @@
-# Lab 4: Redes Neuronales, CNN y RNN
+# Lab 4: Redes Neuronales — CNN y RNN/LSTM
 
 --8<-- "lab4-actions.md"
 
-!!! warning "En desarrollo"
-    Notebook en `labs/lab4/` — próximamente vía sync desde `curso-ia-dev`.
+!!! info "Sesión 5"
+    **Duración:** ~4 h · Dos partes · Vía IA-asistida
 
-!!! info "Sesiones 7–8"
-    **Duración:** ~4 horas (previsto)
+## Partes
 
-## Tema
+| Parte | Tema | Carpeta | Notebook |
+|-------|------|---------|----------|
+| **1** | CNN — grietas en hormigón | `part_1/` | `cnn_grietas_estructuras_alumno_ia.ipynb` |
+| **2** | LSTM — sensores SHM | `part_2/` | `rnn_sensores_estructuras_alumno_ia.ipynb` |
 
-Deep learning aplicado a señales e imágenes en ingeniería estructural:
+## Objetivos
 
-| Arquitectura | Entrada típica | Uso en estructuras |
-|--------------|----------------|-------------------|
-| **CNN** | Imágenes, mapas 2D | Grietas, corrosión, humedad, daño visual |
-| **RNN / LSTM** | Series temporales | Sensores SHM, deformaciones, vibración |
+1. Entrenar una **CNN** para clasificación de imágenes de patología.
+2. Entrenar **LSTM** para series de sensores (ventanas temporales).
+3. Comparar costos (datos, cómputo, interpretabilidad) frente a Labs 1–2.
 
-### Conceptos base
+## PyTorch
 
-- Capas, neuronas, activaciones (MLP)
-- Entrenamiento: loss, optimizador, epochs, batch size, overfitting
-- Regularización: dropout, early stopping, validación temporal (series)
+Si falta `torchvision` o hay error `SymInt`:
 
-### CNN — inspección visual
-
-- Convolución, pooling, filtros aprendidos
-- Transfer learning (backbone preentrenado + cabeza de clasificación)
-- Métricas: accuracy, F1, matriz de confusión
-
-### RNN — secuencias de sensores
-
-- RNN simple vs **LSTM** / GRU
-- Ventanas deslizantes sobre acelerómetros o inclinómetros
-- Train/val/test **sin fuga de futuro**
-
-## Objetivos de aprendizaje
-
-1. Entrenar una **MLP** simple como puente desde ML clásico.
-2. Aplicar una **CNN** para clasificar imágenes de patología.
-3. Aplicar **RNN/LSTM** para series de sensores.
-4. Comparar ventajas y costos (datos, cómputo, interpretabilidad) frente a Lab 1–2.
-
-## Archivos previstos
-
-| Archivo | Uso |
-|---------|-----|
-| `redes_neuronales_estructuras_alumno.ipynb` | CNN + RNN guiados |
-| `redes_neuronales_estructuras_solucion.ipynb` | Referencia docente |
-| `_verificar.py` | Autoevaluación |
-| `data/` | Imágenes y/o series documentadas |
-
-## Pasos en Codespaces (cuando esté disponible)
-
-1. **Crear Codespace — Lab 4** (arriba).
-2. Abrir `labs/lab4/redes_neuronales_estructuras_alumno.ipynb`.
-
----
-
-**¿Dudas?** → [Codespaces](codespaces.md)
+```bash
+bash labs/lab5/_fix_pytorch.sh
