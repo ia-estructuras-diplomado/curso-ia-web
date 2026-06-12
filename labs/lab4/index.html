@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lab-4-redes-neuronales-cnn-y-rnn" class="md-skip">
+        <a href="#lab-4-redes-neuronales-cnn-y-rnnlstm" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -973,69 +973,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#tema" class="md-nav__link">
+  <a href="#partes" class="md-nav__link">
     <span class="md-ellipsis">
-      Tema
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Tema">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#conceptos-base" class="md-nav__link">
-    <span class="md-ellipsis">
-      Conceptos base
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cnn-inspeccion-visual" class="md-nav__link">
-    <span class="md-ellipsis">
-      CNN — inspección visual
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rnn-secuencias-de-sensores" class="md-nav__link">
-    <span class="md-ellipsis">
-      RNN — secuencias de sensores
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#objetivos-de-aprendizaje" class="md-nav__link">
-    <span class="md-ellipsis">
-      Objetivos de aprendizaje
+      Partes
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#archivos-previstos" class="md-nav__link">
+  <a href="#objetivos" class="md-nav__link">
     <span class="md-ellipsis">
-      Archivos previstos
+      Objetivos
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#pasos-en-codespaces-cuando-este-disponible" class="md-nav__link">
+  <a href="#pytorch" class="md-nav__link">
     <span class="md-ellipsis">
-      Pasos en Codespaces (cuando esté disponible)
+      PyTorch
     </span>
   </a>
   
@@ -1323,69 +1281,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#tema" class="md-nav__link">
+  <a href="#partes" class="md-nav__link">
     <span class="md-ellipsis">
-      Tema
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Tema">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#conceptos-base" class="md-nav__link">
-    <span class="md-ellipsis">
-      Conceptos base
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cnn-inspeccion-visual" class="md-nav__link">
-    <span class="md-ellipsis">
-      CNN — inspección visual
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rnn-secuencias-de-sensores" class="md-nav__link">
-    <span class="md-ellipsis">
-      RNN — secuencias de sensores
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#objetivos-de-aprendizaje" class="md-nav__link">
-    <span class="md-ellipsis">
-      Objetivos de aprendizaje
+      Partes
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#archivos-previstos" class="md-nav__link">
+  <a href="#objetivos" class="md-nav__link">
     <span class="md-ellipsis">
-      Archivos previstos
+      Objetivos
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#pasos-en-codespaces-cuando-este-disponible" class="md-nav__link">
+  <a href="#pytorch" class="md-nav__link">
     <span class="md-ellipsis">
-      Pasos en Codespaces (cuando esté disponible)
+      PyTorch
     </span>
   </a>
   
@@ -1409,7 +1325,7 @@
   
 
 
-<h1 id="lab-4-redes-neuronales-cnn-y-rnn">Lab 4: Redes Neuronales, CNN y RNN<a class="headerlink" href="#lab-4-redes-neuronales-cnn-y-rnn" title="Permanent link">&para;</a></h1>
+<h1 id="lab-4-redes-neuronales-cnn-y-rnnlstm">Lab 4: Redes Neuronales — CNN y RNN/LSTM<a class="headerlink" href="#lab-4-redes-neuronales-cnn-y-rnnlstm" title="Permanent link">&para;</a></h1>
 <div class="lab-actions" markdown="1">
 
 [▶ Crear Codespace — Lab 4](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json){ .md-button .md-button--primary }
@@ -1418,96 +1334,45 @@
 </div>
 
 <p><em>Notebook previsto: <code>redes_neuronales_estructuras_alumno.ipynb</code></em></p>
-<div class="admonition warning">
-<p class="admonition-title">En desarrollo</p>
-<p>Notebook en <code>labs/lab4/</code> — próximamente vía sync desde <code>curso-ia-dev</code>.</p>
-</div>
 <div class="admonition info">
-<p class="admonition-title">Sesiones 7–8</p>
-<p><strong>Duración:</strong> ~4 horas (previsto)</p>
+<p class="admonition-title">Sesión 5</p>
+<p><strong>Duración:</strong> ~4 h · Dos partes · Vía IA-asistida</p>
 </div>
-<h2 id="tema">Tema<a class="headerlink" href="#tema" title="Permanent link">&para;</a></h2>
-<p>Deep learning aplicado a señales e imágenes en ingeniería estructural:</p>
+<h2 id="partes">Partes<a class="headerlink" href="#partes" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Arquitectura</th>
-<th>Entrada típica</th>
-<th>Uso en estructuras</th>
+<th>Parte</th>
+<th>Tema</th>
+<th>Carpeta</th>
+<th>Notebook</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>CNN</strong></td>
-<td>Imágenes, mapas 2D</td>
-<td>Grietas, corrosión, humedad, daño visual</td>
+<td><strong>1</strong></td>
+<td>CNN — grietas en hormigón</td>
+<td><code>part_1/</code></td>
+<td><code>cnn_grietas_estructuras_alumno_ia.ipynb</code></td>
 </tr>
 <tr>
-<td><strong>RNN / LSTM</strong></td>
-<td>Series temporales</td>
-<td>Sensores SHM, deformaciones, vibración</td>
+<td><strong>2</strong></td>
+<td>LSTM — sensores SHM</td>
+<td><code>part_2/</code></td>
+<td><code>rnn_sensores_estructuras_alumno_ia.ipynb</code></td>
 </tr>
 </tbody>
 </table>
-<h3 id="conceptos-base">Conceptos base<a class="headerlink" href="#conceptos-base" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Capas, neuronas, activaciones (MLP)</li>
-<li>Entrenamiento: loss, optimizador, epochs, batch size, overfitting</li>
-<li>Regularización: dropout, early stopping, validación temporal (series)</li>
-</ul>
-<h3 id="cnn-inspeccion-visual">CNN — inspección visual<a class="headerlink" href="#cnn-inspeccion-visual" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Convolución, pooling, filtros aprendidos</li>
-<li>Transfer learning (backbone preentrenado + cabeza de clasificación)</li>
-<li>Métricas: accuracy, F1, matriz de confusión</li>
-</ul>
-<h3 id="rnn-secuencias-de-sensores">RNN — secuencias de sensores<a class="headerlink" href="#rnn-secuencias-de-sensores" title="Permanent link">&para;</a></h3>
-<ul>
-<li>RNN simple vs <strong>LSTM</strong> / GRU</li>
-<li>Ventanas deslizantes sobre acelerómetros o inclinómetros</li>
-<li>Train/val/test <strong>sin fuga de futuro</strong></li>
-</ul>
-<h2 id="objetivos-de-aprendizaje">Objetivos de aprendizaje<a class="headerlink" href="#objetivos-de-aprendizaje" title="Permanent link">&para;</a></h2>
+<h2 id="objetivos">Objetivos<a class="headerlink" href="#objetivos" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Entrenar una <strong>MLP</strong> simple como puente desde ML clásico.</li>
-<li>Aplicar una <strong>CNN</strong> para clasificar imágenes de patología.</li>
-<li>Aplicar <strong>RNN/LSTM</strong> para series de sensores.</li>
-<li>Comparar ventajas y costos (datos, cómputo, interpretabilidad) frente a Lab 1–2.</li>
+<li>Entrenar una <strong>CNN</strong> para clasificación de imágenes de patología.</li>
+<li>Entrenar <strong>LSTM</strong> para series de sensores (ventanas temporales).</li>
+<li>Comparar costos (datos, cómputo, interpretabilidad) frente a Labs 1–2.</li>
 </ol>
-<h2 id="archivos-previstos">Archivos previstos<a class="headerlink" href="#archivos-previstos" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Archivo</th>
-<th>Uso</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>redes_neuronales_estructuras_alumno.ipynb</code></td>
-<td>CNN + RNN guiados</td>
-</tr>
-<tr>
-<td><code>redes_neuronales_estructuras_solucion.ipynb</code></td>
-<td>Referencia docente</td>
-</tr>
-<tr>
-<td><code>_verificar.py</code></td>
-<td>Autoevaluación</td>
-</tr>
-<tr>
-<td><code>data/</code></td>
-<td>Imágenes y/o series documentadas</td>
-</tr>
-</tbody>
-</table>
-<h2 id="pasos-en-codespaces-cuando-este-disponible">Pasos en Codespaces (cuando esté disponible)<a class="headerlink" href="#pasos-en-codespaces-cuando-este-disponible" title="Permanent link">&para;</a></h2>
-<ol>
-<li><strong>Crear Codespace — Lab 4</strong> (arriba).</li>
-<li>Abrir <code>labs/lab4/redes_neuronales_estructuras_alumno.ipynb</code>.</li>
-</ol>
-<hr />
-<p><strong>¿Dudas?</strong> → <a href="../codespaces/">Codespaces</a></p>
+<h2 id="pytorch">PyTorch<a class="headerlink" href="#pytorch" title="Permanent link">&para;</a></h2>
+<p>Si falta <code>torchvision</code> o hay error <code>SymInt</code>:</p>
+<p>```bash
+bash labs/lab5/_fix_pytorch.sh</p>
 
 
 
