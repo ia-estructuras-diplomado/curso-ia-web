@@ -1,5 +1,8 @@
 # Lab 0 — Fundamentos de Python para IA
 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?ref=main)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ia-estructuras-diplomado/curso-ia-web/main?labpath=labs/lab0/fundamentos_python_ia_alumno.ipynb)
+
 Introducción en **GitHub Codespaces** con enfoque **caja de herramientas**: código base pre-escrito. Elige una vía:
 
 - **Manual:** edita `### TU TAREA AQUÍ ###`
