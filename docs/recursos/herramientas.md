@@ -16,7 +16,7 @@ Entorno preconfigurado del curso: Python 3.11, Jupyter, dependencias en `labs/re
 **Pasos:**
 
 1. Cuenta en [GitHub](https://github.com).
-2. **[Crear Codespace](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web)** del repositorio del curso.
+2. **[Abrir o reanudar Codespace](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json)** del repositorio del curso (un solo entorno para todos los labs; `quickstart=1` muestra **Resume** si ya existe).
 3. Abrir el notebook `*_alumno.ipynb` indicado en cada [lab](../labs/index.md).
 
 Guía detallada: **[Codespaces](../labs/codespaces.md)**.

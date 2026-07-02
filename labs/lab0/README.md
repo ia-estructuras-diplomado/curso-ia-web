@@ -1,7 +1,9 @@
 # Lab 0 — Fundamentos de Python para IA
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?ref=main)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ia-estructuras-diplomado/curso-ia-web/main?labpath=labs/lab0/fundamentos_python_ia_alumno.ipynb)
+
+> **Un solo Codespace para todo el curso.** El enlace con `quickstart=1` muestra **Resume this codespace** si ya tienes uno para este repositorio; si no, **Create codespace**. Todos los labs comparten `labs/.venv`. Gestiona tus entornos en [github.com/codespaces](https://github.com/codespaces).
 
 Introducción en **GitHub Codespaces** con enfoque **caja de herramientas**: código base pre-escrito. Elige una vía:
 
@@ -29,12 +31,12 @@ Introducción en **GitHub Codespaces** con enfoque **caja de herramientas**: có
 
 **Entorno:** compartido en [`labs/.venv`](../.venv) — ver [`labs/setup.sh`](../setup.sh).
 
-## Codespaces (recomendado)
+## GitHub Codespaces
 
-1. Cuenta en [GitHub](https://github.com).
-2. En el repo del curso: **Code** → **Codespaces** → **Create codespace**.
-3. Abrir `labs/lab0/fundamentos_python_ia_alumno.ipynb`.
-4. Ejecutar celdas en orden; completar solo bloques `### TU TAREA AQUÍ ###`.
+1. Pulsa el badge **Open in GitHub Codespaces** (arriba) — reanuda tu Codespace existente o crea uno nuevo.
+2. Abre `labs/lab0/fundamentos_python_ia_alumno.ipynb`.
+3. Kernel: **Python (curso-ia labs)** / `labs/.venv/bin/python`.
+4. Ejecuta celdas en orden; completa solo bloques `### TU TAREA AQUÍ ###`.
 
 El contenedor ejecuta [`labs/setup.sh`](../setup.sh) al crearse.
 

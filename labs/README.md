@@ -1,5 +1,8 @@
 # Labs (Laboratorios)
 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json)
+
+> **Un solo Codespace para todo el curso.** El enlace con `quickstart=1` muestra **Resume this codespace** si ya tienes uno para este repositorio; si no, **Create codespace**. Todos los labs comparten `labs/.venv`. Gestiona tus entornos en [github.com/codespaces](https://github.com/codespaces).
 Recursos prácticos para ejercicios, proyectos y experimentación.
 
 **Estándar del curso (Codespaces, caja de herramientas, validación amigable):** lee [`GUIA_LABORATORIOS.md`](./GUIA_LABORATORIOS.md).
@@ -25,9 +28,11 @@ Usa **Python 3.11 o 3.12** en el venv (igual que Codespaces). Si tu `.venv` qued
 
 ## GitHub Codespaces
 
+Usa **un solo Codespace** para todos los labs (mismo `labs/.venv`). El enlace con `quickstart=1` prioriza **Resume this codespace** si ya existe uno para este repo.
+
 El devcontainer ejecuta `labs/setup.sh` y usa el intérprete `labs/.venv/bin/python` para Jupyter.
 
-[Crear Codespace](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web)
+[Abrir o reanudar Codespace](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json)
 
 ## Dos vías por lab (opcional)
 

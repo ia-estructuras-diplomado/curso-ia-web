@@ -1,5 +1,7 @@
 # Lab 4 — Redes neuronales en ingeniería estructural
 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json)
+> **Un solo Codespace para todo el curso.** El enlace con `quickstart=1` muestra **Resume this codespace** si ya tienes uno para este repositorio; si no, **Create codespace**. Todos los labs comparten `labs/.venv`. Gestiona tus entornos en [github.com/codespaces](https://github.com/codespaces).
 Dos partes complementarias con el mismo entorno `labs/.venv` (PyTorch CPU).
 
 | Parte | Tema | Carpeta | Notebook alumno |
@@ -11,7 +13,10 @@ Dos partes complementarias con el mismo entorno `labs/.venv` (PyTorch CPU).
 
 **✅ Ambas partes completas** (vía IA-asistida).
 
-## Inicio rápido (Codespaces)
+## GitHub Codespaces
+
+1. Pulsa el badge **Open in GitHub Codespaces** (arriba) — reanuda tu Codespace existente o crea uno nuevo.
+2. Ejecuta el entorno compartido:
 
 ```bash
 bash labs/setup.sh

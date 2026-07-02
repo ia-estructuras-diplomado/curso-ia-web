@@ -1,5 +1,9 @@
 # Lab 6 — Agentes de IA sísmicos
 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ia-estructuras-diplomado/curso-ia-web/main?labpath=labs/lab6/agentes_estructuras_alumno_ia.ipynb)
+
+> **Un solo Codespace para todo el curso.** El enlace con `quickstart=1` muestra **Resume this codespace** si ya tienes uno para este repositorio; si no, **Create codespace**. Todos los labs comparten `labs/.venv`. Gestiona tus entornos en [github.com/codespaces](https://github.com/codespaces).
 **Sesión 10** · Agente Agno + **Ollama local** + tools + MLP pre-entrenado + informe LaTeX.
 
 ## Stack (intro en notebook)
@@ -21,7 +25,10 @@
 | `data/earthquake_risk_model.pkl` | Best model MLP |
 | `data/archive.zip` | Dataset sísmico (1000 filas) |
 
-## Setup Codespaces
+## GitHub Codespaces
+
+1. Pulsa el badge **Open in GitHub Codespaces** (arriba) — reanuda tu Codespace existente o crea uno nuevo.
+2. En terminal:
 
 ```bash
 bash labs/setup.sh

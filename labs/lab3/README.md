@@ -1,5 +1,9 @@
 # Lab 3 — Inteligencia Artificial Explicable (xAI)
 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ia-estructuras-diplomado/curso-ia-web/main?labpath=labs/lab3/xai_estructuras_alumno_ia.ipynb)
+
+> **Un solo Codespace para todo el curso.** El enlace con `quickstart=1` muestra **Resume this codespace** si ya tienes uno para este repositorio; si no, **Create codespace**. Todos los labs comparten `labs/.venv`. Gestiona tus entornos en [github.com/codespaces](https://github.com/codespaces).
 **Sesión 6** · Interpretar y auditar predicciones de modelos ML en contexto de ingeniería estructural.
 
 ## Enfoque del lab
@@ -55,5 +59,11 @@ jupyter notebook xai_estructuras_alumno_ia.ipynb
 ```
 
 Dependencias: `xgboost`, `shap`, `lime` en [`labs/requirements.txt`](../requirements.txt).
+
+## GitHub Codespaces
+
+1. Pulsa el badge **Open in GitHub Codespaces** (arriba) — reanuda tu Codespace existente o crea uno nuevo.
+2. Abre `labs/lab3/xai_estructuras_alumno_ia.ipynb`.
+3. Kernel: **Python (curso-ia labs)** / `labs/.venv/bin/python`.
 
 Ver [`../GUIA_LABORATORIOS.md`](../GUIA_LABORATORIOS.md)

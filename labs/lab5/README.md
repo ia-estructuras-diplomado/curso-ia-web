@@ -1,5 +1,9 @@
 # Lab 5 — RAG con Ollama (normativa estructural)
 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ia-estructuras-diplomado/curso-ia-web/main?labpath=labs/lab5/llm_local_estructuras_alumno_ia.ipynb)
+
+> **Un solo Codespace para todo el curso.** El enlace con `quickstart=1` muestra **Resume this codespace** si ya tienes uno para este repositorio; si no, **Create codespace**. Todos los labs comparten `labs/.venv`. Gestiona tus entornos en [github.com/codespaces](https://github.com/codespaces).
 **Sesión 9** · Consulta técnica sobre normas peruanas con **RAG local** + **Ollama** en GitHub Codespaces.
 
 ## Tema del laboratorio
@@ -39,7 +43,7 @@ Construir paso a paso un pipeline **Retrieval-Augmented Generation (RAG)** para 
 
 ## GitHub Codespaces
 
-1. Abrir el repo → **Code** → **Codespaces** → **Create codespace**.
+1. Pulsa el badge **Open in GitHub Codespaces** (arriba) — reanuda tu Codespace existente o crea uno nuevo.
 2. Esperar `labs/setup.sh` (Python + dependencias; Ollama se intenta instalar al final).
 3. Si `OLLAMA_OK` es False en el notebook, ejecutar en terminal:
 

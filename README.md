@@ -25,9 +25,9 @@ Abre http://127.0.0.1:8000
 
 ## Laboratorios (Codespaces)
 
-Los alumnos abren un Codespace sobre este repo:
+Los alumnos usan **un solo Codespace** para todo el curso (todos los labs comparten `labs/.venv`). El enlace con `quickstart=1` reanuda el existente o crea uno nuevo:
 
-https://codespaces.new/ia-estructuras-diplomado/curso-ia-web
+https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json
 
 Guía: ver `docs/labs/codespaces.md` en el sitio o en el repo.
 

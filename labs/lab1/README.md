@@ -1,7 +1,9 @@
 # Lab 1 — PCA, Kernel PCA, Clustering y Monitoreo Estructural (SHM)
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?ref=main)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ia-estructuras-diplomado/curso-ia-web/main?labpath=labs/lab1/pca_monitoreo_estructural_alumno.ipynb)
+
+> **Un solo Codespace para todo el curso.** El enlace con `quickstart=1` muestra **Resume this codespace** si ya tienes uno para este repositorio; si no, **Create codespace**. Todos los labs comparten `labs/.venv`. Gestiona tus entornos en [github.com/codespaces](https://github.com/codespaces).
 
 **Sesión 2** · PCA lineal, **Kernel PCA**, KMeans (codo), DBSCAN, loadings y clasificación con sensores Kaggle.
 
@@ -16,7 +18,7 @@
 
 | Plataforma | Notebook alumno |
 |------------|-----------------|
-| [GitHub Codespaces](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?ref=main) | `labs/lab1/pca_monitoreo_estructural_alumno.ipynb` |
+| [GitHub Codespaces](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json) | `labs/lab1/pca_monitoreo_estructural_alumno.ipynb` |
 | [Binder](https://mybinder.org/v2/gh/ia-estructuras-diplomado/curso-ia-web/main?labpath=labs/lab1/pca_monitoreo_estructural_alumno.ipynb) | mismo notebook |
 
 ## Archivos
@@ -50,7 +52,7 @@ jupyter notebook pca_monitoreo_estructural_alumno.ipynb
 
 ## GitHub Codespaces
 
-1. Pulsa el badge **Open in GitHub Codespaces** (arriba) o [crear Codespace](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?ref=main).
+1. Pulsa el badge **Open in GitHub Codespaces** (arriba) — reanuda tu Codespace existente o crea uno nuevo.
 2. Abre `labs/lab1/pca_monitoreo_estructural_alumno.ipynb`.
 3. Kernel: **Python (curso-ia labs)** / `labs/.venv/bin/python`.
 
