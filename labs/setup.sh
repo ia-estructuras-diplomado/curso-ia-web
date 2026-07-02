@@ -89,6 +89,20 @@ if [[ -f lab5/_ollama_setup.sh ]]; then
   bash lab5/_ollama_setup.sh || echo "⚠️ Ollama no listo; ejecuta después: bash labs/lab5/_ollama_setup.sh"
 fi
 
+echo "→ Registrando kernel Jupyter para Cursor / VS Code…"
+.venv/bin/python -m ipykernel install \
+  --name curso-ia-labs \
+  --display-name "Python (curso-ia labs)" \
+  --prefix="${LABS_DIR}/.venv"
+.venv/bin/python -m ipykernel install \
+  --user \
+  --name curso-ia-labs \
+  --display-name "Python (curso-ia labs)" || true
+
+REPO_ROOT="$(cd "${LABS_DIR}/.." && pwd)"
+ln -sfn labs/.venv "${REPO_ROOT}/.venv"
+echo "→ Enlace ${REPO_ROOT}/.venv → labs/.venv (para que el IDE detecte el entorno)"
+
 echo ""
 echo "✅ Entorno centralizado listo (un solo labs/.venv para todos los labs)."
 echo "   Activar:  source labs/.venv/bin/activate"
