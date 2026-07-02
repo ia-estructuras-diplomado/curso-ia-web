@@ -1,6 +1,6 @@
 # Lab 1 — PCA, Clustering y Monitoreo Estructural (SHM)
 
-**Sesión 4–5** · PCA, KMeans (codo), DBSCAN, loadings y clasificación con sensores Kaggle.
+**Sesión 2** · PCA, KMeans (codo), DBSCAN, loadings y clasificación con sensores Kaggle.
 
 ## ¿Qué notebook abrir?
 
