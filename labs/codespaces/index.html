@@ -883,6 +883,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Pasos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#labs-5-y-6-ollama" class="md-nav__link">
+    <span class="md-ellipsis">
+      Labs 5 y 6 (Ollama)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#si-algo-falla" class="md-nav__link">
+    <span class="md-ellipsis">
+      Si algo falla
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1287,6 +1311,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Pasos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#labs-5-y-6-ollama" class="md-nav__link">
+    <span class="md-ellipsis">
+      Labs 5 y 6 (Ollama)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#si-algo-falla" class="md-nav__link">
+    <span class="md-ellipsis">
+      Si algo falla
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1368,10 +1416,22 @@
 <h2 id="pasos">Pasos<a class="headerlink" href="#pasos" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Clic en <strong>Crear Codespace</strong> → iniciar sesión en GitHub.</li>
-<li>Esperar build (<code>labs/setup.sh</code>).</li>
+<li>Esperar build (<code>labs/setup.sh</code> — <strong>sin Ollama</strong> en el primer arranque; tarda ~2–5 min).</li>
 <li>Abrir notebook en <code>labs/labN/</code>.</li>
-<li>Kernel: Python de <code>labs/.venv</code>.</li>
+<li>Kernel: <strong>Python (curso-ia labs)</strong> (<code>labs/.venv/bin/python</code>).</li>
 </ol>
+<h3 id="labs-5-y-6-ollama">Labs 5 y 6 (Ollama)<a class="headerlink" href="#labs-5-y-6-ollama" title="Permanent link">&para;</a></h3>
+<p>Tras crear el Codespace, en terminal:</p>
+<p><code>bash
+bash labs/lab5/_ollama_setup.sh</code></p>
+<p>La primera descarga de <code>llama3.2:3b</code> (~2 GB) puede tardar varios minutos.</p>
+<h3 id="si-algo-falla">Si algo falla<a class="headerlink" href="#si-algo-falla" title="Permanent link">&para;</a></h3>
+<p><code>bash
+bash labs/doctor.sh --strict   # falla si falta algún artefacto
+bash labs/setup.sh             # reinstalar entorno + datos
+bash labs/lab5/_fix_pytorch.sh   # si falta torchvision o SymInt</code></p>
+<p>En GitHub: pestaña <strong>Actions</strong> → workflow <strong>Labs CI</strong> (mismas comprobaciones en cada push a <code>labs/</code>).</p>
+<p>El kernel correcto en el selector del notebook es <strong>Python (curso-ia labs)</strong> (<code>curso-ia-labs</code> internamente). Validación automática: <code>labs/.venv/bin/python labs/_smoke_kernel.py</code>.</p>
 <p><a href="../">← Laboratorios</a></p>
 
 

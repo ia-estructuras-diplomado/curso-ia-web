@@ -1392,9 +1392,9 @@
 <p><strong>Duración:</strong> ~2 horas</p>
 </div>
 <h2 id="objetivo">Objetivo<a class="headerlink" href="#objetivo" title="Permanent link">&para;</a></h2>
-<p><strong>Regresión supervisada</strong> con el dataset UCI de resistencia a compresión del hormigón: EDA, train/test, Random Forest e interpretación.</p>
+<p><strong>Regresión y clasificación supervisada</strong> con el dataset UCI de resistencia a compresión del hormigón: EDA, comparar modelos de regresión (LinearRegression, Random Forest, XGBoost) y un modelo de clasificación binaria (fuerte/débil ≥ 40 MPa).</p>
 <h2 id="contexto">Contexto<a class="headerlink" href="#contexto" title="Permanent link">&para;</a></h2>
-<p>Variables de mezcla (cemento, agua, aditivos, edad de curado) y target <strong>Resistencia</strong> (MPa). Predecir resistencia a partir de la dosificación.</p>
+<p>Variables de mezcla (cemento, agua, aditivos, edad de curado) y target <strong>Resistencia</strong> (MPa). El lab explora el dataset al máximo: predecir MPa (regresión) y si la mezcla supera un umbral de obra (clasificación).</p>
 <h2 id="pasos-en-codespaces">Pasos en Codespaces<a class="headerlink" href="#pasos-en-codespaces" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Pulsa <strong>Crear Codespace — Lab 2</strong> (arriba).</li>
@@ -1406,10 +1406,10 @@
 <li>Contexto ML (regresión vs clasificación)</li>
 <li>Carga del dataset UCI (<code>data/concrete.csv</code>)</li>
 <li>Calidad de datos y estadísticas descriptivas</li>
-<li>Distribución del target y correlaciones</li>
+<li>Distribución del target, umbral 40 MPa y correlaciones</li>
 <li>Partición train/test</li>
-<li>Random Forest — hiperparámetros y features</li>
-<li>Feature importance y predicción vs realidad</li>
+<li><strong>Comparar regresión:</strong> LinearRegression, Random Forest, XGBoost</li>
+<li><strong>Clasificación:</strong> fuerte/débil con Random Forest + matriz de confusión</li>
 </ol>
 <h2 id="recursos-en-el-repositorio">Recursos en el repositorio<a class="headerlink" href="#recursos-en-el-repositorio" title="Permanent link">&para;</a></h2>
 <ul>
@@ -1420,7 +1420,8 @@
 <h2 id="lecturas">Lecturas<a class="headerlink" href="#lecturas" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://archive.ics.uci.edu/dataset/165/concrete+compressive+strength">UCI Concrete Compressive Strength</a></li>
-<li><a href="https://scikit-learn.org/stable/modules/ensemble.html#forest">Scikit-learn — Random Forest</a></li>
+<li><a href="https://scikit-learn.org/stable/modules/ensemble.html">Scikit-learn — Ensemble methods</a></li>
+<li><a href="https://xgboost.readthedocs.io/en/stable/python/python_api.html">XGBoost — Python API</a></li>
 </ul>
 <hr />
 <p><strong>¿Dudas?</strong> → <a href="../codespaces/">Codespaces</a> · <a href="../../faq/">FAQ</a></p>
