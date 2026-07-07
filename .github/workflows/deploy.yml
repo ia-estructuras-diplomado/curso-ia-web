@@ -4,9 +4,25 @@ on:
   push:
     branches:
       - main
+    paths:
+      - "docs/**"
+      - "mkdocs.yml"
+      - "config/**"
+      - "requirements.txt"
+      - ".github/workflows/deploy.yml"
   pull_request:
     branches:
       - main
+    paths:
+      - "docs/**"
+      - "mkdocs.yml"
+      - "config/**"
+      - "requirements.txt"
+      - ".github/workflows/deploy.yml"
+
+concurrency:
+  group: mkdocs-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   deploy:

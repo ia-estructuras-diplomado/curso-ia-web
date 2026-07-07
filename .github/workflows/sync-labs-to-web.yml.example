@@ -1,0 +1,73 @@
+# Copiar este archivo a curso-ia-dev como .github/workflows/sync-labs-to-web.yml
+# Publica labs/ y .devcontainer/ hacia el repo público curso-ia-web (nunca al revés).
+#
+# Secreto requerido en curso-ia-dev:
+#   LABS_SYNC_TOKEN — PAT fine-grained o classic con contents:write en curso-ia-web
+
+name: Sync labs to curso-ia-web
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "labs/**"
+      - ".devcontainer/**"
+      - ".github/workflows/sync-labs-to-web.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: sync-labs-to-web
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout curso-ia-dev
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate labs before sync
+        run: |
+          sudo apt-get update
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y zstd
+          LABS_SETUP_SKIP_OLLAMA=1 bash labs/setup.sh
+          bash labs/doctor.sh --strict
+          labs/.venv/bin/python labs/_smoke_kernel.py
+          bash labs/_smoke_ia_solucion.sh
+
+      - name: Push labs and devcontainer to curso-ia-web
+        env:
+          SYNC_TOKEN: ${{ secrets.LABS_SYNC_TOKEN }}
+          TARGET_REPO: ia-estructuras-diplomado/curso-ia-web
+        run: |
+          set -euo pipefail
+          if [[ -z "${SYNC_TOKEN}" ]]; then
+            echo "::error::Falta el secreto LABS_SYNC_TOKEN en curso-ia-dev"
+            exit 1
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          workdir="$(mktemp -d)"
+          git clone "https://x-access-token:${SYNC_TOKEN}@github.com/${TARGET_REPO}.git" "${workdir}/web"
+          cd "${workdir}/web"
+          git checkout main
+
+          rsync -a --delete \
+            --exclude '.venv' \
+            --exclude '__pycache__' \
+            --exclude '.ipynb_checkpoints' \
+            "${GITHUB_WORKSPACE}/labs/" ./labs/
+          rsync -a --delete "${GITHUB_WORKSPACE}/.devcontainer/" ./.devcontainer/
+
+          if git diff --quiet; then
+            echo "Sin cambios que publicar."
+            exit 0
+          fi
+
+          git add labs .devcontainer
+          git commit -m "chore: sync labs from curso-ia-dev (${GITHUB_SHA:0:7})"
+          git push origin main

@@ -1,0 +1,77 @@
+name: Labs CI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "labs/**"
+      - ".devcontainer/**"
+      - ".github/workflows/labs-ci.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "labs/**"
+      - ".devcontainer/**"
+      - ".github/workflows/labs-ci.yml"
+  workflow_dispatch:
+  schedule:
+    # Lunes 09:00 UTC — detectar roturas por dependencias upstream
+    - cron: "0 9 * * 1"
+
+concurrency:
+  group: labs-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  LABS_SETUP_SKIP_OLLAMA: "1"
+
+jobs:
+  setup-doctor-smoke:
+    name: Setup · doctor · smoke
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Cache uv
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/uv
+          key: uv-${{ runner.os }}-${{ hashFiles('labs/requirements.txt', 'labs/setup.sh', 'labs/_install_torch_cpu.sh') }}
+          restore-keys: |
+            uv-${{ runner.os }}-
+
+      - name: Install system deps
+        run: sudo apt-get update && sudo DEBIAN_FRONTEND=noninteractive apt-get install -y zstd
+
+      - name: Bootstrap labs environment
+        run: bash labs/setup.sh
+
+      - name: Doctor (strict)
+        run: bash labs/doctor.sh --strict
+
+      - name: Smoke tests (sin Ollama)
+        run: bash labs/_smoke_ia_solucion.sh
+
+  devcontainer:
+    name: Devcontainer (Codespaces)
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build devcontainer and validate kernel
+        uses: devcontainers/ci@v0.3
+        with:
+          runCmd: bash -lc 'bash labs/doctor.sh --strict && labs/.venv/bin/python labs/_smoke_kernel.py'

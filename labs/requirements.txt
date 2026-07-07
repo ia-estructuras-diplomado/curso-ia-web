@@ -16,11 +16,9 @@ requests>=2.31.0
 # Lab 4 — CNN (visión)
 Pillow>=10.0.0
 # Lab 4 + Lab 5 — torch, torchvision y sentence-transformers:
-#   setup.sh instala requirements.txt y LUEGO labs/_install_torch_cpu.sh
+#   setup.sh instala requirements.txt, LUEGO sentence-transformers y labs/_install_torch_cpu.sh
 #   (pin CPU al final; un solo labs/.venv para todos los labs).
-#   No añadir torch/torchvision aquí — rompe el orden y puede traer wheels CUDA.
-sentence-transformers>=3.0.0,<4.0.0
-transformers>=4.41.0,<4.48.0
+#   No añadir torch/torchvision/sentence-transformers aquí.
 # Lab 6 — Agentes (Agno + Ollama local)
 agno>=2.6.0,<3.0.0
 ollama>=0.4.0

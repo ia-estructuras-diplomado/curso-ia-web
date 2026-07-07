@@ -190,6 +190,77 @@ def verificar_split(n_train: int, n_test: int, test_size: float, random_state: i
     return r
 
 
+MODELOS_REGRESION_ESPERADOS = {"LinearRegression", "RandomForest", "XGBoost"}
+
+
+def verificar_comparacion_regresion(
+    resultados_r2: dict[str, float],
+    columnas_x: list[str],
+) -> list[bool]:
+    """Compara al menos LinearRegression, RandomForest y XGBoost."""
+    r = []
+    r.append(
+        verificar(
+            len(resultados_r2) >= 3,
+            f"✅ Comparaste {len(resultados_r2)} modelos de regresión.",
+            "❌ Incluye al menos 3 modelos: LinearRegression, RandomForest y XGBoost.",
+        )
+    )
+    faltan = MODELOS_REGRESION_ESPERADOS - set(resultados_r2.keys())
+    r.append(
+        verificar(
+            not faltan,
+            "✅ Modelos esperados: LinearRegression, RandomForest y XGBoost.",
+            f"❌ Faltan modelos en la comparación: {sorted(faltan)}.",
+        )
+    )
+    mejor_r2 = max(resultados_r2.values())
+    min_r2 = 0.75 if "Edad" in columnas_x else 0.30
+    mejor_nombre = max(resultados_r2, key=resultados_r2.get)
+    r.append(
+        verificar(
+            mejor_r2 >= min_r2,
+            f"✅ Mejor R² en test = {mejor_r2:.3f} ({mejor_nombre}) ≥ {min_r2}.",
+            f"❌ Mejor R² = {mejor_r2:.3f} por debajo de {min_r2}. Incluye Edad en COLUMNAS_X.",
+        )
+    )
+    return r
+
+
+def verificar_clasificacion(
+    acc_test: float,
+    umbral: float,
+    importancias: dict[str, float],
+    min_acc: float = 0.85,
+    col_top_esperada: str = "Edad",
+) -> list[bool]:
+    r = []
+    r.append(
+        verificar(
+            acc_test >= min_acc,
+            f"✅ Accuracy en test = {acc_test:.3f} (≥ {min_acc}).",
+            f"❌ Accuracy = {acc_test:.3f} por debajo de {min_acc}.",
+        )
+    )
+    r.append(
+        verificar(
+            umbral == 40,
+            f"✅ Umbral {umbral} MPa coherente con la sección 5.",
+            "⚠️ UMBRAL_RESISTENCIA = 40 para la autoevaluación detallada.",
+        )
+    )
+    if importancias:
+        top = max(importancias, key=importancias.get)
+        r.append(
+            verificar(
+                top == col_top_esperada,
+                f"✅ Variable más importante (clasificación): «{top}».",
+                f"❌ Se esperaba «{col_top_esperada}»; obtuviste «{top}».",
+            )
+        )
+    return r
+
+
 def verificar_modelo(
     r2_test: float,
     min_r2: float,

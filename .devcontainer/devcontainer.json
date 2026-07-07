@@ -1,7 +1,11 @@
 {
   "name": "Curso IA — Labs (Codespaces)",
   "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "containerEnv": {
+    "LABS_SETUP_SKIP_OLLAMA": "1"
+  },
   "postCreateCommand": "sudo apt-get update && sudo DEBIAN_FRONTEND=noninteractive apt-get install -y zstd && bash labs/setup.sh",
+  "postAttachCommand": "bash labs/doctor.sh --quiet || true",
   "features": {},
   "customizations": {
     "vscode": {
@@ -10,7 +14,14 @@
         "ms-python.python"
       ],
       "settings": {
-        "python.defaultInterpreterPath": "${containerWorkspaceFolder}/labs/.venv/bin/python"
+        "python.defaultInterpreterPath": "${containerWorkspaceFolder}/labs/.venv/bin/python",
+        "jupyter.kernels.excludePythonEnvironments": [],
+        "notebook.kernelProviderAssociations": [
+          {
+            "viewType": "jupyter-notebook",
+            "kernelProvider": "ms-toolsai.jupyter"
+          }
+        ]
       }
     }
   },

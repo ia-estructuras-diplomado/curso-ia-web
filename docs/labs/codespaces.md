@@ -19,8 +19,30 @@ Notebooks en `labs/labN/` — [curso-ia-web](https://github.com/ia-estructuras-d
 ## Pasos
 
 1. Clic en **Crear Codespace** → iniciar sesión en GitHub.
-2. Esperar build (`labs/setup.sh`).
+2. Esperar build (`labs/setup.sh` — **sin Ollama** en el primer arranque; tarda ~2–5 min).
 3. Abrir notebook en `labs/labN/`.
-4. Kernel: Python de `labs/.venv`.
+4. Kernel: **Python (curso-ia labs)** (`labs/.venv/bin/python`).
+
+### Labs 5 y 6 (Ollama)
+
+Tras crear el Codespace, en terminal:
+
+```bash
+bash labs/lab5/_ollama_setup.sh
+```
+
+La primera descarga de `llama3.2:3b` (~2 GB) puede tardar varios minutos.
+
+### Si algo falla
+
+```bash
+bash labs/doctor.sh --strict   # falla si falta algún artefacto
+bash labs/setup.sh             # reinstalar entorno + datos
+bash labs/lab5/_fix_pytorch.sh   # si falta torchvision o SymInt
+```
+
+En GitHub: pestaña **Actions** → workflow **Labs CI** (mismas comprobaciones en cada push a `labs/`).
+
+El kernel correcto en el selector del notebook es **Python (curso-ia labs)** (`curso-ia-labs` internamente). Validación automática: `labs/.venv/bin/python labs/_smoke_kernel.py`.
 
 [← Laboratorios](index.md)

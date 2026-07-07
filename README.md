@@ -39,7 +39,21 @@ Los notebooks se editan en **curso-ia-dev** (privado). Al hacer push a `main` en
 
 ## Deploy (GitHub Pages)
 
-Push a `main` → GitHub Actions ejecuta `mkdocs build` y publica en la rama `gh-pages`.
+Push a `main` (cambios en `docs/`) → GitHub Actions ejecuta `mkdocs build` y publica en la rama `gh-pages`.
+
+## CI — laboratorios
+
+Cambios en `labs/` o `.devcontainer/` disparan [**Labs CI**](.github/workflows/labs-ci.yml):
+
+1. `bash labs/setup.sh` (sin Ollama)
+2. `bash labs/doctor.sh --strict`
+3. `labs/_smoke_kernel.py` — kernel **Python (curso-ia labs)** registrado y ejecutable
+4. Smoke tests docentes (`labs/_smoke_ia_solucion.sh`)
+5. Build del devcontainer (mismo entorno que Codespaces)
+
+[**Codespace smoke**](.github/workflows/codespace-smoke.yml) (semanal o manual) crea un Codespace real vía `gh codespace create` y valida el kernel dentro del contenedor.
+
+Plantilla de sync dev → web: [`.github/workflows/sync-labs-to-web.yml.example`](.github/workflows/sync-labs-to-web.yml.example)
 
 ## Licencia
 

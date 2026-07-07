@@ -42,9 +42,12 @@ La resistencia varía mucho porque incluye probetas jóvenes (pocos días) y mez
 
 ## Tipo de problema de Machine Learning
 
-- **Regresión supervisada:** la salida `Resistencia` es un número continuo (MPa), no una categoría.
+- **Regresión supervisada:** predecir `Resistencia` en MPa (valor continuo).
+- **Clasificación supervisada (Lab 2, sección 10):** etiqueta binaria *fuerte* (≥ 40 MPa) vs *débil* (< 40 MPa), útil para verificar cumplimiento rápido en planta.
 - **Features (X):** las 8 columnas de ingredientes y edad.
-- **Target (y):** `Resistencia`.
+- **Targets (y):** `Resistencia` (regresión) o binario derivado del umbral (clasificación).
+
+Modelos usados en el lab: `LinearRegression`, `RandomForest`, `XGBoost` (regresión) y `RandomForestClassifier` (clasificación).
 
 ## Interpretación física (enfoque profesional)
 

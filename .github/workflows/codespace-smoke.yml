@@ -1,0 +1,133 @@
+name: Codespace smoke (kernel)
+
+# Crea un Codespace real, espera postCreate y valida el kernel Jupyter del curso.
+# Requiere Codespaces habilitado en el repo/org y facturación activa.
+#
+# En forks o cuentas sin Codespaces el job se omite sin fallar (continue-on-error).
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "labs/setup.sh"
+      - "labs/_smoke_kernel.py"
+      - ".devcontainer/**"
+      - ".github/workflows/codespace-smoke.yml"
+  schedule:
+    # Domingo 10:00 UTC — E2E Codespaces + kernel
+    - cron: "0 10 * * 0"
+
+concurrency:
+  group: codespace-smoke
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  codespaces: write
+
+env:
+  CODESPACE_IDLE_TIMEOUT: 30m
+  CODESPACE_MACHINE: basicLinux32gb
+
+jobs:
+  codespace-kernel:
+    name: Codespace · kernel Jupyter
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Authenticate GitHub CLI
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | gh auth login --with-token
+
+      - name: Create Codespace and wait for postCreate
+        id: cs
+        continue-on-error: true
+        run: |
+          set -euo pipefail
+          DISPLAY="kernel-smoke-${{ github.run_number }}"
+          echo "display_name=${DISPLAY}" >> "$GITHUB_OUTPUT"
+
+          if ! gh api user -q .login >/dev/null 2>&1; then
+            echo "available=false" >> "$GITHUB_OUTPUT"
+            echo "⚠️ gh no autenticado — omitiendo Codespace smoke"
+            exit 0
+          fi
+
+          echo "→ Creando Codespace (${DISPLAY})…"
+          set +e
+          gh codespace create \
+            --repo "${{ github.repository }}" \
+            --ref "${{ github.sha }}" \
+            --devcontainer-path .devcontainer/devcontainer.json \
+            --machine "${{ env.CODESPACE_MACHINE }}" \
+            --display-name "${DISPLAY}" \
+            --idle-timeout "${{ env.CODESPACE_IDLE_TIMEOUT }}" \
+            --status
+          CREATE_RC=$?
+          set -e
+
+          if [[ "$CREATE_RC" -ne 0 ]]; then
+            echo "available=false" >> "$GITHUB_OUTPUT"
+            echo "⚠️ No se pudo crear Codespace (¿habilitado en org/repo?)"
+            exit 0
+          fi
+
+          sleep 10
+          NAME="$(gh codespace list --json displayName,name -q \
+            ".[] | select(.displayName==\"${DISPLAY}\") | .name" | head -1)"
+
+          if [[ -z "${NAME}" ]]; then
+            echo "available=false" >> "$GITHUB_OUTPUT"
+            echo "⚠️ No se resolvió el nombre del Codespace"
+            exit 0
+          fi
+
+          echo "codespace_name=${NAME}" >> "$GITHUB_OUTPUT"
+          echo "available=true" >> "$GITHUB_OUTPUT"
+          echo "✅ Codespace listo: ${NAME}"
+
+      - name: Smoke kernel inside Codespace
+        if: steps.cs.outputs.available == 'true'
+        run: |
+          set -euo pipefail
+          NAME="${{ steps.cs.outputs.codespace_name }}"
+          REPO_NAME="${{ github.event.repository.name }}"
+
+          gh codespace ssh -c "$NAME" -- bash -lc "
+            set -euo pipefail
+            cd /workspaces/${REPO_NAME}
+            echo '━━━ Dentro del Codespace ━━━'
+            pwd
+            labs/.venv/bin/python --version
+            labs/.venv/bin/python -m jupyter kernelspec list
+            bash labs/doctor.sh --strict
+            labs/.venv/bin/python labs/_smoke_kernel.py
+          "
+
+      - name: Skip notice (Codespaces no disponible)
+        if: steps.cs.outputs.available != 'true'
+        run: |
+          echo "ℹ️ Codespace smoke omitido — habilita Codespaces en la org o ejecuta manualmente."
+          echo "La validación local equivalente es: labs/.venv/bin/python labs/_smoke_kernel.py"
+
+      - name: Summary
+        if: always()
+        run: |
+          if [[ "${{ steps.cs.outputs.available }}" == "true" ]]; then
+            echo "### ✅ Codespace smoke OK" >> "$GITHUB_STEP_SUMMARY"
+            echo "- Kernel **Python (curso-ia labs)** registrado y ejecutable" >> "$GITHUB_STEP_SUMMARY"
+            echo "- Codespace: \`${{ steps.cs.outputs.codespace_name }}\`" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "### ℹ️ Codespace smoke omitido" >> "$GITHUB_STEP_SUMMARY"
+            echo "Codespaces no disponible o falló la creación (revisar billing/org)." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Delete Codespace
+        if: always() && steps.cs.outputs.available == 'true'
+        run: |
+          gh codespace delete \
+            --codespace "${{ steps.cs.outputs.codespace_name }}" \
+            --force || true

@@ -5,7 +5,7 @@
 
 > **Un solo Codespace para todo el curso.** El enlace con `quickstart=1` muestra **Resume this codespace** si ya tienes uno para este repositorio; si no, **Create codespace**. Todos los labs comparten `labs/.venv`. Gestiona tus entornos en [github.com/codespaces](https://github.com/codespaces).
 
-**Sesión 3** · Regresión supervisada con el dataset UCI de **resistencia a compresión del hormigón**.
+**Sesión 3** · Regresión y clasificación supervisada con el dataset UCI de **resistencia a compresión del hormigón**.
 
 ## ¿Qué notebook abrir?
 

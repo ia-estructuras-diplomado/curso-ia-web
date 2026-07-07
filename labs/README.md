@@ -30,9 +30,14 @@ Usa **Python 3.11 o 3.12** en el venv (igual que Codespaces). Si tu `.venv` qued
 
 Usa **un solo Codespace** para todos los labs (mismo `labs/.venv`). El enlace con `quickstart=1` prioriza **Resume this codespace** si ya existe uno para este repo.
 
-El devcontainer ejecuta `labs/setup.sh` y usa el intérprete `labs/.venv/bin/python` para Jupyter.
+El devcontainer ejecuta `labs/setup.sh` (core + datos + kernel, **sin Ollama** en el primer build) y usa el intérprete `labs/.venv/bin/python` para Jupyter. Tras abrir el Codespace, `labs/doctor.sh` valida el entorno en segundo plano.
 
 [Abrir o reanudar Codespace](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json)
+
+```bash
+bash labs/doctor.sh              # ¿todo listo?
+bash labs/lab5/_ollama_setup.sh  # Labs 5–6 (LLM local)
+```
 
 ## Dos vías por lab (opcional)
 
@@ -64,6 +69,24 @@ La numeración de carpetas `labs/labN/` coincide con el syllabus del curso (Lab 
 1. Editar notebooks **solo** en este repo (`curso-ia-dev`).
 2. `git push` a `main` → el workflow **Sync labs to curso-ia-web** copia `labs/` y `.devcontainer/` **desde dev hacia web** (nunca al revés).
 3. Requiere secreto `LABS_SYNC_TOKEN` (repository secret) en GitHub Actions de `curso-ia-dev`.
+4. Plantilla del workflow: [`.github/workflows/sync-labs-to-web.yml.example`](../.github/workflows/sync-labs-to-web.yml.example) (incluye validación con `doctor` + smoke antes de publicar).
+
+## CI (GitHub Actions)
+
+| Workflow | Cuándo corre | Qué valida |
+|----------|--------------|------------|
+| [**Labs CI**](../.github/workflows/labs-ci.yml) | Cambios en `labs/` o `.devcontainer/` | `setup.sh` → `doctor.sh --strict` → smoke + kernel Jupyter + build devcontainer |
+| [**Codespace smoke**](../.github/workflows/codespace-smoke.yml) | Semanal / manual / push a `.devcontainer` | Crea un **Codespace real** y ejecuta `_smoke_kernel.py` dentro |
+| [**Deploy MkDocs**](../.github/workflows/deploy.yml) | Cambios en `docs/` | Sitio estático en GitHub Pages |
+
+Validación local equivalente:
+
+```bash
+LABS_SETUP_SKIP_OLLAMA=1 bash labs/setup.sh
+bash labs/doctor.sh --strict
+labs/.venv/bin/python labs/_smoke_kernel.py   # kernel «Python (curso-ia labs)»
+bash labs/_smoke_ia_solucion.sh
+```
 
 ## Notas
 

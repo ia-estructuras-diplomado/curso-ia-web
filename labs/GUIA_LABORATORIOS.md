@@ -107,8 +107,10 @@ resumen_seccion("4 — Pandas", resultados)
 4. Abrir el notebook según tu perfil:
    - **Con experiencia mínima en código:** `labs/labN/*_alumno.ipynb`
    - **Sin programar / con asistente IA:** `labs/labN/*_alumno_ia.ipynb` + completar `prompts_entregados.md`
-5. Seleccionar el kernel de Python del contenedor.
+5. Seleccionar el kernel **Python (curso-ia labs)** (`labs/.venv/bin/python`).
 6. **Run All** o ejecutar en orden; buscar ✅ antes de avanzar.
+
+Si el kernel no aparece o faltan paquetes: `bash labs/setup.sh` y `bash labs/doctor.sh`.
 
 ---
 

@@ -16,13 +16,17 @@ fi
 "$PY" "${ROOT}/lab4/part_2/_smoke_test.py"
 "$PY" "${ROOT}/lab6/_smoke_test.py"
 
+echo "▶ Smoke kernel Jupyter (curso-ia labs)…"
+"$PY" "${ROOT}/_smoke_kernel.py"
+
 for nb in \
   "${ROOT}/lab0/fundamentos_python_ia_solucion_ia.ipynb" \
   "${ROOT}/lab1/pca_monitoreo_estructural_solucion_ia.ipynb" \
   "${ROOT}/lab2/resistencia_compresion_solucion_ia.ipynb"
 do
   echo "▶ Ejecutando $(basename "$nb")..."
-  (cd "$(dirname "$nb")" && "$JUP" nbconvert --execute --to notebook --ExecutePreprocessor.timeout=300 "$(basename "$nb")")
+  (cd "$(dirname "$nb")" && "$JUP" nbconvert --execute --to notebook --ExecutePreprocessor.timeout=300 \
+    --output-dir /tmp/curso-ia-smoke "$(basename "$nb")")
 done
 
 echo "✅ Smoke IA completado."
