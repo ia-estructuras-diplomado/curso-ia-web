@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lab-3-inteligencia-artificial-explicable-xai" class="md-skip">
+        <a href="#lab-3-redes-neuronales-cnn-y-rnnlstm" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -952,9 +952,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#tema" class="md-nav__link">
+  <a href="#partes" class="md-nav__link">
     <span class="md-ellipsis">
-      Tema
+      Partes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelos-docente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modelos docente
     </span>
   </a>
   
@@ -970,18 +979,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#archivos" class="md-nav__link">
+  <a href="#pytorch" class="md-nav__link">
     <span class="md-ellipsis">
-      Archivos
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pasos" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pasos
+      PyTorch
     </span>
   </a>
   
@@ -1290,9 +1290,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#tema" class="md-nav__link">
+  <a href="#partes" class="md-nav__link">
     <span class="md-ellipsis">
-      Tema
+      Partes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelos-docente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modelos docente
     </span>
   </a>
   
@@ -1308,18 +1317,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#archivos" class="md-nav__link">
+  <a href="#pytorch" class="md-nav__link">
     <span class="md-ellipsis">
-      Archivos
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pasos" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pasos
+      PyTorch
     </span>
   </a>
   
@@ -1343,7 +1343,7 @@
   
 
 
-<h1 id="lab-3-inteligencia-artificial-explicable-xai">Lab 3: Inteligencia Artificial Explicable (xAI)<a class="headerlink" href="#lab-3-inteligencia-artificial-explicable-xai" title="Permanent link">&para;</a></h1>
+<h1 id="lab-3-redes-neuronales-cnn-y-rnnlstm">Lab 3: Redes Neuronales — CNN y RNN/LSTM<a class="headerlink" href="#lab-3-redes-neuronales-cnn-y-rnnlstm" title="Permanent link">&para;</a></h1>
 <div class="lab-actions" markdown="1">
 
 [▶ Crear Codespace — Lab 3](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json){ .md-button .md-button--primary }
@@ -1354,77 +1354,46 @@
 <p><em>Notebook previsto: <code>xai_estructuras_alumno.ipynb</code></em></p>
 <div class="admonition info">
 <p class="admonition-title">Sesión 4</p>
-<p><strong>Duración:</strong> ~2 h · Vía IA-asistida</p>
+<p><strong>Duración:</strong> ~4 h · Dos partes · Vía IA-asistida</p>
 </div>
-<h2 id="tema">Tema<a class="headerlink" href="#tema" title="Permanent link">&para;</a></h2>
-<p>Interpretar predicciones de <strong>XGBoost</strong> sobre sensores SHM con un kit xAI: importancias globales, <strong>SHAP</strong>, <strong>LIME</strong> y PDP.</p>
+<h2 id="partes">Partes<a class="headerlink" href="#partes" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Técnica</th>
-<th>Alcance</th>
+<th>Parte</th>
+<th>Tema</th>
+<th>Carpeta</th>
+<th>Notebook</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Importancia del booster</td>
-<td>Global</td>
+<td><strong>1</strong></td>
+<td>CNN — grietas en hormigón</td>
+<td><code>part_1/</code></td>
+<td><code>cnn_grietas_estructuras_alumno_ia.ipynb</code></td>
 </tr>
 <tr>
-<td>Permutation importance</td>
-<td>Global</td>
-</tr>
-<tr>
-<td>SHAP (<code>TreeExplainer</code>)</td>
-<td>Global + local</td>
-</tr>
-<tr>
-<td>LIME</td>
-<td>Local</td>
-</tr>
-<tr>
-<td>PDP + SHAP dependence</td>
-<td>Global marginal</td>
+<td><strong>2</strong></td>
+<td>LSTM — sensores SHM</td>
+<td><code>part_2/</code></td>
+<td><code>rnn_sensores_estructuras_alumno_ia.ipynb</code></td>
 </tr>
 </tbody>
 </table>
+<h2 id="modelos-docente">Modelos docente<a class="headerlink" href="#modelos-docente" title="Permanent link">&para;</a></h2>
+<p>Checkpoints en <code>part_1/data/crack_cnn_best.pt</code> y <code>part_2/data/lstm_*.pt</code>. Generar con:</p>
+<p><code>bash
+python labs/lab3/_generar_modelos.py</code></p>
 <h2 id="objetivos">Objetivos<a class="headerlink" href="#objetivos" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Diferenciar explicación <strong>global</strong> vs <strong>local</strong>.</li>
-<li>Aplicar varias técnicas xAI sobre un mismo modelo.</li>
-<li>Comparar SHAP y LIME en un caso de test.</li>
-<li>Interpretar en lenguaje de ingeniería estructural.</li>
+<li>Entrenar o cargar una <strong>CNN</strong> para clasificación de grietas.</li>
+<li>Entrenar o cargar <strong>LSTM</strong> para series de sensores.</li>
+<li>Comparar costos frente a modelos clásicos (Labs 1–2).</li>
 </ol>
-<h2 id="archivos">Archivos<a class="headerlink" href="#archivos" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Archivo</th>
-<th>Uso</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>xai_estructuras_alumno_ia.ipynb</code></td>
-<td>Notebook alumno</td>
-</tr>
-<tr>
-<td><code>prompts_entregados.md</code></td>
-<td>Bitácora de prompts</td>
-</tr>
-<tr>
-<td><code>data/</code></td>
-<td>Dataset SHM (Lab 1)</td>
-</tr>
-</tbody>
-</table>
-<h2 id="pasos">Pasos<a class="headerlink" href="#pasos" title="Permanent link">&para;</a></h2>
-<ol>
-<li><strong>Crear Codespace</strong> (botón arriba).</li>
-<li><code>cd labs/lab3</code> → abrir <code>xai_estructuras_alumno_ia.ipynb</code>.</li>
-<li>Completar <code>prompts_entregados.md</code>.</li>
-</ol>
-<p><a href="../codespaces/">Codespaces</a></p>
+<h2 id="pytorch">PyTorch<a class="headerlink" href="#pytorch" title="Permanent link">&para;</a></h2>
+<p><code>bash
+bash labs/lab5/_fix_pytorch.sh</code></p>
 
 
 

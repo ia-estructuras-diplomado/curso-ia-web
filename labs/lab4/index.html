@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lab-4-redes-neuronales-cnn-y-rnnlstm" class="md-skip">
+        <a href="#lab-4-inteligencia-artificial-explicable-xai" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -991,9 +991,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pytorch" class="md-nav__link">
+  <a href="#dependencias" class="md-nav__link">
     <span class="md-ellipsis">
-      PyTorch
+      Dependencias
     </span>
   </a>
   
@@ -1299,9 +1299,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pytorch" class="md-nav__link">
+  <a href="#dependencias" class="md-nav__link">
     <span class="md-ellipsis">
-      PyTorch
+      Dependencias
     </span>
   </a>
   
@@ -1325,7 +1325,7 @@
   
 
 
-<h1 id="lab-4-redes-neuronales-cnn-y-rnnlstm">Lab 4: Redes Neuronales — CNN y RNN/LSTM<a class="headerlink" href="#lab-4-redes-neuronales-cnn-y-rnnlstm" title="Permanent link">&para;</a></h1>
+<h1 id="lab-4-inteligencia-artificial-explicable-xai">Lab 4: Inteligencia Artificial Explicable (xAI)<a class="headerlink" href="#lab-4-inteligencia-artificial-explicable-xai" title="Permanent link">&para;</a></h1>
 <div class="lab-actions" markdown="1">
 
 [▶ Crear Codespace — Lab 4](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json){ .md-button .md-button--primary }
@@ -1344,35 +1344,31 @@
 <tr>
 <th>Parte</th>
 <th>Tema</th>
-<th>Carpeta</th>
 <th>Notebook</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><strong>1</strong></td>
-<td>CNN — grietas en hormigón</td>
-<td><code>part_1/</code></td>
-<td><code>cnn_grietas_estructuras_alumno_ia.ipynb</code></td>
+<td>xAI tabular — XGBoost, SHAP, LIME, PDP</td>
+<td><code>part_1/xai_estructuras_alumno_ia.ipynb</code></td>
 </tr>
 <tr>
 <td><strong>2</strong></td>
-<td>LSTM — sensores SHM</td>
-<td><code>part_2/</code></td>
-<td><code>rnn_sensores_estructuras_alumno_ia.ipynb</code></td>
+<td>xAI redes — Grad-CAM, Integrated Gradients</td>
+<td><code>part_2/xai_redes_estructuras_alumno_ia.ipynb</code></td>
 </tr>
 </tbody>
 </table>
 <h2 id="objetivos">Objetivos<a class="headerlink" href="#objetivos" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Entrenar una <strong>CNN</strong> para clasificación de imágenes de patología.</li>
-<li>Entrenar <strong>LSTM</strong> para series de sensores (ventanas temporales).</li>
-<li>Comparar costos (datos, cómputo, interpretabilidad) frente a Labs 1–2.</li>
+<li>Aplicar un <strong>kit xAI</strong> sobre XGBoost (global + local).</li>
+<li>Explicar <strong>CNN y LSTM</strong> de Lab 3 con técnicas para redes profundas.</li>
+<li>Comparar interpretaciones tabulares vs espaciales/temporales.</li>
 </ol>
-<h2 id="pytorch">PyTorch<a class="headerlink" href="#pytorch" title="Permanent link">&para;</a></h2>
-<p>Si falta <code>torchvision</code> o hay error <code>SymInt</code>:</p>
-<p>```bash
-bash labs/lab5/_fix_pytorch.sh</p>
+<h2 id="dependencias">Dependencias<a class="headerlink" href="#dependencias" title="Permanent link">&para;</a></h2>
+<p><code>xgboost</code>, <code>shap</code>, <code>lime</code>, <code>captum</code> en <code>labs/requirements.txt</code>.</p>
+<p><a href="../codespaces/">Codespaces</a></p>
 
 
 
