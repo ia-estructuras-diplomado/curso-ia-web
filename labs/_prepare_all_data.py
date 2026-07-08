@@ -12,8 +12,9 @@ LABS = Path(__file__).resolve().parent
 
 STEPS: list[tuple[str, Path]] = [
     ("Lab 2 — concrete.csv", LABS / "lab2" / "_preparar_datos.py"),
-    ("Lab 4 P1 — cracks_subset", LABS / "lab4" / "part_1" / "_preparar_datos.py"),
-    ("Lab 4 P2 — SHM CSV", LABS / "lab4" / "part_2" / "_preparar_datos.py"),
+    ("Lab 3 P1 — cracks_subset", LABS / "lab3" / "part_1" / "_preparar_datos.py"),
+    ("Lab 3 P2 — SHM CSV", LABS / "lab3" / "part_2" / "_preparar_datos.py"),
+    ("Lab 4 P1 — SHM CSV (xAI)", LABS / "lab4" / "part_1" / "_preparar_datos.py"),
     ("Lab 6 — seismic_data.csv", LABS / "lab6" / "_preparar_datos.py"),
 ]
 

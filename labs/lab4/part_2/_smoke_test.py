@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Smoke test docente — Lab 4 Parte 2 (CSV SHM + verificadores de carga)."""
+"""Smoke test docente — Lab 4 Parte 2 (xAI redes + modelos Lab 3)."""
 from __future__ import annotations
 
 import sys
@@ -11,37 +11,22 @@ from _smoke_common import assert_all_pass, check_file, ensure_lab_path, run_quie
 
 ensure_lab_path(ROOT)
 
-import pandas as pd  # noqa: E402
-import torch  # noqa: E402
-
-from _verificar import FEATURES_ESPERADAS, verificar_carga, verificar_panorama_rnn  # noqa: E402
+from _verificar import (  # noqa: E402
+    RUTA_CNN,
+    RUTA_LSTM,
+    verificar_modelos_lab3,
+    verificar_panorama_xai_redes,
+)
 
 
 def main() -> None:
-    csv = ROOT / "data" / "building_health_monitoring_dataset.csv"
-    section("Lab 4 P2 — datos")
-    if not check_file(csv):
-        prep = ROOT / "_preparar_datos.py"
-        if prep.is_file():
-            import subprocess
-
-            subprocess.run([sys.executable, str(prep)], check=False)
-        if not csv.is_file():
-            raise SystemExit("❌ Falta CSV — coloca data/archive.zip y ejecuta _preparar_datos.py")
-
-    df = pd.read_csv(csv)
-    section("Lab 4 P2 — PyTorch + verificadores")
-    print(f"✅ torch {torch.__version__}")
-    componentes = ["LSTM", "ventana temporal", "capa densa", "softmax"]
-    assert_all_pass(
-        run_quiet(lambda: verificar_panorama_rnn(componentes)),
-        "panorama",
-    )
-    assert_all_pass(
-        run_quiet(lambda: verificar_carga(df, 5, FEATURES_ESPERADAS)),
-        "carga",
-    )
-    print("\n✅ Lab 4 Parte 2 smoke OK")
+    section("Lab 4 P2 xAI redes — modelos Lab 3")
+    check_file(RUTA_CNN)
+    check_file(RUTA_LSTM)
+    tecnicas = ["grad_cam", "integrated_gradients", "comparacion"]
+    assert_all_pass(run_quiet(lambda: verificar_panorama_xai_redes(tecnicas)), "panorama")
+    assert_all_pass(run_quiet(lambda: verificar_modelos_lab3(True, True)), "modelos")
+    print("\n✅ Lab 4 Parte 2 (xAI redes) smoke OK")
 
 
 if __name__ == "__main__":

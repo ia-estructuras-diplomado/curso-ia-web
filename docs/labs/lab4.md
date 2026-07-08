@@ -1,4 +1,4 @@
-# Lab 4: Redes Neuronales — CNN y RNN/LSTM
+# Lab 4: Inteligencia Artificial Explicable (xAI)
 
 --8<-- "lab4-actions.md"
 
@@ -7,20 +7,19 @@
 
 ## Partes
 
-| Parte | Tema | Carpeta | Notebook |
-|-------|------|---------|----------|
-| **1** | CNN — grietas en hormigón | `part_1/` | `cnn_grietas_estructuras_alumno_ia.ipynb` |
-| **2** | LSTM — sensores SHM | `part_2/` | `rnn_sensores_estructuras_alumno_ia.ipynb` |
+| Parte | Tema | Notebook |
+|-------|------|----------|
+| **1** | xAI tabular — XGBoost, SHAP, LIME, PDP | `part_1/xai_estructuras_alumno_ia.ipynb` |
+| **2** | xAI redes — Grad-CAM, Integrated Gradients | `part_2/xai_redes_estructuras_alumno_ia.ipynb` |
 
 ## Objetivos
 
-1. Entrenar una **CNN** para clasificación de imágenes de patología.
-2. Entrenar **LSTM** para series de sensores (ventanas temporales).
-3. Comparar costos (datos, cómputo, interpretabilidad) frente a Labs 1–2.
+1. Aplicar un **kit xAI** sobre XGBoost (global + local).
+2. Explicar **CNN y LSTM** de Lab 3 con técnicas para redes profundas.
+3. Comparar interpretaciones tabulares vs espaciales/temporales.
 
-## PyTorch
+## Dependencias
 
-Si falta `torchvision` o hay error `SymInt`:
+`xgboost`, `shap`, `lime`, `captum` en `labs/requirements.txt`.
 
-```bash
-bash labs/lab5/_fix_pytorch.sh
+[Codespaces](codespaces.md)

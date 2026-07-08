@@ -1,0 +1,28 @@
+{
+  "classifier": {
+    "tipo": "LSTMClassifier",
+    "hyperparameters": {
+      "input_size": 5,
+      "hidden_size": 128,
+      "n_layers": 1,
+      "dropout": 0.2,
+      "learning_rate": 0.001,
+      "epochs": 10,
+      "val_accuracy": 0.6971
+    },
+    "val_accuracy": 0.6971428571428572
+  },
+  "strain_regressor": {
+    "tipo": "StrainLSTM",
+    "hyperparameters": {
+      "hidden": 64,
+      "epochs": 30,
+      "mae_interp": 0.7113,
+      "mae_extrap": 0.9007
+    },
+    "mae_interp": 0.7113,
+    "mae_extrap": 0.9007
+  },
+  "device_trained": "cuda",
+  "trained_at": "2026-07-08T00:15:56.252911+00:00"
+}

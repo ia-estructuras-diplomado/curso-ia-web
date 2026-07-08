@@ -12,6 +12,8 @@ fi
 
 "$PY" "${ROOT}/lab0/_smoke_test.py"
 "$PY" "${ROOT}/lab2/_smoke_test.py"
+"$PY" "${ROOT}/lab3/part_1/_smoke_test.py"
+"$PY" "${ROOT}/lab3/part_2/_smoke_test.py"
 "$PY" "${ROOT}/lab4/part_1/_smoke_test.py"
 "$PY" "${ROOT}/lab4/part_2/_smoke_test.py"
 "$PY" "${ROOT}/lab6/_smoke_test.py"

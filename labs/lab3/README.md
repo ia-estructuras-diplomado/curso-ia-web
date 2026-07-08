@@ -1,69 +1,43 @@
-# Lab 3 — Inteligencia Artificial Explicable (xAI)
+# Lab 3 — Redes neuronales en ingeniería estructural
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json)
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ia-estructuras-diplomado/curso-ia-web/main?labpath=labs/lab3/xai_estructuras_alumno_ia.ipynb)
 
-> **Un solo Codespace para todo el curso.** El enlace con `quickstart=1` muestra **Resume this codespace** si ya tienes uno para este repositorio; si no, **Create codespace**. Todos los labs comparten `labs/.venv`. Gestiona tus entornos en [github.com/codespaces](https://github.com/codespaces).
-**Sesión 6** · Interpretar y auditar predicciones de modelos ML en contexto de ingeniería estructural.
+> **Un solo Codespace para todo el curso.** Todos los labs comparten `labs/.venv`.
 
-## Enfoque del lab
+**Sesión 4** · CNN (grietas) + LSTM (sensores SHM) con PyTorch CPU.
 
-Además de entrenar un **XGBoost** multiclass sobre sensores SHM, el objetivo central es **probar un kit xAI** sobre el mismo modelo — no depender de una sola técnica.
+| Parte | Tema | Carpeta | Notebook alumno |
+|-------|------|---------|-----------------|
+| **1** | CNN — grietas en hormigón | [`part_1/`](part_1/) | `cnn_grietas_estructuras_alumno_ia.ipynb` |
+| **2** | LSTM — sensores SHM | [`part_2/`](part_2/) | `rnn_sensores_estructuras_alumno_ia.ipynb` |
 
-| Técnica | Alcance | Sección |
-|---------|---------|---------|
-| Importancia del booster | Global | 7 |
-| Permutation importance | Global | 7 (pre-escrito) |
-| **SHAP** (`TreeExplainer`) | Global + local | 8–9 |
-| **LIME** | Local | 10 |
-| **PDP** + SHAP dependence | Global marginal | 11 |
+## Modelos docente (best)
 
-En la sección 10 se **compara LIME vs SHAP** en el mismo caso de test.
+Entrenamiento **solo docente** con script Python (no notebook):
 
-## ¿Qué es xAI?
+```bash
+# Local con GPU NVIDIA (recomendado)
+bash labs/lab3/_install_torch_cuda.sh   # una vez: torch+cu124
+python labs/lab3/_generar_modelos.py --device cuda
 
-**Inteligencia Artificial Explicable (xAI)** permite **entender por qué** un modelo produce una predicción — no solo la clase o la probabilidad.
+# Codespaces / CPU
+python labs/lab3/_generar_modelos.py
+```
 
-En obra esto importa porque:
+Artefactos generados:
+- `part_1/data/crack_cnn_best.pt` + `model_meta.json`
+- `part_2/data/lstm_classifier_best.pt`, `lstm_strain_best.pt` + `model_meta.json`
 
-- Un modelo puede acertar por **sensores correctos** (Strain, vibración) o por **artefactos**.
-- El ingeniero necesita **trazabilidad** antes de activar alertas de daño.
-- xAI **apoya** la validación humana; no sustituye normativa ni inspección.
+Los alumnos **cargan** estos checkpoints en el notebook; no necesitan entrenar 15 épocas en CPU.
 
-## Estado
-
-**✅ Completo.**
-
-| Archivo | Uso |
-|---------|-----|
-| `xai_estructuras_alumno_ia.ipynb` | **Única vía alumno** — guía IA + celda vacía por sección |
-| `xai_estructuras_solucion.ipynb` | Referencia docente |
-| `prompts_entregados.md` | Bitácora obligatoria de prompts |
-| `referencia_celdas_ia.md` | **Solo docente** — código canónico por celda (✅) |
-| `data/` | Dataset SHM (mismo que Lab 1) |
-
-## Objetivos de aprendizaje
-
-1. Diferenciar explicación **global** vs **local**.
-2. Aplicar **varias técnicas xAI** sobre un mismo `XGBClassifier`.
-3. Comparar **SHAP y LIME** en un caso concreto de test.
-4. Interpretar resultados en lenguaje de ingeniería estructural.
-
-## Entorno local
+## Codespaces
 
 ```bash
 bash labs/setup.sh
 source labs/.venv/bin/activate
-cd labs/lab3
-jupyter notebook xai_estructuras_alumno_ia.ipynb
+cd labs/lab3/part_1   # o part_2
 ```
 
-Dependencias: `xgboost`, `shap`, `lime` en [`labs/requirements.txt`](../requirements.txt).
-
-## GitHub Codespaces
-
-1. Pulsa el badge **Open in GitHub Codespaces** (arriba) — reanuda tu Codespace existente o crea uno nuevo.
-2. Abre `labs/lab3/xai_estructuras_alumno_ia.ipynb`.
-3. Kernel: **Python (curso-ia labs)** / `labs/.venv/bin/python`.
+Guía: [Lab 3 en curso-ia-web](https://ia-estructuras-diplomado.github.io/curso-ia-web/labs/lab3/)
 
 Ver [`../GUIA_LABORATORIOS.md`](../GUIA_LABORATORIOS.md)

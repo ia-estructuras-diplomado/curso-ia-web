@@ -1,4 +1,4 @@
-# Bitácora de prompts — Lab 3 — xAI con XGBoost (SHM)
+# Bitácora de prompts — Lab 4 Parte 2 — LSTM sensores SHM
 
 Entrega este archivo junto con tu notebook `*_alumno_ia.ipynb` ejecutado (celdas con ✅).
 

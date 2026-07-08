@@ -67,8 +67,11 @@ if [[ -x "$PY" ]]; then
   _log "→ Datos"
   for path in \
     "lab2/data/concrete.csv" \
-    "lab4/part_1/data/cracks_subset/train" \
-    "lab4/part_2/data/building_health_monitoring_dataset.csv" \
+    "lab3/part_1/data/cracks_subset/train" \
+    "lab3/part_2/data/building_health_monitoring_dataset.csv" \
+    "lab3/part_1/data/crack_cnn_best.pt" \
+    "lab3/part_2/data/lstm_classifier_best.pt" \
+    "lab4/part_1/data/building_health_monitoring_dataset.csv" \
     "lab6/data/seismic_data.csv" \
     "lab6/data/earthquake_risk_model.pkl" \
     "lab5/pdfs/Norma_E_020_CARGAS.pdf"

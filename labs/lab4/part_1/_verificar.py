@@ -1,13 +1,31 @@
-"""Autoevaluación amigable para Lab 4 Parte 1 — CNN grietas en hormigón."""
+"""Autoevaluación amigable para Lab 4 Parte 1 — xAI tabular con XGBoost."""
 
 from __future__ import annotations
 
-CLASES_ESPERADAS = ("Negative", "Positive")
-N_TRAIN_POR_CLASE = 800
-N_VAL_POR_CLASE = 200
-N_CLASES = 2
-MIN_ACC_VAL = 0.75
-MIN_COMPONENTES_CNN = 4
+COLUMNAS_ESPERADAS = [
+    "Timestamp",
+    "Accel_X (m/s^2)",
+    "Accel_Y (m/s^2)",
+    "Accel_Z (m/s^2)",
+    "Strain (με)",
+    "Temp (°C)",
+    "Condition Label",
+]
+
+FEATURES_ESPERADAS = [
+    "Accel_X (m/s^2)",
+    "Accel_Y (m/s^2)",
+    "Accel_Z (m/s^2)",
+    "Strain (με)",
+    "Temp (°C)",
+]
+
+N_FILAS_RAW = 1000
+N_FILAS_LIMPIO = 904
+N_FEATURES = 5
+ETIQUETAS_VALIDAS = {0, 1, 2}
+TOP_FEATURE_REF = "Strain (με)"
+MIN_ACC_TEST = 0.75
 
 
 def verificar(condicion: bool, ok: str, fail: str) -> bool:
@@ -25,14 +43,15 @@ def resumen_seccion(nombre: str, resultados: list[bool]) -> None:
         )
 
 
-def _norm_componente(nombre: str) -> str:
+def _norm_tecnica(nombre: str) -> str:
     return nombre.strip().lower().replace(" ", "_")
 
 
-def verificar_panorama_cnn(componentes: list[str]) -> list[bool]:
-    if isinstance(componentes, str):
-        componentes = [componentes]
-    norm = [_norm_componente(c) for c in componentes]
+def verificar_panorama_xai(tecnicas: list[str]) -> list[bool]:
+    """Comprueba que el alumno listó las familias xAI del lab."""
+    if isinstance(tecnicas, str):
+        tecnicas = [tecnicas]
+    norm = [_norm_tecnica(t) for t in tecnicas]
 
     def tiene(*palabras: str) -> bool:
         return any(any(p in t for p in palabras) for t in norm)
@@ -40,321 +59,282 @@ def verificar_panorama_cnn(componentes: list[str]) -> list[bool]:
     r = []
     r.append(
         verificar(
-            len(norm) >= MIN_COMPONENTES_CNN,
-            f"✅ Panorama CNN con {len(norm)} componentes listados.",
-            f"❌ Define COMPONENTES_CNN con al menos {MIN_COMPONENTES_CNN} entradas.",
+            len(norm) >= 4,
+            f"✅ Panorama xAI con {len(norm)} técnicas listadas.",
+            "❌ Define TECNICAS_XAI con al menos 4 entradas (importancia, shap, lime, pdp…).",
         )
     )
     r.append(
         verificar(
-            tiene("conv", "convol"),
-            "✅ Incluye capa de **convolución**.",
-            "❌ Añade 'convolución' o 'conv' a COMPONENTES_CNN.",
+            tiene("importancia", "permutation"),
+            "✅ Incluye explicación **global** (importancia o permutation).",
+            "❌ Añade 'importancia' y/o 'permutation' a TECNICAS_XAI.",
         )
     )
     r.append(
         verificar(
-            tiene("pool", "pooling"),
-            "✅ Incluye **pooling**.",
-            "❌ Añade 'pooling' a COMPONENTES_CNN.",
+            tiene("shap"),
+            "✅ Incluye **SHAP** (global y local en este lab).",
+            "❌ Añade 'shap' a TECNICAS_XAI.",
         )
     )
     r.append(
         verificar(
-            tiene("relu", "activ"),
-            "✅ Incluye **activación** (p. ej. ReLU).",
-            "❌ Añade 'relu' o 'activación' a COMPONENTES_CNN.",
+            tiene("lime"),
+            "✅ Incluye **LIME** (explicación local alternativa).",
+            "❌ Añade 'lime' a TECNICAS_XAI.",
+        )
+    )
+    r.append(
+        verificar(
+            tiene("pdp", "partial", "dependence"),
+            "✅ Incluye **PDP / dependencia** (efecto marginal).",
+            "❌ Añade 'pdp' a TECNICAS_XAI.",
         )
     )
     return r
 
 
-def verificar_eda_dataset(
-    conteos: dict,
-    n_ejemplos_mosaico: int,
-    n_muestras_eda: int,
-) -> list[bool]:
+def verificar_contexto_xai(metodo: str) -> list[bool]:
+    """Compatibilidad: acepta un solo método o delega a panorama."""
+    return verificar_panorama_xai([metodo, "shap", "lime", "pdp"])
+
+
+def verificar_carga(df, n_filas_head: int) -> list[bool]:
     r = []
     r.append(
         verificar(
-            set(conteos.keys()) == {"train", "val"},
-            "✅ Splits train y val identificados.",
-            f"❌ conteos debe tener claves 'train' y 'val'; obtuviste {list(conteos.keys())}.",
-        )
-    )
-    for split, n_esperado in (("train", N_TRAIN_POR_CLASE), ("val", N_VAL_POR_CLASE)):
-        clases = conteos.get(split, {})
-        r.append(
-            verificar(
-                set(clases.keys()) == set(CLASES_ESPERADAS)
-                and all(clases.get(c, 0) == n_esperado for c in CLASES_ESPERADAS),
-                f"✅ {split}: {n_esperado} imágenes por clase (Negative/Positive).",
-                f"❌ {split}: esperado {n_esperado}×2 clases; obtuviste {clases}.",
-            )
-        )
-    r.append(
-        verificar(
-            2 <= n_ejemplos_mosaico <= 8,
-            f"✅ Mosaico con {n_ejemplos_mosaico} ejemplos por clase.",
-            "❌ N_EJEMPLOS_MOSAICO debe estar entre 2 y 8.",
+            df is not None and df.shape == (N_FILAS_RAW, 7),
+            f"✅ Dataset cargado: {N_FILAS_RAW} lecturas × 7 columnas.",
+            f"❌ Forma inesperada: {getattr(df, 'shape', None)}. Usa data/building_health_monitoring_dataset.csv.",
         )
     )
     r.append(
         verificar(
-            20 <= n_muestras_eda <= 200,
-            f"✅ EDA sobre {n_muestras_eda} imágenes (tamaños / balance).",
-            "❌ N_MUESTRAS_EDA debe estar entre 20 y 200.",
+            list(df.columns) == COLUMNAS_ESPERADAS,
+            "✅ Columnas de sensores listas para SHM.",
+            "❌ Revisa el CSV en data/building_health_monitoring_dataset.csv.",
+        )
+    )
+    r.append(
+        verificar(
+            1 <= n_filas_head <= 20,
+            f"✅ Mostrando {n_filas_head} filas con head().",
+            "❌ N_FILAS_HEAD debe estar entre 1 y 20.",
         )
     )
     return r
 
 
-def verificar_augmentation(
-    image_size: int,
-    aug_rotation: float,
-    train_transform,
-    val_transform,
-    n_aug_mostrados: int,
-) -> list[bool]:
-    from torchvision.transforms import Compose
+def verificar_features(features: list[str]) -> list[bool]:
+    return [
+        verificar(
+            features == FEATURES_ESPERADAS,
+            "✅ 5 features de sensores definidas correctamente.",
+            f"❌ FEATURES debe ser exactamente {FEATURES_ESPERADAS}.",
+        )
+    ]
 
+
+def verificar_limpieza(df_limpio, n_antes: int, n_despues: int) -> list[bool]:
     r = []
     r.append(
         verificar(
-            64 <= image_size <= 227,
-            f"✅ IMAGE_SIZE={image_size} para resize y entrenamiento.",
-            "❌ IMAGE_SIZE debe estar entre 64 y 227.",
+            n_antes == N_FILAS_RAW,
+            f"✅ Partiste de {N_FILAS_RAW} registros crudos.",
+            f"❌ Se esperaban {N_FILAS_RAW} filas antes de limpiar; hay {n_antes}.",
         )
     )
     r.append(
         verificar(
-            5 <= aug_rotation <= 45,
-            f"✅ AUG_ROTATION={aug_rotation}° en rango razonable.",
-            "❌ AUG_ROTATION debe estar entre 5 y 45 grados.",
+            n_despues == N_FILAS_LIMPIO and df_limpio.shape[0] == N_FILAS_LIMPIO,
+            f"✅ Tras eliminar nulos: {N_FILAS_LIMPIO} lecturas válidas.",
+            f"❌ Tras limpieza se esperaban {N_FILAS_LIMPIO} filas; obtuviste {n_despues}.",
         )
     )
     r.append(
         verificar(
-            isinstance(train_transform, Compose) and isinstance(val_transform, Compose),
-            "✅ train_transform y val_transform definidos (Compose).",
-            "❌ Define train_transform (con aumento) y val_transform (determinista).",
-        )
-    )
-    train_names = {t.__class__.__name__ for t in train_transform.transforms}
-    r.append(
-        verificar(
-            any("Random" in n for n in train_names),
-            f"✅ train_transform incluye aumento aleatorio ({sorted(train_names)}).",
-            "❌ train_transform debe incluir al menos un Random* (flip, rotación, jitter…).",
-        )
-    )
-    val_names = {t.__class__.__name__ for t in val_transform.transforms}
-    r.append(
-        verificar(
-            not any("Random" in n for n in val_names),
-            "✅ val_transform sin aleatoriedad (solo resize/normalize).",
-            "❌ val_transform no debe incluir transforms Random*.",
-        )
-    )
-    r.append(
-        verificar(
-            3 <= n_aug_mostrados <= 8,
-            f"✅ {n_aug_mostrados} variantes aumentadas visualizadas.",
-            "❌ N_AUG_MOSTRADOS debe estar entre 3 y 8.",
+            df_limpio[FEATURES_ESPERADAS].isna().sum().sum() == 0,
+            "✅ Sin valores nulos en features de sensores.",
+            "❌ Aún hay nulos en las columnas de sensores.",
         )
     )
     return r
 
 
-def verificar_dataloaders(
-    batch_size: int,
-    train_loader,
-    val_loader,
-    image_size: int | None = None,
-) -> list[bool]:
-    r = []
-    if image_size is not None:
-        r.append(
-            verificar(
-                64 <= image_size <= 227,
-                f"✅ IMAGE_SIZE={image_size} coherente con los loaders.",
-                "❌ IMAGE_SIZE debe estar entre 64 y 227.",
-            )
-        )
-    r.append(
+def verificar_columna(df, col: str) -> list[bool]:
+    return [
         verificar(
-            8 <= batch_size <= 64,
-            f"✅ BATCH_SIZE={batch_size} en rango razonable.",
-            "❌ BATCH_SIZE debe estar entre 8 y 64.",
+            col in df.columns,
+            f"✅ Columna «{col}» encontrada.",
+            f"❌ «{col}» no existe. Usa una feature de sensor válida.",
         )
-    )
-    try:
-        xb, yb = next(iter(train_loader))
-        r.append(
-            verificar(
-                xb.ndim == 4
-                and xb.shape[1] == 3
-                and xb.shape[2] == image_size
-                and xb.shape[3] == image_size,
-                f"✅ Batch train: {tuple(xb.shape)} (N×3×H×W).",
-                f"❌ Forma de batch inesperada: {tuple(xb.shape)}.",
-            )
-        )
-        r.append(
-            verificar(
-                yb.ndim == 1 and yb.shape[0] == xb.shape[0],
-                f"✅ Etiquetas alineadas con batch (n={yb.shape[0]}).",
-                "❌ Las etiquetas no coinciden con el tamaño del batch.",
-            )
-        )
-        r.append(
-            verificar(
-                len(val_loader) >= 1,
-                f"✅ val_loader listo ({len(val_loader)} batches).",
-                "❌ val_loader vacío — revisa data/cracks_subset/val.",
-            )
-        )
-    except Exception as exc:
-        r.append(verificar(False, "", f"❌ Error al iterar train_loader: {exc}"))
-    return r
+    ]
 
 
-def verificar_arquitectura(modelo, n_filters: int, dropout: float) -> list[bool]:
-    import torch.nn as nn
-
-    conv_layers = [m for m in modelo.modules() if isinstance(m, nn.Conv2d)]
-    linear_layers = [m for m in modelo.modules() if isinstance(m, nn.Linear)]
-
+def verificar_etiquetas(conteo: dict, n_clases_mostrar: int) -> list[bool]:
     r = []
     r.append(
         verificar(
-            8 <= n_filters <= 128,
-            f"✅ N_FILTERS={n_filters} en rango válido.",
-            "❌ N_FILTERS debe estar entre 8 y 128.",
+            set(conteo.keys()) == ETIQUETAS_VALIDAS,
+            "✅ Tres clases de condición: 0 (normal), 1 (menor), 2 (severo).",
+            f"❌ Etiquetas inesperadas: {sorted(conteo.keys())}.",
         )
     )
     r.append(
         verificar(
-            0.0 <= dropout <= 0.6,
-            f"✅ DROPOUT={dropout} configurado.",
-            "❌ DROPOUT debe estar entre 0.0 y 0.6.",
+            1 <= n_clases_mostrar <= 3,
+            f"✅ Mostrando distribución de {n_clases_mostrar} clase(s).",
+            "❌ N_CLASES_MOSTRAR debe estar entre 1 y 3.",
         )
     )
-    r.append(
-        verificar(
-            len(conv_layers) >= 2,
-            f"✅ CNN con {len(conv_layers)} capas convolucionales.",
-            "❌ El modelo debe tener al menos 2 capas Conv2d.",
+    if conteo.get(0, 0) > conteo.get(2, 0):
+        r.append(
+            verificar(
+                True,
+                "✅ Clase 0 (normal) es mayoritaria — típico en SHM.",
+                "",
+            )
         )
-    )
-    out_features = getattr(linear_layers[-1], "out_features", None) if linear_layers else None
-    r.append(
-        verificar(
-            out_features == N_CLASES,
-            f"✅ Capa de salida con {N_CLASES} neuronas (Negative/Positive).",
-            f"❌ La última Linear debe tener out_features=2; obtuviste {out_features}.",
-        )
-    )
     return r
 
 
-def verificar_entrenamiento(
-    history: dict,
-    n_epochs: int,
+def verificar_xgboost(
+    acc_test: float,
+    n_estimators: int,
+    max_depth: int,
     learning_rate: float,
 ) -> list[bool]:
     r = []
-    keys = {"train_loss", "val_loss", "train_acc", "val_acc"}
     r.append(
         verificar(
-            keys.issubset(history.keys()),
-            "✅ history con train/val loss y accuracy.",
-            f"❌ history debe incluir {sorted(keys)}.",
+            10 <= n_estimators <= 500,
+            f"✅ n_estimators={n_estimators} en rango razonable.",
+            "❌ N_ESTIMATORS debe estar entre 10 y 500.",
         )
     )
     r.append(
         verificar(
-            1 <= n_epochs <= 20,
-            f"✅ N_EPOCHS={n_epochs}.",
-            "❌ N_EPOCHS debe estar entre 1 y 20.",
+            2 <= max_depth <= 12,
+            f"✅ max_depth={max_depth} configurado.",
+            "❌ MAX_DEPTH debe estar entre 2 y 12.",
         )
     )
     r.append(
         verificar(
-            1e-4 <= learning_rate <= 0.1,
-            f"✅ LEARNING_RATE={learning_rate}.",
-            "❌ LEARNING_RATE debe estar entre 1e-4 y 0.1.",
+            0.01 <= learning_rate <= 0.5,
+            f"✅ learning_rate={learning_rate} en rango válido.",
+            "❌ LEARNING_RATE debe estar entre 0.01 y 0.5.",
         )
     )
-    if keys.issubset(history.keys()):
-        r.append(
-            verificar(
-                len(history["train_loss"]) == n_epochs,
-                f"✅ {n_epochs} épocas registradas en history.",
-                "❌ La longitud de history no coincide con N_EPOCHS.",
-            )
+    r.append(
+        verificar(
+            acc_test >= MIN_ACC_TEST,
+            f"✅ Accuracy en test = {acc_test:.3f} (≥ {MIN_ACC_TEST:.2f}).",
+            f"❌ Accuracy {acc_test:.3f} < {MIN_ACC_TEST:.2f}. Revisa hiperparámetros o limpieza.",
         )
-        if len(history["train_loss"]) >= 2:
-            loss_baja = history["train_loss"][-1] <= history["train_loss"][0]
-            r.append(
-                verificar(
-                    loss_baja,
-                    "✅ Pérdida de entrenamiento no aumentó respecto a la 1.ª época.",
-                    "❌ La loss de train subió — revisa LR, arquitectura o datos.",
-                )
-            )
-        acc_val = history["val_acc"][-1] if history["val_acc"] else 0.0
-        r.append(
-            verificar(
-                acc_val >= MIN_ACC_VAL,
-                f"✅ Accuracy en validación = {acc_val:.3f} (≥ {MIN_ACC_VAL:.2f}).",
-                f"❌ Accuracy val {acc_val:.3f} < {MIN_ACC_VAL:.2f}. Aumenta épocas o revisa el modelo.",
-            )
-        )
+    )
     return r
 
 
-def verificar_curvas(history: dict, n_epochs: int) -> list[bool]:
-    r = []
-    for key in ("train_loss", "val_loss", "train_acc", "val_acc"):
-        serie = history.get(key, [])
-        r.append(
-            verificar(
-                isinstance(serie, list) and len(serie) == n_epochs,
-                f"✅ Curva «{key}» con {len(serie)} puntos.",
-                f"❌ «{key}» debe tener longitud {n_epochs}.",
-            )
-        )
-    return r
-
-
-def verificar_metricas(acc_val: float, cm) -> list[bool]:
-    import numpy as np
-
-    cm_arr = np.asarray(cm)
+def verificar_importancia_global(top_features: list[str]) -> list[bool]:
     r = []
     r.append(
         verificar(
-            cm_arr.shape == (2, 2),
-            "✅ Matriz de confusión 2×2 (Negative / Positive).",
-            f"❌ Matriz de confusión debe ser 2×2; forma {cm_arr.shape}.",
+            len(top_features) >= 3,
+            f"✅ Top-3 importancias identificadas: {top_features[:3]}.",
+            "❌ Define TOP3_IMPORTANCIA con al menos 3 nombres de sensores.",
         )
     )
     r.append(
         verificar(
-            acc_val >= MIN_ACC_VAL,
-            f"✅ Accuracy en validación = {acc_val:.3f}.",
-            f"❌ Accuracy {acc_val:.3f} < {MIN_ACC_VAL:.2f}.",
+            TOP_FEATURE_REF in top_features[:3],
+            f"✅ «{TOP_FEATURE_REF}» entre las 3 más importantes (coherente con daño estructural).",
+            f"⚠️ Se esperaba «{TOP_FEATURE_REF}» en el top-3; revisa el modelo o datos.",
         )
     )
     return r
 
 
-def verificar_casos_locales(n_casos_mostrados: int) -> list[bool]:
+def verificar_shap_global(clase_shap: int) -> list[bool]:
     return [
         verificar(
-            n_casos_mostrados >= 1,
-            f"✅ {n_casos_mostrados} caso(s) local(es) visualizado(s).",
-            "❌ Muestra al menos 1 imagen con predicción vs etiqueta real.",
+            clase_shap in ETIQUETAS_VALIDAS,
+            f"✅ Explicando SHAP para clase {clase_shap} (Condition Label).",
+            "❌ CLASE_SHAP debe ser 0, 1 o 2.",
+        )
+    ]
+
+
+def verificar_shap_local(
+    index_caso: int,
+    n_test: int,
+    y_true: int,
+    y_pred: int,
+) -> list[bool]:
+    r = []
+    r.append(
+        verificar(
+            0 <= index_caso < n_test,
+            f"✅ INDEX_CASO={index_caso} válido en el conjunto de test (n={n_test}).",
+            f"❌ INDEX_CASO debe estar entre 0 y {n_test - 1}.",
+        )
+    )
+    r.append(
+        verificar(
+            y_true in ETIQUETAS_VALIDAS and y_pred in ETIQUETAS_VALIDAS,
+            f"✅ Caso local: etiqueta real={y_true}, predicha={y_pred}.",
+            "❌ Etiquetas del caso local fuera de rango 0–2.",
+        )
+    )
+    return r
+
+
+def _normalizar_feature_lime(nombre: str, features: list[str] | None = None) -> str:
+    """LIME devuelve p. ej. 'Strain (με) <= -0.68' — extrae el nombre del sensor."""
+    features = features or FEATURES_ESPERADAS
+    for f in features:
+        if nombre.strip().startswith(f):
+            return f
+    return nombre.split("<=")[0].split(">=")[0].strip()
+
+
+def verificar_lime_local(
+    index_caso: int,
+    n_test: int,
+    top_features: list[str],
+) -> list[bool]:
+    norm = [_normalizar_feature_lime(f) for f in top_features[:3]]
+    r = []
+    r.append(
+        verificar(
+            0 <= index_caso < n_test,
+            f"✅ INDEX_CASO={index_caso} válido para LIME (n={n_test}).",
+            f"❌ INDEX_CASO debe estar entre 0 y {n_test - 1}.",
+        )
+    )
+    r.append(
+        verificar(
+            len(top_features) >= 3,
+            f"✅ LIME top features: {top_features[:3]}.",
+            "❌ Define TOP_LIME_FEATURES con al menos 3 entradas.",
+        )
+    )
+    r.append(
+        verificar(
+            all(f in FEATURES_ESPERADAS for f in norm),
+            f"✅ Sensores LIME reconocidos: {norm}.",
+            f"❌ Normaliza nombres LIME a sensores de FEATURES. Obtuviste: {norm}",
+        )
+    )
+    return r
+
+
+def verificar_pdp(feature: str) -> list[bool]:
+    return [
+        verificar(
+            feature in FEATURES_ESPERADAS,
+            f"✅ Partial dependence calculado para «{feature}».",
+            f"❌ FEATURE_PDP debe ser una de: {FEATURES_ESPERADAS}.",
         )
     ]
