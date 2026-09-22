@@ -121,11 +121,18 @@ ETABS**:
 > Con el servidor etabs, crea un modelo nuevo con
 > SapModel.InitializeNewModel(6) y luego SapModel.File.NewGridOnly(3, 3, 3,
 > 3, 3, 5, 5) (no uses File.NewBlank). Crea un pórtico de concreto armado de
-> 3 pisos (altura 3 m), 2 vanos de 5 m en X y 2 de 5 m en Y, columnas
-> 40x40 cm, vigas 30x50 cm, losa como diafragma rígido y empotramiento en la
-> base. f'c = 21 MPa. Hazlo por pasos, refresca la vista después de cada paso
-> y dime qué método de la API usaste en cada uno. Al final guárdalo en
-> resultados\practica.edb (ruta absoluta).
+> 3 pisos (altura 3 m), 2 vanos de 5 m en X y 2 de 5 m en Y, con material
+> C21 (concreto, f'c = 21 MPa), columnas 40x40 cm (COL40X40) y vigas
+> 30x50 cm (VIGA30X50), asignadas explícitamente a cada frame, y
+> empotramiento en la base. En cada piso crea una losa maciza de 0.15 m de
+> espesor: una sección de losa LOSA15 con PropArea.SetSlab (SlabType=0
+> Slab, ShellType=1 **ShellThin**, material C21), dibujada con
+> AreaObj.AddByCoord como un área por paño (4 paños por piso) con PropName
+> = LOSA15. Define un diafragma rígido por piso (D1, D2, D3 con
+> Diaphragm.SetDiaphragm, SemiRigid=False) y asígnalo a las losas de ese
+> piso con AreaObj.SetDiaphragm. Hazlo por pasos, refresca la vista después
+> de cada paso y dime qué método de la API usaste en cada uno. Al final
+> guárdalo en resultados\practica.edb (ruta absoluta).
 
 > ⚠️ Probado en ETABS 21.2: si ETABS está abierto **sin ningún modelo** y el
 > agente llama `File.NewBlank()`, ETABS se cierra sin aviso. Por eso el
@@ -146,6 +153,14 @@ Revisa en ETABS (no en el chat) que las secciones y apoyos sean los pedidos.
 >
 > y compáralo en ETABS (Assign → Frame → Section Property, o el color de los
 > elementos). Si hay acero, pídele reasignar con `FrameObj.SetSection`.
+>
+> Lo mismo con las losas: pídele leer la tabla **Slab Property
+> Definitions** (DatabaseTables) y verifica que `LOSA15` diga
+> `ModelType = Shell-Thin`, y que cada área tenga `LOSA15`
+> (AreaObj.GetProperty) y el diafragma de su piso (AreaObj.GetDiaphragm).
+> En la prueba, la documentación del servidor indicaba `ShellType=0` para
+> ShellThin; en ETABS 21 eso deja el tipo **vacío** sin error. El valor
+> correcto es `1`.
 
 ## Parte 3 — Análisis modal y cortante basal
 
@@ -306,7 +321,12 @@ siempre licencia, actividad del repositorio y **qué hace al cerrar**.
   (acero por defecto) en vez de las secciones de concreto pedidas, sin que
   el agente lo notara (T1 = 0.090 s). Tras reasignar COL40X40/VIGA30X50 (C21,
   f'c = 21 MPa): T1 = T2 = 0.161 s (masa mezclada UX/UY por simetría),
-  T3 = 0.150 s torsional — solo peso propio, sin losa ni cargas.
+  T3 = 0.150 s torsional — solo peso propio, sin losa ni cargas. Con losa
+  LOSA15 (ShellThin, 0.15 m) y un diafragma rígido por piso: T1 = T2 =
+  0.219 s (UX/UY ≈ 0.90), T3 = 0.173 s torsional. El skill del servidor
+  dice `eShellType.ShellThin = 0`; en ETABS 21.2 el valor que produce
+  `Shell-Thin` en la tabla es `1`. `AddByCoord` con argumentos desordenados
+  dibujó las áreas con la losa por defecto (`Slab1`) sin error.
 - **Descartado:** `mdvaleed7/ETABS-mcp` (69 herramientas, IS 1893) —
   al apagarse el servidor ejecuta `disconnect()` → `ApplicationExit(False)`,
   es decir **cierra ETABS sin guardar** al terminar la sesión de Claude.
