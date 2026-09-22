@@ -77,7 +77,11 @@ Si no coincide, **no lo ejecutes** y avisa al docente.
 
 ```powershell
 claude mcp add etabs -- "$HOME\etabs-mcp\etabs-mcp.exe"
+New-Item -ItemType Directory -Force resultados | Out-Null
 ```
+
+La carpeta `resultados\` es donde el agente guarda el `.edb` de práctica,
+los JSON y el Excel (ETABS exige guardar el modelo antes de analizarlo).
 
 ### 0.3 Probar la conexión
 
@@ -114,12 +118,20 @@ entendiste y una que no.
 Si no tienes un modelo, pídele al agente que lo construya **mientras miras
 ETABS**:
 
-> Con el servidor etabs, en un modelo nuevo, crea un pórtico de concreto
-> armado de 3 pisos (altura 3 m), 2 vanos de 5 m en X y 2 de 5 m en Y,
-> columnas 40x40 cm, vigas 30x50 cm, losa como diafragma rígido y
-> empotramiento en la base. f'c = 21 MPa. Hazlo por pasos, refresca la vista
-> después de cada paso y dime qué método de la API usaste en cada uno.
-> Luego pregúntame dónde guardarlo.
+> Con el servidor etabs, crea un modelo nuevo con
+> SapModel.InitializeNewModel(6) y luego SapModel.File.NewGridOnly(3, 3, 3,
+> 3, 3, 5, 5) (no uses File.NewBlank). Crea un pórtico de concreto armado de
+> 3 pisos (altura 3 m), 2 vanos de 5 m en X y 2 de 5 m en Y, columnas
+> 40x40 cm, vigas 30x50 cm, losa como diafragma rígido y empotramiento en la
+> base. f'c = 21 MPa. Hazlo por pasos, refresca la vista después de cada paso
+> y dime qué método de la API usaste en cada uno. Al final guárdalo en
+> resultados\practica.edb (ruta absoluta).
+
+> ⚠️ Probado en ETABS 21.2: si ETABS está abierto **sin ningún modelo** y el
+> agente llama `File.NewBlank()`, ETABS se cierra sin aviso. Por eso el
+> prompt fija la secuencia `InitializeNewModel` → `NewGridOnly`. Otra opción
+> segura: crea tú el modelo en blanco desde la interfaz (File → New Model →
+> Grid Only) antes de pedirle al agente que construya.
 
 **Qué deberías ver:** la estructura apareciendo en la ventana de ETABS.
 Revisa en ETABS (no en el chat) que las secciones y apoyos sean los pedidos.
@@ -272,6 +284,14 @@ siempre licencia, actividad del repositorio y **qué hace al cerrar**.
   (hash verificado el 22-sep-2026).
 - **Solo Windows nativo:** el `.exe` es win32 y se conecta por COM a ETABS.
   No funciona desde WSL2 ni macOS.
+- **Prueba 22-sep-2026 (ETABS 21.2.0, Claude Code en Windows):** Parte 0
+  tal cual, Parte 1 OK (solo lecturas), construcción de un pórtico 2 pisos +
+  análisis modal OK (todos los `ret` = 0). El servidor expone 6
+  herramientas: `get_status`, `list_instances`, `discover_api`,
+  `read_skills`, `search_docs`, `execute_code` (el `manifest.json` solo
+  lista 5). `File.NewBlank()` sobre una sesión sin modelo cerró ETABS — ver
+  aviso en la Parte 2. Construir + analizar tomó más de 40 turnos del
+  agente: reserva tiempo en clase.
 - **Descartado:** `mdvaleed7/ETABS-mcp` (69 herramientas, IS 1893) —
   al apagarse el servidor ejecuta `disconnect()` → `ApplicationExit(False)`,
   es decir **cierra ETABS sin guardar** al terminar la sesión de Claude.

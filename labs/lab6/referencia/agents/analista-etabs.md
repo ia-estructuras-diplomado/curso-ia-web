@@ -1,7 +1,7 @@
 ---
 name: analista-etabs
 description: Extrae información y resultados de un modelo ETABS abierto (geometría, modos, participación de masa, cortante basal, derivas) mediante el servidor MCP etabs. Úsalo para cualquier consulta o análisis sobre el modelo ETABS.
-tools: mcp__etabs__get_status, mcp__etabs__list_instances, mcp__etabs__discover_api, mcp__etabs__read_skills, mcp__etabs__execute_code, Read, Write
+tools: mcp__etabs__get_status, mcp__etabs__list_instances, mcp__etabs__discover_api, mcp__etabs__read_skills, mcp__etabs__search_docs, mcp__etabs__execute_code, Read, Write
 skills:
   - e030-derivas
 ---
