@@ -10,8 +10,7 @@ Sitio de documentación y entorno de laboratorios del diplomado **Inteligencia A
 | Ruta | Propósito |
 |------|-----------|
 | `docs/` | Contenido MkDocs (syllabus, sesiones, guías de labs) |
-| `labs/` | Notebooks y datos sincronizados desde `curso-ia-dev` (Codespaces) |
-| `.devcontainer/` | Configuración GitHub Codespaces |
+| `labs/` | Notebooks, guías y datos sincronizados desde `curso-ia-dev` |
 | `config/course.yaml` | Fechas, calificación y mapeo web ↔ labs |
 
 ## Documentación local
@@ -23,17 +22,18 @@ mkdocs serve
 
 Abre http://127.0.0.1:8000
 
-## Laboratorios (Codespaces)
+## Laboratorios
 
-Los alumnos usan **un solo Codespace** para todo el curso (todos los labs comparten `labs/.venv`). El enlace con `quickstart=1` reanuda el existente o crea uno nuevo:
+Los alumnos trabajan en su computadora con un único entorno (`labs/.venv`):
 
-https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json
+- **Windows (PowerShell, sin WSL):** `powershell -ExecutionPolicy Bypass -File labs\setup.ps1` — ver [`labs/INSTALACION_WINDOWS.md`](labs/INSTALACION_WINDOWS.md).
+- **macOS / Linux:** `bash labs/setup.sh`.
 
-Guía: ver `docs/labs/codespaces.md` en el sitio o en el repo.
+Los Labs 5 y 6 usan Claude Code + MCP; el Lab 6 requiere **Windows nativo con ETABS 21+**.
 
 ## Sincronización de labs
 
-Los notebooks se editan en **curso-ia-dev** (privado). Al hacer push a `main` en dev, el workflow `.github/workflows/sync-labs-to-web.yml` publica `labs/` y `.devcontainer/` en este repositorio.
+Los notebooks se editan en **curso-ia-dev** (privado). Al hacer push a `main` en dev, el workflow `.github/workflows/sync-labs-to-web.yml` publica `labs/` en este repositorio.
 
 **Secreto requerido en curso-ia-dev:** `LABS_SYNC_TOKEN` (PAT con permiso de escritura en este repo).
 
@@ -43,17 +43,10 @@ Push a `main` (cambios en `docs/`) → GitHub Actions ejecuta `mkdocs build` y p
 
 ## CI — laboratorios
 
-Cambios en `labs/` o `.devcontainer/` disparan [**Labs CI**](.github/workflows/labs-ci.yml):
+Cambios en `labs/` disparan [**Labs CI**](.github/workflows/labs-ci.yml):
 
-1. `bash labs/setup.sh` (sin Ollama)
-2. `bash labs/doctor.sh --strict`
-3. `labs/_smoke_kernel.py` — kernel **Python (curso-ia labs)** registrado y ejecutable
-4. Smoke tests docentes (`labs/_smoke_ia_solucion.sh`)
-5. Build del devcontainer (mismo entorno que Codespaces)
-
-[**Codespace smoke**](.github/workflows/codespace-smoke.yml) (semanal o manual) crea un Codespace real vía `gh codespace create` y valida el kernel dentro del contenedor.
-
-Plantilla de sync dev → web: [`.github/workflows/sync-labs-to-web.yml.example`](.github/workflows/sync-labs-to-web.yml.example)
+1. **Linux:** `bash labs/setup.sh` y `bash labs/_verificar_notebooks.sh` (ejecuta los notebooks de referencia de los Labs 0-4).
+2. **Windows:** `labs\setup.ps1` y verificación de imports.
 
 ## Licencia
 

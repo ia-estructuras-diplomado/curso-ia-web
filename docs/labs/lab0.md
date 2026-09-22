@@ -7,61 +7,40 @@
 
 ## Objetivo
 
-Familiarizarte con **Python y Jupyter** en **GitHub Codespaces** usando el enfoque **caja de herramientas**: código pre-escrito; tú solo completas celdas `### TU TAREA AQUÍ ###`.
+Repasar lo mínimo de Python necesario para trabajar con datos e IA en los
+siguientes labs, sin asumir experiencia previa de programación: variables y
+tipos, imports, listas/diccionarios, comprehensions, funciones y pandas.
 
-Este lab prepara el terreno para Lab 1–6 (Scikit-learn, deep learning, LLM y agentes).
+## Pasos
 
-## Pasos en Codespaces
-
-1. Pulsa **Crear Codespace — Lab 0** (arriba) e inicia sesión en GitHub si te lo pide.
-2. Espera el build del contenedor (`labs/setup.sh` instala dependencias).
-3. Abre **`labs/lab0/fundamentos_python_ia_alumno.ipynb`**.
-4. Ejecuta celdas en orden; completa solo bloques marcados.
+1. [Instala el entorno](instalacion.md) si aún no lo hiciste.
+2. Abre **`labs/lab0/fundamentos_python_ia.ipynb`** y ejecútalo (Run All).
+3. Construye tu propio notebook guiándote por el
+   [README del lab](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab0/README.md)
+   y tu asistente de IA.
 
 ## Secciones del notebook
 
 | # | Tema |
 |---|------|
 | 0 | **Sintaxis** — tipos, comentarios, f-strings, indentación |
-| 1 | **Paquetes e imports** — `import`, `pip`, `requirements.txt`, Codespaces |
+| 1 | **Paquetes e imports** — `import`, `pip`, `requirements.txt` |
 | 2 | Listas y diccionarios (JSON / APIs) |
 | 3 | List comprehensions |
 | 4 | Funciones como *tools* de agentes |
 | 5 | Pandas + filtrado |
-| 6 | Gráfico de validación visual |
-| 7 | Cierre y puente hacia Scikit-Learn, DL y agentes |
-
-Cada sección incluye **preguntas teóricas** y **autoevaluación** con ✅ / ⚠️ / ❌.
-
-## Recursos en el repositorio
-
-- **Notebook alumno:** `labs/lab0/fundamentos_python_ia_alumno.ipynb`
-- **Entorno:** `labs/.venv` (compartido por todos los labs)
-- **Setup:** `labs/setup.sh`
-
-## Alternativa local
-
-```bash
-git clone https://github.com/ia-estructuras-diplomado/curso-ia-web.git
-cd curso-ia-web
-bash labs/setup.sh
-source labs/.venv/bin/activate
-cd labs/lab0
-jupyter notebook fundamentos_python_ia_alumno.ipynb
-```
+| 6 | Validación visual |
 
 ## Checklist
 
-- [ ] Creé mi Codespace y abrí el notebook alumno
-- [ ] Completé las celdas `### TU TAREA AQUÍ ###`
-- [ ] Entiendo imports, `pip` y el entorno compartido `labs/.venv`
-- [ ] Puedo cargar y filtrar datos con Pandas
+- [ ] Instalé el entorno y ejecuté el notebook de referencia
+- [ ] Construí mi propio notebook con ayuda de IA
+- [ ] Completé `prompts_entregados.md`
 
 ## Próximo paso
 
-- [Sesión 2 — Big Data](../sesiones/sesion2.md)
-- [Lab 1 — PCA y SHM](lab1.md) (cuando avance el curso)
+- [Lab 1 — PCA y SHM](lab1.md)
 
 ---
 
-**¿Dudas?** → [Codespaces](codespaces.md) · [FAQ](../faq.md)
+**¿Dudas?** → [Instalación](instalacion.md) · [FAQ](../faq.md)

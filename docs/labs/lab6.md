@@ -1,57 +1,39 @@
-# Lab 6: Agentes de IA
+# Lab 6: Agentes con ETABS — de un agente a un orquestador
 
 --8<-- "lab6-actions.md"
 
-!!! warning "En desarrollo"
-    Notebook en `labs/lab6/` — próximamente.
-
 !!! info "Sesión 10"
-    **Duración:** ~3 horas (previsto)
+    **Duración:** ~3 horas · Sin notebook: guía paso a paso
+
+!!! warning "Requisitos"
+    **Windows nativo** (no WSL2, no macOS) con **ETABS 21 o superior** con
+    licencia, y Claude Code instalado desde PowerShell en esa misma PC
+    ([Lab 5](lab5.md)). Si no tienes ETABS, trabaja en pareja.
 
 ## Tema
 
-Un **agente de IA** planifica pasos, **invoca herramientas** (código, búsqueda, APIs, notebooks) e **itera** hasta entregar un resultado — no solo responde texto como un chat simple.
+Conectarás Claude Code a **ETABS** y a **Excel** mediante MCP, verás al
+agente consultar y analizar tu modelo en tiempo real, y terminarás armando
+un **orquestador** que coordina tres subagentes para un chequeo sísmico
+E.030 completo.
 
 ```
-Usuario: "Resume el informe y lista grietas críticas"
-  → Agente: lee archivo → extrae tablas → clasifica → genera informe
+                    ┌─► analista-etabs ─────► MCP etabs ──► ETABS (modelo abierto)
+ Tú ─► orquestador ─┼─► consultor-normativo ► MCP normas ─► PDFs E.020/E.030/E.050
+                    └─► redactor-informe ───► MCP excel ──► chequeo_e030.xlsx
 ```
-
-### Componentes típicos
-
-| Componente | Función |
-|------------|---------|
-| **LLM** | Razonamiento y siguiente paso |
-| **Tools** | Leer CSV, ejecutar Python, RAG, modelos de Lab 1–4 |
-| **Memoria** | Contexto y resultados intermedios |
-| **Bucle agente** | Observar → actuar → verificar (ReAct, etc.) |
-
-### Casos de uso del curso
-
-- Encadenar **Lab 2** (resistencia) + **Lab 3** (SHAP) en un informe breve
-- Agente con documentos locales (**Lab 5**) para responder con citas
-- Borradores y checklists para **revisión humana** — no sustituye al ingeniero
 
 ## Objetivos de aprendizaje
 
-1. Diferenciar **chat con LLM** vs **agente con herramientas**.
-2. Definir al menos dos **tools** acotadas (p. ej. `load_concrete_csv`, `explain_prediction`).
-3. Ejecutar un bucle agente simple y registrar trazas.
-4. Evaluar **límites y riesgos**: permisos, ejecución de código, datos sensibles.
+1. Conectar un agente a un programa de ingeniería real y entender qué puede
+   y qué **no** debe hacer sobre tu modelo.
+2. Encadenar ETABS → agente → Excel sin escribir código.
+3. Dar conocimiento de dominio al agente con una *skill* (derivas E.030).
+4. Pasar de un agente a un **orquestador + subagentes** con herramientas limitadas por rol.
 
-## Archivos previstos
-
-| Archivo | Uso |
-|---------|-----|
-| `agentes_estructuras_alumno.ipynb` | Tools, agente, evaluación |
-| `agentes_estructuras_solucion.ipynb` | Referencia docente |
-| `data/` | Escenarios de prueba (informes, CSV, prompts) |
-
-## Pasos en Codespaces (cuando esté disponible)
-
-1. **Crear Codespace — Lab 6** (arriba).
-2. Abrir `labs/lab6/agentes_estructuras_alumno.ipynb`.
+Instalación del servidor ETABS, prompts y entrega:
+[**guía completa del Lab 6**](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab6/README.md).
 
 ---
 
-**¿Dudas?** → [Codespaces](codespaces.md)
+**¿Dudas?** → [Instalación](instalacion.md) · [FAQ](../faq.md)

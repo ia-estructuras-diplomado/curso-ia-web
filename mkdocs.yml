@@ -74,14 +74,14 @@ nav:
       - Calificación: curso/calificacion.md
   - Labs:
       - Descripción general: labs/index.md
-      - GitHub Codespaces: labs/codespaces.md
+      - Instalación: labs/instalacion.md
       - Lab 0 - Python para IA: labs/lab0.md
       - Lab 1 - PCA y SHM: labs/lab1.md
       - Lab 2 - Resistencia hormigón: labs/lab2.md
       - Lab 3 - xAI: labs/lab3.md
-      - Lab 4 - CNN y RNN: labs/lab4.md
-      - Lab 5 - LLM local / RAG: labs/lab5.md
-      - Lab 6 - Agentes de IA: labs/lab6.md
+      - Lab 4 - CNN y LSTM: labs/lab4.md
+      - Lab 5 - Claude Code + MCP de normas: labs/lab5.md
+      - Lab 6 - Agentes con ETABS: labs/lab6.md
   - Información:
       - Syllabus: curso/syllabus.md
       - FAQ: faq.md

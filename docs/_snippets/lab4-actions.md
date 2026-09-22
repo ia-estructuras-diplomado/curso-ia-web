@@ -1,8 +1,6 @@
 <div class="lab-actions" markdown="1">
 
-[▶ Crear Codespace — Lab 4](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json){ .md-button .md-button--primary }
+[📖 Guía del lab](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab4/README.md){ .md-button .md-button--primary }
 [📂 Carpeta del lab](https://github.com/ia-estructuras-diplomado/curso-ia-web/tree/main/labs/lab4){ .md-button }
 
 </div>
-
-*Notebook previsto: `redes_neuronales_estructuras_alumno.ipynb`*

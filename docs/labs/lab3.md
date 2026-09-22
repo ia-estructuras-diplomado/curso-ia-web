@@ -1,33 +1,28 @@
-# Lab 3: Redes Neuronales — CNN y RNN/LSTM
+# Lab 3: Inteligencia Artificial Explicable (xAI)
 
 --8<-- "lab3-actions.md"
 
-!!! info "Sesión 4"
-    **Duración:** ~4 h · Dos partes · Vía IA-asistida
+!!! info "Sesión 6"
+    **Duración:** ~3 horas
 
-## Partes
+## Objetivo
 
-| Parte | Tema | Carpeta | Notebook |
-|-------|------|---------|----------|
-| **1** | CNN — grietas en hormigón | `part_1/` | `cnn_grietas_estructuras_alumno_ia.ipynb` |
-| **2** | LSTM — sensores SHM | `part_2/` | `rnn_sensores_estructuras_alumno_ia.ipynb` |
+Entrenar un **XGBoost** multiclass sobre sensores de monitoreo estructural
+(SHM) y aplicar un kit completo de técnicas xAI sobre el mismo modelo —
+importancia del booster, permutation importance, **SHAP** (global y local),
+**LIME** y **PDP** — para explicar y auditar una predicción antes de confiar
+en ella para una alerta de daño.
 
-## Modelos docente
+## Pasos
 
-Checkpoints en `part_1/data/crack_cnn_best.pt` y `part_2/data/lstm_*.pt`. Generar con:
+1. Abre **`labs/lab3/xai_estructuras.ipynb`** y ejecútalo (Run All).
+2. Construye tu propio notebook guiándote por el
+   [README del lab](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab3/README.md).
 
-```bash
-python labs/lab3/_generar_modelos.py
-```
+## Dependencias
 
-## Objetivos
+`xgboost`, `shap` y `lime` (incluidas en `labs/requirements.txt`).
 
-1. Entrenar o cargar una **CNN** para clasificación de grietas.
-2. Entrenar o cargar **LSTM** para series de sensores.
-3. Comparar costos frente a modelos clásicos (Labs 1–2).
+---
 
-## PyTorch
-
-```bash
-bash labs/lab5/_fix_pytorch.sh
-```
+**¿Dudas?** → [Instalación](instalacion.md) · [FAQ](../faq.md)

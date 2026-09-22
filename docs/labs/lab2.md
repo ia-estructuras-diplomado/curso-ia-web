@@ -7,40 +7,31 @@
 
 ## Objetivo
 
-**Regresión y clasificación supervisada** con el dataset UCI de resistencia a compresión del hormigón: EDA, comparar modelos de regresión (LinearRegression, Random Forest, XGBoost) y un modelo de clasificación binaria (fuerte/débil ≥ 40 MPa).
+Entrenar un modelo de **regresión** (Random Forest) que prediga la
+resistencia a compresión (MPa) de una mezcla de hormigón a partir de su
+dosificación, y usar la importancia de variables para razonar sobre qué
+ingredientes dominan el resultado.
 
-## Contexto
+## Pasos
 
-Variables de mezcla (cemento, agua, aditivos, edad de curado) y target **Resistencia** (MPa). El lab explora el dataset al máximo: predecir MPa (regresión) y si la mezcla supera un umbral de obra (clasificación).
-
-## Pasos en Codespaces
-
-1. Pulsa **Crear Codespace — Lab 2** (arriba).
-2. Abre **`labs/lab2/resistencia_compresion_alumno.ipynb`**.
-3. Ejecuta en orden; modifica solo bloques `### TU TAREA AQUÍ ###`.
+1. Abre **`labs/lab2/resistencia_compresion.ipynb`** y ejecútalo (Run All).
+2. Construye tu propio notebook guiándote por el
+   [README del lab](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab2/README.md).
 
 ## Contenido del notebook
 
-1. Contexto ML (regresión vs clasificación)
-2. Carga del dataset UCI (`data/concrete.csv`)
-3. Calidad de datos y estadísticas descriptivas
-4. Distribución del target, umbral 40 MPa y correlaciones
-5. Partición train/test
-6. **Comparar regresión:** LinearRegression, Random Forest, XGBoost
-7. **Clasificación:** fuerte/débil con Random Forest + matriz de confusión
+1. Contexto del problema y carga del dataset UCI (`data/concrete.csv`)
+2. Calidad de datos y estadísticas descriptivas
+3. Distribución del target y correlaciones
+4. Relación física Agua vs Resistencia
+5. Partición train/test y Random Forest
+6. Feature importance y validación visual (real vs. predicho)
 
-## Recursos en el repositorio
-
-- **Notebook:** `labs/lab2/resistencia_compresion_alumno.ipynb`
-- **Dataset:** `labs/lab2/data/concrete.csv`
-- **Documentación:** `labs/lab2/data/DATOS.md`
-
-## Lecturas
+## Recursos
 
 - [UCI Concrete Compressive Strength](https://archive.ics.uci.edu/dataset/165/concrete+compressive+strength)
 - [Scikit-learn — Ensemble methods](https://scikit-learn.org/stable/modules/ensemble.html)
-- [XGBoost — Python API](https://xgboost.readthedocs.io/en/stable/python/python_api.html)
 
 ---
 
-**¿Dudas?** → [Codespaces](codespaces.md) · [FAQ](../faq.md)
+**¿Dudas?** → [Instalación](instalacion.md) · [FAQ](../faq.md)

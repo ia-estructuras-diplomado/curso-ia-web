@@ -1,56 +1,37 @@
-# Lab 5: Modelos Locales de Lenguaje (LLM)
+# Lab 5: Tu primer agente — Claude Code + MCP de normas (RAG)
 
 --8<-- "lab5-actions.md"
 
-!!! warning "En desarrollo"
-    Notebook en `labs/lab5/` — próximamente.
-
 !!! info "Sesión 9"
-    **Duración:** ~3 horas (previsto)
+    **Duración:** ~3 horas · Sin notebook: guía paso a paso
 
 ## Tema
 
-**LLM ejecutados localmente** para tareas acotadas de ingeniería estructural:
-
-- Resumir informes de inspección o memorias de cálculo
-- Preguntas sobre normativa a partir de **documentos cargados**
-- Borradores de actas, checklists o descripciones de patologías (**revisión humana obligatoria**)
-
-### ¿Por qué modelos locales?
-
-| Aspecto | Modelo local | API en la nube |
-|---------|--------------|----------------|
-| **Privacidad** | Datos no salen del entorno | Política de datos clara |
-| **Costo** | Hardware / Codespaces | Pago por uso |
-| **Control** | Versión fija, offline posible | Dependencia del proveedor |
-| **Calidad** | Modelos más pequeños; prompts cuidadosos | Modelos más grandes |
-
-### Herramientas previstas
-
-- **Ollama**, **llama.cpp** o equivalente en Codespaces
-- Modelos open-weight (Llama, Mistral, Qwen — según entorno)
-- **RAG ligero** (opcional): embeddings + búsqueda en PDFs del curso
+Usarás un agente de IA real (**Claude Code**) conectado por **MCP** a un
+buscador RAG local sobre las normas peruanas **E.020, E.030 y E.050**. No
+programas el RAG: ves funcionar al agente, auditas sus citas y terminas
+definiendo tu propio **subagente** especializado (`consultor-normativo`).
 
 ## Objetivos de aprendizaje
 
-1. Instalar y ejecutar un LLM local en el entorno del curso.
-2. Diseñar **prompts estructurados** (contexto + restricciones + formato).
-3. Detectar **alucinaciones**; verificar con fuentes.
-4. Articular cuándo un LLM **no** debe usarse en decisiones de diseño sin revisión humana.
+1. Entender el bucle de un **agente**: decide qué herramienta usar, la
+   ejecuta, lee el resultado y vuelve a decidir.
+2. Entender **MCP** como el "enchufe estándar" entre un agente y programas externos.
+3. Usar **RAG como herramienta** y verificar cada cita (archivo y página).
+4. Ver un modo de falla real: la E.030 escaneada que el RAG no puede indexar.
+5. Crear un subagente reutilizable para el Lab 6.
 
-## Archivos previstos
+## Acceso al modelo
 
-| Archivo | Uso |
-|---------|-----|
-| `llm_local_estructuras_alumno.ipynb` | Prompting, comparación, límites |
-| `llm_local_estructuras_solucion.ipynb` | Referencia docente |
-| `data/` | Normativa, informes sintéticos o anonimizados |
+| Opción | Cuándo |
+|---|---|
+| **A.** Suscripción Claude (Pro/Max) | Recomendado |
+| **B.** API key del curso | Si el docente entregó créditos |
+| **C.** Gratis con Ollama (`ollama launch claude`) | Sin costo; respuestas más irregulares. Para leer la E.030 escaneada (Parte 4) usa Claude Desktop o claude.ai |
 
-## Pasos en Codespaces (cuando esté disponible)
-
-1. **Crear Codespace — Lab 5** (arriba).
-2. Abrir `labs/lab5/llm_local_estructuras_alumno.ipynb`.
+Instalación, prompts y entrega:
+[**guía completa del Lab 5**](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab5/README.md).
 
 ---
 
-**¿Dudas?** → [Codespaces](codespaces.md)
+**¿Dudas?** → [Instalación](instalacion.md) · [FAQ](../faq.md)

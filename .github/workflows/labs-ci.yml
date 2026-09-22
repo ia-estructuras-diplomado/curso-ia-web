@@ -5,13 +5,11 @@ on:
     branches: [main]
     paths:
       - "labs/**"
-      - ".devcontainer/**"
       - ".github/workflows/labs-ci.yml"
   pull_request:
     branches: [main]
     paths:
       - "labs/**"
-      - ".devcontainer/**"
       - ".github/workflows/labs-ci.yml"
   workflow_dispatch:
   schedule:
@@ -22,24 +20,16 @@ concurrency:
   group: labs-ci-${{ github.ref }}
   cancel-in-progress: true
 
-env:
-  LABS_SETUP_SKIP_OLLAMA: "1"
-
 jobs:
-  setup-doctor-smoke:
-    name: Setup · doctor · smoke
+  linux-notebooks:
+    name: Linux · setup.sh · notebooks de referencia
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
     permissions:
       contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
 
       - name: Cache uv
         uses: actions/cache@v4
@@ -49,29 +39,26 @@ jobs:
           restore-keys: |
             uv-${{ runner.os }}-
 
-      - name: Install system deps
-        run: sudo apt-get update && sudo DEBIAN_FRONTEND=noninteractive apt-get install -y zstd
-
       - name: Bootstrap labs environment
         run: bash labs/setup.sh
 
-      - name: Doctor (strict)
-        run: bash labs/doctor.sh --strict
+      - name: Ejecutar notebooks de referencia (Labs 0-4)
+        run: bash labs/_verificar_notebooks.sh
 
-      - name: Smoke tests (sin Ollama)
-        run: bash labs/_smoke_ia_solucion.sh
-
-  devcontainer:
-    name: Devcontainer (Codespaces)
-    runs-on: ubuntu-latest
-    timeout-minutes: 60
+  windows-setup:
+    name: Windows · setup.ps1
+    runs-on: windows-latest
+    timeout-minutes: 45
     permissions:
       contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Build devcontainer and validate kernel
-        uses: devcontainers/ci@v0.3
-        with:
-          runCmd: bash -lc 'bash labs/doctor.sh --strict && labs/.venv/bin/python labs/_smoke_kernel.py'
+      - name: Bootstrap labs environment (PowerShell nativo)
+        shell: pwsh
+        run: powershell -ExecutionPolicy Bypass -File labs\setup.ps1
+
+      - name: Importar dependencias del curso
+        shell: pwsh
+        run: labs\.venv\Scripts\python.exe -c "import pandas, sklearn, xgboost, shap, lime, torch, torchvision; print('OK')"

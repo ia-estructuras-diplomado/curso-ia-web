@@ -51,7 +51,7 @@ Al finalizar esta sesión, serás capaz de:
 
 --8<-- "lab0-actions.md"
 
-**Pasos:** pulsa **Crear Codespace — Lab 0**, espera el build y abre el notebook. Guía completa: **[Lab 0](../labs/lab0.md)**.
+**Pasos:** [instala el entorno](../labs/instalacion.md) y abre el notebook de referencia. Guía completa: **[Lab 0](../labs/lab0.md)**.
 
 ### 2. Primer Notebook
 
@@ -108,13 +108,13 @@ print(df)
 ## 📝 Próximos Pasos
 
 Antes de la **Sesión 2**:
-- [ ] Crear cuenta en GitHub y probar [Codespaces](../labs/codespaces.md) con Lab 0
+- [ ] [Instalar el entorno](../labs/instalacion.md) y abrir el Lab 0
 - [ ] Revisar [Sesión 2 - Big Data](sesion2.md)
 - [ ] Familiarizarse con Pandas (Lab 0, sección 5)
 
 ## Recursos
 
-- [Lab 0 — Python para IA](../labs/lab0.md) · [Codespaces](../labs/codespaces.md)
+- [Lab 0 — Python para IA](../labs/lab0.md) · [Instalación](../labs/instalacion.md)
 - [Cheat Sheet Python](../recursos/referencias.md)
 
 ---

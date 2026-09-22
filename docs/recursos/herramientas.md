@@ -9,32 +9,20 @@
 
 ## Python: entorno recomendado
 
-### Opción 1: GitHub Codespaces (recomendado)
+### Opción 1: Local con el instalador del curso (recomendado)
 
-Entorno preconfigurado del curso: Python 3.11, Jupyter, dependencias en `labs/requirements.txt`.
+Un solo entorno (`labs/.venv`) para todos los labs, con Python fijado por `uv`.
 
-**Pasos:**
+- **Windows (PowerShell, sin WSL):** `powershell -ExecutionPolicy Bypass -File labs\setup.ps1`
+- **macOS / Linux:** `bash labs/setup.sh`
 
-1. Cuenta en [GitHub](https://github.com).
-2. **[Abrir o reanudar Codespace](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json)** del repositorio del curso (un solo entorno para todos los labs; `quickstart=1` muestra **Resume** si ya existe).
-3. Abrir el notebook `*_alumno.ipynb` indicado en cada [lab](../labs/index.md).
+Guía detallada: **[Instalación](../labs/instalacion.md)**.
 
-Guía detallada: **[Codespaces](../labs/codespaces.md)**.
+### Opción 2: Google Colab
 
-### Opción 2: Local (clonando el repo)
+Útil como alternativa si no puedes instalar nada localmente (no sirve para los Labs 5 y 6). Debes subir manualmente el notebook y los datos desde el repositorio.
 
-```bash
-git clone https://github.com/ia-estructuras-diplomado/curso-ia-web.git
-cd curso-ia-web
-bash labs/setup.sh
-source labs/.venv/bin/activate
-```
-
-### Opción 3: Google Colab
-
-Útil como alternativa si Codespaces no está disponible. Debes subir manualmente el notebook y los datos desde el repositorio.
-
-### Opción 4: Anaconda (instalación local clásica)
+### Opción 3: Anaconda (instalación local clásica)
 
 **Instalación:**
 
@@ -53,7 +41,7 @@ conda activate curso
 pip install -r requirements.txt
 ```
 
-### Opción 5: pip (manual)
+### Opción 4: pip (manual)
 
 ```bash
 python -m venv venv
@@ -152,7 +140,6 @@ git pull                       # Descargar cambios
 
 ## IDE en la nube
 
-- **GitHub Codespaces** — Entorno oficial del curso ([guía](../labs/codespaces.md))
 - **Google Colab** — Alternativa sin GitHub
 - **Kaggle Notebooks** — Datasets integrados
 - **Replit** — Genérico

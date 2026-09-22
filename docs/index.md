@@ -7,7 +7,7 @@ Desarrolla habilidades prácticas en Machine Learning y Ciencia de Datos para di
 **Mayo – Junio 2026 · 8 sesiones · Enfoque práctico**
 
 [Explorar laboratorios](labs/index.md){ .md-button .md-button--primary }
-[Crear Codespace](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json){ .md-button }
+[Instalar el entorno](labs/instalacion.md){ .md-button }
 [Syllabus](curso/syllabus.md){ .md-button }
 
 ## Sobre el curso
