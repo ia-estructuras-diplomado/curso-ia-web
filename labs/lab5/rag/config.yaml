@@ -1,0 +1,36 @@
+# Configuración del servidor MCP "normas" (knowledge-rag) — Lab 5 y Lab 6.
+# Claude Code lo lanza automáticamente vía labs/lab5/.mcp.json; no hace falta
+# ejecutarlo a mano. Rutas relativas a esta carpeta (labs/lab5/rag/).
+
+paths:
+  documents_dir: "../pdfs"            # indexa directamente los PDFs del lab
+  data_dir: "./data"                  # índice vectorial (ChromaDB) — gitignored
+  models_cache_dir: "./models_cache"  # modelo de embeddings (~240 MB) — gitignored
+
+documents:
+  supported_formats: [.pdf, .md, .txt]
+  exclude_patterns: []
+  chunking:
+    chunk_size: 1000
+    chunk_overlap: 200
+
+models:
+  embedding:
+    # El modelo por defecto de knowledge-rag (bge-small-en) es solo inglés.
+    # Las normas están en español → modelo multilingüe (soportado por FastEmbed).
+    model: "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+    dimensions: 384
+    query_prefix: ""
+    passage_prefix: ""
+  reranker:
+    # El reranker por defecto (ms-marco) está entrenado en inglés; desactivado.
+    enabled: false
+
+search:
+  default_results: 5
+  max_results: 20
+  collection_name: "normas_peru"
+
+category_mappings: {}
+keyword_routes: {}
+query_expansions: {}

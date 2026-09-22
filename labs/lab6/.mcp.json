@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "normas": {
+      "command": "uvx",
+      "args": ["--from", "knowledge-rag==4.9.0", "knowledge-rag"],
+      "env": {
+        "KNOWLEDGE_RAG_DIR": "../lab5/rag"
+      }
+    },
+    "excel": {
+      "command": "uvx",
+      "args": ["excel-mcp-server==0.1.8", "stdio"]
+    }
+  }
+}

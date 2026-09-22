@@ -1,153 +1,102 @@
-# Bitácora de prompts — Lab 6 — Agentes sísmicos (Ollama)
+# Bitácora — Lab 6 — Agentes con ETABS: de un agente a un orquestador
 
-Entrega este archivo junto con tu notebook `*_alumno_ia.ipynb` ejecutado (celdas con ✅).
+Entrega este archivo junto con tus `.claude/agents/*.md`,
+`.claude/skills/e030-derivas/SKILL.md`, `resultados/chequeo_e030.xlsx`,
+`resultados/informe.md` y las capturas pedidas en el README.
 
 | Campo | Qué escribir |
 |-------|----------------|
-| Prompt enviado | Texto exacto que enviaste al asistente |
-| Resumen | Qué código o explicación devolvió la IA |
-| Aceptaste/rechazaste | Qué pegaste en el notebook y qué descartaste |
+| Prompt enviado | Texto exacto que le diste al agente |
+| Herramientas observadas | Qué herramientas/subagentes se llamaron, en qué orden |
+| Código aprobado | Un fragmento de `execute_code` que aprobaste y qué hacía (o uno que rechazaste y por qué) |
+| Verificación | Qué comprobaste tú directamente en ETABS/Excel/PDF y si coincidía |
+
+Versión de ETABS: ________ · Modo de acceso (A/B/C + modelo): ________ · Modelo usado (propio / construido por el agente): ________
 
 ---
 
-## Sección 1
+## Parte 1 — Primer contacto
 
 **Prompt enviado:**
 ```
 (pega aquí)
 ```
 
-**Respuesta de la IA (resumen):**
+**Herramientas observadas:**
 
 
-**¿Qué aceptaste / rechazaste y por qué?**
+**Código aprobado (uno que entendiste y uno que no):**
+
+
+**Verificación en ETABS:**
 
 
 ---
-## Sección 2
+## Parte 2 — Modelo de práctica (si aplica)
 
 **Prompt enviado:**
 ```
 (pega aquí)
 ```
 
-**Respuesta de la IA (resumen):**
-
-
-**¿Qué aceptaste / rechazaste y por qué?**
+**¿Qué construyó distinto a lo pedido? ¿Lo detectaste en ETABS o en el chat?:**
 
 
 ---
-## Sección 3
+## Parte 3 — Análisis modal y cortante basal
 
 **Prompt enviado:**
 ```
 (pega aquí)
 ```
 
-**Respuesta de la IA (resumen):**
+**Datos que el agente te pidió (Z, U, S, R…) y qué respondiste:**
 
 
-**¿Qué aceptaste / rechazaste y por qué?**
+**Verificación (un periodo y un cortante contra las tablas de ETABS):**
 
 
 ---
-## Sección 4
+## Parte 4 — Skill E.030
 
 **Prompt enviado:**
 ```
 (pega aquí)
 ```
 
-**Respuesta de la IA (resumen):**
+**Citas normativas obtenidas [archivo, página]:**
 
 
-**¿Qué aceptaste / rechazaste y por qué?**
+**Diferencias con la skill de referencia:**
+
+
+**Resultado del chequeo de derivas (deriva máx., piso, dirección, cumple):**
 
 
 ---
-## Sección 5
+## Parte 5 — Excel
 
 **Prompt enviado:**
 ```
 (pega aquí)
 ```
 
-**Respuesta de la IA (resumen):**
-
-
-**¿Qué aceptaste / rechazaste y por qué?**
+**Verificación (¿los números del Excel coinciden con ETABS?):**
 
 
 ---
-## Sección 6
+## Parte 6 — Orquestador
 
-**Prompt enviado:**
+**Prompt(s) para crear los subagentes:**
 ```
 (pega aquí)
 ```
 
-**Respuesta de la IA (resumen):**
+**Traza observada (qué subagentes, en qué orden, cuáles en paralelo):**
 
 
-**¿Qué aceptaste / rechazaste y por qué?**
+**Qué quedó "no verificado" y por qué:**
 
 
----
-## Sección 7
-
-**Prompt enviado:**
-```
-(pega aquí)
-```
-
-**Respuesta de la IA (resumen):**
-
-
-**¿Qué aceptaste / rechazaste y por qué?**
-
-
----
-## Sección 8
-
-**Prompt enviado:**
-```
-(pega aquí)
-```
-
-**Respuesta de la IA (resumen):**
-
-
-**¿Qué aceptaste / rechazaste y por qué?**
-
-
----
-## Sección 9
-
-**Prompt enviado:**
-```
-(pega aquí)
-```
-
-**Respuesta de la IA (resumen):**
-
-
-**¿Qué aceptaste / rechazaste y por qué?**
-
-
----
-## Sección 10
-
-**Prompt enviado:**
-```
-(pega aquí)
-```
-
-**Respuesta de la IA (resumen):**
-
-
-**¿Qué aceptaste / rechazaste y por qué?**
-
-
----
+**Un agente vs. orquestador (tiempo, facilidad de auditar, contexto):**
 

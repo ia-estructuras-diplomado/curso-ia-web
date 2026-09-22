@@ -1,44 +1,56 @@
-# Dataset — Monitoreo estructural con sensores (Kaggle)
+# Dataset — Grietas en hormigón (Mendeley)
 
-**Archivo:** `building_health_monitoring_dataset.csv`  
-**Fuente:** [Building Structural Health Sensor Dataset](https://www.kaggle.com/datasets/ziya07/building-structural-health-sensor-dataset) (Ziya07)
+## Fuente
 
-> Mismo dataset que **Lab 1** (PCA/clustering). En Lab 3 entrenamos un **clasificador supervisado** y lo **explicamos** con xAI.
+- **Nombre:** Concrete Crack Images for Classification
+- **Autor:** Çağlar Fırat Özgenel (METU, 2018)
+- **DOI:** [10.17632/5y9wdsg2zt.1](https://doi.org/10.17632/5y9wdsg2zt.1)
+- **Licencia:** CC BY 4.0
 
-## Contexto en obra
+## Contenido original
 
-Registro **time-series** (1 Hz) de sensores para **Structural Health Monitoring (SHM)**. La columna `Condition Label` es el **target** de clasificación multicategoría.
+| Clase | Significado en obra | Imágenes |
+|-------|---------------------|----------|
+| **Positive** | Superficie **con** grieta visible | 20 000 |
+| **Negative** | Superficie **sin** grieta | 20 000 |
 
-| Variable | Unidad | Significado |
-|----------|--------|-------------|
-| `Timestamp` | fecha-hora | Marca temporal (no entra al modelo) |
-| `Accel_X`, `Accel_Y`, `Accel_Z` | m/s² | Aceleración en tres ejes |
-| `Strain` | με | Deformación (extensómetro) — suele dominar en daño |
-| `Temp` | °C | Temperatura del sensor / ambiente |
-| **`Condition Label`** | **0 / 1 / 2** | **Estado estructural (target)** |
+- Resolución: **227 × 227** píxeles, RGB.
+- Origen: recortes de fotos de edificios del campus METU (sin data augmentation).
 
-## Etiquetas de condición
+## Subconjunto del laboratorio (`cracks_subset/`)
 
-| Valor | Interpretación típica |
-|-------|----------------------|
-| **0** | Condición **normal** |
-| **1** | **Daño menor** |
-| **2** | **Daño severo** |
+Para que el lab corra rápido en CPU se usa un **subconjunto fijo** (semilla 42):
 
-## Calidad de datos
+| Split | Negative | Positive | Total |
+|-------|----------|----------|-------|
+| `train/` | 800 | 800 | 1 600 |
+| `val/` | 200 | 200 | 400 |
 
-- **1 000** registros crudos · **7** columnas.
-- ~**96** filas con nulos en sensores → tras `dropna`: **904** muestras.
-- Distribución aproximada tras limpieza: ~637 normales, ~165 daño menor, ~102 daño severo.
+**Archivo versionado:** `cracks_subset.zip` (~15–25 MB).
 
-## Uso en Lab 3 (kit xAI + XGBoost)
+El RAR completo (`Concrete Crack Images for Classification.rar`, ~231 MB) es **opcional** para regenerar el subconjunto en local:
 
-1. **Clasificar** `Condition Label` con `XGBClassifier` sobre sensores escalados.
-2. **Explicar** con varias técnicas sobre el **mismo modelo**:
-   - **Global:** importancia del booster, permutation importance
-   - **SHAP:** summary (global) y waterfall (local)
-   - **LIME:** explicación local alternativa (comparar con SHAP)
-   - **PDP + SHAP dependence:** efecto marginal de un sensor
-3. **Validar** que las explicaciones tienen sentido físico (Strain, vibración) antes de confiar en alertas.
+```bash
+cd labs/lab4/part_1
+python _preparar_datos.py
+```
 
-**Importante:** xAI explica el modelo entrenado, no la física ni la normativa. SHAP y LIME pueden coincidir o diferir — siempre revisar con criterio del ingeniero estructural.
+## Estructura de carpetas
+
+```
+data/cracks_subset/
+├── train/
+│   ├── Negative/*.jpg
+│   └── Positive/*.jpg
+└── val/
+    ├── Negative/*.jpg
+    └── Positive/*.jpg
+```
+
+`torchvision.datasets.ImageFolder` ordena clases alfabéticamente: **0 = Negative**, **1 = Positive**.
+
+## Uso en ingeniería estructural
+
+- Inspección visual asistida por cámara / dron sobre elementos de hormigón.
+- Clasificación binaria como **filtro rápido** antes de inspección presencial.
+- Limitaciones: iluminación, suciedad, textura del encofrado; el modelo explica patrones en píxeles, no sustituye normativa ni peritaje.

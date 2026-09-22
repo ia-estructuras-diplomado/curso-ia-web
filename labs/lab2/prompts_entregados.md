@@ -1,6 +1,6 @@
 # Bitácora de prompts — Lab 2 — Resistencia a la compresión
 
-Entrega este archivo junto con tu notebook `*_alumno_ia.ipynb` ejecutado (celdas con ✅).
+Entrega este archivo junto con tu propio notebook (construido guiándote por `labs/lab2/README.md` y el notebook de referencia `resistencia_compresion.ipynb`), ejecutado de punta a punta.
 
 | Campo | Qué escribir |
 |-------|----------------|

@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
-# Stack PyTorch CPU compartido por labs/lab4 (CNN + LSTM) y labs/lab5 (embeddings).
-# Llamar SIEMPRE al final de setup.sh, después de sentence-transformers.
+# Stack ML CPU compartido por labs/lab4 (CNN + LSTM) y labs/lab5 (embeddings/RAG).
+# Idempotente — también sirve como script de reparación: si torch/torchvision
+# fallan o ves un error de SymInt, simplemente vuelve a ejecutar:
+#   bash labs/_install_torch_cpu.sh
 set -euo pipefail
 
 LABS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -14,19 +16,14 @@ if [[ ! -x "$PY" ]]; then
   exit 1
 fi
 
-PY_MINOR="$("$PY" -c 'import sys; print(f"{sys.version_info.major}.{sys.version_info.minor}")')"
-if [[ "$PY_MINOR" == "3.13" ]]; then
-  echo "❌ labs/.venv usa Python ${PY_MINOR}; torchvision ${TORCHVISION_CPU_VERSION} no tiene wheels cp313."
-  echo "   Recrea el entorno compartido:"
-  echo "     rm -rf labs/.venv && bash labs/setup.sh"
-  exit 1
-fi
-
 if command -v uv >/dev/null 2>&1; then
   PIP=(uv pip install --python "$PY")
 else
   PIP=("$PY" -m pip install)
 fi
+
+echo "→ sentence-transformers / transformers (Lab 5)…"
+"${PIP[@]}" 'sentence-transformers>=3.0.0,<4.0.0' 'transformers>=4.41.0,<4.48.0'
 
 echo "→ Stack PyTorch CPU compartido (Labs 4–5): torch==${TORCH_CPU_VERSION} + torchvision==${TORCHVISION_CPU_VERSION}"
 "${PIP[@]}" \

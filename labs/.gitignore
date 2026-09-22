@@ -5,13 +5,24 @@
 __pycache__/
 *.py[cod]
 
-# Lab 3 — datasets descomprimidos (usar zips versionados)
-lab3/part_1/data/cracks_subset/
-lab3/part_1/data/*.rar
-lab3/part_1/data/_tmp_extract/
-lab3/part_1/tools/
-lab3/part_2/data/building_health_monitoring_dataset.csv
-# Lab 4 P1 — CSV SHM (xAI tabular)
-lab4/part_1/data/building_health_monitoring_dataset.csv
-lab6/data/seismic_data.csv
-lab6/informe_sismico*.tex
+# Lab 4 — datasets descomprimidos (usar zips versionados)
+lab4/part_1/data/cracks_subset/
+lab4/part_1/data/*.rar
+lab4/part_1/data/_tmp_extract/
+lab4/part_1/tools/
+lab4/part_2/data/building_health_monitoring_dataset.csv
+
+# Lab 5/6 — índice RAG y modelo de embeddings del servidor MCP "normas"
+lab5/rag/*
+!lab5/rag/config.yaml
+# knowledge-rag 4.9.0 crea además una carpeta vacía al resolver la ruta
+# relativa KNOWLEDGE_RAG_DIR dos veces (lab5/rag/rag desde lab5, lab5/lab5 desde lab6)
+lab5/lab5/
+
+# Lab 6 — salidas de los agentes y modelos ETABS de práctica
+lab6/resultados/
+lab6/*.edb
+lab6/*.EDB
+
+# Claude Code — permisos locales de cada alumno
+**/.claude/settings.local.json

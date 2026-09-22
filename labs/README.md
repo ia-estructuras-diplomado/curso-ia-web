@@ -1,15 +1,15 @@
 # Labs (Laboratorios)
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json)
-
-> **Un solo Codespace para todo el curso.** El enlace con `quickstart=1` muestra **Resume this codespace** si ya tienes uno para este repositorio; si no, **Create codespace**. Todos los labs comparten `labs/.venv`. Gestiona tus entornos en [github.com/codespaces](https://github.com/codespaces).
 Recursos prácticos para ejercicios, proyectos y experimentación.
 
-**Estándar del curso (Codespaces, caja de herramientas, validación amigable):** lee [`GUIA_LABORATORIOS.md`](./GUIA_LABORATORIOS.md).
+**Estándar del curso (entorno local, notebook de referencia único, validación visual):** lee [`GUIA_LABORATORIOS.md`](./GUIA_LABORATORIOS.md).
 
 ## Entorno local (venv centralizado en `labs/`)
 
-Un solo entorno (`labs/.venv`) para **todos** los labs. No crees venvs dentro de `lab0/` o `lab1/`.
+Un solo entorno (`labs/.venv`) para **todos** los labs, con Python fijado vía
+[`uv`](https://astral.sh/uv). No crees venvs dentro de `lab0/` o `lab1/`.
+
+**¿Estás en Windows?** Sigue [`INSTALACION_WINDOWS.md`](INSTALACION_WINDOWS.md) — usa `labs\setup.ps1` desde PowerShell (equivalente nativo de `setup.sh`, sin necesidad de WSL).
 
 ```bash
 bash labs/setup.sh
@@ -18,78 +18,55 @@ source labs/.venv/bin/activate
 
 Dependencias: [`labs/requirements.txt`](requirements.txt).
 
-**PyTorch compartido (Lab 4 CNN + Lab 5 embeddings):** `setup.sh` termina con [`_install_torch_cpu.sh`](_install_torch_cpu.sh) (`torch` + `torchvision` CPU, compatible con `sentence-transformers`). Si falta `torchvision` o ves `SymInt`:
+**Stack ML CPU compartido (Lab 4 CNN/LSTM + Lab 5 embeddings/RAG):** `setup.sh` termina con [`_install_torch_cpu.sh`](_install_torch_cpu.sh) (`torch` + `torchvision` CPU, compatible con `sentence-transformers`). Este mismo script es el camino de reparación — si falta `torchvision` o ves un error de `SymInt`, simplemente vuelve a ejecutarlo:
 
 ```bash
-bash labs/lab5/_fix_pytorch.sh   # repara el venv compartido, no solo Lab 5
+bash labs/_install_torch_cpu.sh
 ```
 
-Usa **Python 3.11 o 3.12** en el venv (igual que Codespaces). Si tu `.venv` quedó en 3.13: `rm -rf labs/.venv && bash labs/setup.sh`.
+**Claude Code + MCP (Lab 5 y Lab 6):** estos dos labs no usan `labs/.venv` ni notebooks — se trabajan con [Claude Code](https://code.claude.com) y servidores MCP que se lanzan solos con `uvx` (viene con `uv`). La instalación de Claude Code y las opciones de acceso (suscripción, API key o gratis con Ollama) están en la Parte 0 de [`lab5/README.md`](lab5/README.md).
 
-## GitHub Codespaces
+## Un notebook de referencia por lab
 
-Usa **un solo Codespace** para todos los labs (mismo `labs/.venv`). El enlace con `quickstart=1` prioriza **Resume this codespace** si ya existe uno para este repo.
+Cada lab entrega **un solo notebook**, completo y ejecutable de punta a
+punta — no un ejercicio en blanco. Ábrelo, ejecútalo (Run All) para ver el
+resultado esperado, y luego construye tu propio notebook guiándote por el
+README del lab (objetivo + prompts sugeridos por sección) y tu asistente de
+IA. Entrega tu notebook ejecutado + [`prompts_entregados.md`](GUIA_LABORATORIOS.md#bitácora-de-prompts) (bitácora de prompts) completado.
 
-El devcontainer ejecuta `labs/setup.sh` (core + datos + kernel, **sin Ollama** en el primer build) y usa el intérprete `labs/.venv/bin/python` para Jupyter. Tras abrir el Codespace, `labs/doctor.sh` valida el entorno en segundo plano.
+Validación por **resultados visuales** (gráficos, métricas), no por
+autoevaluación automática ni por código idéntico a la solución.
 
-[Abrir o reanudar Codespace](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json)
+**Excepción — Lab 5 y Lab 6:** no tienen notebook. Son guías paso a paso para usar un agente real (Claude Code) conectado por MCP a un buscador RAG de normas, a ETABS y a Excel; la entrega es la bitácora, los agentes/skills que el alumno crea y los resultados que generan.
 
-```bash
-bash labs/doctor.sh              # ¿todo listo?
-bash labs/lab5/_ollama_setup.sh  # Labs 5–6 (LLM local)
-```
-
-## Dos vías por lab (opcional)
-
-| Perfil | Notebook | Entrega |
-|--------|----------|---------|
-| Edita hiperparámetros | `*_alumno.ipynb` | Notebook con ✅ |
-| Asistente IA (Copilot, Gemini, Cursor…) | `*_alumno_ia.ipynb` | Notebook con ✅ + [`prompts_entregados.md`](lab2/prompts_entregados.md) |
-
-Validación por **resultados** (`_verificar.py`), no por código idéntico a la solución. Ver [Vía IA-asistida](GUIA_LABORATORIOS.md#vía-ia-asistida-opcional) en la guía.
-
-Docente: `bash labs/_smoke_ia_solucion.sh` tras cambiar prompts o generadores.
+Docente: `bash labs/_verificar_notebooks.sh` ejecuta de punta a punta los 6 notebooks de referencia (Labs 0-4) tras cualquier cambio.
 
 ## Labs disponibles
 
-| Lab | Carpeta | Tema | Manual | Vía IA |
-|-----|---------|------|--------|--------|
-| 0 | [`lab0/`](lab0/) | Fundamentos de Python para IA | ✅ | ✅ |
-| 1 | [`lab1/`](lab1/) | PCA, KMeans, DBSCAN y monitoreo SHM (Kaggle) | ✅ | ✅ |
-| 2 | [`lab2/`](lab2/) | Resistencia a compresión del hormigón (UCI) | ✅ | ✅ |
-| 3 | [`lab3/`](lab3/) | Inteligencia artificial explicable (xAI) — XGBoost + SHAP (SHM) | — | ✅ |
-| 4 | [`lab4/`](lab4/) | CNN grietas (P1) + LSTM sensores SHM (P2) | — | ✅ |
-| 5 | [`lab5/`](lab5/) | Modelos locales de lenguaje (LLM) / RAG | — | ✅ |
-| 6 | [`lab6/`](lab6/) | Agentes de IA (Agno + Ollama) | — | ✅ |
+| Lab | Carpeta | Tema |
+|-----|---------|------|
+| 0 | [`lab0/`](lab0/) | Fundamentos de Python para IA |
+| 1 | [`lab1/`](lab1/) | PCA, KMeans, DBSCAN y monitoreo SHM (Kaggle) |
+| 2 | [`lab2/`](lab2/) | Resistencia a compresión del hormigón (UCI) |
+| 3 | [`lab3/`](lab3/) | Inteligencia artificial explicable (xAI) — XGBoost + SHAP (SHM) |
+| 4 | [`lab4/part_1/`](lab4/part_1/) + [`lab4/part_2/`](lab4/part_2/) | CNN grietas (P1) + LSTM sensores SHM (P2) |
+| 5 | [`lab5/`](lab5/) | Tu primer agente: Claude Code + MCP de normas peruanas (RAG) |
+| 6 | [`lab6/`](lab6/) | Agentes con ETABS y Excel vía MCP: de un agente a un orquestador |
 
 La numeración de carpetas `labs/labN/` coincide con el syllabus del curso (Lab 1, 2, 3…).
+
+Scripts de preparación de datos/modelos de un solo uso (no vistos por los alumnos) viven en [`tools/`](../tools/), fuera de `labs/`.
 
 ## Publicación a alumnos (`curso-ia-dev` → `curso-ia-web`)
 
 1. Editar notebooks **solo** en este repo (`curso-ia-dev`).
-2. `git push` a `main` → el workflow **Sync labs to curso-ia-web** copia `labs/` y `.devcontainer/` **desde dev hacia web** (nunca al revés).
+2. `git push` a `main` → el workflow **Sync labs to curso-ia-web** copia `labs/` **desde dev hacia web** (nunca al revés).
 3. Requiere secreto `LABS_SYNC_TOKEN` (repository secret) en GitHub Actions de `curso-ia-dev`.
-4. Plantilla del workflow: [`.github/workflows/sync-labs-to-web.yml.example`](../.github/workflows/sync-labs-to-web.yml.example) (incluye validación con `doctor` + smoke antes de publicar).
 
-## CI (GitHub Actions)
-
-| Workflow | Cuándo corre | Qué valida |
-|----------|--------------|------------|
-| [**Labs CI**](../.github/workflows/labs-ci.yml) | Cambios en `labs/` o `.devcontainer/` | `setup.sh` → `doctor.sh --strict` → smoke + kernel Jupyter + build devcontainer |
-| [**Codespace smoke**](../.github/workflows/codespace-smoke.yml) | Semanal / manual / push a `.devcontainer` | Crea un **Codespace real** y ejecuta `_smoke_kernel.py` dentro |
-| [**Deploy MkDocs**](../.github/workflows/deploy.yml) | Cambios en `docs/` | Sitio estático en GitHub Pages |
-
-Validación local equivalente:
-
-```bash
-LABS_SETUP_SKIP_OLLAMA=1 bash labs/setup.sh
-bash labs/doctor.sh --strict
-labs/.venv/bin/python labs/_smoke_kernel.py   # kernel «Python (curso-ia labs)»
-bash labs/_smoke_ia_solucion.sh
-```
+Como cada lab ya es solo `README.md` + un notebook + `prompts_entregados.md` + `data/` (Labs 5-6: `README.md` + `.mcp.json` + `referencia/`), no hay archivos internos que excluir del sync (ni generadores, ni `_verificar.py`, ni notebooks-solución separados).
 
 ## Notas
 
-- Mantener datos crudos separados de datos procesados
-- Documentar la fuente y características de cada dataset
+- Mantener datos crudos separados de datos procesados (`tools/data_raw/` para lo crudo, `labs/labN/data/` para lo que el notebook realmente lee)
+- Documentar la fuente y características de cada dataset (`data/DATOS.md`)
 - Notebooks deben ser ejecutables y reproducibles

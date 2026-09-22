@@ -1,6 +1,7 @@
-# Bitácora de prompts — Lab 3 — xAI con XGBoost (SHM)
+# Bitácora de prompts — Lab 4 Parte 1 — CNN grietas
 
-Entrega este archivo junto con tu notebook `*_alumno_ia.ipynb` ejecutado (celdas con ✅).
+Entrega este archivo junto con tu propio notebook (guiado por `README.md` y por
+`cnn_grietas_estructuras.ipynb` como referencia) ejecutado de punta a punta.
 
 | Campo | Qué escribir |
 |-------|----------------|
@@ -137,20 +138,6 @@ Entrega este archivo junto con tu notebook `*_alumno_ia.ipynb` ejecutado (celdas
 
 ---
 ## Sección 10
-
-**Prompt enviado:**
-```
-(pega aquí)
-```
-
-**Respuesta de la IA (resumen):**
-
-
-**¿Qué aceptaste / rechazaste y por qué?**
-
-
----
-## Sección 11
 
 **Prompt enviado:**
 ```

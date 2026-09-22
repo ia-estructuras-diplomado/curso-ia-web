@@ -1,6 +1,6 @@
 # Bitácora de prompts — Lab 0 — Fundamentos de Python para IA
 
-Entrega este archivo junto con tu notebook `*_alumno_ia.ipynb` ejecutado (celdas con ✅).
+Entrega este archivo junto con tu notebook `fundamentos_python_ia.ipynb` (o el que construyas guiándote por él) ejecutado de punta a punta.
 
 | Campo | Qué escribir |
 |-------|----------------|

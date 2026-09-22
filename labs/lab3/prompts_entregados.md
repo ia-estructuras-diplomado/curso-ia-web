@@ -1,6 +1,6 @@
-# Bitácora de prompts — Lab 1 — PCA y monitoreo estructural
+# Bitácora de prompts — Lab 3 — xAI con XGBoost (SHM)
 
-Entrega este archivo junto con tu notebook `pca_monitoreo_estructural.ipynb` ejecutado de punta a punta.
+Entrega este archivo junto con tu notebook `xai_estructuras.ipynb` (o tu propia versión) ejecutado de punta a punta.
 
 | Campo | Qué escribir |
 |-------|----------------|
@@ -151,34 +151,6 @@ Entrega este archivo junto con tu notebook `pca_monitoreo_estructural.ipynb` eje
 
 ---
 ## Sección 11
-
-**Prompt enviado:**
-```
-(pega aquí)
-```
-
-**Respuesta de la IA (resumen):**
-
-
-**¿Qué aceptaste / rechazaste y por qué?**
-
-
----
-## Sección 12
-
-**Prompt enviado:**
-```
-(pega aquí)
-```
-
-**Respuesta de la IA (resumen):**
-
-
-**¿Qué aceptaste / rechazaste y por qué?**
-
-
----
-## Sección 13
 
 **Prompt enviado:**
 ```

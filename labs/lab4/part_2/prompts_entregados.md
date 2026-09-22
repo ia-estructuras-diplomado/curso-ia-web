@@ -1,74 +1,167 @@
-# Bitácora de prompts — Lab 4 Parte 2 — xAI en redes neuronales
+# Bitácora de prompts — Lab 4 Parte 2 — LSTM sensores SHM
 
-Entrega junto con `xai_redes_estructuras_alumno_ia.ipynb` ejecutado (celdas con ✅).
+Entrega este archivo junto con tu notebook ejecutado de punta a punta (no hay autoevaluación automática — valida tus resultados comparándolos con `rnn_sensores_estructuras.ipynb`).
 
 | Campo | Qué escribir |
 |-------|----------------|
-| Prompt enviado | Texto exacto al asistente |
-| Resumen | Qué devolvió la IA |
-| Aceptaste/rechazaste | Qué pegaste y qué descartaste |
+| Prompt enviado | Texto exacto que enviaste al asistente |
+| Resumen | Qué código o explicación devolvió la IA |
+| Aceptaste/rechazaste | Qué pegaste en el notebook y qué descartaste |
 
 ---
 
-## Sección 1 — Panorama xAI redes
+## Sección 1
 
 **Prompt enviado:**
 ```
 (pega aquí)
 ```
 
----
+**Respuesta de la IA (resumen):**
 
-## Sección 2 — Cargar CNN Lab 3
+
+**¿Qué aceptaste / rechazaste y por qué?**
+
+
+---
+## Sección 2
 
 **Prompt enviado:**
 ```
 (pega aquí)
 ```
 
----
+**Respuesta de la IA (resumen):**
 
-## Sección 3 — Grad-CAM
+
+**¿Qué aceptaste / rechazaste y por qué?**
+
+
+---
+## Sección 3
 
 **Prompt enviado:**
 ```
 (pega aquí)
 ```
 
----
+**Respuesta de la IA (resumen):**
 
-## Sección 4 — Casos locales CNN
+
+**¿Qué aceptaste / rechazaste y por qué?**
+
+
+---
+## Sección 4
 
 **Prompt enviado:**
 ```
 (pega aquí)
 ```
 
----
+**Respuesta de la IA (resumen):**
 
-## Sección 5 — Cargar LSTM Lab 3
+
+**¿Qué aceptaste / rechazaste y por qué?**
+
+
+---
+## Sección 5
 
 **Prompt enviado:**
 ```
 (pega aquí)
 ```
 
----
+**Respuesta de la IA (resumen):**
 
-## Sección 6 — Integrated Gradients
+
+**¿Qué aceptaste / rechazaste y por qué?**
+
+
+---
+## Sección 6
 
 **Prompt enviado:**
 ```
 (pega aquí)
 ```
 
----
+**Respuesta de la IA (resumen):**
 
-## Sección 7 — Puente tabular ↔ red
+
+**¿Qué aceptaste / rechazaste y por qué?**
+
+
+---
+## Sección 7
 
 **Prompt enviado:**
 ```
 (pega aquí)
 ```
 
+**Respuesta de la IA (resumen):**
+
+
+**¿Qué aceptaste / rechazaste y por qué?**
+
+
 ---
+## Sección 8
+
+**Prompt enviado:**
+```
+(pega aquí)
+```
+
+**Respuesta de la IA (resumen):**
+
+
+**¿Qué aceptaste / rechazaste y por qué?**
+
+
+---
+## Sección 9
+
+**Prompt enviado:**
+```
+(pega aquí)
+```
+
+**Respuesta de la IA (resumen):**
+
+
+**¿Qué aceptaste / rechazaste y por qué?**
+
+
+---
+## Sección 10
+
+**Prompt enviado:**
+```
+(pega aquí)
+```
+
+**Respuesta de la IA (resumen):**
+
+
+**¿Qué aceptaste / rechazaste y por qué?**
+
+
+---
+## Sección 11
+
+**Prompt enviado:**
+```
+(pega aquí)
+```
+
+**Respuesta de la IA (resumen):**
+
+
+**¿Qué aceptaste / rechazaste y por qué?**
+
+
+---
+

@@ -4,7 +4,7 @@
 
 - **Repositorio:** [UCI Machine Learning — Concrete Compressive Strength](https://archive.ics.uci.edu/dataset/165/concrete+compressive+strength)
 - **Autor original:** Prof. I-Cheng Yeh (Chung-Hua University, Taiwán)
-- **Archivo fuente en este repo:** `Concrete_Data.xls` → convertido a `concrete.csv`
+- **Archivo fuente en este repo:** `tools/data_raw/lab2/Concrete_Data.xls` → convertido a `concrete.csv` por `tools/prepare_data_lab2.py` (script de autoría, ya ejecutado; no forma parte del setup del alumno)
 - **Observaciones:** 1 030 mezclas de laboratorio · **sin valores faltantes**
 
 > Reutilización permitida citando el paper original de Yeh (1998), *Cement and Concrete Research*.
@@ -42,12 +42,9 @@ La resistencia varía mucho porque incluye probetas jóvenes (pocos días) y mez
 
 ## Tipo de problema de Machine Learning
 
-- **Regresión supervisada:** predecir `Resistencia` en MPa (valor continuo).
-- **Clasificación supervisada (Lab 2, sección 10):** etiqueta binaria *fuerte* (≥ 40 MPa) vs *débil* (< 40 MPa), útil para verificar cumplimiento rápido en planta.
+- **Regresión supervisada:** la salida `Resistencia` es un número continuo (MPa), no una categoría.
 - **Features (X):** las 8 columnas de ingredientes y edad.
-- **Targets (y):** `Resistencia` (regresión) o binario derivado del umbral (clasificación).
-
-Modelos usados en el lab: `LinearRegression`, `RandomForest`, `XGBoost` (regresión) y `RandomForestClassifier` (clasificación).
+- **Target (y):** `Resistencia`.
 
 ## Interpretación física (enfoque profesional)
 
