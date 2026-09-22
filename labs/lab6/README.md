@@ -136,6 +136,17 @@ ETABS**:
 **Qué deberías ver:** la estructura apareciendo en la ventana de ETABS.
 Revisa en ETABS (no en el chat) que las secciones y apoyos sean los pedidos.
 
+> ⚠️ **Error real visto en la prueba del curso:** el agente creó las
+> secciones de concreto `COL40X40`/`VIGA30X50`, pero dibujó los 16 elementos
+> con la sección por defecto de ETABS (acero **W14X500**) y aun así reportó
+> "todo OK". Antes del análisis, pídele:
+>
+> > Solo lectura: para cada frame dime su sección (FrameObj.GetSection) y el
+> > material y f'c de esa sección.
+>
+> y compáralo en ETABS (Assign → Frame → Section Property, o el color de los
+> elementos). Si hay acero, pídele reasignar con `FrameObj.SetSection`.
+
 ## Parte 3 — Análisis modal y cortante basal
 
 **Prompt sugerido:**
@@ -291,7 +302,11 @@ siempre licencia, actividad del repositorio y **qué hace al cerrar**.
   `read_skills`, `search_docs`, `execute_code` (el `manifest.json` solo
   lista 5). `File.NewBlank()` sobre una sesión sin modelo cerró ETABS — ver
   aviso en la Parte 2. Construir + analizar tomó más de 40 turnos del
-  agente: reserva tiempo en clase.
+  agente: reserva tiempo en clase. Primer intento: frames con W14X500
+  (acero por defecto) en vez de las secciones de concreto pedidas, sin que
+  el agente lo notara (T1 = 0.090 s). Tras reasignar COL40X40/VIGA30X50 (C21,
+  f'c = 21 MPa): T1 = T2 = 0.161 s (masa mezclada UX/UY por simetría),
+  T3 = 0.150 s torsional — solo peso propio, sin losa ni cargas.
 - **Descartado:** `mdvaleed7/ETABS-mcp` (69 herramientas, IS 1893) —
   al apagarse el servidor ejecuta `disconnect()` → `ApplicationExit(False)`,
   es decir **cierra ETABS sin guardar** al terminar la sesión de Claude.
