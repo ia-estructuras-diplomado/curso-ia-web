@@ -61,7 +61,7 @@ Scripts de preparación de datos/modelos de un solo uso (no vistos por los alumn
 
 1. Editar notebooks **solo** en este repo (`curso-ia-dev`).
 2. `git push` a `main` → el workflow **Sync labs to curso-ia-web** copia `labs/` **desde dev hacia web** (nunca al revés).
-3. Requiere secreto `LABS_SYNC_TOKEN` (repository secret) en GitHub Actions de `curso-ia-dev`.
+3. Requiere el secreto `LABS_SYNC_DEPLOY_KEY` en `curso-ia-dev`: clave privada de un deploy key con escritura en `curso-ia-web`.
 
 Como cada lab ya es solo `README.md` + un notebook + `prompts_entregados.md` + `data/` (Labs 5-6: `README.md` + `.mcp.json` + `referencia/`), no hay archivos internos que excluir del sync (ni generadores, ni `_verificar.py`, ni notebooks-solución separados).
 
