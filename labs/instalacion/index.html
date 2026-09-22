@@ -12,7 +12,7 @@
         <meta name="author" content="IA Estructuras Diplomado">
       
       
-        <link rel="canonical" href="https://ia-estructuras-diplomado.github.io/curso-ia-web/labs/codespaces/">
+        <link rel="canonical" href="https://ia-estructuras-diplomado.github.io/curso-ia-web/labs/instalacion/">
       
       
         <link rel="prev" href="../">
@@ -26,7 +26,7 @@
     
     
       
-        <title>GitHub Codespaces - Curso IA Web</title>
+        <title>Instalación - Curso IA Web</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#github-codespaces" class="md-skip">
+        <a href="#instalacion-del-entorno" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              GitHub Codespaces
+              Instalación
             
           </span>
         </div>
@@ -835,7 +835,7 @@
           
   
   <span class="md-ellipsis">
-    GitHub Codespaces
+    Instalación
   </span>
   
 
@@ -846,7 +846,7 @@
         
   
   <span class="md-ellipsis">
-    GitHub Codespaces
+    Instalación
   </span>
   
 
@@ -868,44 +868,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#enlaces-por-lab" class="md-nav__link">
+  <a href="#windows-recomendado-powershell-sin-wsl" class="md-nav__link">
     <span class="md-ellipsis">
-      Enlaces por lab
+      Windows (recomendado: PowerShell, sin WSL)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#pasos" class="md-nav__link">
+  <a href="#macos-linux" class="md-nav__link">
     <span class="md-ellipsis">
-      Pasos
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Pasos">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#labs-5-y-6-ollama" class="md-nav__link">
-    <span class="md-ellipsis">
-      Labs 5 y 6 (Ollama)
+      macOS / Linux
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#si-algo-falla" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#labs-5-y-6-claude-code" class="md-nav__link">
     <span class="md-ellipsis">
-      Si algo falla
+      Labs 5 y 6 — Claude Code
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1013,7 +998,7 @@
         
   
   <span class="md-ellipsis">
-    Lab 4 - CNN y RNN
+    Lab 4 - CNN y LSTM
   </span>
   
 
@@ -1034,7 +1019,7 @@
         
   
   <span class="md-ellipsis">
-    Lab 5 - LLM local / RAG
+    Lab 5 - Claude Code + MCP de normas
   </span>
   
 
@@ -1055,7 +1040,7 @@
         
   
   <span class="md-ellipsis">
-    Lab 6 - Agentes de IA
+    Lab 6 - Agentes con ETABS
   </span>
   
 
@@ -1296,44 +1281,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#enlaces-por-lab" class="md-nav__link">
+  <a href="#windows-recomendado-powershell-sin-wsl" class="md-nav__link">
     <span class="md-ellipsis">
-      Enlaces por lab
+      Windows (recomendado: PowerShell, sin WSL)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#pasos" class="md-nav__link">
+  <a href="#macos-linux" class="md-nav__link">
     <span class="md-ellipsis">
-      Pasos
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Pasos">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#labs-5-y-6-ollama" class="md-nav__link">
-    <span class="md-ellipsis">
-      Labs 5 y 6 (Ollama)
+      macOS / Linux
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#si-algo-falla" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#labs-5-y-6-claude-code" class="md-nav__link">
     <span class="md-ellipsis">
-      Si algo falla
+      Labs 5 y 6 — Claude Code
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1355,83 +1325,44 @@
   
 
 
-<h1 id="github-codespaces">GitHub Codespaces<a class="headerlink" href="#github-codespaces" title="Permanent link">&para;</a></h1>
-<p>Notebooks en <code>labs/labN/</code> — <a href="https://github.com/ia-estructuras-diplomado/curso-ia-web">curso-ia-web</a> (sync desde <code>curso-ia-dev</code>).</p>
-<p><a href="https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&amp;devcontainer_path=.devcontainer%2Fdevcontainer.json">Crear Codespace</a>{ .md-button .md-button--primary }</p>
-<h2 id="enlaces-por-lab">Enlaces por lab<a class="headerlink" href="#enlaces-por-lab" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">Lab</th>
-<th style="text-align: left;">Tema</th>
-<th style="text-align: left;">Guía</th>
-<th style="text-align: left;">Notebook</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;"><strong>0</strong></td>
-<td style="text-align: left;">Python IA</td>
-<td style="text-align: left;"><a href="../lab0/">Lab 0</a></td>
-<td style="text-align: left;"><a href="https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab0/fundamentos_python_ia_alumno.ipynb">📓</a> · <a href="https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab0/fundamentos_python_ia_alumno_ia.ipynb">🤖</a></td>
-</tr>
-<tr>
-<td style="text-align: center;"><strong>1</strong></td>
-<td style="text-align: left;">PCA / SHM</td>
-<td style="text-align: left;"><a href="../lab1/">Lab 1</a></td>
-<td style="text-align: left;"><a href="https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab1/pca_monitoreo_estructural_alumno.ipynb">📓</a> · <a href="https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab1/pca_monitoreo_estructural_alumno_ia.ipynb">🤖</a></td>
-</tr>
-<tr>
-<td style="text-align: center;"><strong>2</strong></td>
-<td style="text-align: left;">Hormigón UCI</td>
-<td style="text-align: left;"><a href="../lab2/">Lab 2</a></td>
-<td style="text-align: left;"><a href="https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab2/resistencia_compresion_alumno.ipynb">📓</a> · <a href="https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab2/resistencia_compresion_alumno_ia.ipynb">🤖</a></td>
-</tr>
-<tr>
-<td style="text-align: center;"><strong>3</strong></td>
-<td style="text-align: left;">xAI</td>
-<td style="text-align: left;"><a href="../lab3/">Lab 3</a></td>
-<td style="text-align: left;"><a href="https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab3/xai_estructuras_alumno_ia.ipynb">🤖 <code>xai_estructuras_alumno_ia.ipynb</code></a></td>
-</tr>
-<tr>
-<td style="text-align: center;"><strong>4</strong></td>
-<td style="text-align: left;">CNN / RNN</td>
-<td style="text-align: left;"><a href="../lab4/">Lab 4</a></td>
-<td style="text-align: left;"><a href="https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab4/part_1/cnn_grietas_estructuras_alumno_ia.ipynb">🤖 P1</a> · <a href="https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab4/part_2/rnn_sensores_estructuras_alumno_ia.ipynb">🤖 P2</a></td>
-</tr>
-<tr>
-<td style="text-align: center;"><strong>5</strong></td>
-<td style="text-align: left;">LLM / RAG</td>
-<td style="text-align: left;"><a href="../lab5/">Lab 5</a></td>
-<td style="text-align: left;"><a href="https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab5/llm_local_estructuras_alumno_ia.ipynb">🤖 <code>llm_local_estructuras_alumno_ia.ipynb</code></a></td>
-</tr>
-<tr>
-<td style="text-align: center;"><strong>6</strong></td>
-<td style="text-align: left;">Agentes</td>
-<td style="text-align: left;"><a href="../lab6/">Lab 6</a></td>
-<td style="text-align: left;"><a href="https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab6/agentes_estructuras_alumno_ia.ipynb">🤖 <code>agentes_estructuras_alumno_ia.ipynb</code></a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="pasos">Pasos<a class="headerlink" href="#pasos" title="Permanent link">&para;</a></h2>
+<h1 id="instalacion-del-entorno">Instalación del entorno<a class="headerlink" href="#instalacion-del-entorno" title="Permanent link">&para;</a></h1>
+<p>Todos los labs se trabajan <strong>en tu computadora</strong>, con un único entorno
+Python compartido (<code>labs/.venv</code>).</p>
+<h2 id="windows-recomendado-powershell-sin-wsl">Windows (recomendado: PowerShell, sin WSL)<a class="headerlink" href="#windows-recomendado-powershell-sin-wsl" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Clic en <strong>Crear Codespace</strong> → iniciar sesión en GitHub.</li>
-<li>Esperar build (<code>labs/setup.sh</code> — <strong>sin Ollama</strong> en el primer arranque; tarda ~2–5 min).</li>
-<li>Abrir notebook en <code>labs/labN/</code>.</li>
-<li>Kernel: <strong>Python (curso-ia labs)</strong> (<code>labs/.venv/bin/python</code>).</li>
+<li>Instala <a href="https://git-scm.com/download/win">Git para Windows</a> (opciones por defecto).</li>
+<li>
+<p>En <strong>PowerShell</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd </span><span class="nv">$HOME</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">://</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="p">/</span><span class="n">ia-estructuras-diplomado</span><span class="p">/</span><span class="n">curso-ia-web</span><span class="p">.</span><span class="n">git</span>
+<span class="nb">cd </span><span class="n">curso-ia-web</span>
+<span class="n">powershell</span> <span class="n">-ExecutionPolicy</span> <span class="n">Bypass</span> <span class="o">-File</span> <span class="n">labs</span><span class="p">\</span><span class="n">setup</span><span class="p">.</span><span class="n">ps1</span>
+</code></pre></div>
+</li>
+<li>
+<p>Abre un notebook:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd </span><span class="n">labs</span><span class="p">\</span><span class="n">lab0</span>
+<span class="p">..\.</span><span class="n">venv</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">jupyter</span><span class="p">.</span><span class="n">exe</span> <span class="n">notebook</span> <span class="n">fundamentos_python_ia</span><span class="p">.</span><span class="n">ipynb</span>
+</code></pre></div>
+</li>
 </ol>
-<h3 id="labs-5-y-6-ollama">Labs 5 y 6 (Ollama)<a class="headerlink" href="#labs-5-y-6-ollama" title="Permanent link">&para;</a></h3>
-<p>Tras crear el Codespace, en terminal:</p>
-<p><code>bash
-bash labs/lab5/_ollama_setup.sh</code></p>
-<p>La primera descarga de <code>llama3.2:3b</code> (~2 GB) puede tardar varios minutos.</p>
-<h3 id="si-algo-falla">Si algo falla<a class="headerlink" href="#si-algo-falla" title="Permanent link">&para;</a></h3>
-<p><code>bash
-bash labs/doctor.sh --strict   # falla si falta algún artefacto
-bash labs/setup.sh             # reinstalar entorno + datos
-bash labs/lab5/_fix_pytorch.sh   # si falta torchvision o SymInt</code></p>
-<p>En GitHub: pestaña <strong>Actions</strong> → workflow <strong>Labs CI</strong> (mismas comprobaciones en cada push a <code>labs/</code>).</p>
-<p>El kernel correcto en el selector del notebook es <strong>Python (curso-ia labs)</strong> (<code>curso-ia-labs</code> internamente). Validación automática: <code>labs/.venv/bin/python labs/_smoke_kernel.py</code>.</p>
+<p>Guía completa y solución de problemas:
+<a href="https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/INSTALACION_WINDOWS.md"><code>labs/INSTALACION_WINDOWS.md</code></a>.</p>
+<h2 id="macos-linux">macOS / Linux<a class="headerlink" href="#macos-linux" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ia-estructuras-diplomado/curso-ia-web.git
+<span class="nb">cd</span><span class="w"> </span>curso-ia-web
+bash<span class="w"> </span>labs/setup.sh
+<span class="nb">source</span><span class="w"> </span>labs/.venv/bin/activate
+</code></pre></div>
+<h2 id="labs-5-y-6-claude-code">Labs 5 y 6 — Claude Code<a class="headerlink" href="#labs-5-y-6-claude-code" title="Permanent link">&para;</a></h2>
+<p>Los Labs 5 y 6 no usan notebooks: se trabajan con <strong>Claude Code</strong> y
+servidores MCP. La instalación está en la Parte 0 del <a href="../lab5/">Lab 5</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Lab 6 = Windows nativo + ETABS</p>
+<p>El Lab 6 conecta Claude Code con <strong>ETABS 21+</strong>, que solo corre en
+Windows. Instala Claude Code desde <strong>PowerShell</strong> en la misma PC donde
+está ETABS — no desde WSL2 ni macOS.</p>
+</div>
 <p><a href="../">← Laboratorios</a></p>
 
 

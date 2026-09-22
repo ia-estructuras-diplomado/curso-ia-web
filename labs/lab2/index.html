@@ -822,11 +822,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../codespaces/" class="md-nav__link">
+      <a href="../instalacion/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    GitHub Codespaces
+    Instalación
   </span>
   
 
@@ -940,18 +940,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#contexto" class="md-nav__link">
+  <a href="#pasos" class="md-nav__link">
     <span class="md-ellipsis">
-      Contexto
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pasos-en-codespaces" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pasos en Codespaces
+      Pasos
     </span>
   </a>
   
@@ -967,18 +958,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#recursos-en-el-repositorio" class="md-nav__link">
+  <a href="#recursos" class="md-nav__link">
     <span class="md-ellipsis">
-      Recursos en el repositorio
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lecturas" class="md-nav__link">
-    <span class="md-ellipsis">
-      Lecturas
+      Recursos
     </span>
   </a>
   
@@ -1025,7 +1007,7 @@
         
   
   <span class="md-ellipsis">
-    Lab 4 - CNN y RNN
+    Lab 4 - CNN y LSTM
   </span>
   
 
@@ -1046,7 +1028,7 @@
         
   
   <span class="md-ellipsis">
-    Lab 5 - LLM local / RAG
+    Lab 5 - Claude Code + MCP de normas
   </span>
   
 
@@ -1067,7 +1049,7 @@
         
   
   <span class="md-ellipsis">
-    Lab 6 - Agentes de IA
+    Lab 6 - Agentes con ETABS
   </span>
   
 
@@ -1317,18 +1299,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#contexto" class="md-nav__link">
+  <a href="#pasos" class="md-nav__link">
     <span class="md-ellipsis">
-      Contexto
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pasos-en-codespaces" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pasos en Codespaces
+      Pasos
     </span>
   </a>
   
@@ -1344,18 +1317,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#recursos-en-el-repositorio" class="md-nav__link">
+  <a href="#recursos" class="md-nav__link">
     <span class="md-ellipsis">
-      Recursos en el repositorio
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lecturas" class="md-nav__link">
-    <span class="md-ellipsis">
-      Lecturas
+      Recursos
     </span>
   </a>
   
@@ -1382,8 +1346,8 @@
 <h1 id="lab-2-prediccion-de-resistencia-a-la-compresion">Lab 2: Predicción de Resistencia a la Compresión<a class="headerlink" href="#lab-2-prediccion-de-resistencia-a-la-compresion" title="Permanent link">&para;</a></h1>
 <div class="lab-actions" markdown="1">
 
-[▶ Crear Codespace — Lab 2](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json){ .md-button .md-button--primary }
-[📓 Abrir notebook](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab2/resistencia_compresion_alumno.ipynb){ .md-button }
+[📓 Notebook de referencia](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab2/resistencia_compresion.ipynb){ .md-button .md-button--primary }
+[📂 Carpeta del lab](https://github.com/ia-estructuras-diplomado/curso-ia-web/tree/main/labs/lab2){ .md-button }
 
 </div>
 
@@ -1392,39 +1356,32 @@
 <p><strong>Duración:</strong> ~2 horas</p>
 </div>
 <h2 id="objetivo">Objetivo<a class="headerlink" href="#objetivo" title="Permanent link">&para;</a></h2>
-<p><strong>Regresión y clasificación supervisada</strong> con el dataset UCI de resistencia a compresión del hormigón: EDA, comparar modelos de regresión (LinearRegression, Random Forest, XGBoost) y un modelo de clasificación binaria (fuerte/débil ≥ 40 MPa).</p>
-<h2 id="contexto">Contexto<a class="headerlink" href="#contexto" title="Permanent link">&para;</a></h2>
-<p>Variables de mezcla (cemento, agua, aditivos, edad de curado) y target <strong>Resistencia</strong> (MPa). El lab explora el dataset al máximo: predecir MPa (regresión) y si la mezcla supera un umbral de obra (clasificación).</p>
-<h2 id="pasos-en-codespaces">Pasos en Codespaces<a class="headerlink" href="#pasos-en-codespaces" title="Permanent link">&para;</a></h2>
+<p>Entrenar un modelo de <strong>regresión</strong> (Random Forest) que prediga la
+resistencia a compresión (MPa) de una mezcla de hormigón a partir de su
+dosificación, y usar la importancia de variables para razonar sobre qué
+ingredientes dominan el resultado.</p>
+<h2 id="pasos">Pasos<a class="headerlink" href="#pasos" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Pulsa <strong>Crear Codespace — Lab 2</strong> (arriba).</li>
-<li>Abre <strong><code>labs/lab2/resistencia_compresion_alumno.ipynb</code></strong>.</li>
-<li>Ejecuta en orden; modifica solo bloques <code>### TU TAREA AQUÍ ###</code>.</li>
+<li>Abre <strong><code>labs/lab2/resistencia_compresion.ipynb</code></strong> y ejecútalo (Run All).</li>
+<li>Construye tu propio notebook guiándote por el
+   <a href="https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab2/README.md">README del lab</a>.</li>
 </ol>
 <h2 id="contenido-del-notebook">Contenido del notebook<a class="headerlink" href="#contenido-del-notebook" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Contexto ML (regresión vs clasificación)</li>
-<li>Carga del dataset UCI (<code>data/concrete.csv</code>)</li>
+<li>Contexto del problema y carga del dataset UCI (<code>data/concrete.csv</code>)</li>
 <li>Calidad de datos y estadísticas descriptivas</li>
-<li>Distribución del target, umbral 40 MPa y correlaciones</li>
-<li>Partición train/test</li>
-<li><strong>Comparar regresión:</strong> LinearRegression, Random Forest, XGBoost</li>
-<li><strong>Clasificación:</strong> fuerte/débil con Random Forest + matriz de confusión</li>
+<li>Distribución del target y correlaciones</li>
+<li>Relación física Agua vs Resistencia</li>
+<li>Partición train/test y Random Forest</li>
+<li>Feature importance y validación visual (real vs. predicho)</li>
 </ol>
-<h2 id="recursos-en-el-repositorio">Recursos en el repositorio<a class="headerlink" href="#recursos-en-el-repositorio" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Notebook:</strong> <code>labs/lab2/resistencia_compresion_alumno.ipynb</code></li>
-<li><strong>Dataset:</strong> <code>labs/lab2/data/concrete.csv</code></li>
-<li><strong>Documentación:</strong> <code>labs/lab2/data/DATOS.md</code></li>
-</ul>
-<h2 id="lecturas">Lecturas<a class="headerlink" href="#lecturas" title="Permanent link">&para;</a></h2>
+<h2 id="recursos">Recursos<a class="headerlink" href="#recursos" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://archive.ics.uci.edu/dataset/165/concrete+compressive+strength">UCI Concrete Compressive Strength</a></li>
 <li><a href="https://scikit-learn.org/stable/modules/ensemble.html">Scikit-learn — Ensemble methods</a></li>
-<li><a href="https://xgboost.readthedocs.io/en/stable/python/python_api.html">XGBoost — Python API</a></li>
 </ul>
 <hr />
-<p><strong>¿Dudas?</strong> → <a href="../codespaces/">Codespaces</a> · <a href="../../faq/">FAQ</a></p>
+<p><strong>¿Dudas?</strong> → <a href="../instalacion/">Instalación</a> · <a href="../../faq/">FAQ</a></p>
 
 
 

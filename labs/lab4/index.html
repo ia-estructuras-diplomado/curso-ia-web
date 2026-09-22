@@ -26,7 +26,7 @@
     
     
       
-        <title>Lab 4 - CNN y RNN - Curso IA Web</title>
+        <title>Lab 4 - CNN y LSTM - Curso IA Web</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lab-4-inteligencia-artificial-explicable-xai" class="md-skip">
+        <a href="#lab-4-redes-neuronales-cnn-y-lstm" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Lab 4 - CNN y RNN
+              Lab 4 - CNN y LSTM
             
           </span>
         </div>
@@ -822,11 +822,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../codespaces/" class="md-nav__link">
+      <a href="../instalacion/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    GitHub Codespaces
+    Instalación
   </span>
   
 
@@ -940,7 +940,7 @@
           
   
   <span class="md-ellipsis">
-    Lab 4 - CNN y RNN
+    Lab 4 - CNN y LSTM
   </span>
   
 
@@ -951,7 +951,7 @@
         
   
   <span class="md-ellipsis">
-    Lab 4 - CNN y RNN
+    Lab 4 - CNN y LSTM
   </span>
   
 
@@ -991,9 +991,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#dependencias" class="md-nav__link">
+  <a href="#si-falta-torchvision-o-aparece-un-error-symint" class="md-nav__link">
     <span class="md-ellipsis">
-      Dependencias
+      Si falta torchvision o aparece un error SymInt
     </span>
   </a>
   
@@ -1019,7 +1019,7 @@
         
   
   <span class="md-ellipsis">
-    Lab 5 - LLM local / RAG
+    Lab 5 - Claude Code + MCP de normas
   </span>
   
 
@@ -1040,7 +1040,7 @@
         
   
   <span class="md-ellipsis">
-    Lab 6 - Agentes de IA
+    Lab 6 - Agentes con ETABS
   </span>
   
 
@@ -1299,9 +1299,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#dependencias" class="md-nav__link">
+  <a href="#si-falta-torchvision-o-aparece-un-error-symint" class="md-nav__link">
     <span class="md-ellipsis">
-      Dependencias
+      Si falta torchvision o aparece un error SymInt
     </span>
   </a>
   
@@ -1325,18 +1325,17 @@
   
 
 
-<h1 id="lab-4-inteligencia-artificial-explicable-xai">Lab 4: Inteligencia Artificial Explicable (xAI)<a class="headerlink" href="#lab-4-inteligencia-artificial-explicable-xai" title="Permanent link">&para;</a></h1>
+<h1 id="lab-4-redes-neuronales-cnn-y-lstm">Lab 4: Redes Neuronales — CNN y LSTM<a class="headerlink" href="#lab-4-redes-neuronales-cnn-y-lstm" title="Permanent link">&para;</a></h1>
 <div class="lab-actions" markdown="1">
 
-[▶ Crear Codespace — Lab 4](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json){ .md-button .md-button--primary }
+[📖 Guía del lab](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab4/README.md){ .md-button .md-button--primary }
 [📂 Carpeta del lab](https://github.com/ia-estructuras-diplomado/curso-ia-web/tree/main/labs/lab4){ .md-button }
 
 </div>
 
-<p><em>Notebook previsto: <code>redes_neuronales_estructuras_alumno.ipynb</code></em></p>
 <div class="admonition info">
-<p class="admonition-title">Sesión 5</p>
-<p><strong>Duración:</strong> ~4 h · Dos partes · Vía IA-asistida</p>
+<p class="admonition-title">Dos partes</p>
+<p>Mismo entorno <code>labs/.venv</code> (PyTorch CPU).</p>
 </div>
 <h2 id="partes">Partes<a class="headerlink" href="#partes" title="Permanent link">&para;</a></h2>
 <table>
@@ -1350,25 +1349,28 @@
 <tbody>
 <tr>
 <td><strong>1</strong></td>
-<td>xAI tabular — XGBoost, SHAP, LIME, PDP</td>
-<td><code>part_1/xai_estructuras_alumno_ia.ipynb</code></td>
+<td>CNN — grietas en hormigón (imágenes)</td>
+<td><a href="https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab4/part_1/cnn_grietas_estructuras.ipynb"><code>part_1/cnn_grietas_estructuras.ipynb</code></a></td>
 </tr>
 <tr>
 <td><strong>2</strong></td>
-<td>xAI redes — Grad-CAM, Integrated Gradients</td>
-<td><code>part_2/xai_redes_estructuras_alumno_ia.ipynb</code></td>
+<td>LSTM — sensores SHM (series temporales)</td>
+<td><a href="https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab4/part_2/rnn_sensores_estructuras.ipynb"><code>part_2/rnn_sensores_estructuras.ipynb</code></a></td>
 </tr>
 </tbody>
 </table>
 <h2 id="objetivos">Objetivos<a class="headerlink" href="#objetivos" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Aplicar un <strong>kit xAI</strong> sobre XGBoost (global + local).</li>
-<li>Explicar <strong>CNN y LSTM</strong> de Lab 3 con técnicas para redes profundas.</li>
-<li>Comparar interpretaciones tabulares vs espaciales/temporales.</li>
+<li>Entrenar una <strong>CNN</strong> para clasificar grietas en imágenes de hormigón.</li>
+<li>Entrenar una <strong>LSTM</strong> sobre series de sensores SHM.</li>
+<li>Comparar costo y desempeño frente a los modelos clásicos de los Labs 1–3.</li>
 </ol>
-<h2 id="dependencias">Dependencias<a class="headerlink" href="#dependencias" title="Permanent link">&para;</a></h2>
-<p><code>xgboost</code>, <code>shap</code>, <code>lime</code>, <code>captum</code> en <code>labs/requirements.txt</code>.</p>
-<p><a href="../codespaces/">Codespaces</a></p>
+<h2 id="si-falta-torchvision-o-aparece-un-error-symint">Si falta <code>torchvision</code> o aparece un error <code>SymInt</code><a class="headerlink" href="#si-falta-torchvision-o-aparece-un-error-symint" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>bash<span class="w"> </span>labs/_install_torch_cpu.sh<span class="w">                                   </span><span class="c1"># Linux/macOS</span>
+powershell<span class="w"> </span>-ExecutionPolicy<span class="w"> </span>Bypass<span class="w"> </span>-File<span class="w"> </span>labs<span class="se">\_</span>install_torch_cpu.ps1<span class="w">  </span><span class="c1"># Windows</span>
+</code></pre></div>
+<hr />
+<p><strong>¿Dudas?</strong> → <a href="../instalacion/">Instalación</a> · <a href="../../faq/">FAQ</a></p>
 
 
 

@@ -700,6 +700,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#laboratorio-vinculado" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔬 Laboratorio Vinculado
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lecturas-recomendadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      📖 Lecturas Recomendadas
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -963,11 +981,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/codespaces/" class="md-nav__link">
+      <a href="../../labs/instalacion/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    GitHub Codespaces
+    Instalación
   </span>
   
 
@@ -1072,7 +1090,7 @@
         
   
   <span class="md-ellipsis">
-    Lab 4 - CNN y RNN
+    Lab 4 - CNN y LSTM
   </span>
   
 
@@ -1093,7 +1111,7 @@
         
   
   <span class="md-ellipsis">
-    Lab 5 - LLM local / RAG
+    Lab 5 - Claude Code + MCP de normas
   </span>
   
 
@@ -1114,7 +1132,7 @@
         
   
   <span class="md-ellipsis">
-    Lab 6 - Agentes de IA
+    Lab 6 - Agentes con ETABS
   </span>
   
 
@@ -1453,6 +1471,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#laboratorio-vinculado" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔬 Laboratorio Vinculado
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lecturas-recomendadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      📖 Lecturas Recomendadas
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1486,10 +1522,11 @@
 <h2 id="contenido-teorico-15-horas">📚 Contenido Teórico (1.5 horas)<a class="headerlink" href="#contenido-teorico-15-horas" title="Permanent link">&para;</a></h2>
 <h3 id="1-digital-twins-gemelos-digitales">1. Digital Twins (Gemelos Digitales)<a class="headerlink" href="#1-digital-twins-gemelos-digitales" title="Permanent link">&para;</a></h3>
 <p>Un <strong>Gemelo Digital</strong> es una representación virtual dinámica de una estructura física (como un puente o una presa) que se actualiza continuamente mediante datos de sensores en tiempo real (SHM) y simulaciones de ingeniería (Método de Elementos Finitos - FEM).</p>
-<p><code>┌──────────────────────┐                     ┌──────────────────────┐
+<div class="highlight"><pre><span></span><code>  ┌──────────────────────┐                     ┌──────────────────────┐
   │   Estructura Física  │  ───[Datos IoT]───► │    Digital Twin      │
   │  (Puente instrumentado)│  ◄──[Optimización]──│  (Modelo Predictivo) │
-  └──────────────────────┘                     └──────────────────────┘</code></p>
+  └──────────────────────┘                     └──────────────────────┘
+</code></pre></div>
 <p>A diferencia de un modelo CAD estático, un Gemelo Digital:
 - <strong>Aprende y se adapta</strong>: Modifica sus parámetros mecánicos virtuales según las deformaciones observadas.
 - <strong>Predice fallos</strong>: Simula escenarios destructivos virtuales (sismos, sobrecarga extrema) para calcular factores de seguridad actualizados en tiempo real.</p>
@@ -1515,41 +1552,47 @@
 <h2 id="contenido-practico-15-horas">💻 Contenido Práctico (1.5 horas)<a class="headerlink" href="#contenido-practico-15-horas" title="Permanent link">&para;</a></h2>
 <p>En esta práctica realizaremos una comparación de rendimiento entre un modelo paramétrico (Regresión Logística) y uno no paramétrico (K-Nearest Neighbors - KNN) para predecir si una columna requiere refuerzo estructural.</p>
 <h3 id="codigo-paso-a-paso-parametrico-vs-no-parametrico">Código Paso a Paso: Paramétrico vs. No Paramétrico<a class="headerlink" href="#codigo-paso-a-paso-parametrico-vs-no-parametrico" title="Permanent link">&para;</a></h3>
-<p>```python
-import numpy as np
-import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LogisticRegression
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.metrics import classification_report, accuracy_score</p>
-<h1 id="1-simulacion-de-datos-de-columnas-de-hormigon-armado">1. Simulación de datos de columnas de hormigón armado<a class="headerlink" href="#1-simulacion-de-datos-de-columnas-de-hormigon-armado" title="Permanent link">&para;</a></h1>
-<h1 id="caracteristicas-carga-axial-aplicada-kn-desviacion-geometrica-mm">Características: Carga axial aplicada (kN), Desviación geométrica (mm)<a class="headerlink" href="#caracteristicas-carga-axial-aplicada-kn-desviacion-geometrica-mm" title="Permanent link">&para;</a></h1>
-<h1 id="target-requiere-refuerzo-1-si-0-no">Target: Requiere Refuerzo (1: Sí, 0: No)<a class="headerlink" href="#target-requiere-refuerzo-1-si-0-no" title="Permanent link">&para;</a></h1>
-<p>np.random.seed(123)
-n_samples = 400
-carga_axial = np.random.uniform(500, 3000, n_samples)
-desviacion = np.random.uniform(0, 50, n_samples)</p>
-<h1 id="condicion-no-lineal-de-fallo-ej-pandeo-excentrico">Condición no lineal de fallo (ej. pandeo excéntrico)<a class="headerlink" href="#condicion-no-lineal-de-fallo-ej-pandeo-excentrico" title="Permanent link">&para;</a></h1>
-<p>fallo_line = 0.015 * carga_axial + 0.6 * desviacion + (carga_axial * desviacion * 0.001)
-requiere_refuerzo = (fallo_line &gt; 45).astype(int)</p>
-<p>df = pd.DataFrame({'carga': carga_axial, 'desviacion': desviacion, 'refuerzo': requiere_refuerzo})</p>
-<p>X = df[['carga', 'desviacion']]
-y = df['refuerzo']
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)</p>
-<h1 id="2-modelo-parametrico-regresion-logistica">2. Modelo Paramétrico: Regresión Logística<a class="headerlink" href="#2-modelo-parametrico-regresion-logistica" title="Permanent link">&para;</a></h1>
-<p>modelo_param = LogisticRegression()
-modelo_param.fit(X_train, y_train)
-y_pred_param = modelo_param.predict(X_test)</p>
-<h1 id="3-modelo-no-parametrico-knn-k5">3. Modelo No Paramétrico: KNN (k=5)<a class="headerlink" href="#3-modelo-no-parametrico-knn-k5" title="Permanent link">&para;</a></h1>
-<p>modelo_no_param = KNeighborsClassifier(n_neighbors=5)
-modelo_no_param.fit(X_train, y_train)
-y_pred_no_param = modelo_no_param.predict(X_test)</p>
-<h1 id="4-comparar-resultados">4. Comparar Resultados<a class="headerlink" href="#4-comparar-resultados" title="Permanent link">&para;</a></h1>
-<p>print("--- MODELO PARAMÉTRICO (Regresión Logística) ---")
-print(f"Accuracy: {accuracy_score(y_test, y_pred_param):.3f}")
-print("--- MODELO NO PARAMÉTRICO (K-Nearest Neighbors) ---")
-print(f"Accuracy: {accuracy_score(y_test, y_pred_no_param):.3f}")
-```</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.neighbors</span><span class="w"> </span><span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">accuracy_score</span>
+
+<span class="c1"># 1. Simulación de datos de columnas de hormigón armado</span>
+<span class="c1"># Características: Carga axial aplicada (kN), Desviación geométrica (mm)</span>
+<span class="c1"># Target: Requiere Refuerzo (1: Sí, 0: No)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">400</span>
+<span class="n">carga_axial</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">3000</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">)</span>
+<span class="n">desviacion</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">)</span>
+
+<span class="c1"># Condición no lineal de fallo (ej. pandeo excéntrico)</span>
+<span class="n">fallo_line</span> <span class="o">=</span> <span class="mf">0.015</span> <span class="o">*</span> <span class="n">carga_axial</span> <span class="o">+</span> <span class="mf">0.6</span> <span class="o">*</span> <span class="n">desviacion</span> <span class="o">+</span> <span class="p">(</span><span class="n">carga_axial</span> <span class="o">*</span> <span class="n">desviacion</span> <span class="o">*</span> <span class="mf">0.001</span><span class="p">)</span>
+<span class="n">requiere_refuerzo</span> <span class="o">=</span> <span class="p">(</span><span class="n">fallo_line</span> <span class="o">&gt;</span> <span class="mi">45</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'carga'</span><span class="p">:</span> <span class="n">carga_axial</span><span class="p">,</span> <span class="s1">'desviacion'</span><span class="p">:</span> <span class="n">desviacion</span><span class="p">,</span> <span class="s1">'refuerzo'</span><span class="p">:</span> <span class="n">requiere_refuerzo</span><span class="p">})</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">'carga'</span><span class="p">,</span> <span class="s1">'desviacion'</span><span class="p">]]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'refuerzo'</span><span class="p">]</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># 2. Modelo Paramétrico: Regresión Logística</span>
+<span class="n">modelo_param</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="n">modelo_param</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_pred_param</span> <span class="o">=</span> <span class="n">modelo_param</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># 3. Modelo No Paramétrico: KNN (k=5)</span>
+<span class="n">modelo_no_param</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">modelo_no_param</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_pred_no_param</span> <span class="o">=</span> <span class="n">modelo_no_param</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># 4. Comparar Resultados</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"--- MODELO PARAMÉTRICO (Regresión Logística) ---"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Accuracy: </span><span class="si">{</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred_param</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"--- MODELO NO PARAMÉTRICO (K-Nearest Neighbors) ---"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Accuracy: </span><span class="si">{</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred_no_param</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
 <hr />
 <h2 id="laboratorio-vinculado">🔬 Laboratorio Vinculado<a class="headerlink" href="#laboratorio-vinculado" title="Permanent link">&para;</a></h2>
 <p>Esta sesión sienta las bases conceptuales para completar el <strong><a href="../../labs/lab3/">Laboratorio 3 — xAI</a></strong> y la modelación final del <strong>Trabajo Grupal 3 (T3)</strong>.</p>

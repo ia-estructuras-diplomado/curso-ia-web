@@ -637,6 +637,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#laboratorio-vinculado" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔬 Laboratorio Vinculado
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lecturas-recomendadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      📖 Lecturas Recomendadas
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -963,11 +981,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/codespaces/" class="md-nav__link">
+      <a href="../../labs/instalacion/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    GitHub Codespaces
+    Instalación
   </span>
   
 
@@ -1072,7 +1090,7 @@
         
   
   <span class="md-ellipsis">
-    Lab 4 - CNN y RNN
+    Lab 4 - CNN y LSTM
   </span>
   
 
@@ -1093,7 +1111,7 @@
         
   
   <span class="md-ellipsis">
-    Lab 5 - LLM local / RAG
+    Lab 5 - Claude Code + MCP de normas
   </span>
   
 
@@ -1114,7 +1132,7 @@
         
   
   <span class="md-ellipsis">
-    Lab 6 - Agentes de IA
+    Lab 6 - Agentes con ETABS
   </span>
   
 
@@ -1453,6 +1471,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#laboratorio-vinculado" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔬 Laboratorio Vinculado
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lecturas-recomendadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      📖 Lecturas Recomendadas
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1486,7 +1522,7 @@
 <h2 id="contenido-teorico-15-horas">📚 Contenido Teórico (1.5 horas)<a class="headerlink" href="#contenido-teorico-15-horas" title="Permanent link">&para;</a></h2>
 <h3 id="1-taxonomia-del-machine-learning-en-ingenieria">1. Taxonomía del Machine Learning en Ingeniería<a class="headerlink" href="#1-taxonomia-del-machine-learning-en-ingenieria" title="Permanent link">&para;</a></h3>
 <p>El Machine Learning se clasifica principalmente en dos grandes paradigmas según la disponibilidad de etiquetas:</p>
-<p><code>┌────────────────────────┐
+<div class="highlight"><pre><span></span><code>                            ┌────────────────────────┐
                             │    Machine Learning    │
                             └───────────┬────────────┘
                                         │
@@ -1496,7 +1532,8 @@
     (Datos etiquetados: X -&gt; Y)                  (Solo datos de entrada: X)
       │                                            │
       ├─► Regresión (Ej. predecir carga útil)      ├─► Clustering (Ej. agrupar fallas)
-      └─► Clasificación (Ej. Daño/No Daño)        └─► Detección de Anomalías (Ruido)</code></p>
+      └─► Clasificación (Ej. Daño/No Daño)        └─► Detección de Anomalías (Ruido)
+</code></pre></div>
 <ul>
 <li><strong>Ejemplo Supervisado</strong>: Predecir el módulo de elasticidad del hormigón (<span class="arithmatex">\(Y\)</span>) a partir de su dosificación y edad (<span class="arithmatex">\(X\)</span>).</li>
 <li><strong>Ejemplo No Supervisado</strong>: Agrupar registros de acelerómetros de un edificio durante un terremoto para encontrar modos de vibración naturales sin etiquetas previas.</li>
@@ -1527,35 +1564,40 @@
 <h2 id="contenido-practico-15-horas">💻 Contenido Práctico (1.5 horas)<a class="headerlink" href="#contenido-practico-15-horas" title="Permanent link">&para;</a></h2>
 <p>En este taller utilizaremos la librería <code>scikit-learn</code> para crear un predictor del estado del hormigón.</p>
 <h3 id="codigo-paso-a-paso-regresion-para-resistencia-a-la-compresion-f_c">Código Paso a Paso: Regresión para Resistencia a la Compresión (<span class="arithmatex">\(f'_c\)</span>)<a class="headerlink" href="#codigo-paso-a-paso-regresion-para-resistencia-a-la-compresion-f_c" title="Permanent link">&para;</a></h3>
-<p>```python
-import numpy as np
-import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.metrics import mean_squared_error, r2_score</p>
-<h1 id="1-simulacion-de-datos-de-dosificacion-de-concreto">1. Simulación de datos de dosificación de concreto<a class="headerlink" href="#1-simulacion-de-datos-de-dosificacion-de-concreto" title="Permanent link">&para;</a></h1>
-<h1 id="columnas-cemento-kg-agua-kg-edad-dias-resistencia-mpa">Columnas: Cemento (kg), Agua (kg), Edad (días) -&gt; Resistencia (MPa)<a class="headerlink" href="#columnas-cemento-kg-agua-kg-edad-dias-resistencia-mpa" title="Permanent link">&para;</a></h1>
-<p>np.random.seed(42)
-n_samples = 500
-cemento = np.random.uniform(200, 450, n_samples)
-agua = np.random.uniform(140, 220, n_samples)
-edad = np.random.choice([3, 7, 28, 90], n_samples)</p>
-<h1 id="resistencia-con-cierta-aleatoriedad-fisica">Resistencia con cierta aleatoriedad física<a class="headerlink" href="#resistencia-con-cierta-aleatoriedad-fisica" title="Permanent link">&para;</a></h1>
-<p>resistencia = 0.12 * cemento - 0.08 * agua + 0.5 * edad + np.random.normal(0, 3, n_samples)</p>
-<p>df = pd.DataFrame({'cemento': cemento, 'agua': agua, 'edad': edad, 'resistencia': resistencia})</p>
-<h1 id="2-dividir-datos-en-caracteristicas-x-y-target-y">2. Dividir datos en Características (X) y Target (y)<a class="headerlink" href="#2-dividir-datos-en-caracteristicas-x-y-target-y" title="Permanent link">&para;</a></h1>
-<p>X = df[['cemento', 'agua', 'edad']]
-y = df['resistencia']</p>
-<h1 id="3-traintest-split-80-entrenamiento-20-evaluacion">3. Train/Test Split (80% entrenamiento, 20% evaluación)<a class="headerlink" href="#3-traintest-split-80-entrenamiento-20-evaluacion" title="Permanent link">&para;</a></h1>
-<p>X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)</p>
-<h1 id="4-entrenar-modelo-bosque-aleatorio-random-forest">4. Entrenar modelo (Bosque Aleatorio / Random Forest)<a class="headerlink" href="#4-entrenar-modelo-bosque-aleatorio-random-forest" title="Permanent link">&para;</a></h1>
-<p>modelo = RandomForestRegressor(n_estimators=100, random_state=42)
-modelo.fit(X_train, y_train)</p>
-<h1 id="5-prediccion-y-evaluacion">5. Predicción y Evaluación<a class="headerlink" href="#5-prediccion-y-evaluacion" title="Permanent link">&para;</a></h1>
-<p>y_pred = modelo.predict(X_test)
-print(f"R² Score del Modelo: {r2_score(y_test, y_pred):.3f}")
-print(f"Error Absoluto Medio (RMSE): {np.sqrt(mean_squared_error(y_test, y_pred)):.2f} MPa")
-```</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomForestRegressor</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">r2_score</span>
+
+<span class="c1"># 1. Simulación de datos de dosificación de concreto</span>
+<span class="c1"># Columnas: Cemento (kg), Agua (kg), Edad (días) -&gt; Resistencia (MPa)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="n">cemento</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">450</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">)</span>
+<span class="n">agua</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">140</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">)</span>
+<span class="n">edad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">90</span><span class="p">],</span> <span class="n">n_samples</span><span class="p">)</span>
+<span class="c1"># Resistencia con cierta aleatoriedad física</span>
+<span class="n">resistencia</span> <span class="o">=</span> <span class="mf">0.12</span> <span class="o">*</span> <span class="n">cemento</span> <span class="o">-</span> <span class="mf">0.08</span> <span class="o">*</span> <span class="n">agua</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">edad</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'cemento'</span><span class="p">:</span> <span class="n">cemento</span><span class="p">,</span> <span class="s1">'agua'</span><span class="p">:</span> <span class="n">agua</span><span class="p">,</span> <span class="s1">'edad'</span><span class="p">:</span> <span class="n">edad</span><span class="p">,</span> <span class="s1">'resistencia'</span><span class="p">:</span> <span class="n">resistencia</span><span class="p">})</span>
+
+<span class="c1"># 2. Dividir datos en Características (X) y Target (y)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">'cemento'</span><span class="p">,</span> <span class="s1">'agua'</span><span class="p">,</span> <span class="s1">'edad'</span><span class="p">]]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'resistencia'</span><span class="p">]</span>
+
+<span class="c1"># 3. Train/Test Split (80% entrenamiento, 20% evaluación)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># 4. Entrenar modelo (Bosque Aleatorio / Random Forest)</span>
+<span class="n">modelo</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">modelo</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># 5. Predicción y Evaluación</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">modelo</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"R² Score del Modelo: </span><span class="si">{</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Error Absoluto Medio (RMSE): </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred</span><span class="p">))</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> MPa"</span><span class="p">)</span>
+</code></pre></div>
 <hr />
 <h2 id="laboratorio-vinculado">🔬 Laboratorio Vinculado<a class="headerlink" href="#laboratorio-vinculado" title="Permanent link">&para;</a></h2>
 <p>Esta sesión inicia el desarrollo práctico del <strong><a href="../../labs/lab2/">Laboratorio 2</a></strong> (regresión UCI — hormigón), el cual debes resolver antes de la sesión de exposiciones (Sesión 4).</p>

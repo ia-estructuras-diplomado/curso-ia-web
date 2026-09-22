@@ -822,11 +822,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../codespaces/" class="md-nav__link">
+      <a href="../instalacion/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    GitHub Codespaces
+    Instalación
   </span>
   
 
@@ -919,18 +919,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#contexto" class="md-nav__link">
+  <a href="#pasos" class="md-nav__link">
     <span class="md-ellipsis">
-      Contexto
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pasos-en-codespaces" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pasos en Codespaces
+      Pasos
     </span>
   </a>
   
@@ -946,18 +937,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#recursos-en-el-repositorio" class="md-nav__link">
+  <a href="#recursos" class="md-nav__link">
     <span class="md-ellipsis">
-      Recursos en el repositorio
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lecturas" class="md-nav__link">
-    <span class="md-ellipsis">
-      Lecturas
+      Recursos
     </span>
   </a>
   
@@ -1025,7 +1007,7 @@
         
   
   <span class="md-ellipsis">
-    Lab 4 - CNN y RNN
+    Lab 4 - CNN y LSTM
   </span>
   
 
@@ -1046,7 +1028,7 @@
         
   
   <span class="md-ellipsis">
-    Lab 5 - LLM local / RAG
+    Lab 5 - Claude Code + MCP de normas
   </span>
   
 
@@ -1067,7 +1049,7 @@
         
   
   <span class="md-ellipsis">
-    Lab 6 - Agentes de IA
+    Lab 6 - Agentes con ETABS
   </span>
   
 
@@ -1317,18 +1299,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#contexto" class="md-nav__link">
+  <a href="#pasos" class="md-nav__link">
     <span class="md-ellipsis">
-      Contexto
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pasos-en-codespaces" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pasos en Codespaces
+      Pasos
     </span>
   </a>
   
@@ -1344,18 +1317,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#recursos-en-el-repositorio" class="md-nav__link">
+  <a href="#recursos" class="md-nav__link">
     <span class="md-ellipsis">
-      Recursos en el repositorio
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lecturas" class="md-nav__link">
-    <span class="md-ellipsis">
-      Lecturas
+      Recursos
     </span>
   </a>
   
@@ -1382,8 +1346,8 @@
 <h1 id="lab-1-pca-clustering-y-monitoreo-estructural-shm">Lab 1: PCA, Clustering y Monitoreo Estructural (SHM)<a class="headerlink" href="#lab-1-pca-clustering-y-monitoreo-estructural-shm" title="Permanent link">&para;</a></h1>
 <div class="lab-actions" markdown="1">
 
-[▶ Crear Codespace — Lab 1](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json){ .md-button .md-button--primary }
-[📓 Abrir notebook](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab1/pca_monitoreo_estructural_alumno.ipynb){ .md-button }
+[📓 Notebook de referencia](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab1/pca_monitoreo_estructural.ipynb){ .md-button .md-button--primary }
+[📂 Carpeta del lab](https://github.com/ia-estructuras-diplomado/curso-ia-web/tree/main/labs/lab1){ .md-button }
 
 </div>
 
@@ -1392,41 +1356,33 @@
 <p><strong>Duración:</strong> ~3 horas</p>
 </div>
 <h2 id="objetivo">Objetivo<a class="headerlink" href="#objetivo" title="Permanent link">&para;</a></h2>
-<p>Aplicar <strong>PCA</strong>, <strong>K-Means</strong> (codo), <strong>DBSCAN</strong>, loadings y clasificación con sensores Kaggle (monitoreo estructural).</p>
-<h2 id="contexto">Contexto<a class="headerlink" href="#contexto" title="Permanent link">&para;</a></h2>
-<p>Dataset con lecturas de acelerómetros, inclinómetros, strain gauges, etc., y etiqueta de <strong>condición estructural</strong> (0 = sano, 1 = daño moderado, 2 = daño severo).</p>
-<h2 id="pasos-en-codespaces">Pasos en Codespaces<a class="headerlink" href="#pasos-en-codespaces" title="Permanent link">&para;</a></h2>
+<p>Reducir la dimensionalidad de 5 señales de sensor (aceleración en 3 ejes,
+deformación, temperatura) con <strong>PCA</strong>, y explorar si los estados de daño
+(<code>Condition Label</code>) emergen como agrupaciones naturales con <strong>KMeans</strong> y
+<strong>DBSCAN</strong> — sin usar la etiqueta para calcularlas, solo para evaluar al final.</p>
+<h2 id="pasos">Pasos<a class="headerlink" href="#pasos" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Pulsa <strong>Crear Codespace — Lab 1</strong> (arriba).</li>
-<li>Abre <strong><code>labs/lab1/pca_monitoreo_estructural_alumno.ipynb</code></strong>.</li>
-<li>Ejecuta en orden; completa solo celdas <code>### TU TAREA AQUÍ ###</code>.</li>
+<li>Abre <strong><code>labs/lab1/pca_monitoreo_estructural.ipynb</code></strong> y ejecútalo (Run All).</li>
+<li>Construye tu propio notebook guiándote por el
+   <a href="https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab1/README.md">README del lab</a>.</li>
 </ol>
 <h2 id="contenido-del-notebook">Contenido del notebook<a class="headerlink" href="#contenido-del-notebook" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Contexto PCA en monitoreo estructural</li>
-<li>Carga y limpieza del dataset Kaggle</li>
-<li>Estadísticas descriptivas y correlaciones</li>
-<li>Estandarización (<code>StandardScaler</code>)</li>
-<li>PCA — scree plot y varianza explicada</li>
-<li>Proyección 2D PC1 vs PC2</li>
-<li>K-Means — gráfico del codo</li>
-<li>DBSCAN — densidad y ruido</li>
-<li>Comparativa KMeans vs DBSCAN (Silhouette, ARI)</li>
-<li>Loadings, biplot y clasificación</li>
+<li>Carga y limpieza del dataset de sensores</li>
+<li>Estadísticas descriptivas, distribución de clases, correlación</li>
+<li>Estandarización y PCA (varianza explicada, proyección 2D)</li>
+<li>KMeans (método del codo) y DBSCAN (densidad)</li>
+<li>Comparación contra la etiqueta real (Silhouette, ARI)</li>
+<li>Loadings y clasificación (features originales vs. PCA)</li>
 </ol>
-<h2 id="recursos-en-el-repositorio">Recursos en el repositorio<a class="headerlink" href="#recursos-en-el-repositorio" title="Permanent link">&para;</a></h2>
+<h2 id="recursos">Recursos<a class="headerlink" href="#recursos" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Notebook:</strong> <code>labs/lab1/pca_monitoreo_estructural_alumno.ipynb</code></li>
-<li><strong>Dataset:</strong> <code>labs/lab1/data/building_health_monitoring_dataset.csv</code></li>
-<li><strong>Documentación:</strong> <code>labs/lab1/data/DATOS.md</code></li>
-</ul>
-<h2 id="lecturas">Lecturas<a class="headerlink" href="#lecturas" title="Permanent link">&para;</a></h2>
-<ul>
+<li><strong>Dataset:</strong> <code>labs/lab1/data/building_health_monitoring_dataset.csv</code> (<a href="https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab1/data/DATOS.md">DATOS.md</a>)</li>
 <li><a href="https://www.kaggle.com/datasets/ziya07/building-structural-health-sensor-dataset">Kaggle — Building Structural Health Sensor Dataset</a></li>
 <li><a href="https://scikit-learn.org/stable/modules/clustering.html">Scikit-learn — Clustering</a></li>
 </ul>
 <hr />
-<p><strong>¿Dudas?</strong> → <a href="../codespaces/">Codespaces</a> · <a href="../../faq/">FAQ</a></p>
+<p><strong>¿Dudas?</strong> → <a href="../instalacion/">Instalación</a> · <a href="../../faq/">FAQ</a></p>
 
 
 

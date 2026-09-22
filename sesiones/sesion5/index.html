@@ -670,6 +670,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#laboratorio-vinculado" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔬 Laboratorio Vinculado
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lecturas-recomendadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      📖 Lecturas Recomendadas
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -954,11 +972,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/codespaces/" class="md-nav__link">
+      <a href="../../labs/instalacion/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    GitHub Codespaces
+    Instalación
   </span>
   
 
@@ -1063,7 +1081,7 @@
         
   
   <span class="md-ellipsis">
-    Lab 4 - CNN y RNN
+    Lab 4 - CNN y LSTM
   </span>
   
 
@@ -1084,7 +1102,7 @@
         
   
   <span class="md-ellipsis">
-    Lab 5 - LLM local / RAG
+    Lab 5 - Claude Code + MCP de normas
   </span>
   
 
@@ -1105,7 +1123,7 @@
         
   
   <span class="md-ellipsis">
-    Lab 6 - Agentes de IA
+    Lab 6 - Agentes con ETABS
   </span>
   
 
@@ -1435,6 +1453,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#laboratorio-vinculado" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔬 Laboratorio Vinculado
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lecturas-recomendadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      📖 Lecturas Recomendadas
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1468,12 +1504,13 @@
 <h2 id="contenido-teorico-15-horas">📚 Contenido Teórico (1.5 horas)<a class="headerlink" href="#contenido-teorico-15-horas" title="Permanent link">&para;</a></h2>
 <h3 id="1-el-dominio-del-tiempo-vs-dominio-de-la-frecuencia">1. El Dominio del Tiempo vs. Dominio de la Frecuencia<a class="headerlink" href="#1-el-dominio-del-tiempo-vs-dominio-de-la-frecuencia" title="Permanent link">&para;</a></h3>
 <p>Los sensores de aceleración instalados en puentes o edificios registran señales en el <strong>dominio del tiempo</strong> (aceleración vs. segundo). Sin embargo, las propiedades físicas de una estructura (rigidez y masa) se manifiestan de forma clara en el <strong>dominio de la frecuencia</strong>.</p>
-<p><code>Señal de Sensor (Tiempo)            Transformada de Fourier (FFT)          Espectro de Frecuencia
+<div class="highlight"><pre><span></span><code>    Señal de Sensor (Tiempo)            Transformada de Fourier (FFT)          Espectro de Frecuencia
      Aceleración (g)                         ┌───────────┐                         Amplitud
         │   /\    /\                         │           │                            │       /\
         │  /  \  /  \                        │    FFT    │  ────────────────────────► │      /  \
         │ /    \/    \                       │           │                            │     /    \  /\
-      ──┴───────────────► Tiempo             └───────────┘                            └────┴──────┴──┴──► Frecuencia (Hz)</code></p>
+      ──┴───────────────► Tiempo             └───────────┘                            └────┴──────┴──┴──► Frecuencia (Hz)
+</code></pre></div>
 <p>La <strong>Transformada Rápida de Fourier (FFT)</strong> descompone una señal temporal compleja en sus frecuencias constituyentes, identificando las <strong>frecuencias naturales o modos de vibración</strong> de la estructura. Un cambio repentino en estas frecuencias naturales suele indicar una pérdida de rigidez (es decir, daño estructural).</p>
 <h3 id="2-algoritmos-de-aprendizaje-no-supervisado-clustering">2. Algoritmos de Aprendizaje No Supervisado: Clustering<a class="headerlink" href="#2-algoritmos-de-aprendizaje-no-supervisado-clustering" title="Permanent link">&para;</a></h3>
 <p>El agrupamiento o clustering busca organizar conjuntos de datos en grupos (clústeres) cuyos elementos son similares entre sí y diferentes a los de otros grupos.</p>
@@ -1493,43 +1530,48 @@
 <h2 id="contenido-practico-15-horas">💻 Contenido Práctico (1.5 horas)<a class="headerlink" href="#contenido-practico-15-horas" title="Permanent link">&para;</a></h2>
 <p>En esta práctica aprenderemos a aplicar FFT a una señal de acelerómetro simulada y a agrupar los picos espectrales utilizando K-Means.</p>
 <h3 id="codigo-paso-a-paso-analisis-espectral-y-clustering">Código Paso a Paso: Análisis Espectral y Clustering<a class="headerlink" href="#codigo-paso-a-paso-analisis-espectral-y-clustering" title="Permanent link">&para;</a></h3>
-<p>```python
-import numpy as np
-import pandas as pd
-from scipy.fft import fft, fftfreq
-from sklearn.cluster import KMeans
-import matplotlib.pyplot as plt</p>
-<h1 id="1-simulacion-de-una-senal-dinamica-vibracion-del-puente">1. Simulación de una señal dinámica (Vibración del puente)<a class="headerlink" href="#1-simulacion-de-una-senal-dinamica-vibracion-del-puente" title="Permanent link">&para;</a></h1>
-<h1 id="dos-frecuencias-predominantes-modos-estructurales-a-5-hz-y-12-hz-mas-ruido">Dos frecuencias predominantes (modos estructurales a 5 Hz y 12 Hz) más ruido<a class="headerlink" href="#dos-frecuencias-predominantes-modos-estructurales-a-5-hz-y-12-hz-mas-ruido" title="Permanent link">&para;</a></h1>
-<p>fs = 100.0  # Frecuencia de muestreo: 100 Hz
-t = np.arange(0, 10, 1/fs)  # 10 segundos
-vibracion = 2.0 * np.sin(2 * np.pi * 5.0 * t) + 1.5 * np.sin(2 * np.pi * 12.0 * t) + np.random.normal(0, 1.0, len(t))</p>
-<h1 id="2-aplicar-transformada-rapida-de-fourier-fft">2. Aplicar Transformada Rápida de Fourier (FFT)<a class="headerlink" href="#2-aplicar-transformada-rapida-de-fourier-fft" title="Permanent link">&para;</a></h1>
-<p>N = len(t)
-y_fft = fft(vibracion)
-xf = fftfreq(N, 1/fs)[:N//2]
-yf = 2.0/N * np.abs(y_fft[0:N//2])</p>
-<h1 id="3-clustering-para-identificar-frecuencias-predominantes-k-means">3. Clustering para identificar frecuencias predominantes (K-Means)<a class="headerlink" href="#3-clustering-para-identificar-frecuencias-predominantes-k-means" title="Permanent link">&para;</a></h1>
-<h1 id="extraemos-los-puntos-con-mayor-amplitud-para-agruparlos">Extraemos los puntos con mayor amplitud para agruparlos<a class="headerlink" href="#extraemos-los-puntos-con-mayor-amplitud-para-agruparlos" title="Permanent link">&para;</a></h1>
-<p>picos = pd.DataFrame({'frecuencia': xf, 'amplitud': yf})
-picos_significativos = picos[picos['amplitud'] &gt; 0.3]</p>
-<h1 id="agrupar-las-frecuencias-de-los-picos-en-2-clusteres-principales">Agrupar las frecuencias de los picos en 2 clústeres principales<a class="headerlink" href="#agrupar-las-frecuencias-de-los-picos-en-2-clusteres-principales" title="Permanent link">&para;</a></h1>
-<p>kmeans = KMeans(n_clusters=2, random_state=42, n_init=10)
-picos_significativos['cluster'] = kmeans.fit_predict(picos_significativos[['frecuencia']])</p>
-<h1 id="4-visualizar-espectro-y-clusteres">4. Visualizar Espectro y Clústeres<a class="headerlink" href="#4-visualizar-espectro-y-clusteres" title="Permanent link">&para;</a></h1>
-<p>plt.figure(figsize=(10, 5))
-colors = ['red', 'blue']
-for cluster_id in [0, 1]:
-    sub = picos_significativos[picos_significativos['cluster'] == cluster_id]
-    plt.scatter(sub['frecuencia'], sub['amplitud'], label=f'Modo Estructural {cluster_id + 1}', s=100, color=colors[cluster_id])</p>
-<p>plt.plot(xf, yf, color='gray', alpha=0.5, label='Espectro FFT')
-plt.title('Identificación de Modos Estructurales Mediante FFT y Clustering')
-plt.xlabel('Frecuencia (Hz)')
-plt.ylabel('Amplitud')
-plt.legend()
-plt.grid(True)
-plt.show()
-```</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.fft</span><span class="w"> </span><span class="kn">import</span> <span class="n">fft</span><span class="p">,</span> <span class="n">fftfreq</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">KMeans</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># 1. Simulación de una señal dinámica (Vibración del puente)</span>
+<span class="c1"># Dos frecuencias predominantes (modos estructurales a 5 Hz y 12 Hz) más ruido</span>
+<span class="n">fs</span> <span class="o">=</span> <span class="mf">100.0</span>  <span class="c1"># Frecuencia de muestreo: 100 Hz</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">fs</span><span class="p">)</span>  <span class="c1"># 10 segundos</span>
+<span class="n">vibracion</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mf">5.0</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mf">12.0</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+
+<span class="c1"># 2. Aplicar Transformada Rápida de Fourier (FFT)</span>
+<span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="n">y_fft</span> <span class="o">=</span> <span class="n">fft</span><span class="p">(</span><span class="n">vibracion</span><span class="p">)</span>
+<span class="n">xf</span> <span class="o">=</span> <span class="n">fftfreq</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">fs</span><span class="p">)[:</span><span class="n">N</span><span class="o">//</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">yf</span> <span class="o">=</span> <span class="mf">2.0</span><span class="o">/</span><span class="n">N</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y_fft</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">N</span><span class="o">//</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="c1"># 3. Clustering para identificar frecuencias predominantes (K-Means)</span>
+<span class="c1"># Extraemos los puntos con mayor amplitud para agruparlos</span>
+<span class="n">picos</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'frecuencia'</span><span class="p">:</span> <span class="n">xf</span><span class="p">,</span> <span class="s1">'amplitud'</span><span class="p">:</span> <span class="n">yf</span><span class="p">})</span>
+<span class="n">picos_significativos</span> <span class="o">=</span> <span class="n">picos</span><span class="p">[</span><span class="n">picos</span><span class="p">[</span><span class="s1">'amplitud'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.3</span><span class="p">]</span>
+
+<span class="c1"># Agrupar las frecuencias de los picos en 2 clústeres principales</span>
+<span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">picos_significativos</span><span class="p">[</span><span class="s1">'cluster'</span><span class="p">]</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">picos_significativos</span><span class="p">[[</span><span class="s1">'frecuencia'</span><span class="p">]])</span>
+
+<span class="c1"># 4. Visualizar Espectro y Clústeres</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'red'</span><span class="p">,</span> <span class="s1">'blue'</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">cluster_id</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]:</span>
+    <span class="n">sub</span> <span class="o">=</span> <span class="n">picos_significativos</span><span class="p">[</span><span class="n">picos_significativos</span><span class="p">[</span><span class="s1">'cluster'</span><span class="p">]</span> <span class="o">==</span> <span class="n">cluster_id</span><span class="p">]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">sub</span><span class="p">[</span><span class="s1">'frecuencia'</span><span class="p">],</span> <span class="n">sub</span><span class="p">[</span><span class="s1">'amplitud'</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">'Modo Estructural </span><span class="si">{</span><span class="n">cluster_id</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">cluster_id</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xf</span><span class="p">,</span> <span class="n">yf</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Espectro FFT'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Identificación de Modos Estructurales Mediante FFT y Clustering'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Frecuencia (Hz)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Amplitud'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
 <hr />
 <h2 id="laboratorio-vinculado">🔬 Laboratorio Vinculado<a class="headerlink" href="#laboratorio-vinculado" title="Permanent link">&para;</a></h2>
 <p>Esta sesión sienta las bases teóricas y de código para el <strong><a href="../../labs/lab1/">Laboratorio 1 — PCA y SHM</a></strong> y el desarrollo del <strong>Trabajo Grupal 2 (T2)</strong>.</p>

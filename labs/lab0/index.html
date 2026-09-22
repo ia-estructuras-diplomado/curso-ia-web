@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://ia-estructuras-diplomado.github.io/curso-ia-web/labs/lab0/">
       
       
-        <link rel="prev" href="../codespaces/">
+        <link rel="prev" href="../instalacion/">
       
       
         <link rel="next" href="../lab1/">
@@ -822,11 +822,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../codespaces/" class="md-nav__link">
+      <a href="../instalacion/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    GitHub Codespaces
+    Instalación
   </span>
   
 
@@ -898,9 +898,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pasos-en-codespaces" class="md-nav__link">
+  <a href="#pasos" class="md-nav__link">
     <span class="md-ellipsis">
-      Pasos en Codespaces
+      Pasos
     </span>
   </a>
   
@@ -910,24 +910,6 @@
   <a href="#secciones-del-notebook" class="md-nav__link">
     <span class="md-ellipsis">
       Secciones del notebook
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#recursos-en-el-repositorio" class="md-nav__link">
-    <span class="md-ellipsis">
-      Recursos en el repositorio
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#alternativa-local" class="md-nav__link">
-    <span class="md-ellipsis">
-      Alternativa local
     </span>
   </a>
   
@@ -1034,7 +1016,7 @@
         
   
   <span class="md-ellipsis">
-    Lab 4 - CNN y RNN
+    Lab 4 - CNN y LSTM
   </span>
   
 
@@ -1055,7 +1037,7 @@
         
   
   <span class="md-ellipsis">
-    Lab 5 - LLM local / RAG
+    Lab 5 - Claude Code + MCP de normas
   </span>
   
 
@@ -1076,7 +1058,7 @@
         
   
   <span class="md-ellipsis">
-    Lab 6 - Agentes de IA
+    Lab 6 - Agentes con ETABS
   </span>
   
 
@@ -1326,9 +1308,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pasos-en-codespaces" class="md-nav__link">
+  <a href="#pasos" class="md-nav__link">
     <span class="md-ellipsis">
-      Pasos en Codespaces
+      Pasos
     </span>
   </a>
   
@@ -1338,24 +1320,6 @@
   <a href="#secciones-del-notebook" class="md-nav__link">
     <span class="md-ellipsis">
       Secciones del notebook
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#recursos-en-el-repositorio" class="md-nav__link">
-    <span class="md-ellipsis">
-      Recursos en el repositorio
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#alternativa-local" class="md-nav__link">
-    <span class="md-ellipsis">
-      Alternativa local
     </span>
   </a>
   
@@ -1400,8 +1364,8 @@
 <h1 id="lab-0-fundamentos-de-python-para-ia">Lab 0: Fundamentos de Python para IA<a class="headerlink" href="#lab-0-fundamentos-de-python-para-ia" title="Permanent link">&para;</a></h1>
 <div class="lab-actions" markdown="1">
 
-[▶ Crear Codespace — Lab 0](https://codespaces.new/ia-estructuras-diplomado/curso-ia-web?quickstart=1&devcontainer_path=.devcontainer%2Fdevcontainer.json){ .md-button .md-button--primary }
-[📓 Abrir notebook](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab0/fundamentos_python_ia_alumno.ipynb){ .md-button }
+[📓 Notebook de referencia](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab0/fundamentos_python_ia.ipynb){ .md-button .md-button--primary }
+[📂 Carpeta del lab](https://github.com/ia-estructuras-diplomado/curso-ia-web/tree/main/labs/lab0){ .md-button }
 
 </div>
 
@@ -1410,14 +1374,16 @@
 <p><strong>Duración:</strong> ~2 horas · Introducción al entorno del curso</p>
 </div>
 <h2 id="objetivo">Objetivo<a class="headerlink" href="#objetivo" title="Permanent link">&para;</a></h2>
-<p>Familiarizarte con <strong>Python y Jupyter</strong> en <strong>GitHub Codespaces</strong> usando el enfoque <strong>caja de herramientas</strong>: código pre-escrito; tú solo completas celdas <code>### TU TAREA AQUÍ ###</code>.</p>
-<p>Este lab prepara el terreno para Lab 1–6 (Scikit-learn, deep learning, LLM y agentes).</p>
-<h2 id="pasos-en-codespaces">Pasos en Codespaces<a class="headerlink" href="#pasos-en-codespaces" title="Permanent link">&para;</a></h2>
+<p>Repasar lo mínimo de Python necesario para trabajar con datos e IA en los
+siguientes labs, sin asumir experiencia previa de programación: variables y
+tipos, imports, listas/diccionarios, comprehensions, funciones y pandas.</p>
+<h2 id="pasos">Pasos<a class="headerlink" href="#pasos" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Pulsa <strong>Crear Codespace — Lab 0</strong> (arriba) e inicia sesión en GitHub si te lo pide.</li>
-<li>Espera el build del contenedor (<code>labs/setup.sh</code> instala dependencias).</li>
-<li>Abre <strong><code>labs/lab0/fundamentos_python_ia_alumno.ipynb</code></strong>.</li>
-<li>Ejecuta celdas en orden; completa solo bloques marcados.</li>
+<li><a href="../instalacion/">Instala el entorno</a> si aún no lo hiciste.</li>
+<li>Abre <strong><code>labs/lab0/fundamentos_python_ia.ipynb</code></strong> y ejecútalo (Run All).</li>
+<li>Construye tu propio notebook guiándote por el
+   <a href="https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab0/README.md">README del lab</a>
+   y tu asistente de IA.</li>
 </ol>
 <h2 id="secciones-del-notebook">Secciones del notebook<a class="headerlink" href="#secciones-del-notebook" title="Permanent link">&para;</a></h2>
 <table>
@@ -1434,7 +1400,7 @@
 </tr>
 <tr>
 <td>1</td>
-<td><strong>Paquetes e imports</strong> — <code>import</code>, <code>pip</code>, <code>requirements.txt</code>, Codespaces</td>
+<td><strong>Paquetes e imports</strong> — <code>import</code>, <code>pip</code>, <code>requirements.txt</code></td>
 </tr>
 <tr>
 <td>2</td>
@@ -1454,43 +1420,22 @@
 </tr>
 <tr>
 <td>6</td>
-<td>Gráfico de validación visual</td>
-</tr>
-<tr>
-<td>7</td>
-<td>Cierre y puente hacia Scikit-Learn, DL y agentes</td>
+<td>Validación visual</td>
 </tr>
 </tbody>
 </table>
-<p>Cada sección incluye <strong>preguntas teóricas</strong> y <strong>autoevaluación</strong> con ✅ / ⚠️ / ❌.</p>
-<h2 id="recursos-en-el-repositorio">Recursos en el repositorio<a class="headerlink" href="#recursos-en-el-repositorio" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Notebook alumno:</strong> <code>labs/lab0/fundamentos_python_ia_alumno.ipynb</code></li>
-<li><strong>Entorno:</strong> <code>labs/.venv</code> (compartido por todos los labs)</li>
-<li><strong>Setup:</strong> <code>labs/setup.sh</code></li>
-</ul>
-<h2 id="alternativa-local">Alternativa local<a class="headerlink" href="#alternativa-local" title="Permanent link">&para;</a></h2>
-<p><code>bash
-git clone https://github.com/ia-estructuras-diplomado/curso-ia-web.git
-cd curso-ia-web
-bash labs/setup.sh
-source labs/.venv/bin/activate
-cd labs/lab0
-jupyter notebook fundamentos_python_ia_alumno.ipynb</code></p>
 <h2 id="checklist">Checklist<a class="headerlink" href="#checklist" title="Permanent link">&para;</a></h2>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Creé mi Codespace y abrí el notebook alumno</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Completé las celdas <code>### TU TAREA AQUÍ ###</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Entiendo imports, <code>pip</code> y el entorno compartido <code>labs/.venv</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Puedo cargar y filtrar datos con Pandas</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Instalé el entorno y ejecuté el notebook de referencia</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Construí mi propio notebook con ayuda de IA</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Completé <code>prompts_entregados.md</code></li>
 </ul>
 <h2 id="proximo-paso">Próximo paso<a class="headerlink" href="#proximo-paso" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="../../sesiones/sesion2/">Sesión 2 — Big Data</a></li>
-<li><a href="../lab1/">Lab 1 — PCA y SHM</a> (cuando avance el curso)</li>
+<li><a href="../lab1/">Lab 1 — PCA y SHM</a></li>
 </ul>
 <hr />
-<p><strong>¿Dudas?</strong> → <a href="../codespaces/">Codespaces</a> · <a href="../../faq/">FAQ</a></p>
+<p><strong>¿Dudas?</strong> → <a href="../instalacion/">Instalación</a> · <a href="../../faq/">FAQ</a></p>
 
 
 
