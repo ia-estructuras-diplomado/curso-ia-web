@@ -45,7 +45,7 @@ REPO_ROOT="$(dirname "$LABS_DIR")"
 VSCODE_DIR="${REPO_ROOT}/.vscode"
 SETTINGS_PATH="${VSCODE_DIR}/settings.json"
 mkdir -p "$VSCODE_DIR"
-python3 - "$SETTINGS_PATH" <<'PYEOF'
+.venv/bin/python - "$SETTINGS_PATH" <<'PYEOF'
 import json, sys
 path = sys.argv[1]
 try:

@@ -53,13 +53,15 @@ $SettingsPath = Join-Path $VscodeDir "settings.json"
 if (-not (Test-Path $VscodeDir)) {
     New-Item -ItemType Directory -Path $VscodeDir | Out-Null
 }
-$Settings = if (Test-Path $SettingsPath) {
-    Get-Content $SettingsPath -Raw | ConvertFrom-Json
-} else {
-    [PSCustomObject]@{}
+# settings.json puede venir vacio o con comentarios (JSONC); en ese caso se parte de cero.
+$Settings = $null
+if (Test-Path $SettingsPath) {
+    try { $Settings = Get-Content $SettingsPath -Raw | ConvertFrom-Json } catch { $Settings = $null }
 }
+if ($null -eq $Settings) { $Settings = [PSCustomObject]@{} }
 $Settings | Add-Member -NotePropertyName "python.defaultInterpreterPath" -NotePropertyValue '${workspaceFolder}/labs/.venv/Scripts/python.exe' -Force
-$Settings | ConvertTo-Json -Depth 10 | Set-Content -Path $SettingsPath -Encoding utf8
+# UTF-8 sin BOM (Set-Content -Encoding utf8 en PowerShell 5.1 agrega BOM).
+[System.IO.File]::WriteAllText($SettingsPath, ($Settings | ConvertTo-Json -Depth 10), (New-Object System.Text.UTF8Encoding $false))
 
 Write-Host ""
 Write-Host "[OK] Entorno centralizado listo (un solo labs\.venv, Python $PythonVersion, para todos los labs)." -ForegroundColor Green
