@@ -46,6 +46,21 @@ uv pip install --python $VenvPython -r requirements.txt
 Write-Host "-> Stack ML CPU compartido (Lab 4 + Lab 5)..."
 & (Join-Path $LabsDir "_install_torch_cpu.ps1")
 
+Write-Host "-> Fijando interprete de VS Code (.vscode/settings.json)..."
+$RepoRoot = Split-Path -Parent $LabsDir
+$VscodeDir = Join-Path $RepoRoot ".vscode"
+$SettingsPath = Join-Path $VscodeDir "settings.json"
+if (-not (Test-Path $VscodeDir)) {
+    New-Item -ItemType Directory -Path $VscodeDir | Out-Null
+}
+$Settings = if (Test-Path $SettingsPath) {
+    Get-Content $SettingsPath -Raw | ConvertFrom-Json
+} else {
+    [PSCustomObject]@{}
+}
+$Settings | Add-Member -NotePropertyName "python.defaultInterpreterPath" -NotePropertyValue '${workspaceFolder}/labs/.venv/Scripts/python.exe' -Force
+$Settings | ConvertTo-Json -Depth 10 | Set-Content -Path $SettingsPath -Encoding utf8
+
 Write-Host ""
 Write-Host "[OK] Entorno centralizado listo (un solo labs\.venv, Python $PythonVersion, para todos los labs)." -ForegroundColor Green
 Write-Host "   Activar:  .venv\Scripts\Activate.ps1"

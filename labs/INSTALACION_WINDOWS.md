@@ -36,6 +36,7 @@ Esto hace todo automáticamente:
 - Descarga Python 3.12 y crea el entorno virtual en `labs\.venv`.
 - Instala todas las dependencias (`labs\requirements.txt`).
 - Instala PyTorch CPU (para los labs de CNN/LSTM y embeddings).
+- Configura `.vscode\settings.json` para que VS Code use `labs\.venv\Scripts\python.exe` por defecto (no hace falta seleccionar el intérprete a mano).
 
 Los Labs 5 y 6 usan además **Claude Code** (se instala aparte, ver la
 Parte 0 de [`lab5/README.md`](lab5/README.md)).
@@ -59,8 +60,13 @@ labs\.venv\Scripts\Activate.ps1
 ```
 
 > 💡 **Tip:** también puedes abrir la carpeta `curso-ia-web` en **VS Code**
-> e instalar la extensión "Jupyter" — selecciona como intérprete
-> `labs\.venv\Scripts\python.exe` y ejecuta los notebooks directamente ahí.
+> (con la extensión "Jupyter" instalada) y ejecutar los notebooks
+> directamente ahí — `setup.ps1` ya dejó `labs\.venv\Scripts\python.exe`
+> configurado como intérprete por defecto, así que solo debes abrir el
+> notebook y darle **Run All**. Si por algún motivo VS Code no lo detecta,
+> selecciónalo a mano: **Select Kernel → Select Another Kernel... →
+> Python Environments... → Enter interpreter path...** y pega la ruta
+> completa a `labs\.venv\Scripts\python.exe`.
 
 ## Si algo falla
 

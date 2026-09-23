@@ -40,6 +40,25 @@ uv pip install --python .venv/bin/python -r requirements.txt
 echo "→ Stack ML CPU compartido (Lab 4 + Lab 5)…"
 bash "${LABS_DIR}/_install_torch_cpu.sh"
 
+echo "→ Fijando intérprete de VS Code (.vscode/settings.json)…"
+REPO_ROOT="$(dirname "$LABS_DIR")"
+VSCODE_DIR="${REPO_ROOT}/.vscode"
+SETTINGS_PATH="${VSCODE_DIR}/settings.json"
+mkdir -p "$VSCODE_DIR"
+python3 - "$SETTINGS_PATH" <<'PYEOF'
+import json, sys
+path = sys.argv[1]
+try:
+    with open(path) as f:
+        settings = json.load(f)
+except (FileNotFoundError, json.JSONDecodeError):
+    settings = {}
+settings["python.defaultInterpreterPath"] = "${workspaceFolder}/labs/.venv/bin/python"
+with open(path, "w") as f:
+    json.dump(settings, f, indent=2)
+    f.write("\n")
+PYEOF
+
 echo ""
 echo "✅ Entorno centralizado listo (un solo labs/.venv, Python ${PYTHON_VERSION}, para todos los labs)."
 echo "   Activar:  source labs/.venv/bin/activate"
