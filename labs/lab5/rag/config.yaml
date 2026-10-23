@@ -1,6 +1,7 @@
 # Configuración del servidor MCP "normas" (knowledge-rag) — Lab 5 y Lab 6.
-# Claude Code lo lanza automáticamente vía labs/lab5/.mcp.json; no hace falta
-# ejecutarlo a mano. Rutas relativas a esta carpeta (labs/lab5/rag/).
+# Claude Code lo lanza vía .mcp.json. labs/mcp/sitecustomize.py (en PYTHONPATH)
+# manda print() a stderr y convierte KNOWLEDGE_RAG_DIR en ruta absoluta antes
+# de que el servidor la lea. Rutas relativas a esta carpeta.
 
 paths:
   documents_dir: "../pdfs"            # indexa directamente los PDFs del lab
@@ -33,4 +34,13 @@ search:
 
 category_mappings: {}
 keyword_routes: {}
-query_expansions: {}
+
+# Sinónimos para la parte léxica (BM25). No cambian los embeddings: no hace
+# falta borrar rag/data/. Las claves se comparan con la consulta en minúsculas.
+query_expansions:
+  "carga viva": ["sobrecarga", "carga viva repartida"]
+  viviendas: ["vivienda"]
+  oficinas: ["oficina"]
+  "factor de zona": ["factor Z", "zonificación"]
+  "mecánica de suelos": ["EMS", "estudio de mecánica de suelos"]
+  "estudio de mecánica de suelos": ["EMS"]

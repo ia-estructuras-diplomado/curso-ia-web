@@ -15,9 +15,10 @@ lab4/part_2/data/building_health_monitoring_dataset.csv
 # Lab 5/6 — índice RAG y modelo de embeddings del servidor MCP "normas"
 lab5/rag/*
 !lab5/rag/config.yaml
-# knowledge-rag 4.9.0 crea además una carpeta vacía al resolver la ruta
-# relativa KNOWLEDGE_RAG_DIR dos veces (lab5/rag/rag desde lab5, lab5/lab5 desde lab6)
+# Índice vacío que dejaba knowledge-rag al resolver KNOWLEDGE_RAG_DIR dos veces.
+# labs/mcp/sitecustomize.py ya fija la ruta absoluta; estas carpetas son restos.
 lab5/lab5/
+lab5/rag/rag/
 
 # Lab 6 — salidas de los agentes y modelos ETABS de práctica
 lab6/resultados/

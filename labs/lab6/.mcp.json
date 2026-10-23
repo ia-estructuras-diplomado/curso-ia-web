@@ -4,12 +4,25 @@
       "command": "uvx",
       "args": ["--from", "knowledge-rag==4.9.0", "knowledge-rag"],
       "env": {
-        "KNOWLEDGE_RAG_DIR": "../lab5/rag"
+        "KNOWLEDGE_RAG_DIR": "../lab5/rag",
+        "PYTHONPATH": "../mcp"
       }
     },
     "excel": {
       "command": "uvx",
-      "args": ["excel-mcp-server==0.1.8", "stdio"]
+      "args": ["--from", "excel-mcp-server==0.1.8", "excel-mcp-server", "stdio"]
+    },
+    "etabs": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--no-project",
+        "--isolated",
+        "--no-progress",
+        "--quiet",
+        "python",
+        "../mcp/launch_etabs.py"
+      ]
     }
   }
 }

@@ -37,6 +37,7 @@ valor, y eso permite que tú — el ingeniero — lo verifiques.
 |---|---|
 | `pdfs/` | Normas E.020, E.030 y E.050 (ver [`data/DATOS.md`](data/DATOS.md)) |
 | `.mcp.json` | Registra el servidor MCP `normas` para Claude Code (se carga solo al abrir Claude en esta carpeta) |
+| `../mcp/sitecustomize.py` | Evita que el servidor de normas corte la sesión al escribir el log de BM25 en el canal MCP |
 | `rag/config.yaml` | Configuración del RAG: embeddings multilingües, tamaño de fragmentos, carpeta de PDFs |
 | `referencia/consultor-normativo.md` | Subagente de referencia (para comparar con el tuyo en la Parte 6) |
 | `prompts_entregados.md` | Tu bitácora (entrega) |
@@ -273,8 +274,13 @@ una respuesta con el formato que definiste. Compara tu archivo con
 
 - Servidor MCP: [`knowledge-rag`](https://github.com/lyonzin/knowledge-rag)
   (MIT, CI en Windows/Linux/macOS), fijado a `4.9.0` en `.mcp.json` y lanzado
-  con `uvx` (no se instala en `labs/.venv`). Probado con los PDFs del curso:
-  indexa E.020 + E.050 (173 fragmentos) y omite la E.030 escaneada.
+  con `uvx` (no se instala en `labs/.venv`). [`../mcp/sitecustomize.py`](../mcp/sitecustomize.py)
+  va en `PYTHONPATH` y hace dos cosas que el paquete no hace: resuelve
+  `KNOWLEDGE_RAG_DIR` una sola vez (si no, el segundo arranque abre un índice
+  vacío) y manda `print()` a stderr. Sin eso, el `[INFO] BM25 index built...`
+  de la primera búsqueda cae en stdout y Claude Code corta la sesión.
+  Probado con los PDFs del curso: indexa E.020 + E.050 (173 fragmentos) y
+  omite la E.030 escaneada.
 - El índice y el modelo quedan en `rag/data/` y `rag/models_cache/`
   (gitignored). Para reindexar desde cero, borra `rag/data/`.
 - Para que la E.030 funcione con RAG, reemplaza `pdfs/Norma_E_030_SISMO.pdf`

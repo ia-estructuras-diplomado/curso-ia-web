@@ -34,13 +34,13 @@ el ingeniero tiene que intervenir.
 
 | Archivo | Para qué |
 |---|---|
-| `.mcp.json` | Registra los servidores `normas` (el del Lab 5) y `excel` |
+| `.mcp.json` | Registra `normas` (el del Lab 5), `excel` y `etabs` |
 | `referencia/agents/` | Subagentes de referencia: `analista-etabs`, `consultor-normativo`, `redactor-informe`, `orquestador-sismico` |
 | `referencia/skills/e030-derivas/` | Skill de referencia con el procedimiento E.030 |
 | `prompts_entregados.md` | Tu bitácora (entrega) |
 
-El servidor de ETABS **no** va en `.mcp.json` porque la ruta del ejecutable
-cambia en cada PC: lo registras tú en la Parte 0.
+`etabs` ya está en `.mcp.json`. El lanzador busca el ejecutable en
+`%USERPROFILE%\etabs-mcp\etabs-mcp.exe`, que es donde lo deja la Parte 0.
 
 ---
 
@@ -73,15 +73,20 @@ El hash debe ser exactamente:
 `F1E0ECC7C294F69D7585129001AFAA18D85ECF6933BEA8360FAF73E4E93B9FDB`.
 Si no coincide, **no lo ejecutes** y avisa al docente.
 
-### 0.2 Registrarlo en Claude Code (solo para este proyecto)
+### 0.2 Dejar lista la carpeta de resultados
+
+El servidor ya está declarado en `.mcp.json`. No hace falta `claude mcp add`.
+Si en un intento anterior lo registraste a mano, quítalo para que no aparezca
+dos veces: `claude mcp remove etabs`.
 
 ```powershell
-claude mcp add etabs -- "$HOME\etabs-mcp\etabs-mcp.exe"
 New-Item -ItemType Directory -Force resultados | Out-Null
 ```
 
 La carpeta `resultados\` es donde el agente guarda el `.edb` de práctica,
 los JSON y el Excel (ETABS exige guardar el modelo antes de analizarlo).
+Si `etabs` figura desconectado, el `.exe` no está en
+`%USERPROFILE%\etabs-mcp\`: repite el paso 0.1 y vuelve a abrir Claude Code.
 
 ### 0.3 Probar la conexión
 
@@ -298,7 +303,7 @@ siempre licencia, actividad del repositorio y **qué hace al cerrar**.
 
 ## Para el docente
 
-- **Servidor ETABS elegido:** `Shekh-Muhsen/ETABS-MCP` v2.0.0 (MIT). Se
+- **Servidor ETABS elegido:** `Shekh-Muhsen/ETABS-MCP` v2.0.0 (MIT). `.mcp.json` lo arranca con [`../mcp/launch_etabs.py`](../mcp/launch_etabs.py), que ejecuta `%USERPROFILE%\etabs-mcp\etabs-mcp.exe`; ya no hace falta `claude mcp add`. Se
   conecta con `cHelper.GetObject` (patrón correcto para ETABS 20+), no llama
   `ApplicationExit`, sandbox de código, 38 skills de API/flujos, búsqueda BM25
   en 2.458 métodos de la API. **Riesgos:** repositorio de un solo autor, 1

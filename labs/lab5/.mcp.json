@@ -4,7 +4,8 @@
       "command": "uvx",
       "args": ["--from", "knowledge-rag==4.9.0", "knowledge-rag"],
       "env": {
-        "KNOWLEDGE_RAG_DIR": "./rag"
+        "KNOWLEDGE_RAG_DIR": "./rag",
+        "PYTHONPATH": "../mcp"
       }
     }
   }
