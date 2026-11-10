@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lab-6-agentes-con-etabs-de-un-agente-a-un-orquestador" class="md-skip">
+        <a href="#lab-6-orquestadores-el-arnes-de-un-chequeo-e030" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -1307,7 +1307,7 @@
   
 
 
-<h1 id="lab-6-agentes-con-etabs-de-un-agente-a-un-orquestador">Lab 6: Agentes con ETABS — de un agente a un orquestador<a class="headerlink" href="#lab-6-agentes-con-etabs-de-un-agente-a-un-orquestador" title="Permanent link">&para;</a></h1>
+<h1 id="lab-6-orquestadores-el-arnes-de-un-chequeo-e030">Lab 6: Orquestadores — el arnés de un chequeo E.030<a class="headerlink" href="#lab-6-orquestadores-el-arnes-de-un-chequeo-e030" title="Permanent link">&para;</a></h1>
 <div class="lab-actions" markdown="1">
 
 [📖 Guía paso a paso](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab6/README.md){ .md-button .md-button--primary }
@@ -1323,24 +1323,31 @@
 <p class="admonition-title">Requisitos</p>
 <p><strong>Windows nativo</strong> (no WSL2, no macOS) con <strong>ETABS 21 o superior</strong> con
 licencia, y Claude Code instalado desde PowerShell en esa misma PC
-(<a href="../lab5/">Lab 5</a>). Si no tienes ETABS, trabaja en pareja.</p>
+(<a href="../lab5/">Lab 5</a>). Los dos modelos de la sesión están en la carpeta
+<code>ejemplos/</code> del lab. Si no tienes ETABS, trabaja en pareja.</p>
 </div>
 <h2 id="tema">Tema<a class="headerlink" href="#tema" title="Permanent link">&para;</a></h2>
-<p>Conectarás Claude Code a <strong>ETABS</strong> y a <strong>Excel</strong> mediante MCP, verás al
-agente consultar y analizar tu modelo en tiempo real, y terminarás armando
-un <strong>orquestador</strong> que coordina tres subagentes para un chequeo sísmico
-E.030 completo.</p>
-<div class="highlight"><pre><span></span><code>                    ┌─► analista-etabs ─────► MCP etabs ──► ETABS (modelo abierto)
- Tú ─► orquestador ─┼─► consultor-normativo ► MCP normas ─► PDFs E.020/E.030/E.050
-                    └─► redactor-informe ───► MCP excel ──► chequeo_e030.xlsx
+<p>Diseñarás el <strong>arnés</strong> de un chequeo sísmico E.030. Un <strong>experto del
+modelo</strong> lee primero cargas, peso sísmico y geometría — vacíos y
+asimetría incluidos — y deja una ficha. El analista saca resultados sobre
+esa ficha, sin volver a interpretar el modelo. Hay dos archivos fijos:
+uno regular y uno con un vacío de losa y un muro en un solo eje.</p>
+<div class="highlight"><pre><span></span><code>                    ┌─► experto-modelo ─────► ficha: cargas, peso sísmico, vacíos
+ Tú ─► orquestador ─┼─► analista-etabs ─────► resultados, citando la ficha
+                    ├─► consultor-normativo ► MCP normas ─► PDFs E.020/E.030/E.050
+                    ├─► redactor-informe ───► MCP excel ──► chequeo_e030.xlsx
+                    └─► revisor-independiente  (lee la ficha, el JSON, el informe y el Excel)
 </code></pre></div>
+<p>Ese orden se proyecta con <code>labs/lab6/demo.html</code>. El Caso A (<code>regular.edb</code>)
+recorre los seis roles. El Caso B (<code>irregular.edb</code>) se detiene si la
+primera respuesta dice que el edificio es regular.</p>
 <h2 id="objetivos-de-aprendizaje">Objetivos de aprendizaje<a class="headerlink" href="#objetivos-de-aprendizaje" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Conectar un agente a un programa de ingeniería real y entender qué puede
-   y qué <strong>no</strong> debe hacer sobre tu modelo.</li>
-<li>Encadenar ETABS → agente → Excel sin escribir código.</li>
-<li>Dar conocimiento de dominio al agente con una <em>skill</em> (derivas E.030).</li>
-<li>Pasar de un agente a un <strong>orquestador + subagentes</strong> con herramientas limitadas por rol.</li>
+<li>Nombrar las piezas de un arnés agentico: rol, herramientas, artefacto y regla de parada.</li>
+<li>Escribir un orquestador que delega, cruza citas con números y no cierra el chequeo por su cuenta.</li>
+<li>Separar una falla de transcripción (se repite esa fila) de un defecto del modelo (el bucle se detiene).</li>
+<li>Probar el arnés y dejar, en una sola vuelta, la regla que faltaba escrita en el archivo del orquestador.</li>
+<li>Distinguir ese bucle del que solo repite una fila, con cuatro papers de arnés y de self-improvement.</li>
 </ol>
 <p>Instalación del servidor ETABS, prompts y entrega:
 <a href="https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab6/README.md"><strong>guía completa del Lab 6</strong></a>.</p>
