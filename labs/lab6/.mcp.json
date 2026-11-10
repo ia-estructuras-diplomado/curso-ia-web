@@ -23,6 +23,15 @@
         "python",
         "../mcp/launch_etabs.py"
       ]
+    },
+    "auto-ontology": {
+      "command": "uvx",
+      "args": ["--from", "git+https://github.com/gogoymh/auto-ontology-mcp", "auto-ontology-mcp"],
+      "env": {
+        "AUTO_ONTOLOGY_HOME": "./ontologia",
+        "AUTO_ONTOLOGY_TOOLSETS": "knowledge",
+        "AUTO_ONTOLOGY_ALLOW_DATASOURCE_TOOLS": "0"
+      }
     }
   }
 }

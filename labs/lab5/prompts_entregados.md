@@ -105,3 +105,28 @@ Modo de acceso usado (A Pro/Max · B API key · C Ollama + modelo): ____________
 
 **Diferencias con `referencia/consultor-normativo.md`:**
 
+
+---
+## Parte 7 — El revisor de citas
+
+**Prompt enviado para crearlo:**
+```
+(pega aquí)
+```
+
+**Una cita que el revisor marcó bloqueante (y si tenía razón):**
+
+
+---
+## Parte 8 — El arnés mínimo
+
+**Prompt enviado para crear el orquestador:**
+```
+(pega aquí)
+```
+
+**Pasadas observadas (consultor → revisor, y si hubo segundo intento):**
+
+
+**Veredicto final del revisor:**
+

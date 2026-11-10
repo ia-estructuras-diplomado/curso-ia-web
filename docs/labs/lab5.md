@@ -10,7 +10,10 @@
 Usarás un agente de IA real (**Claude Code**) conectado por **MCP** a un
 buscador RAG local sobre las normas peruanas **E.020, E.030 y E.050**. No
 programas el RAG: ves funcionar al agente, auditas sus citas y terminas
-definiendo tu propio **subagente** especializado (`consultor-normativo`).
+definiendo tu propio **subagente** (`consultor-normativo`), un **revisor de
+citas** y un orquestador mínimo. Esas tres piezas son el arnés mínimo que
+el Lab 6 desarrolla: más roles, artefactos en disco y un orquestador que
+solo coordina.
 
 ## Objetivos de aprendizaje
 
@@ -19,7 +22,7 @@ definiendo tu propio **subagente** especializado (`consultor-normativo`).
 2. Entender **MCP** como el "enchufe estándar" entre un agente y programas externos.
 3. Usar **RAG como herramienta** y verificar cada cita (archivo y página).
 4. Ver un modo de falla real: la E.030 escaneada que el RAG no puede indexar.
-5. Crear un subagente reutilizable para el Lab 6.
+5. Crear el consultor, el revisor de citas y un orquestador mínimo para el Lab 6.
 
 ## Acceso al modelo
 

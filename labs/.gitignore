@@ -22,10 +22,22 @@ lab5/pdfs_ocr/pages/
 lab5/lab5/
 lab5/rag/rag/
 
-# Lab 6 — salidas de los agentes y modelos ETABS de práctica
+# Lab 6 — salidas de los agentes y modelos ETABS de práctica sueltos
 lab6/resultados/
 lab6/*.edb
 lab6/*.EDB
+
+# Lab 6 — tienda del servidor MCP "auto-ontology" (conceptos/pasajes E.030)
+lab6/ontologia/
+
+# Sidecars que ETABS escribe al abrir o analizar los ejemplos
+lab6/ejemplos/*.LOG
+lab6/ejemplos/*.OUT
+lab6/ejemplos/*.$et
+lab6/ejemplos/*.ico
+lab6/ejemplos/*.Y*
+lab6/ejemplos/*.K_*
+lab6/ejemplos/manifiesto.json
 
 # Claude Code — permisos locales de cada alumno
 **/.claude/settings.local.json

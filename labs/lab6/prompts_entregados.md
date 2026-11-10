@@ -1,102 +1,191 @@
-# Bitácora — Lab 6 — Agentes con ETABS: de un agente a un orquestador
+# Bitácora — Lab 6 — Orquestadores: el arnés de un chequeo E.030
 
 Entrega este archivo junto con tus `.claude/agents/*.md`,
-`.claude/skills/e030-derivas/SKILL.md`, `resultados/chequeo_e030.xlsx`,
-`resultados/informe.md` y las capturas pedidas en el README.
+`.claude/skills/e030-derivas/SKILL.md`, la copia
+`resultados/parte5/` (Excel e informe de antes de la Parte 6) y las
+capturas pedidas en el README.
 
 | Campo | Qué escribir |
 |-------|----------------|
 | Prompt enviado | Texto exacto que le diste al agente |
-| Herramientas observadas | Qué herramientas/subagentes se llamaron, en qué orden |
-| Código aprobado | Un fragmento de `execute_code` que aprobaste y qué hacía (o uno que rechazaste y por qué) |
-| Verificación | Qué comprobaste tú directamente en ETABS/Excel/PDF y si coincidía |
+| Línea `tools` | La que quedó en el archivo, copiada del `.md` |
+| Traza | Qué rol se llamó, en qué orden, y si el orquestador tocó ETABS |
+| Verificación | Qué comprobaste tú en ETABS, en el PDF o en el Excel |
 
-Versión de ETABS: ________ · Modo de acceso (A/B/C + modelo): ________ · Modelo usado (propio / construido por el agente): ________
+Versión de ETABS: ________ · Modo de acceso (A/B/C + modelo): ________ · Ejemplo de la Parte 5 (irregular): ________
 
 ---
 
-## Parte 1 — Primer contacto
+## Parte 1 — El contrato del arnés
+
+Completa con tus palabras, después de leer `referencia/agents/`.
+
+| Rol | Línea `tools` (resumen) | ¿Carga la skill? | Artefacto | Cuándo se detiene |
+|---|---|---|---|---|
+| analista-etabs | | | | |
+| experto-modelo | | | | |
+| consultor-normativo | | | | |
+| redactor-informe | | | | |
+| revisor-independiente | | | | |
+| orquestador-sismico | | | | |
+
+**Por qué el peso sísmico lo escribe el experto y el analista solo lo cita:**
+
+
+**Por qué la skill no la carga el orquestador:**
+
+
+**Qué podría hacer el analista si borras del prompt la frase de solo lectura y dejas la línea `tools`:**
+
+
+---
+
+## Parte 2 — Los roles
+
+**Prompt del revisor:**
+```
+(pega aquí)
+```
+
+**Línea `tools` del revisor:**
+
+
+**Prompt de la skill:**
+```
+(pega aquí)
+```
+
+**Citas con las que confirmaste los valores [archivo, página]:**
+
+
+**Una diferencia con `referencia/skills/e030-derivas/SKILL.md`:**
+
+
+**Prompt del experto:**
+```
+(pega aquí)
+```
+
+**Línea `tools` del experto, y qué archivo escribe:**
+
+
+**Prompt del analista:**
+```
+(pega aquí)
+```
+
+**Línea `tools` del analista, y la frase que le impide modificar el modelo:**
+
+
+**Prompt del redactor:**
+```
+(pega aquí)
+```
+
+**Línea `tools` del redactor:**
+
+
+---
+
+## Parte 3 — El orquestador
 
 **Prompt enviado:**
 ```
 (pega aquí)
 ```
 
-**Herramientas observadas:**
+**Regla de parada, en una frase:**
 
 
-**Código aprobado (uno que entendiste y uno que no):**
+**Quién corre en el mismo turno y quién espera:**
 
 
-**Verificación en ETABS:**
-
-
----
-## Parte 2 — Modelo de práctica (si aplica)
-
-**Prompt enviado:**
-```
-(pega aquí)
-```
-
-**¿Qué construyó distinto a lo pedido? ¿Lo detectaste en ETABS o en el chat?:**
+**¿Copiaste la referencia por tiempo? (sí / no):**
 
 
 ---
-## Parte 3 — Análisis modal y cortante basal
 
-**Prompt enviado:**
-```
-(pega aquí)
-```
+## Parte 4 — Los dos ejemplos
 
-**Datos que el agente te pidió (Z, U, S, R…) y qué respondiste:**
+**Ficha del regular (mass source: opción y factores; ¿Dead entra?; losas por piso; vacíos; muros):**
 
 
-**Verificación (un periodo y un cortante contra las tablas de ETABS):**
+**Ficha del irregular (vacío: coordenadas y pisos; muro: en qué eje):**
 
 
----
-## Parte 4 — Skill E.030
-
-**Prompt enviado:**
-```
-(pega aquí)
-```
-
-**Citas normativas obtenidas [archivo, página]:**
+**¿El experto usó Dead+Live o CV al 100 % como peso sísmico?:**
 
 
-**Diferencias con la skill de referencia:**
-
-
-**Resultado del chequeo de derivas (deriva máx., piso, dirección, cumple):**
+**Una llamada `execute_code` que entendiste y una que no:**
 
 
 ---
-## Parte 5 — Excel
 
-**Prompt enviado:**
-```
-(pega aquí)
-```
+## Parte 5 — Traza del orquestador
 
-**Verificación (¿los números del Excel coinciden con ETABS?):**
+**¿El orquestador se detuvo cuando dijiste que el irregular era regular?:**
 
 
----
-## Parte 6 — Orquestador
+**Subagentes, en orden. ¿El experto fue antes que el analista?:**
 
-**Prompt(s) para crear los subagentes:**
-```
-(pega aquí)
-```
 
-**Traza observada (qué subagentes, en qué orden, cuáles en paralelo):**
+**¿Ese orden es el del `demo.html`, Caso B (experto, parada, luego analista y consultor juntos)?:**
+
+
+**¿Algún `execute_code` lo pidió el orquestador?:**
+
+
+**Pasada 1 — chequeo que falló (o "ninguno"):**
+
+
+**Pasada 2 — qué fila se repitió y si ya coincidió:**
+
+
+**Veredicto del revisor, y si citó archivos o el resumen del chat:**
 
 
 **Qué quedó "no verificado" y por qué:**
 
 
-**Un agente vs. orquestador (tiempo, facilidad de auditar, contexto):**
+**¿La segunda lectura atrapó un número que la primera había dado por bueno?:**
+
+
+---
+
+## Parte 6 — El arnés bajo presión
+
+**6.1 ¿El archivo impidió cerrar sin el revisor, o el mensaje ganó? Pega la frase que debía detenerlo:**
+
+
+**6.2 ¿Publicó 0.007 como CUMPLE, o lo dejó "no verificado"? Pega la frase que debía detenerlo:**
+
+
+**6.3 Frase que propuso el orquestador:**
+
+
+**¿La aceptaste o la rechazaste, y por qué? Si la rechazaste, qué escribiste tú:**
+
+
+**Qué pasó al repetir solo la prueba que había fallado:**
+
+
+**En una frase, en qué se distingue este bucle del de las dos pasadas:**
+
+
+---
+
+## Lecturas
+
+Una frase por paper: qué pieza de tu arnés reconoces ahí.
+
+**Barbaste et al., 2026 (arnés):**
+
+
+**He et al., 2026 (control, agencia, runtime):**
+
+
+**Robeyns et al., 2025 (self-improvement):**
+
+
+**Zhang et al., 2025 (archivo de agentes y benchmark):**
 

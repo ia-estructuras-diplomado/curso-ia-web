@@ -68,7 +68,10 @@ En los labs de agentes el alumno no construye código: dirige y audita un
 agente real (Claude Code) conectado por MCP a programas externos. No hay
 notebook; el README es una guía paso a paso por **Partes** (objetivo, qué
 debería ver en pantalla, prompt sugerido) y la referencia son archivos de
-configuración de agentes, no un notebook.
+configuración de agentes, no un notebook. El Lab 5 deja el arnés mínimo
+(consultor, revisor, orquestador). El Lab 6 tiene por objeto diseñar y
+probar ese arnés: roles, herramientas por rol, artefactos y la regla de
+parada. ETABS y Excel son las herramientas del caso.
 
 ```
 labs/lab5/ (y lab6/)

@@ -37,7 +37,7 @@ IA. Entrega tu notebook ejecutado + [`prompts_entregados.md`](GUIA_LABORATORIOS.
 Validación por **resultados visuales** (gráficos, métricas), no por
 autoevaluación automática ni por código idéntico a la solución.
 
-**Excepción — Lab 5 y Lab 6:** no tienen notebook. Son guías paso a paso para usar un agente real (Claude Code) conectado por MCP a un buscador RAG de normas, a ETABS y a Excel; la entrega es la bitácora, los agentes/skills que el alumno crea y los resultados que generan.
+**Excepción — Lab 5 y Lab 6:** no tienen notebook. Son guías paso a paso con Claude Code. El Lab 5 conecta un agente al buscador de normas y deja un arnés mínimo. El Lab 6 diseña el orquestador y el arnés de un chequeo E.030 (roles, herramientas, artefactos, regla de parada), con ETABS y Excel como herramientas del caso. La entrega es la bitácora, los archivos del arnés y la traza.
 
 Docente: `bash labs/_verificar_notebooks.sh` ejecuta de punta a punta los 6 notebooks de referencia (Labs 0-4) tras cualquier cambio.
 
@@ -51,7 +51,7 @@ Docente: `bash labs/_verificar_notebooks.sh` ejecuta de punta a punta los 6 note
 | 3 | [`lab3/`](lab3/) | Inteligencia artificial explicable (xAI) — XGBoost + SHAP (SHM) |
 | 4 | [`lab4/part_1/`](lab4/part_1/) + [`lab4/part_2/`](lab4/part_2/) | CNN grietas (P1) + LSTM sensores SHM (P2) |
 | 5 | [`lab5/`](lab5/) | Tu primer agente: Claude Code + MCP de normas peruanas (RAG) |
-| 6 | [`lab6/`](lab6/) | Agentes con ETABS y Excel vía MCP: de un agente a un orquestador |
+| 6 | [`lab6/`](lab6/) | Orquestadores: el arnés de un chequeo E.030 (ETABS, normas y Excel) |
 
 La numeración de carpetas `labs/labN/` coincide con el syllabus del curso (Lab 1, 2, 3…).
 

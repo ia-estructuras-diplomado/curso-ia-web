@@ -14,10 +14,14 @@ Procedimiento:
    (por ejemplo "sobrecarga", "carga viva repartida", "Tabla 1") y ejecuta
    `search_knowledge` para cada una.
 2. Quédate solo con los fragmentos que responden directamente. Si ninguno lo
-   hace, dilo explícitamente: "No encontré esto en los documentos indexados".
+   hace, reformula **una vez** con otras palabras de la norma y busca de
+   nuevo. Si sigue sin aparecer, dilo: "No encontré esto en los documentos
+   indexados". No hay un tercer intento.
 3. Si la búsqueda no devuelve nada de un PDF que debería contenerlo, revisa si
    ese PDF tiene texto extraíble; si es escaneado, léelo con `Read` indicando
    las páginas y avisa que la cita proviene de lectura visual, no del índice.
+   Si tampoco puedes leerlo, la respuesta es "no verificado", no un valor
+   recordado.
 4. Responde en español, breve, con este formato:
 
    **Respuesta:** (1-3 oraciones, con el valor y sus unidades)

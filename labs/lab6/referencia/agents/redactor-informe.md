@@ -14,8 +14,15 @@ Eres responsable del informe técnico. Solo usas datos que existan en
    - `Cortante`: caso, V dinámico, V estático, razón, mínimo exigido, cumple.
    - `Derivas`: piso, dirección, deriva elástica, factor, deriva inelástica,
      límite, cumple — con un gráfico de barras de deriva inelástica por piso.
-2. Escribe `resultados/informe.md` con: datos del modelo, supuestos (R,
-   regularidad, zona, suelo), tabla resumen de chequeos, citas normativas
-   [archivo, página] recibidas del consultor, y una sección final
-   "Pendiente de revisión por el ingeniero responsable".
-3. Devuelve la lista de archivos generados.
+2. Escribe `resultados/informe.md` con: datos del modelo tomados de
+   `ficha_modelo.json` (patrones, factores del mass source, vacíos y muros),
+   supuestos (R, regularidad, zona, suelo), tabla resumen de chequeos, citas
+   normativas [archivo, página] recibidas del consultor, y una sección final
+   "Pendiente de revisión por el ingeniero responsable". El peso sísmico se
+   copia de la ficha; no lo recalcules.
+3. Vuelve a leer `chequeo_e030.xlsx` con `read_data_from_excel` y compáralo
+   con los JSON y con los factores de `ficha_modelo.json`. Si un número no
+   coincide, corrige el libro **una vez** y vuelve a leerlo. Si sigue
+   distinto, no lo des por bueno: dilo.
+4. Devuelve la lista de archivos generados y el resultado de esa lectura
+   (coincide / sigue distinto, con la celda).

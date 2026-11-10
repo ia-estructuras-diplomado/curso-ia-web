@@ -1,13 +1,13 @@
 """Start the ETABS MCP server installed by Lab 6.
 
 The executable always lives at %USERPROFILE%\\etabs-mcp\\etabs-mcp.exe.
-This process replaces itself with that executable so stdin and stdout stay
-attached to Claude Code.
+This process stays in front of it and passes through stdin and stdout.
+On Windows, os.execv closes those pipes and Claude Code times out.
 """
 
 from __future__ import annotations
 
-import os
+import subprocess
 import sys
 from pathlib import Path
 
@@ -21,7 +21,7 @@ def main() -> None:
             file=sys.stderr,
         )
         raise SystemExit(1)
-    os.execv(str(exe), [str(exe)])
+    raise SystemExit(subprocess.call([str(exe)]))
 
 
 if __name__ == "__main__":

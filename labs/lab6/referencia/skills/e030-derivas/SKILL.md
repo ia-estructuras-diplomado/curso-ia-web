@@ -5,9 +5,12 @@ description: Procedimiento para verificar derivas de entrepiso, participación d
 
 # Verificación E.030 desde resultados de ETABS
 
-> Valores transcritos de la E.030-2018 para uso didáctico. **Antes de emitir
-> un veredicto, confirma cada límite con el subagente `consultor-normativo`
-> (o leyendo la norma) y cita la página.** La norma oficial vigente prevalece.
+> Valores transcritos de la E.030-2018 para uso didáctico. No son una cita.
+> Esta skill la carga `analista-etabs` para saber **qué extraer** y cómo.
+> El factor 0.75R/0.85R y el límite de deriva entran a un veredicto solo
+> cuando `consultor-normativo` los confirma con archivo y página. La norma
+> oficial vigente prevalece. El peso sísmico no se toma de estas tablas:
+> es el mass source de `ficha_modelo.json`.
 
 ## 1. Parámetros del espectro (Sa = Z·U·C·S / R · g)
 
@@ -53,6 +56,9 @@ description: Procedimiento para verificar derivas de entrepiso, participación d
      | Madera | 0.010 |
      | Concreto armado con muros de ductilidad limitada | 0.005 |
 
+Reporta el número extraído (masa acumulada, cortante, deriva elástica).
+El CUMPLE de esa fila lo decide el orquestador con la cita, no esta tabla.
+
 ## 3. Cómo extraer los datos en ETABS (vía MCP etabs)
 
 - Unidades: `model.SetPresentUnits(6)` (kN, m, °C).
@@ -67,8 +73,11 @@ description: Procedimiento para verificar derivas de entrepiso, participación d
 
 ## 4. Formato de salida
 
-Tabla por piso y dirección: piso, caso, deriva elástica, factor (0.75R u
-0.85R), deriva inelástica, límite, CUMPLE/NO CUMPLE. Luego un resumen con la
-deriva máxima, su piso y dirección, y los supuestos usados (R, regularidad,
-material). Si falta un dato (R, regularidad), **pregúntalo**; no lo asumas en
-silencio.
+JSON y un resumen breve: pisos, alturas, periodo fundamental por dirección,
+masa acumulada, cortante basal por caso, deriva elástica máxima por
+dirección, y el resultado de la segunda lectura (coincide / no coincide /
+defecto de modelo).
+
+No marques CUMPLE con los factores de esta skill. Si el orquestador todavía
+no pasó un factor y un límite citados, deja esos campos vacíos. R y la
+regularidad se preguntan al usuario; no se leen de esta tabla.

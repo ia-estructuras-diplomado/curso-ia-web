@@ -26,7 +26,7 @@ Introducción a la **IA aplicada a Ingeniería Civil** con datos reales de senso
 | **4** | Mar 09 Jun | xAI (SHAP, LIME), presentaciones grupales | [Lab 3](labs/lab3.md) · **T1 (30%)** |
 | **5** | Jue 11 Jun | ANN, CNN, transfer learning, RNN/LSTM | [Lab 4](labs/lab4.md) |
 | **6** | Mar 16 Jun | Gemelos digitales, Transformers, RAG | [Lab 5](labs/lab5.md) |
-| **7** | Jue 18 Jun | Agentes, MCP, Agentic AI | [Lab 6](labs/lab6.md) · **T2 (30%)** |
+| **7** | Jue 18 Jun | Orquestadores y arnés agentico | [Lab 6](labs/lab6.md) · **T2 (30%)** |
 | **8** | Mar 23 Jun | PINNs, roadmap de adopción, cierre | **T3 (40%)** |
 
 ## Calificación

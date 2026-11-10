@@ -40,7 +40,7 @@ Los Labs 5 y 6 no usan notebooks: se trabajan con **Claude Code** y
 servidores MCP. La instalación está en la Parte 0 del [Lab 5](lab5.md).
 
 !!! warning "Lab 6 = Windows nativo + ETABS"
-    El Lab 6 conecta Claude Code con **ETABS 21+**, que solo corre en
+    El Lab 6 usa **ETABS 21+** como herramienta del arnés. ETABS solo corre en
     Windows. Instala Claude Code desde **PowerShell** en la misma PC donde
     está ETABS — no desde WSL2 ni macOS.
 

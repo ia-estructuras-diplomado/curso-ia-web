@@ -14,7 +14,7 @@ Material en [`labs/`](https://github.com/ia-estructuras-diplomado/curso-ia-web/t
 | **3** | xAI — XGBoost + SHAP + LIME | [Lab 3](lab3.md) | [📓 `xai_estructuras.ipynb`](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab3/xai_estructuras.ipynb) |
 | **4** | CNN grietas + LSTM sensores | [Lab 4](lab4.md) | [📓 P1 CNN](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab4/part_1/cnn_grietas_estructuras.ipynb) · [📓 P2 LSTM](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab4/part_2/rnn_sensores_estructuras.ipynb) |
 | **5** | Tu primer agente: Claude Code + MCP de normas (RAG) | [Lab 5](lab5.md) | [📖 Guía](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab5/README.md) |
-| **6** | Agentes con ETABS y Excel: de un agente a un orquestador | [Lab 6](lab6.md) | [📖 Guía](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab6/README.md) |
+| **6** | Orquestadores: el arnés de un chequeo E.030 | [Lab 6](lab6.md) | [📖 Guía](https://github.com/ia-estructuras-diplomado/curso-ia-web/blob/main/labs/lab6/README.md) |
 
 !!! tip "Un notebook de referencia por lab (Labs 0–4)"
     Cada notebook está completo y se ejecuta de punta a punta. Ejecútalo
@@ -23,9 +23,9 @@ Material en [`labs/`](https://github.com/ia-estructuras-diplomado/curso-ia-web/t
     Entrega tu notebook + `prompts_entregados.md`.
 
 !!! note "Labs 5–6"
-    Sin notebook: son guías paso a paso con **Claude Code** conectado por
-    MCP a las normas peruanas, a ETABS y a Excel. El Lab 6 requiere
-    **Windows nativo con ETABS 21+**.
+    Sin notebook: son guías paso a paso con **Claude Code**. El Lab 5 conecta
+    un agente al buscador de normas. El Lab 6 diseña el orquestador y el
+    arnés de un chequeo E.030, y requiere **Windows nativo con ETABS 21+**.
 
 ## Cómo empezar
 

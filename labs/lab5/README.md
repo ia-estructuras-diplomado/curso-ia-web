@@ -3,7 +3,9 @@
 **Sesión 9** · Usarás un agente de IA real (**Claude Code**) conectado por
 **MCP** a un buscador RAG local sobre las normas peruanas E.020, E.030 y E.050.
 No vas a programar el RAG: vas a **ver funcionar a un agente**, entender qué
-hace en cada paso y terminar definiendo **tu propio agente especializado**.
+hace en cada paso y terminar con las tres piezas del arnés mínimo: el
+consultor, el revisor de citas y un orquestador que solo los llama. El
+Lab 6 desarrolla ese arnés.
 
 ## Objetivo de aprendizaje
 
@@ -15,8 +17,8 @@ hace en cada paso y terminar definiendo **tu propio agente especializado**.
    ETABS y Excel en el Lab 6).
 3. Usar **RAG como herramienta**: que el agente busque en la norma y cite
    archivo y página, en lugar de responder de memoria.
-4. Crear un **subagente** (`consultor-normativo`) reutilizable — la pieza que
-   el orquestador del Lab 6 va a delegar.
+4. Crear las tres piezas del arnés mínimo que el Lab 6 va a desarrollar:
+   `consultor-normativo`, `revisor-citas` y `orquestador-normas`.
 
 ## Contexto de ingeniería
 
@@ -40,7 +42,9 @@ valor, y eso permite que tú — el ingeniero — lo verifiques.
 | `.mcp.json` | Registra el servidor MCP `normas` para Claude Code (se carga solo al abrir Claude en esta carpeta) |
 | `../mcp/sitecustomize.py` | Evita que el servidor de normas corte la sesión al escribir el log de BM25 en el canal MCP |
 | `rag/config.yaml` | Configuración del RAG: embeddings multilingües, tamaño de fragmentos, carpeta de PDFs |
-| `referencia/consultor-normativo.md` | Subagente de referencia (para comparar con el tuyo en la Parte 6) |
+| `referencia/consultor-normativo.md` | Consultor de referencia (Parte 6) |
+| `referencia/revisor-citas.md` | Revisor que solo mira la cita (Parte 7) |
+| `referencia/orquestador-normas.md` | Arnés mínimo: consultor y luego revisor (Parte 8) |
 | `prompts_entregados.md` | Tu bitácora (entrega) |
 
 No hay notebook: el "código" de este lab ya existe — es el agente. Tu trabajo
@@ -230,36 +234,76 @@ Luego puedes pedir al agente:
 
 ---
 
-## Parte 6 — Tu primer agente especializado (subagente)
+## Parte 6 — El consultor (quien busca)
 
-**Objetivo:** convertir lo que hiciste a mano en un agente reutilizable con
-**rol, herramientas limitadas e instrucciones** — exactamente lo que el
-orquestador del Lab 6 va a delegar.
-
-Un subagente de Claude Code es un archivo Markdown en `.claude/agents/` con:
-- `name` y `description` (el orquestador decide delegar leyendo la descripción),
-- `tools` (solo las herramientas que necesita — mínimo privilegio),
-- un *system prompt* con el procedimiento y el formato de respuesta.
+**Objetivo:** dejar el primer archivo del harness. Un agente de Claude Code
+es un Markdown en `.claude/agents/` con nombre, descripción, herramientas
+permitidas y una regla de parada. El Lab 6 va a copiar este archivo tal
+cual.
 
 **Prompt sugerido:**
-> Crea un subagente de Claude Code en .claude/agents/consultor-normativo.md.
-> Rol: consultor de normas peruanas E.020/E.030/E.050. Herramientas permitidas:
-> solo las de búsqueda/lectura del servidor MCP normas (mcp__normas__...),
-> Read y Glob — nada que modifique archivos. Debe responder siempre con:
-> Respuesta, Cita textual, Fuente [archivo, página] y Confianza, y decir
-> explícitamente cuando no encuentre algo. Muéstrame el archivo antes de
+> Crea .claude/agents/consultor-normativo.md. Rol: consultor de normas
+> peruanas E.020/E.030/E.050. Herramientas: solo búsqueda y lectura del
+> servidor MCP normas (mcp__normas__...), Read y Glob. Nada que modifique
+> archivos. Busca, y si no hay resultado reformula una sola vez. Responde
+> con Respuesta, Cita textual, Fuente [archivo, página] y Confianza, o di
+> explícitamente que no lo encontraste. Muéstrame el archivo antes de
 > guardarlo.
 
-Luego **sal y vuelve a abrir** `claude` (los subagentes se cargan al inicio)
-y pruébalo:
+Sal de `claude` y vuelve a entrar (los subagentes se cargan al inicio):
 
 > Usa el subagente consultor-normativo: ¿cuál es el peso propio de un
 > aligerado de 0,20 m según la E.020?
 
-**Qué deberías ver:** la llamada al subagente, sus búsquedas dentro de él y
-una respuesta con el formato que definiste. Compara tu archivo con
-[`referencia/consultor-normativo.md`](referencia/consultor-normativo.md):
-¿qué reglas tiene la referencia que al tuyo le faltan (o al revés)?
+**Qué deberías ver:** la llamada al subagente, sus búsquedas y el formato
+que definiste. Compara con
+[`referencia/consultor-normativo.md`](referencia/consultor-normativo.md).
+
+## Parte 7 — El revisor (quien no busca)
+
+**Objetivo:** un segundo agente que no repite el trabajo. Solo lee la cita
+del consultor y dice si el valor está ahí. En el Lab 6 el mismo oficio
+revisa JSON y Excel; aquí revisa una página.
+
+**Prompt sugerido:**
+> Crea .claude/agents/revisor-citas.md. Solo Read y Glob. No usa el servidor
+> normas y no escribe archivos. Recibe la respuesta del consultor y marca
+> bloqueante si el número no está en el fragmento o la página citados.
+> Formato: Veredicto, Bloqueantes, Observaciones. No propongas el valor
+> correcto. Muéstrame el archivo antes de guardarlo.
+
+Sal, entra de nuevo y prueba con una cita de la Parte 3, incluida una que
+sepas que está mal:
+
+> Usa revisor-citas sobre esta respuesta: [pega Respuesta, Cita y Fuente].
+> No busques de nuevo.
+
+## Parte 8 — El arnés mínimo
+
+**Objetivo:** un orquestador que solo puede llamar a esos dos. No busca.
+Si el revisor marca un bloqueante, el consultor lo intenta una vez más.
+No hay tercera pasada.
+
+**Prompt sugerido:**
+> Crea .claude/agents/orquestador-normas.md. Herramientas: solo invocar
+> consultor-normativo y revisor-citas, más Read y Glob. No uses el servidor
+> normas tú. Pide la cita al consultor, pásala al revisor sin comentarla y,
+> si hay bloqueante, un solo reintento. Si sigue mal, responde "no
+> verificado". Muéstrame el archivo antes de guardarlo.
+
+Sal, entra y lánzalo como agente de la sesión:
+
+```powershell
+claude --agent orquestador-normas
+```
+
+> ¿Cuál es la carga viva mínima para viviendas según la E.020?
+
+**Qué deberías ver:** consultor, luego revisor, y solo si hace falta una
+segunda pasada de los dos. Anota cuántas pasadas hubo. Estos tres archivos
+son el arnés mínimo. En el Lab 6 el orquestador coordina más roles, los
+artefactos quedan en disco y el bucle se detiene si el defecto está en el
+modelo.
 
 ---
 
@@ -274,7 +318,8 @@ una respuesta con el formato que definiste. Compara tu archivo con
    **antes** de confiar en un índice sobre documentos de tu empresa?
 4. ¿En qué casos preferirías que el agente lea el PDF completo en lugar de
    buscar fragmentos? ¿Qué costo tiene?
-5. ¿Quién firma el cálculo si el valor normativo lo buscó un agente?
+5. ¿Quién firma el cálculo si el valor normativo lo buscó un agente y otro
+   solo revisó la cita?
 
 ## Límites importantes
 
@@ -286,9 +331,10 @@ una respuesta con el formato que definiste. Compara tu archivo con
 
 ## Entrega
 
-- `prompts_entregados.md` completado (Partes 1-6), incluyendo **qué citas
+- `prompts_entregados.md` completado (Partes 1-8), incluyendo **qué citas
   verificaste a mano** y si eran correctas.
-- Tu `.claude/agents/consultor-normativo.md`.
+- Tus `.claude/agents/consultor-normativo.md`, `revisor-citas.md` y
+  `orquestador-normas.md`.
 - Una captura de pantalla de `/mcp` mostrando `normas` conectado.
 
 ## Para el docente
