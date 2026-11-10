@@ -11,6 +11,9 @@ xgboost>=2.0.0
 shap>=0.44.0
 lime>=0.2.0.1
 pypdf>=4.0.0
+# Lab 5 — OCR local de la norma E.030 escaneada (sin servicios externos)
+PyMuPDF>=1.26.0
+rapidocr_onnxruntime>=1.4.0
 requests>=2.31.0
 # Lab 4 — CNN (visión)
 Pillow>=10.0.0

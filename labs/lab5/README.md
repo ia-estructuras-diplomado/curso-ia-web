@@ -35,7 +35,8 @@ valor, y eso permite que tú — el ingeniero — lo verifiques.
 
 | Archivo | Para qué |
 |---|---|
-| `pdfs/` | Normas E.020, E.030 y E.050 (ver [`data/DATOS.md`](data/DATOS.md)) |
+| `pdfs/` | PDFs originales de las normas (ver [`data/DATOS.md`](data/DATOS.md)) |
+| `pdfs_ocr/` | PDFs que indexa el RAG: E.020 y E.050 tal cual + copia OCR de la E.030 (generada con `ocr_e030.py`) |
 | `.mcp.json` | Registra el servidor MCP `normas` para Claude Code (se carga solo al abrir Claude en esta carpeta) |
 | `../mcp/sitecustomize.py` | Evita que el servidor de normas corte la sesión al escribir el log de BM25 en el canal MCP |
 | `rag/config.yaml` | Configuración del RAG: embeddings multilingües, tamaño de fragmentos, carpeta de PDFs |
@@ -93,6 +94,11 @@ Al abrir por primera vez, Claude Code te pedirá:
 La primera vez el servidor descarga el modelo de embeddings (~240 MB) e
 indexa los PDFs: tarda 1-2 minutos. Escribe `/mcp` para ver su estado:
 debe decir **connected** con 13 herramientas.
+
+Si `/mcp` queda en estado desconectado tras la primera descarga, espera a que
+termine, cierra Claude Code, vuelve a abrirlo desde esta carpeta y selecciona
+**Reconnect**. No abras dos instancias de Claude Code para este lab al mismo
+tiempo: ambas intentarían inicializar la misma caché de `uv`.
 
 > **Importante:** abre `claude` siempre desde `labs\lab5`. El servidor busca
 > su configuración en `.\rag` relativo a donde lo abras.
@@ -158,29 +164,44 @@ búsquedas hizo el agente antes de responder?
 
 ---
 
-## Parte 4 — Cuando el RAG falla: la E.030
+## Parte 4 — OCR y RAG: la E.030
 
 **Objetivo:** ver un modo de falla real y cómo un agente puede (o no) sortearlo.
 
-El PDF de la E.030 incluido en el curso es **escaneado** (imágenes, sin texto):
-el indexador lo omite, así que el RAG **no puede** encontrar nada de la norma
-sísmica. Pregunta algo de la E.030 y observa qué pasa.
+El PDF original de la E.030 incluido en el curso es **escaneado** (imágenes,
+sin texto). Antes de usar el RAG se procesa con `ocr_e030.py`, que crea
+`pdfs_ocr/Norma_E_030_SISMO.pdf` con una capa de texto invisible y conserva
+la imagen y la numeración originales. El MCP indexa esa copia, por lo que la
+E.030 debe aparecer ahora en los resultados y sus chunks.
 
 **Prompt sugerido:**
 > Usando solo el servidor normas: ¿cuál es el factor de zona Z para la zona 4
-> según la E.030?
+> según la E.030? Cita el archivo y la página.
 
-**Qué deberías ver:** resultados de otras normas (o ninguno). Un buen agente
-debería decir que no lo encontró; uno malo, inventar. Luego:
+**Qué deberías ver:** uno o más fragmentos de `Norma_E_030_SISMO.pdf`. Abre la
+página citada y verifica visualmente la fila de la tabla: OCR mejora la
+recuperación, pero no reemplaza la revisión del ingeniero.
 
-> ¿Por qué no encontraste la E.030? Revisa el PDF. Si es escaneado, lee
-> directamente las páginas donde esté la tabla de factores de zona y
-> responde citando la página.
+Para regenerar la copia OCR después de reemplazar el PDF original:
 
-Claude Code puede **leer visualmente** las páginas del PDF (sin RAG). Compara
-en la bitácora: RAG (índice de fragmentos, rápido, barato, falla con
-escaneados) vs. lectura directa (más costosa, limitada en páginas, pero "ve"
-la tabla). Verifica el valor a mano.
+```powershell
+cd labs\lab5
+..\.venv\Scripts\python.exe .\ocr_e030.py .\pdfs\Norma_E_030_SISMO.pdf .\pdfs_ocr\Norma_E_030_SISMO.pdf
+```
+
+`rapidocr_onnxruntime` y `PyMuPDF` se instalan con `labs/requirements.txt`.
+
+Después borra `rag/data/` y usa **Reconnect** en `/mcp` para forzar la
+reindexación.
+
+La versión anterior del lab usaba ese PDF para demostrar el fallo silencioso
+del RAG con documentos escaneados. Si quieres reproducir ese experimento,
+configura temporalmente `documents_dir: "../pdfs"` en `rag/config.yaml`.
+
+Luego puedes pedir al agente:
+
+> ¿Cuál fue el chunk recuperado para la E.030 y dónde aparece esa información
+> en la página original?
 
 > **Si usas la opción C (Ollama):** la lectura visual depende del modelo, y
 > los modelos abiertos de `ollama launch claude` en general **no** pueden

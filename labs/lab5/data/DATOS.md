@@ -11,17 +11,18 @@ contexto de la conversación).
 | PDF | Norma | Tema | Tamaño aprox. | Texto extraíble |
 |-----|-------|------|---------------|-----------------|
 | `Norma_E_020_CARGAS.pdf` | **E.020** | Cargas: muerta, viva, viento, nieve | ~470 KB | Sí |
-| `Norma_E_030_SISMO.pdf` | **E.030** | Diseño sismorresistente | ~18 MB | **No — escaneado (68 páginas de imagen)** |
+| `Norma_E_030_SISMO.pdf` | **E.030** | Diseño sismorresistente | ~18 MB | Sí — copia OCR en `../pdfs_ocr/` (68 páginas) |
 | `Norma_E_050_SUELOS.pdf` | **E.050** | Suelos y cimentaciones | ~865 KB | Sí |
 
-La E.030 escaneada es la base de la Parte 4 del lab (RAG que falla en
-silencio vs. lectura visual del PDF por el agente).
+El PDF original de la E.030 es escaneado. `ocr_e030.py` genera una copia con
+capa de texto invisible en `../pdfs_ocr/`; esa es la copia que indexa el MCP.
+El original no se modifica.
 
 ## Consultas de ejemplo
 
 - *«¿Qué tipos de sobrecarga considera la E.020?»* → E.020
 - *«¿Cuándo es obligatorio un Estudio de Mecánica de Suelos?»* → E.050
-- *«¿Cuál es el factor de zona Z para la zona 4?»* → E.030 (solo por lectura directa del PDF)
+- *«¿Cuál es el factor de zona Z para la zona 4?»* → E.030 (por RAG, con cita verificable)
 
 ## Límites
 

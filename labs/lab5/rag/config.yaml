@@ -4,13 +4,15 @@
 # de que el servidor la lea. Rutas relativas a esta carpeta.
 
 paths:
-  documents_dir: "../pdfs"            # indexa directamente los PDFs del lab
+  documents_dir: "../pdfs_ocr"        # PDFs con capa de texto (incluye E.030 procesada con OCR)
   data_dir: "./data"                  # índice vectorial (ChromaDB) — gitignored
   models_cache_dir: "./models_cache"  # modelo de embeddings (~240 MB) — gitignored
 
 documents:
   supported_formats: [.pdf, .md, .txt]
-  exclude_patterns: []
+  # Las páginas intermedias se conservan solo para poder reanudar el OCR.
+  # El RAG debe indexar el PDF E.030 final, no sus 68 archivos auxiliares.
+  exclude_patterns: ["pages/**"]
   chunking:
     chunk_size: 1000
     chunk_overlap: 200
