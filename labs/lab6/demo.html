@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab 6 — plano del arnés</title>
+<style>
+  :root {
+    --bg: #10141c;
+    --panel: #181e2a;
+    --card: #1c2433;
+    --line: #2c3648;
+    --text: #e8eef7;
+    --muted: #93a0b4;
+    --faint: #6d7b90;
+    --tu: #e8eef7;
+    --orq: #a5b4fc;
+    --exp: #2dd4bf;
+    --ana: #38bdf8;
+    --con: #fbbf24;
+    --red: #34d399;
+    --rev: #fb7185;
+    --stop: #f59e0b;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font: 15px/1.45 "Segoe UI", system-ui, sans-serif;
+    min-height: 100%;
+  }
+  header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px 22px;
+    padding: 16px 22px 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  header h1 {
+    font-size: 18px;
+    font-weight: 650;
+    margin: 0;
+    letter-spacing: -0.02em;
+  }
+  header p { margin: 2px 0 0; color: var(--muted); font-size: 13px; }
+  .cases { display: flex; gap: 6px; margin-left: auto; }
+  .cases button, .transport button {
+    background: var(--card);
+    color: var(--text);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 8px 14px;
+    font: inherit;
+    cursor: pointer;
+  }
+  .cases button[aria-pressed="true"] {
+    background: var(--text);
+    color: #12151c;
+    border-color: var(--text);
+  }
+  .cases button:focus-visible, .transport button:focus-visible {
+    outline: 2px solid var(--orq);
+    outline-offset: 2px;
+  }
+  .stage {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+    gap: 18px;
+    padding: 16px 22px 22px;
+    align-items: start;
+  }
+  .graph {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 64px minmax(200px, 240px);
+    grid-template-rows: repeat(6, minmax(78px, auto));
+    column-gap: 0;
+    row-gap: 8px;
+  }
+  .card {
+    --c: var(--muted);
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 10px 12px 8px;
+    min-width: 0;
+  }
+  .card header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0;
+    border: 0;
+  }
+  .card h2 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 650;
+  }
+  .card .job, .card .tools { margin: 3px 0 0; color: var(--muted); font-size: 12px; }
+  .card .tools { color: var(--faint); font-family: Consolas, "Cascadia Mono", monospace; font-size: 11px; }
+  .presence {
+    width: 8px; height: 8px; border-radius: 50%;
+    border: 2px solid var(--c);
+    flex: none;
+  }
+  .card.met .presence { background: var(--c); }
+  .card.talk {
+    border-color: var(--c);
+    box-shadow: 0 0 0 1px var(--c), 0 0 22px color-mix(in srgb, var(--c) 32%, transparent);
+  }
+  .card[data-id="tu"] { --c: var(--tu); }
+  .card[data-id="orq"] { --c: var(--orq); }
+  .card[data-id="exp"] { --c: var(--exp); }
+  .card[data-id="ana"] { --c: var(--ana); }
+  .card[data-id="con"] { --c: var(--con); }
+  .card[data-id="red"] { --c: var(--red); }
+  .card[data-id="rev"] { --c: var(--rev); }
+  .hub {
+    grid-column: 3;
+    grid-row: 1 / span 6;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    padding-top: 16px;
+  }
+  .hub::before {
+    content: "";
+    position: absolute;
+    left: -1px;
+    top: 24px;
+    bottom: 24px;
+    width: 2px;
+    background: var(--line);
+  }
+  .hub.talk::before { background: var(--orq); }
+  .wire {
+    grid-column: 2;
+    align-self: center;
+    height: 2px;
+    background: var(--line);
+    position: relative;
+  }
+  .wire.hot { background: var(--c); box-shadow: 0 0 10px var(--c); }
+  .wire.hot::after {
+    content: "";
+    position: absolute;
+    right: -1px;
+    top: -4px;
+    border: 5px solid transparent;
+    border-left: 7px solid var(--c);
+  }
+  .wire[data-id="tu"] { --c: var(--tu); }
+  .wire[data-id="exp"] { --c: var(--exp); }
+  .wire[data-id="ana"] { --c: var(--ana); }
+  .wire[data-id="con"] { --c: var(--con); }
+  .wire[data-id="red"] { --c: var(--red); }
+  .wire[data-id="rev"] { --c: var(--rev); }
+  .chip {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    border: 1px dashed var(--line);
+    color: var(--faint);
+    font-size: 11px;
+    font-family: Consolas, "Cascadia Mono", monospace;
+  }
+  .chip.show {
+    border-style: solid;
+    border-color: var(--c);
+    color: var(--c);
+  }
+  .feed {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 16px 16px 12px;
+    min-height: 520px;
+    display: flex;
+    flex-direction: column;
+  }
+  .kicker {
+    margin: 0;
+    color: var(--orq);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  #say {
+    margin: 8px 0 0;
+    font-size: 22px;
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+    min-height: 4.2em;
+  }
+  .halt {
+    margin-top: 12px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: color-mix(in srgb, var(--stop) 16%, transparent);
+    border: 1px solid var(--stop);
+    color: #fde68a;
+    font-size: 14px;
+  }
+  .halt[hidden] { display: none; }
+  .log {
+    list-style: none;
+    margin: 16px 0 0;
+    padding: 0;
+    overflow: auto;
+    max-height: 280px;
+  }
+  .log li {
+    padding: 6px 0;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .log li.now { color: var(--text); }
+  .transport {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 14px;
+  }
+  .transport button[disabled] { opacity: 0.4; cursor: default; }
+  #confirm {
+    background: var(--stop);
+    color: #1c1405;
+    border-color: var(--stop);
+    font-weight: 650;
+  }
+  #confirm[hidden] { display: none; }
+  #counter { color: var(--muted); font-size: 13px; margin-right: auto; }
+  footer {
+    padding: 0 22px 18px;
+    color: var(--faint);
+    font-size: 12px;
+  }
+  @media (max-width: 960px) {
+    .stage { grid-template-columns: 1fr; }
+    .graph { grid-template-columns: 1fr; grid-template-rows: none; }
+    .wire { display: none; }
+    .hub { grid-column: 1; grid-row: auto; order: -1; margin-bottom: 8px; }
+    .hub::before { display: none; }
+    .card { grid-column: 1 !important; grid-row: auto !important; }
+    #say { font-size: 18px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .card, .wire { transition: none; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Lab 6 — plano del arnés</h1>
+    <p id="subtitle">Seis roles presentes. La conversación todavía no empieza.</p>
+  </div>
+  <div class="cases" role="group" aria-label="Caso">
+    <button id="case-a" type="button" aria-pressed="true">Caso A · regular</button>
+    <button id="case-b" type="button" aria-pressed="false">Caso B · irregular</button>
+    <button id="case-live" type="button" aria-pressed="false">En vivo</button>
+  </div>
+</header>
+
+<main class="stage">
+  <div class="graph" id="graph">
+    <article class="card" data-id="tu" data-row="1">
+      <header><span class="presence"></span><h2>Tú</h2></header>
+      <p class="job">R, regularidad, zona y suelo.</p>
+      <p class="tools">la firma queda fuera del arnés</p>
+    </article>
+    <div class="wire" data-id="tu" data-row="1"></div>
+
+    <article class="card" data-id="exp" data-row="2">
+      <header><span class="presence"></span><h2>experto-modelo</h2></header>
+      <p class="job">Cargas, peso sísmico, vacíos, muros.</p>
+      <p class="tools">ETABS · Read · Write</p>
+      <span class="chip" data-art="ficha">ficha_modelo.json</span>
+    </article>
+    <div class="wire" data-id="exp" data-row="2"></div>
+
+    <article class="card" data-id="ana" data-row="3">
+      <header><span class="presence"></span><h2>analista-etabs</h2></header>
+      <p class="job">Periodos, cortante, derivas. Cita la ficha.</p>
+      <p class="tools">ETABS · skill e030-derivas</p>
+      <span class="chip" data-art="json">resultados.json</span>
+    </article>
+    <div class="wire" data-id="ana" data-row="3"></div>
+
+    <article class="card" data-id="con" data-row="4">
+      <header><span class="presence"></span><h2>consultor-normativo</h2></header>
+      <p class="job">Cita con archivo y página.</p>
+      <p class="tools">MCP normas · auto-ontology · Read · Glob</p>
+      <span class="chip" data-art="cita">cita [archivo, página]</span>
+      <span class="chip" data-art="ontologia">auto-ontology: libreta</span>
+    </article>
+    <div class="wire" data-id="con" data-row="4"></div>
+
+    <article class="card" data-id="red" data-row="5">
+      <header><span class="presence"></span><h2>redactor-informe</h2></header>
+      <p class="job">Excel e informe, copiados de la ficha.</p>
+      <p class="tools">MCP excel · Write</p>
+      <span class="chip" data-art="excel">chequeo_e030.xlsx</span>
+    </article>
+    <div class="wire" data-id="red" data-row="5"></div>
+
+    <article class="card" data-id="rev" data-row="6">
+      <header><span class="presence"></span><h2>revisor-independiente</h2></header>
+      <p class="job">Lee el paquete. No lo reescribe.</p>
+      <p class="tools">Excel lectura · Read · Glob</p>
+      <span class="chip" data-art="veredicto">veredicto</span>
+    </article>
+    <div class="wire" data-id="rev" data-row="6"></div>
+
+    <article class="card hub" data-id="orq">
+      <header><span class="presence"></span><h2>orquestador-sismico</h2></header>
+      <p class="job">Delega, cruza y se detiene.</p>
+      <p class="tools">Agent · Read · Glob</p>
+      <p class="job" id="hub-status">En silencio. Sin ETABS, sin normas, sin Excel.</p>
+    </article>
+  </div>
+
+  <aside class="feed">
+    <p class="kicker" id="kicker">Paso 1</p>
+    <p id="say" aria-live="polite"></p>
+    <p class="halt" id="halt" hidden>Parada. Analista, consultor, redactor y revisor siguen en el tablero, en silencio.</p>
+    <ol class="log" id="log"></ol>
+    <div class="transport">
+      <span id="counter"></span>
+      <button id="prev" type="button">Anterior</button>
+      <button id="play" type="button">Reproducir</button>
+      <button id="next" type="button">Siguiente</button>
+      <button id="confirm" type="button" hidden>La planta no es simétrica</button>
+    </div>
+  </aside>
+</main>
+<footer>
+  Plano de la corrida de referencia. No lee la sesión de Claude Code: la traza real es el chat de la Parte 5.
+  Flechas del teclado, un paso. Espacio, reproducir o pausa.
+</footer>
+
+<script>
+const CASES = {
+  a: {
+    name: "Caso A · regular.edb",
+    blurb: "Planta simétrica, cuatro losas por piso, sin vacío y sin muro. Los seis roles llegan a hablar.",
+    steps: [
+      {
+        title: "Arnés en silencio",
+        say: "Los seis roles ya están. La línea tools es la misma en los dos casos. En el regular, la conversación recorre el tablero entero.",
+        talk: [],
+        wires: [],
+        hub: "En silencio. Sin ETABS, sin normas, sin Excel."
+      },
+      {
+        title: "Tú → orquestador",
+        say: "Chequeo E.030 de regular.edb. El sistema, el R, la zona y el suelo los doy yo. La planta es regular.",
+        talk: ["tu", "orq"],
+        wires: ["tu"],
+        hub: "Recibe el supuesto. Todavía no llama a nadie."
+      },
+      {
+        title: "Orquestador → experto",
+        say: "Primero experto-modelo, solo. Sin ficha_modelo.json no llamo al analista.",
+        talk: ["orq", "exp"],
+        wires: ["exp"],
+        hub: "Una sola llamada. El analista espera la ficha."
+      },
+      {
+        title: "Experto → ficha",
+        say: "Cuatro losas por piso. Sin vacío y sin muro. Mass source opción 2: PP×1, CM×1, CV×0.25. Dead y Live están en el archivo y fuera del peso sísmico. Modal corrido. Sin caso de deriva.",
+        talk: ["exp", "orq"],
+        wires: ["exp"],
+        artifact: "ficha",
+        hub: "La ficha ya está en disco. La geometría no contradice el regular."
+      },
+      {
+        title: "Mismo turno",
+        say: "Analista y consultor, juntos. Uno no necesita la respuesta del otro. El analista cita la ficha; el consultor cita la norma.",
+        talk: ["orq", "ana", "con"],
+        wires: ["ana", "con"],
+        hub: "Dos llamadas en el mismo turno."
+      },
+      {
+        title: "Analista → resultados",
+        say: "Periodos y masas, leídos dos veces. El peso sísmico del JSON es el de la ficha. Derivas: no hay caso, y no invento la tabla.",
+        talk: ["ana", "orq"],
+        wires: ["ana"],
+        artifact: "json",
+        hub: "El número de peso sísmico viaja de la ficha al JSON."
+      },
+      {
+        title: "Consultor → cita",
+        say: "Primero busco en la libreta de auto-ontology (search_text): si ya hay un valor confirmado, lo reuso con su cita. Si no, cito archivo y página: masa participativa, cortante mínima, factor y límite de deriva. El 0.007 de la skill no es esta cita.",
+        talk: ["con", "orq"],
+        wires: ["con"],
+        artifact: ["ontologia", "cita"],
+        hub: "El cruce usa la página citada, no la tabla de la skill."
+      },
+      {
+        title: "Cruce",
+        say: "Sin caso de deriva en la ficha, la fila queda no verificado. Pregunto antes de crear un caso en ETABS.",
+        talk: ["orq"],
+        wires: [],
+        hub: "Cruce en el orquestador. La fila de derivas no se cierra."
+      },
+      {
+        title: "Orquestador → redactor",
+        say: "Excel e informe. Los factores, los vacíos y los muros se copian de la ficha.",
+        talk: ["orq", "red"],
+        wires: ["red"],
+        hub: "El redactor entra después del cruce."
+      },
+      {
+        title: "Redactor → archivos",
+        say: "chequeo_e030.xlsx e informe.md escritos. Al leerlos de vuelta, el Excel coincide con el JSON y con la ficha.",
+        talk: ["red", "orq"],
+        wires: ["red"],
+        artifact: "excel",
+        hub: "Artefactos en disco. El revisor todavía no entra."
+      },
+      {
+        title: "Orquestador → revisor",
+        say: "Revisor sobre los archivos. No le paso mi conclusión para que la confirme.",
+        talk: ["orq", "rev"],
+        wires: ["rev"],
+        hub: "El cierre espera esta lectura."
+      },
+      {
+        title: "Revisor → veredicto",
+        say: "Leí la ficha, el JSON, el informe y el Excel. La planta que declara la ficha no tiene vacío ni muro. Derivas en no verificado. La firma es del ingeniero.",
+        talk: ["rev", "orq"],
+        wires: ["rev"],
+        artifact: "veredicto",
+        hub: "El revisor citó archivos."
+      },
+      {
+        title: "Cierre",
+        say: "Una pasada. El revisor fue llamado. Derivas sin verificar, porque el ejemplo no trae ese caso.",
+        talk: ["orq", "tu"],
+        wires: ["tu"],
+        hub: "Cierre con el ingeniero. El arnés no firma el modelo."
+      }
+    ]
+  },
+  b: {
+    name: "Caso B · irregular.edb",
+    blurb: "El mismo pórtico, con un vacío de losa y un muro en un solo eje. La primera respuesta dice regular.",
+    steps: [
+      {
+        title: "Arnés en silencio",
+        say: "Los mismos seis roles, el mismo irregular.edb. Lo que cambia es el primer mensaje: la planta se declara regular.",
+        talk: [],
+        wires: [],
+        hub: "En silencio. Sin ETABS, sin normas, sin Excel."
+      },
+      {
+        title: "Tú → orquestador",
+        say: "Chequeo E.030 de irregular.edb. La estructura es regular.",
+        talk: ["tu", "orq"],
+        wires: ["tu"],
+        hub: "Anota regular. Pide la ficha antes de creerlo."
+      },
+      {
+        title: "Orquestador → experto",
+        say: "Primero experto-modelo, solo. Sin ficha no hay analista, ni 0.75R.",
+        talk: ["orq", "exp"],
+        wires: ["exp"],
+        hub: "Una sola llamada. El resto del tablero espera."
+      },
+      {
+        title: "Experto → ficha",
+        say: "Tres losas por piso. Vacío en el paño X = 5–10 m, Y = 5–10 m, en los tres pisos. Muro MURO20 solo en el eje X = 0. Mismo mass source: PP×1, CM×1, CV×0.25. No clasifico la regularidad E.030.",
+        talk: ["exp", "orq"],
+        wires: ["exp"],
+        artifact: "ficha",
+        hub: "La ficha describe geometría. La palabra irregular no sale del experto."
+      },
+      {
+        title: "Parada",
+        say: "La ficha lista un vacío y un muro en un solo eje, y la respuesta fue regular. Me detengo. No llamo al analista y no uso 0.75R.",
+        talk: ["orq", "tu"],
+        wires: ["tu"],
+        halt: true,
+        hub: "Parada. La contradicción sigue abierta."
+      },
+      {
+        title: "Tú confirma",
+        say: "La planta no es simétrica. Sigue el chequeo. La clasificación E.030 sale de una cita, no de esta frase.",
+        talk: ["tu", "orq"],
+        wires: ["tu"],
+        hub: "La contradicción se cerró por escrito. El bucle puede seguir."
+      },
+      {
+        title: "Mismo turno",
+        say: "Analista y consultor en el mismo turno. El analista copia el peso sísmico y el vacío de la ficha.",
+        talk: ["orq", "ana", "con"],
+        wires: ["ana", "con"],
+        hub: "Dos llamadas. El vacío ya está en la ficha."
+      },
+      {
+        title: "Analista → resultados",
+        say: "Peso sísmico copiado de la ficha, no Dead+Live ni CV al 100 %. El paño sin losa es un vacío, no un diafragma faltante. Sin caso de deriva.",
+        talk: ["ana", "orq"],
+        wires: ["ana"],
+        artifact: "json",
+        hub: "El analista no vuelve a decidir la regularidad."
+      },
+      {
+        title: "Consultor → cita",
+        say: "Reviso la libreta de auto-ontology antes de volver a los PDFs. Cito archivo y página para el factor y el límite. Sin esa página, el orquestador deja la fila en no verificado.",
+        talk: ["con", "orq"],
+        wires: ["con"],
+        artifact: ["ontologia", "cita"],
+        hub: "El factor entra con la cita. La skill no lo sustituye."
+      },
+      {
+        title: "Cruce",
+        say: "La fila de derivas queda no verificado: la ficha no trae caso de deriva. El vacío y el muro siguen escritos como los leyó el experto.",
+        talk: ["orq"],
+        wires: [],
+        hub: "Cruce. Crear un caso de deriva pide permiso."
+      },
+      {
+        title: "Orquestador → redactor",
+        say: "El informe copia el vacío, el muro y los factores de la ficha, y la confirmación de que la planta no es simétrica.",
+        talk: ["orq", "red"],
+        wires: ["red"],
+        hub: "El redactor no recalcula el peso sísmico."
+      },
+      {
+        title: "Redactor → archivos",
+        say: "chequeo_e030.xlsx e informe.md. La lectura de vuelta compara el Excel con el JSON y con la ficha.",
+        talk: ["red", "orq"],
+        wires: ["red"],
+        artifact: "excel",
+        hub: "Paquete escrito. Falta el revisor."
+      },
+      {
+        title: "Orquestador → revisor",
+        say: "Revisor: lee la ficha antes que el informe. No te paso el resumen del chat.",
+        talk: ["orq", "rev"],
+        wires: ["rev"],
+        hub: "El revisor abre los archivos."
+      },
+      {
+        title: "Revisor → veredicto",
+        say: "La ficha tiene vacío y muro en un eje. El informe no los llama estructura regular: la confirmación está escrita. Derivas sin un CUMPLE. Veredicto sobre los archivos.",
+        talk: ["rev", "orq"],
+        wires: ["rev"],
+        artifact: "veredicto",
+        hub: "Bloqueante evitado: la confirmación quedó en el paquete."
+      },
+      {
+        title: "Cierre",
+        say: "El chequeo siguió después de la parada. Derivas sin verificar. El revisor fue llamado. La firma sigue siendo tuya.",
+        talk: ["orq", "tu"],
+        wires: ["tu"],
+        hub: "Cierre. El orquestador no modificó ETABS."
+      }
+    ]
+  }
+};
+
+const cards = [...document.querySelectorAll(".card")];
+const wires = [...document.querySelectorAll(".wire")];
+const chips = [...document.querySelectorAll(".chip")];
+const say = document.getElementById("say");
+const kicker = document.getElementById("kicker");
+const counter = document.getElementById("counter");
+const log = document.getElementById("log");
+const halt = document.getElementById("halt");
+const hubStatus = document.getElementById("hub-status");
+const subtitle = document.getElementById("subtitle");
+const confirmBtn = document.getElementById("confirm");
+const playBtn = document.getElementById("play");
+const prevBtn = document.getElementById("prev");
+const nextBtn = document.getElementById("next");
+
+const liveBtn = document.getElementById("case-live");
+let caseId = "a";
+let idx = 0;
+let timer = null;
+let liveSteps = null;
+let liveTimer = null;
+let follow = true;
+
+function steps() {
+  if (liveSteps) return liveSteps;
+  return CASES[caseId].steps;
+}
+
+function pause() {
+  if (timer) clearInterval(timer);
+  timer = null;
+  playBtn.textContent = "Reproducir";
+}
+
+function render() {
+  const list = steps();
+  const step = list[idx];
+  const met = new Set();
+  const arts = new Set();
+  for (let i = 0; i <= idx; i++) {
+    (list[i].talk || []).forEach((id) => met.add(id));
+    const art = list[i].artifact;
+    if (Array.isArray(art)) art.forEach((a) => arts.add(a));
+    else if (art) arts.add(art);
+  }
+  cards.forEach((card) => {
+    const id = card.dataset.id;
+    card.classList.toggle("talk", (step.talk || []).includes(id));
+    card.classList.toggle("met", met.has(id));
+  });
+  wires.forEach((wire) => {
+    wire.classList.toggle("hot", (step.wires || []).includes(wire.dataset.id));
+  });
+  chips.forEach((chip) => chip.classList.toggle("show", arts.has(chip.dataset.art)));
+  kicker.textContent = step.title;
+  say.textContent = step.say;
+  hubStatus.textContent = step.hub;
+  halt.hidden = !step.halt;
+  confirmBtn.hidden = !step.halt;
+  nextBtn.disabled = idx >= list.length - 1 || !!step.halt;
+  prevBtn.disabled = idx === 0;
+  playBtn.disabled = !!liveSteps || !!step.halt || idx >= list.length - 1;
+  counter.textContent = (idx + 1) + " / " + list.length;
+  log.innerHTML = "";
+  for (let i = 0; i <= idx; i++) {
+    const li = document.createElement("li");
+    if (i === idx) li.className = "now";
+    li.textContent = (i + 1) + ". " + list[i].title;
+    log.appendChild(li);
+  }
+  const current = log.querySelector(".now");
+  if (current) current.scrollIntoView({ block: "nearest" });
+}
+
+function go(n) {
+  const list = steps();
+  idx = Math.max(0, Math.min(list.length - 1, n));
+  if (list[idx].halt) pause();
+  render();
+}
+
+function play() {
+  if (timer) { pause(); return; }
+  if (steps()[idx].halt || idx >= steps().length - 1) return;
+  playBtn.textContent = "Pausa";
+  timer = setInterval(() => {
+    if (idx >= steps().length - 1) { pause(); return; }
+    idx += 1;
+    render();
+    if (steps()[idx].halt || idx >= steps().length - 1) pause();
+  }, 1700);
+}
+
+function stopLive() {
+  if (liveTimer) clearInterval(liveTimer);
+  liveTimer = null;
+  liveSteps = null;
+  liveBtn.setAttribute("aria-pressed", "false");
+}
+
+function setCase(id) {
+  pause();
+  stopLive();
+  follow = true;
+  caseId = id;
+  idx = 0;
+  subtitle.textContent = CASES[id].blurb;
+  document.getElementById("case-a").setAttribute("aria-pressed", id === "a" ? "true" : "false");
+  document.getElementById("case-b").setAttribute("aria-pressed", id === "b" ? "true" : "false");
+  render();
+}
+
+async function pullLive() {
+  try {
+    const res = await fetch("/api/vivo", { cache: "no-store" });
+    if (!res.ok) throw new Error(String(res.status));
+    const data = await res.json();
+    const next = data.steps && data.steps.length ? data.steps : [{
+      title: "En vivo",
+      say: "Esperando mensajes de Claude Code en labs/lab6.",
+      talk: [],
+      wires: [],
+      hub: "Sin sesión todavía."
+    }];
+    const grew = !liveSteps || next.length !== liveSteps.length;
+    liveSteps = next;
+    subtitle.textContent = data.blurb || "Sesión en vivo.";
+    if (follow && grew) idx = liveSteps.length - 1;
+    if (idx >= liveSteps.length) idx = liveSteps.length - 1;
+    render();
+  } catch (err) {
+    subtitle.textContent = "En vivo no responde. Ábrelo con py -3 ..\\..\\tools\\plano_en_vivo.py";
+  }
+}
+
+function setLive() {
+  pause();
+  if (liveTimer) clearInterval(liveTimer);
+  follow = true;
+  caseId = "live";
+  liveSteps = null;
+  idx = 0;
+  document.getElementById("case-a").setAttribute("aria-pressed", "false");
+  document.getElementById("case-b").setAttribute("aria-pressed", "false");
+  liveBtn.setAttribute("aria-pressed", "true");
+  pullLive();
+  liveTimer = setInterval(pullLive, 800);
+}
+
+document.getElementById("case-a").addEventListener("click", () => setCase("a"));
+document.getElementById("case-b").addEventListener("click", () => setCase("b"));
+liveBtn.addEventListener("click", setLive);
+prevBtn.addEventListener("click", () => { pause(); follow = false; go(idx - 1); });
+nextBtn.addEventListener("click", () => { pause(); go(idx + 1); follow = idx >= steps().length - 1; });
+playBtn.addEventListener("click", play);
+confirmBtn.addEventListener("click", () => { pause(); go(idx + 1); });
+
+document.addEventListener("keydown", (event) => {
+  const tag = document.activeElement && document.activeElement.tagName;
+  if (tag === "INPUT" || tag === "TEXTAREA") return;
+  if (event.key === "ArrowRight") { event.preventDefault(); if (!nextBtn.disabled) { pause(); go(idx + 1); } }
+  if (event.key === "ArrowLeft") { event.preventDefault(); pause(); go(idx - 1); }
+  if (event.key === " ") { event.preventDefault(); if (!playBtn.disabled) play(); }
+});
+
+cards.forEach((card) => {
+  const row = card.dataset.row;
+  if (!row) return;
+  card.style.gridColumn = "1";
+  card.style.gridRow = row;
+});
+wires.forEach((wire) => {
+  wire.style.gridColumn = "2";
+  wire.style.gridRow = wire.dataset.row;
+});
+
+if (new URLSearchParams(location.search).get("vivo") === "1") setLive();
+else setCase("a");
+</script>
+</body>
+</html>
